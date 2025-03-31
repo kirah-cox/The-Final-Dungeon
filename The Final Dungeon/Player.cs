@@ -45,6 +45,8 @@ namespace AllCreations
 
         public void LevelUp()
         {
+
+            Level++;
             Health += 3;
 
             Console.WriteLine("You have gained a skillpoint! What skill would you like to level up?");
@@ -53,17 +55,36 @@ namespace AllCreations
             Console.WriteLine("1: Luck");
 
             var key = Console.ReadKey().Key;
-            switch (key)
+            bool selectedSkill = false;
+            while (!selectedSkill)
             {
-                case ConsoleKey.D1: //Strength
-                    break;
-                case ConsoleKey.D2: //Mana
-                    break;
-                case ConsoleKey.D3: //Luck
-                    break;
-                default:
-                    break;
+                switch (key)
+                {
+                    case ConsoleKey.D1: //Strength
+                        Strength++;
+                        Console.WriteLine($"You have leveled up Strength. Your strength is now {Strength}.");
+                        selectedSkill = true;
+                        break;
+                    case ConsoleKey.D2: //Mana
+                        Mana++;
+                        Console.WriteLine($"You have leveled up Mana. Your strength is now {Mana}.");
+                        selectedSkill = true;
+                        break;
+                    case ConsoleKey.D3: //Luck
+                        Luck++;
+                        Console.WriteLine($"You have leveled up Luck. Your strength is now {Luck}.");
+                        selectedSkill = true;
+                        break;
+                    default:
+                        break;
+                }
             }
+            
+        }
+
+        public static void CalculateExperience()
+        {
+            
         }
     }
 

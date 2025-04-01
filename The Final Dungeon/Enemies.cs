@@ -8,5 +8,7 @@ namespace AllCreations
 {
     class Enemies : Creations
     {
+        public PlayerClass Class { get; set; }
+        
     }
 }

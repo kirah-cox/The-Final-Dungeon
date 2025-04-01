@@ -8,10 +8,6 @@ namespace AllCreations
 {
     public class Player : Creations
     {
-        public int Health { get; set; }
-        public int Strength { get; set; }
-        public int Mana { get; set; }
-        public int Luck { get; set; }
         public int Level { get; set; }
         public int Experience { get; set; }
         public PlayerClass Class { get; set; }
@@ -99,18 +95,11 @@ namespace AllCreations
             return ReadyToLevelUp;
         }
 
-        public int Attack()
+        public void GainExperience(int experienceGained)
         {
-            switch (Class)
-            {
-                case PlayerClass.Warrior:
-
-                    return 3; //temporary number
-                    break;
-                default:
-                    return 0; //temporary number
-            }
+            Experience += experienceGained;
         }
+
     }
 
 }

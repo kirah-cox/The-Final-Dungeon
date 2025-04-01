@@ -217,5 +217,98 @@ namespace TestProject1
                 Assert.Fail();
             }
         }
+
+        [Test]
+        public void Test13()
+        {
+            Player player = new Player(PlayerClass.Warrior);
+            if (player.Attack() == 6 || player.Attack() == 12)
+            {
+                Assert.Pass();
+            }
+            else
+            {
+                Assert.Fail();
+            }
+        }
+
+        [Test]
+        public void Test14()
+        {
+            Player player = new Player(PlayerClass.Warrior);
+            player.Luck = 1;
+            if (ModifiedMethods.Attack(player, 2) == 12)
+            {
+                Assert.Pass();
+            }
+            else
+            {
+                Assert.Fail();
+            }
+        }
+
+        [Test]
+        public void Test15()
+        {
+            Player player = new Player(PlayerClass.Warrior);
+            player.Luck = 3;
+            if (ModifiedMethods.Attack(player, 4) == 12)
+            {
+                Assert.Pass();
+            }
+            else
+            {
+                Assert.Fail();
+            }
+        }
+
+        [Test]
+        public void Test16()
+        {
+            Player player = new Player(PlayerClass.Warrior);
+            player.Luck = 26;
+            if (ModifiedMethods.Attack(player, 20) == 12)
+            {
+                Assert.Pass();
+            }
+            else
+            {
+                Assert.Fail();
+            }
+        }
+
+        [Test]
+        public void Test17()
+        {
+            Player player = new Player(PlayerClass.Warrior);
+            player.Luck = 26;
+            if (ModifiedMethods.Attack(player, 50) == 6)
+            {
+                Assert.Pass();
+            }
+            else
+            {
+                Assert.Fail();
+            }
+        }
+
+        [Test]
+        public void Test18()
+        {
+            Player player = new Player(PlayerClass.Warrior);
+            player.Experience = 75;
+            var key = ConsoleKey.D1;
+            ModifiedMethods.LevelUp(key, player);
+            ModifiedMethods.LevelUp(key, player);
+            ModifiedMethods.LevelUp(key, player);
+            if (ModifiedMethods.Attack(player, 2) == 18)
+            {
+                Assert.Pass();
+            }
+            else
+            {
+                Assert.Fail();
+            }
+        }
     }
 }

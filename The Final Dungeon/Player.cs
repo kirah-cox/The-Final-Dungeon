@@ -14,6 +14,8 @@ namespace AllCreations
         public int Luck { get; set; }
         public int Level { get; set; }
         public int Experience { get; set; }
+        public PlayerClass Class { get; set; }
+        public bool ReadyToLevelUp { get; set; } = false;
 
         public Player(PlayerClass playerclass)
         {
@@ -24,16 +26,19 @@ namespace AllCreations
             switch (playerclass)
             {
                 case PlayerClass.Warrior:
+                    Class = PlayerClass.Warrior;
                     Strength = 5;
                     Mana = 1;
                     Luck = 1;
                     break;
                 case PlayerClass.Wizard:
+                    Class = PlayerClass.Wizard;
                     Strength = 1;
                     Mana = 5;
                     Luck = 1;
                     break;
                 case PlayerClass.Rogue:
+                    Class = PlayerClass.Rogue;
                     Strength = 1;
                     Mana = 1;
                     Luck = 5;
@@ -45,6 +50,10 @@ namespace AllCreations
 
         public void LevelUp()
         {
+            if (!CalculateExperience())
+            {
+                return;
+            }
 
             Level++;
             Health += 3;
@@ -60,17 +69,17 @@ namespace AllCreations
             {
                 switch (key)
                 {
-                    case ConsoleKey.D1: //Strength
+                    case ConsoleKey.D1:
                         Strength++;
                         Console.WriteLine($"You have leveled up Strength. Your strength is now {Strength}.");
                         selectedSkill = true;
                         break;
-                    case ConsoleKey.D2: //Mana
+                    case ConsoleKey.D2:
                         Mana++;
                         Console.WriteLine($"You have leveled up Mana. Your strength is now {Mana}.");
                         selectedSkill = true;
                         break;
-                    case ConsoleKey.D3: //Luck
+                    case ConsoleKey.D3:
                         Luck++;
                         Console.WriteLine($"You have leveled up Luck. Your strength is now {Luck}.");
                         selectedSkill = true;
@@ -79,12 +88,28 @@ namespace AllCreations
                         break;
                 }
             }
-            
+
+            ReadyToLevelUp = false;
         }
 
-        public static void CalculateExperience()
+        public bool CalculateExperience()
         {
-            
+            ReadyToLevelUp = 25 * Level <= Experience ? true : false;
+
+            return ReadyToLevelUp;
+        }
+
+        public int Attack()
+        {
+            switch (Class)
+            {
+                case PlayerClass.Warrior:
+
+                    return 3; //temporary number
+                    break;
+                default:
+                    return 0; //temporary number
+            }
         }
     }
 

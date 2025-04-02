@@ -9,17 +9,16 @@ namespace AllCreations
     public class Player : Creations
     {
         public int Level { get; set; }
-        public int Experience { get; set; }
         public PlayerClass Class { get; set; }
         public bool ReadyToLevelUp { get; set; } = false;
 
-        public Player(PlayerClass playerclass)
+        public Player(PlayerClass playerClass)
         {
-            Health = 10;
+            Health = 25;
             Level = 1;
             Experience = 0;
 
-            switch (playerclass)
+            switch (playerClass)
             {
                 case PlayerClass.Warrior:
                     Class = PlayerClass.Warrior;

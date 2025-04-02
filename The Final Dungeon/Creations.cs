@@ -12,6 +12,8 @@ namespace AllCreations
         public int Strength { get; set; }
         public int Mana { get; set; }
         public int Luck { get; set; }
+        public int Experience { get; set; }
+        
 
         public int Attack()
         {
@@ -85,6 +87,11 @@ namespace AllCreations
 
             return totalDamage;
         }
+
+        public void TakeDamage(int damageTaken)
+        {
+            Health -= damageTaken;
+        }
     }
 
     public enum PlayerClass
@@ -96,8 +103,12 @@ namespace AllCreations
 
     public enum EnemyClass
     {
+        
+        None,
+        Skeleton,
         BoneWarrior,
-        BoneArcher,
         EvilWitch,
+        Rat,
+        GiantSpider,
     }
 }

@@ -13,12 +13,22 @@ public class Program
 
         StringBuilder sb = new StringBuilder();
 
-        while (true)
-        {
-            Tools.DrawMap(sb, map, character);
+        Player player = new Player(Tools.MenuScreen());
 
-            Tools.Move();
+        Console.Clear();
+
+        while (!Tools.EncounteredEnemy)
+        {
+            Tools.DrawMainMap(sb, map, map.FirstMap, character);
+
+            Tools.Move(map, map.FirstMap);
+
+            Tools.DrawMainMap(sb, map, map.FirstMap, character);
         }
+
+        Enemy enemy = Enemy.EnemyEncounter();
+
+        Tools.Battle(player, enemy);
     }
 }
 

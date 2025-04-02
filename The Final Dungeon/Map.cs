@@ -10,6 +10,21 @@ namespace AllMaps
     {
         public char[][] FirstMap =
         {
+            ":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
+            ":                               :".ToCharArray(),
+            ":                               :".ToCharArray(),
+            ":                               :".ToCharArray(),
+            ":                               :".ToCharArray(),
+            ":                               :".ToCharArray(),
+            ":                               :".ToCharArray(),
+            ":                               :".ToCharArray(),
+            ":                               :".ToCharArray(),
+            ":                               :".ToCharArray(),
+            ":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
+        };
+
+        public char[][] OtherMap =
+        {
             "|-------------------------------|".ToCharArray(),
             "|                               |".ToCharArray(),
             "|                               |".ToCharArray(),

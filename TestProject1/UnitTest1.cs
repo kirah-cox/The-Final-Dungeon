@@ -20,7 +20,7 @@ namespace TestProject1
             var key = ConsoleKey.D1;
             player.Experience = 25;
             ModifiedMethods.LevelUp(key, player);
-            if (player.Health == 13 && player.Level == 2)
+            if (player.Health == 28 && player.Level == 2)
             {
                 Assert.Pass();
             }
@@ -39,7 +39,7 @@ namespace TestProject1
             ModifiedMethods.LevelUp(key, player);
             ModifiedMethods.LevelUp(key, player);
             ModifiedMethods.LevelUp(key, player);
-            if (player.Health == 19 && player.Level == 4)
+            if (player.Health == 34 && player.Level == 4)
             {
                 Assert.Pass();
             }
@@ -302,6 +302,38 @@ namespace TestProject1
             ModifiedMethods.LevelUp(key, player);
             ModifiedMethods.LevelUp(key, player);
             if (ModifiedMethods.Attack(player, 2) == 18)
+            {
+                Assert.Pass();
+            }
+            else
+            {
+                Assert.Fail();
+            }
+        }
+
+        [Test]
+        public void Test19()
+        {
+            Player player = new Player(PlayerClass.Warrior);
+            Enemy enemy = new Enemy(EnemyClass.Rat);
+            player.TakeDamage(enemy.Attack());
+            if (player.Health == 21 || player.Health == 17)
+            {
+                Assert.Pass();
+            }
+            else
+            {
+                Assert.Fail();
+            }
+        }
+
+        [Test]
+        public void Test20()
+        {
+            Player player = new Player(PlayerClass.Warrior);
+            Enemy enemy = new Enemy(EnemyClass.Rat);
+            enemy.TakeDamage(player.Attack());
+            if (enemy.Health == 4 || enemy.Health == 0)
             {
                 Assert.Pass();
             }

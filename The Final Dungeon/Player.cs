@@ -11,6 +11,7 @@ namespace AllCreations
         public int Level { get; set; }
         public PlayerClass Class { get; set; }
         public bool ReadyToLevelUp { get; set; } = false;
+        public int Gold { get; set; }
 
         public Player(PlayerClass playerClass)
         {
@@ -53,6 +54,8 @@ namespace AllCreations
             Level++;
             Health += 3;
 
+            Console.Clear();
+            
             Console.WriteLine("You have gained a skillpoint! What skill would you like to level up?");
             Console.WriteLine("1: Strength");
             Console.WriteLine("1: Mana");
@@ -67,16 +70,22 @@ namespace AllCreations
                     case ConsoleKey.D1:
                         Strength++;
                         Console.WriteLine($"You have leveled up Strength. Your strength is now {Strength}.");
+                        Thread.Sleep(2000);
+                        Console.Clear();
                         selectedSkill = true;
                         break;
                     case ConsoleKey.D2:
                         Mana++;
                         Console.WriteLine($"You have leveled up Mana. Your strength is now {Mana}.");
+                        Thread.Sleep(2000);
+                        Console.Clear();
                         selectedSkill = true;
                         break;
                     case ConsoleKey.D3:
                         Luck++;
                         Console.WriteLine($"You have leveled up Luck. Your strength is now {Luck}.");
+                        Thread.Sleep(2000);
+                        Console.Clear();
                         selectedSkill = true;
                         break;
                     default:

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using The_Final_Dungeon;
 
 namespace MyTools;
 
@@ -169,18 +170,18 @@ class Tools
 
     public static void Battle(Player player, Enemy enemy)
     {
-        while (enemy.Health !<= 0 && player.Health !<= 0)
+        while (enemy.Health > 0 && player.Health > 0)
         {
-            int playerAttack = player.Attack();
-            int enemyAttack = enemy.Attack();
-
-            Console.WriteLine($"You attacked {enemy.Class} with a damage of {playerAttack}.");
+            Console.WriteLine($"You attacked {enemy.Class} with a damage of {player.Attack()}.");
             Thread.Sleep(2000);
-            enemy.TakeDamage(playerAttack);
+            enemy.TakeDamage(player.Attack());
 
-            Console.WriteLine($"{enemy.Class} attacks you with a damage of {enemyAttack}.");
-            Thread.Sleep(2000);
-            player.TakeDamage(enemyAttack);
+            if(enemy.Health > 0)
+            {
+                Console.WriteLine($"{enemy.Class} attacks you with a damage of {enemy.Attack()}.");
+                Thread.Sleep(2000);
+                player.TakeDamage(enemy.Attack());
+            }
         }
 
         if (player.Health <= 0)
@@ -189,7 +190,19 @@ class Tools
             Environment.Exit(0);
         }
 
+        player.GainExperience(enemy.Experience);
         Console.WriteLine($"You have defeated {enemy.Class} and have gained {enemy.Experience} experience.");
+        Console.WriteLine("Press enter to continue.");
 
+        bool enterPressed = false;
+        while (!enterPressed)
+        {
+            if (Console.ReadKey().Key == ConsoleKey.Enter)
+            {
+                enterPressed = true;
+            }
+        }
+
+        Console.Clear();
     }
 }

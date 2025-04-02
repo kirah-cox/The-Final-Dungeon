@@ -22,13 +22,24 @@ public class Program
             Tools.DrawMainMap(sb, map, map.FirstMap, character);
 
             Tools.Move(map, map.FirstMap);
-
+            
             Tools.DrawMainMap(sb, map, map.FirstMap, character);
+
+            while (Tools.EncounteredEnemy)
+            {
+                Enemy enemy = Enemy.EnemyEncounter();
+
+                Tools.Battle(player, enemy);
+
+                Tools.EncounteredEnemy = false;
+            }
+
+            player.CalculateExperience();
+            player.LevelUp();
+            player.Health = 25;
         }
 
-        Enemy enemy = Enemy.EnemyEncounter();
-
-        Tools.Battle(player, enemy);
+        
     }
 }
 

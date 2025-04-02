@@ -34,12 +34,8 @@ public class Program
                 Tools.EncounteredEnemy = false;
             }
 
-            player.CalculateExperience();
             player.LevelUp();
-            player.Health = 25;
         }
-
-        
     }
 }
 

@@ -52,14 +52,14 @@ namespace AllCreations
             }
 
             Level++;
-            Health += 3;
+            Health += (5 * Level) - 5;
 
             Console.Clear();
             
             Console.WriteLine("You have gained a skillpoint! What skill would you like to level up?");
             Console.WriteLine("1: Strength");
-            Console.WriteLine("1: Mana");
-            Console.WriteLine("1: Luck");
+            Console.WriteLine("2: Mana");
+            Console.WriteLine("3: Luck");
 
             var key = Console.ReadKey().Key;
             bool selectedSkill = false;
@@ -71,6 +71,16 @@ namespace AllCreations
                         Strength++;
                         Console.WriteLine($"You have leveled up Strength. Your strength is now {Strength}.");
                         Thread.Sleep(2000);
+                        Console.WriteLine("Press enter to continue.");
+
+                        bool enterPressed = false;
+                        while (!enterPressed)
+                        {
+                            if (Console.ReadKey().Key == ConsoleKey.Enter)
+                            {
+                                enterPressed = true;
+                            }
+                        }
                         Console.Clear();
                         selectedSkill = true;
                         break;
@@ -78,12 +88,32 @@ namespace AllCreations
                         Mana++;
                         Console.WriteLine($"You have leveled up Mana. Your strength is now {Mana}.");
                         Thread.Sleep(2000);
+                        Console.WriteLine("Press enter to continue.");
+
+                        enterPressed = false;
+                        while (!enterPressed)
+                        {
+                            if (Console.ReadKey().Key == ConsoleKey.Enter)
+                            {
+                                enterPressed = true;
+                            }
+                        }
                         Console.Clear();
                         selectedSkill = true;
                         break;
                     case ConsoleKey.D3:
                         Luck++;
                         Console.WriteLine($"You have leveled up Luck. Your strength is now {Luck}.");
+                        Console.WriteLine("Press enter to continue.");
+
+                        enterPressed = false;
+                        while (!enterPressed)
+                        {
+                            if (Console.ReadKey().Key == ConsoleKey.Enter)
+                            {
+                                enterPressed = true;
+                            }
+                        }
                         Thread.Sleep(2000);
                         Console.Clear();
                         selectedSkill = true;

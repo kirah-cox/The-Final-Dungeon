@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AllCreations;
+using MyTools;
 
 namespace LootThings
 {
@@ -18,12 +19,10 @@ namespace LootThings
             if (randomPotionAmount == 1)
             {
                 Console.WriteLine($"You have found a {randomPotionType} potion!");
-                Thread.Sleep(2000); 
             }
             else
             {
                 Console.WriteLine($"You have found {randomPotionAmount} {randomPotionType} potions!");
-                Thread.Sleep(2000);
             }
 
             if (!player.PotionInventory.ContainsKey(randomPotionType))
@@ -35,15 +34,7 @@ namespace LootThings
                 player.PotionInventory[randomPotionType] += randomPotionAmount;
             }
 
-            Console.WriteLine("Press enter to continue.");
-            bool enterPressed = false;
-            while (!enterPressed)
-            {
-                if (Console.ReadKey().Key == ConsoleKey.Enter)
-                {
-                    enterPressed = true;
-                }
-            }
+            Tools.PressEnter();
 
             Console.Clear();
         }

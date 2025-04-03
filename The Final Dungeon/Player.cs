@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using LootThings;
 using static LootThings.Potions;
+using MyTools;
 
 namespace AllCreations
 {
@@ -75,16 +76,7 @@ namespace AllCreations
                         Strength++;
                         Console.WriteLine($"You have leveled up Strength. Your strength is now {Strength}.");
                         Thread.Sleep(2000);
-                        Console.WriteLine("Press enter to continue.");
-
-                        bool enterPressed = false;
-                        while (!enterPressed)
-                        {
-                            if (Console.ReadKey().Key == ConsoleKey.Enter)
-                            {
-                                enterPressed = true;
-                            }
-                        }
+                        Tools.PressEnter();
                         Console.Clear();
                         selectedSkill = true;
                         break;
@@ -92,33 +84,15 @@ namespace AllCreations
                         Mana++;
                         Console.WriteLine($"You have leveled up Mana. Your strength is now {Mana}.");
                         Thread.Sleep(2000);
-                        Console.WriteLine("Press enter to continue.");
-
-                        enterPressed = false;
-                        while (!enterPressed)
-                        {
-                            if (Console.ReadKey().Key == ConsoleKey.Enter)
-                            {
-                                enterPressed = true;
-                            }
-                        }
+                        Tools.PressEnter();
                         Console.Clear();
                         selectedSkill = true;
                         break;
                     case ConsoleKey.D3:
                         Luck++;
                         Console.WriteLine($"You have leveled up Luck. Your strength is now {Luck}.");
-                        Console.WriteLine("Press enter to continue.");
-
-                        enterPressed = false;
-                        while (!enterPressed)
-                        {
-                            if (Console.ReadKey().Key == ConsoleKey.Enter)
-                            {
-                                enterPressed = true;
-                            }
-                        }
                         Thread.Sleep(2000);
+                        Tools.PressEnter();
                         Console.Clear();
                         selectedSkill = true;
                         break;
@@ -156,16 +130,7 @@ namespace AllCreations
                 }
             }
 
-            Console.WriteLine("Press enter to continue.");
-            bool enterPressed = false;
-            while (!enterPressed)
-            {
-                if (Console.ReadKey().Key == ConsoleKey.Enter)
-                {
-                    enterPressed = true;
-                }
-            }
-
+            Tools.PressEnter();
             Console.Clear();
         }
     }

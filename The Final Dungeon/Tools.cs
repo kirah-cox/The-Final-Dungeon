@@ -171,18 +171,16 @@ class Tools
         sb.Clear();
     }
 
-    // FIX
     public static void Battle(Player player, Enemy enemy)
     {
+        Console.WriteLine($"You have encountered {enemy.Class}.");
+        PressEnter();
+
         while (enemy.Health > 0 && player.Health > 0)
         {
-            
-            bool correctKey = false;
-            while (!correctKey)
+            while (true)
             {
-                Console.SetCursorPosition(0, 0);
-                Console.WriteLine($"You have encountered {enemy.Class}.");
-                Thread.Sleep(2000);
+                Console.Clear();
                 Console.WriteLine("1: Attack");
                 Console.WriteLine("2: Use Item");
 
@@ -191,16 +189,74 @@ class Tools
                 if (key == ConsoleKey.D1)
                 {
                     Console.WriteLine($"You attacked {enemy.Class} with a damage of {player.Attack()}.");
-                    Thread.Sleep(2000);
                     enemy.TakeDamage(player.Attack());
-                    correctKey = true;
+                    Thread.Sleep(2000);
+                    break;
                 }
                 else if (key == ConsoleKey.D2)
                 {
-                    Console.WriteLine("bleh");
-                    correctKey = true;
+                    int lineNumber = 1;
+                    if (player.PotionInventory.Count() >= 1)
+                    {
+                        while (true)
+                        {
+                            List<Potions.PotionType> potionTypes = new List<Potions.PotionType>();
+
+                            Console.WriteLine("Which item would you like to use?");
+
+                            var orderedPotions = player.PotionInventory.OrderBy(potion => potion.Key).Where(potion => potion.Value != 0);
+                            foreach (var line in orderedPotions)
+                            {
+                                Console.WriteLine($"{lineNumber}. {line.Key} Potion: {line.Value}");
+                                potionTypes.Add(line.Key);
+                                lineNumber++;
+                            }
+
+                            bool correctPotion = false;
+                            while (!correctPotion)
+                            {
+                                var newKey = Console.ReadKey().Key;
+                                
+                                if (newKey == ConsoleKey.D1)
+                                {
+                                    correctPotion = Potions.UsePotion(player, potionTypes[0]) ? true : false;
+                                }
+                                else if (newKey == ConsoleKey.D2 && lineNumber >= 2)
+                                {
+                                    correctPotion = Potions.UsePotion(player, potionTypes[1]) ? true : false;
+                                }
+                                else if (newKey == ConsoleKey.D3 && lineNumber >= 3)
+                                {
+                                    correctPotion = Potions.UsePotion(player, potionTypes[2]) ? true : false;
+                                }
+                                else if (newKey == ConsoleKey.D4 && lineNumber >= 4)
+                                {
+                                    correctPotion = Potions.UsePotion(player, potionTypes[3]) ? true : false;
+                                }
+                            }
+
+                            if (correctPotion)
+                            {
+                                break;
+                            }
+
+                            Console.Clear();
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("You do not have any items you can use.");
+                        Thread.Sleep(2000);
+                        PressEnter();
+                    }
+
+                    if (!Potions.AlreadyUsedPotion)
+                    {
+                        break;
+                    }
                 }
 
+                Console.Clear();
             }
 
             if (enemy.Health > 0)
@@ -219,8 +275,34 @@ class Tools
 
         player.GainExperience(enemy.Experience);
         Console.WriteLine($"You have defeated {enemy.Class} and have gained {enemy.Experience} experience.");
-        Console.WriteLine("Press enter to continue.");
 
+        if (Potions.UsedLuckPotion)
+        {
+            player.Luck -= 10;
+            Potions.UsedLuckPotion = false;
+        }
+
+        if (Potions.UsedStrengthPotion)
+        {
+            player.Strength -= 10;
+            Potions.UsedStrengthPotion = false;
+        }
+
+        if (Potions.UsedManaPotion)
+        {
+            player.Mana -= 10;
+            Potions.UsedManaPotion = false;
+        }
+
+        PressEnter();
+
+        Console.Clear();
+    }
+
+    public static void PressEnter()
+    {
+        Console.WriteLine("Press enter to continue.");
+        
         bool enterPressed = false;
         while (!enterPressed)
         {
@@ -229,7 +311,5 @@ class Tools
                 enterPressed = true;
             }
         }
-
-        Console.Clear();
     }
 }

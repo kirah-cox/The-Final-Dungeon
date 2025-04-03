@@ -36,6 +36,8 @@ public class Program
             }
 
             player.LevelUp();
+
+            Chest.AddPotion(player); //For testing purposes
         }
     }
 }

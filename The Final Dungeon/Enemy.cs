@@ -94,7 +94,6 @@ namespace AllCreations
                 enemy = new Enemy(EnemyClass.Rat);
             }
 
-            Console.WriteLine($"You have encountered {enemy.Class}.");
 
             return enemy;
         }

@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace The_Final_Dungeon
+namespace LootThings
 {
-    class Weapons : Loot
+    public class Weapons
     {
+        public enum WeaponType
+        {
+
+        }
     }
 }

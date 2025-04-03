@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using The_Final_Dungeon;
+using LootThings;
 
 namespace MyTools;
 
@@ -24,7 +24,7 @@ class Tools
     {
         while (true)
         {
-            Console.WriteLine("Welcome to The Final Dungeon. Press WASD to move and E to interact.");
+            Console.WriteLine("Welcome to The Final Dungeon. Press WASD to move, E to interact, X to access inventory, and Z to access stats.");
             Console.WriteLine("What class do you select?");
             Console.WriteLine("1: Warrior");
             Console.WriteLine("     Strength:   5");
@@ -58,7 +58,7 @@ class Tools
         }
     }
 
-    public static void Move(Map map, char[][] charMap)
+    public static void Move(Player player, Map map, char[][] charMap)
     {
         Up = false;
         Down = false;
@@ -89,6 +89,10 @@ class Tools
             LeftRight++;
             Right = true;
             Console.Clear();
+        }
+        else if (key == ConsoleKey.X)
+        {
+            Player.DisplayInventory(player);
         }
 
         Random random = new Random();
@@ -167,16 +171,39 @@ class Tools
         sb.Clear();
     }
 
-
+    // FIX!!!!
     public static void Battle(Player player, Enemy enemy)
     {
         while (enemy.Health > 0 && player.Health > 0)
         {
-            Console.WriteLine($"You attacked {enemy.Class} with a damage of {player.Attack()}.");
-            Thread.Sleep(2000);
-            enemy.TakeDamage(player.Attack());
+            
+            bool correctKey = false;
+            while (!correctKey)
+            {
+                Console.SetCursorPosition(0, 0);
+                Console.WriteLine($"You have encountered {enemy.Class}.");
+                Thread.Sleep(2000);
+                Console.WriteLine("1: Attack");
+                Console.WriteLine("2: Use Item");
 
-            if(enemy.Health > 0)
+                var key = Console.ReadKey().Key;
+
+                if (key == ConsoleKey.D1)
+                {
+                    Console.WriteLine($"You attacked {enemy.Class} with a damage of {player.Attack()}.");
+                    Thread.Sleep(2000);
+                    enemy.TakeDamage(player.Attack());
+                    correctKey = true;
+                }
+                else if (key == ConsoleKey.D2)
+                {
+                    Console.WriteLine("bleh");
+                    correctKey = true;
+                }
+
+            }
+
+            if (enemy.Health > 0)
             {
                 Console.WriteLine($"{enemy.Class} attacks you with a damage of {enemy.Attack()}.");
                 Thread.Sleep(2000);

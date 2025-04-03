@@ -2,6 +2,7 @@
 using AllMaps;
 using AllCreations;
 using MyTools;
+using LootThings;
 
 public class Program
 {
@@ -21,7 +22,7 @@ public class Program
         {
             Tools.DrawMainMap(sb, map, map.FirstMap, character);
 
-            Tools.Move(map, map.FirstMap);
+            Tools.Move(player, map, map.FirstMap);
             
             Tools.DrawMainMap(sb, map, map.FirstMap, character);
 

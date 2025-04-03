@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LootThings;
+using static LootThings.Potions;
 
 namespace AllCreations
 {
@@ -12,6 +14,8 @@ namespace AllCreations
         public PlayerClass Class { get; set; }
         public bool ReadyToLevelUp { get; set; } = false;
         public int Gold { get; set; }
+
+        public Dictionary<PotionType, int> PotionInventory = new Dictionary<PotionType, int>();
 
         public Player(PlayerClass playerClass)
         {
@@ -138,6 +142,31 @@ namespace AllCreations
             Experience += experienceGained;
         }
 
-    }
+        public static void DisplayInventory(Player player)
+        {
+            Console.Clear();
 
+            Console.WriteLine("Inventory:");
+
+            if (player.PotionInventory != null)
+            {
+                foreach (var line in player.PotionInventory)
+                {
+                    Console.WriteLine($"{line.Key} Potion: {line.Value}");
+                }
+            }
+
+            Console.WriteLine("Press enter to continue.");
+            bool enterPressed = false;
+            while (!enterPressed)
+            {
+                if (Console.ReadKey().Key == ConsoleKey.Enter)
+                {
+                    enterPressed = true;
+                }
+            }
+
+            Console.Clear();
+        }
+    }
 }

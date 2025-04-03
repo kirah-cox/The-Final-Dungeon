@@ -171,7 +171,7 @@ class Tools
         sb.Clear();
     }
 
-    // FIX!!!!
+    // FIX
     public static void Battle(Player player, Enemy enemy)
     {
         while (enemy.Health > 0 && player.Health > 0)

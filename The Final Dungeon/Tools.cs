@@ -18,13 +18,15 @@ class Tools
     public static bool Left { get; set; } = false;
     public static bool Right { get; set; } = false;
     public static bool EncounteredEnemy { get; set; } = false;
+    public static bool ChestEmpty { get; set; } = false;
+    public static int MapNumber { get; set; } = 0;
 
     
     public static PlayerClass MenuScreen()
     {
         while (true)
         {
-            Console.WriteLine("Welcome to The Final Dungeon. Press WASD to move, E to interact, X to access inventory, and Z to access stats.");
+            Console.WriteLine("Welcome to The Final Dungeon. Press WASD to move, E to interact, R to access inventory, and Z to access stats.");
             Console.WriteLine("What class do you select?");
             Console.WriteLine("1: Warrior");
             Console.WriteLine("     Strength:   5");
@@ -58,7 +60,7 @@ class Tools
         }
     }
 
-    public static void Move(Player player, Map map, char[][] charMap)
+    public static void Move(Player player, char[][] charMap, StringBuilder sb, string character, bool chestEmpty)
     {
         Up = false;
         Down = false;
@@ -90,44 +92,89 @@ class Tools
             Right = true;
             Console.Clear();
         }
-        else if (key == ConsoleKey.X)
+        else if (key == ConsoleKey.R)
         {
             Player.DisplayInventory(player);
+        }
+        else if (key == ConsoleKey.E && !chestEmpty
+            && (charMap[UpDown - 1][LeftRight] == 'm'
+            || charMap[UpDown + 1][LeftRight] == 'm'
+            || charMap[UpDown][LeftRight - 1] == 'm'
+            || charMap[UpDown][LeftRight + 1] == 'm'))
+        {
+            Chest.AddPotion(player);
+            chestEmpty = true;
+        }
+        else if(key == ConsoleKey.E && chestEmpty
+            && (charMap[UpDown - 1][LeftRight] == 'm'
+            || charMap[UpDown + 1][LeftRight] == 'm'
+            || charMap[UpDown][LeftRight - 1] == 'm'
+            || charMap[UpDown][LeftRight + 1] == 'm'))
+        {
+            while (true)
+            {
+                Console.Clear();
+                Console.WriteLine("The chest is empty.");
+                PressEnter();
+                break;
+            }
+        }
+        else if (key == ConsoleKey.E
+            && (charMap[UpDown - 1][LeftRight] == '0'
+            || charMap[UpDown + 1][LeftRight] == '0'
+            || charMap[UpDown][LeftRight - 1] == '0'
+            || charMap[UpDown][LeftRight + 1] == '0'))
+        {
+            sb.Append(charMap[UpDown]).Remove(LeftRight, 1).Insert(LeftRight, ' ');
+            charMap[UpDown] = sb.ToString().ToCharArray();
+            sb.Clear();
+            MapNumber++;
+        }
+        else if (key == ConsoleKey.E
+            && (charMap[UpDown - 1][LeftRight] == 'O'
+            || charMap[UpDown + 1][LeftRight] == 'O'
+            || charMap[UpDown][LeftRight - 1] == 'O'
+            || charMap[UpDown][LeftRight + 1] == 'O'))
+        {
+            sb.Append(charMap[UpDown]).Remove(LeftRight, 1).Insert(LeftRight, ' ');
+            charMap[UpDown] = sb.ToString().ToCharArray();
+            sb.Clear();
+            MapNumber--;
         }
 
         Random random = new Random();
         int potentialEnemy = random.Next(1, 101);
 
-        if (potentialEnemy <= 5)
+        if (potentialEnemy <= 1)
         {
             EncounteredEnemy = true;
         }
     }
 
-    public static void DrawMainMap(StringBuilder sb, Map map, char[][] charMap, string character)
+    public static void DrawMainMap(StringBuilder sb, char[][] charMap, string character)
     {
         Console.SetCursorPosition(0, 0);
         Console.CursorVisible = false;
 
-        CharacterMovesUpOrDown(sb, map, charMap, character);
+        CharacterMovesUpOrDown(sb, charMap, character);
 
         if (Up)
         {
-            CharacterMovesUpOrDown(sb, map, charMap, character);
-            ClearAfterMovingUp(sb, map, charMap, character);
+            CharacterMovesUpOrDown(sb, charMap, character);
+            ClearAfterMovingUp(sb, charMap, character);
         }
         else if (Down)
         {
-            CharacterMovesUpOrDown(sb, map, charMap, character);
-            ClearAfterMovingDown(sb, map, charMap, character);
+            CharacterMovesUpOrDown(sb, charMap, character);
+            ClearAfterMovingDown(sb, charMap, character);
         }
         else if (Left)
         {
-            MoveAndClearLeft(sb, map, charMap, character);
+            MoveAndClearLeft(sb, charMap, character);
         }
         else if (Right)
         {
-            MoveAndClearRight(sb, map, charMap, character);
+            MoveAndClearRight(sb, charMap, character);
         }
 
         foreach (var item in charMap)
@@ -136,35 +183,35 @@ class Tools
         }
     }
 
-    public static void CharacterMovesUpOrDown(StringBuilder sb, Map map, char[][] charMap, string character)
+    public static void CharacterMovesUpOrDown(StringBuilder sb, char[][] charMap, string character)
     {
         sb.Append(charMap[UpDown]).Remove(LeftRight, 1).Insert(LeftRight, character);
         charMap[UpDown] = sb.ToString().ToCharArray();
         sb.Clear();
     }
 
-    public static void ClearAfterMovingUp(StringBuilder sb, Map map, char[][] charMap, string character)
+    public static void ClearAfterMovingUp(StringBuilder sb, char[][] charMap, string character)
     {
         sb.Append(charMap[UpDown + 1]).Remove(LeftRight, 1).Insert(LeftRight, " ");
         charMap[UpDown + 1] = sb.ToString().ToCharArray();
         sb.Clear();
     }
 
-    public static void ClearAfterMovingDown(StringBuilder sb, Map map, char[][] charMap, string character)
+    public static void ClearAfterMovingDown(StringBuilder sb, char[][] charMap, string character)
     {
         sb.Append(charMap[UpDown - 1]).Remove(LeftRight, 1).Insert(LeftRight, " ");
         charMap[UpDown - 1] = sb.ToString().ToCharArray();
         sb.Clear();
     }
 
-    public static void MoveAndClearLeft(StringBuilder sb, Map map, char[][] charMap, string character)
+    public static void MoveAndClearLeft(StringBuilder sb, char[][] charMap, string character)
     {
         sb.Append(charMap[UpDown]).Remove(LeftRight, 1).Insert(LeftRight, character).Remove(LeftRight + 1, 1).Insert(LeftRight + 1, " ");
         charMap[UpDown] = sb.ToString().ToCharArray();
         sb.Clear();
     }
 
-    public static void MoveAndClearRight(StringBuilder sb, Map map, char[][] charMap, string character)
+    public static void MoveAndClearRight(StringBuilder sb, char[][] charMap, string character)
     {
         sb.Append(charMap[UpDown]).Remove(LeftRight, 1).Insert(LeftRight, character).Remove(LeftRight - 1, 1).Insert(LeftRight - 1, " ");
         charMap[UpDown] = sb.ToString().ToCharArray();
@@ -195,9 +242,11 @@ class Tools
                 }
                 else if (key == ConsoleKey.D2)
                 {
+                    bool haveItems = false;
                     int lineNumber = 1;
                     if (player.PotionInventory.Count() >= 1)
                     {
+                        haveItems = true;
                         while (true)
                         {
                             List<Potions.PotionType> potionTypes = new List<Potions.PotionType>();
@@ -250,7 +299,7 @@ class Tools
                         PressEnter();
                     }
 
-                    if (!Potions.AlreadyUsedPotion)
+                    if (!Potions.AlreadyUsedPotion && haveItems)
                     {
                         break;
                     }

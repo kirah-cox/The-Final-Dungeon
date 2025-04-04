@@ -10,8 +10,6 @@ public class Program
     {
         string character = "@";
 
-        Map map = new Map();
-
         StringBuilder sb = new StringBuilder();
 
         Player player = new Player(Tools.MenuScreen());
@@ -20,12 +18,12 @@ public class Program
 
         while (!Tools.EncounteredEnemy)
         {
-            Tools.DrawMainMap(sb, map, map.FirstMap, character);
+            Tools.DrawMainMap(sb, Map.LevelOneMaps[Tools.MapNumber], character);
 
-            Tools.Move(player, map, map.FirstMap);
+            Tools.Move(player, Map.LevelOneMaps[Tools.MapNumber], sb, character, Map.LevelOneChests[Tools.MapNumber]);
             
-            Tools.DrawMainMap(sb, map, map.FirstMap, character);
-
+            Tools.DrawMainMap(sb, Map.LevelOneMaps[Tools.MapNumber], character);
+            
             while (Tools.EncounteredEnemy)
             {
                 Enemy enemy = Enemy.EnemyEncounter();
@@ -36,8 +34,6 @@ public class Program
             }
 
             player.LevelUp();
-
-            Chest.AddPotion(player); //For testing purposes
         }
     }
 }

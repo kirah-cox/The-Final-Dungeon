@@ -20,7 +20,7 @@ public class Program
         {
             Tools.DrawMainMap(sb, Map.LevelOneMaps[Tools.MapNumber], character);
 
-            Tools.Move(player, Map.LevelOneMaps[Tools.MapNumber], sb, character, Map.LevelOneChests[Tools.MapNumber]);
+            Tools.Move(player, Map.LevelOneMaps[Tools.MapNumber], sb, character);
             
             Tools.DrawMainMap(sb, Map.LevelOneMaps[Tools.MapNumber], character);
             

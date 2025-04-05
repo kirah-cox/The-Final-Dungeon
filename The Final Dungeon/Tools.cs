@@ -60,7 +60,7 @@ class Tools
         }
     }
 
-    public static void Move(Player player, char[][] charMap, StringBuilder sb, string character, bool chestEmpty)
+    public static void Move(Player player, char[][] charMap, StringBuilder sb, string character)
     {
         Up = false;
         Down = false;
@@ -96,16 +96,16 @@ class Tools
         {
             Player.DisplayInventory(player);
         }
-        else if (key == ConsoleKey.E && !chestEmpty
+        else if (key == ConsoleKey.E && !Map.LevelOneChests[Tools.MapNumber]
             && (charMap[UpDown - 1][LeftRight] == 'm'
             || charMap[UpDown + 1][LeftRight] == 'm'
             || charMap[UpDown][LeftRight - 1] == 'm'
             || charMap[UpDown][LeftRight + 1] == 'm'))
         {
             Chest.AddPotion(player);
-            chestEmpty = true;
+            Map.LevelOneChests[Tools.MapNumber] = true;
         }
-        else if(key == ConsoleKey.E && chestEmpty
+        else if(key == ConsoleKey.E && Map.LevelOneChests[Tools.MapNumber]
             && (charMap[UpDown - 1][LeftRight] == 'm'
             || charMap[UpDown + 1][LeftRight] == 'm'
             || charMap[UpDown][LeftRight - 1] == 'm'
@@ -129,6 +129,8 @@ class Tools
             charMap[UpDown] = sb.ToString().ToCharArray();
             sb.Clear();
             MapNumber++;
+            UpDown = Map.LevelOneUpDown[2 * MapNumber];
+            LeftRight = Map.LevelOneLeftRight[2 * MapNumber];
         }
         else if (key == ConsoleKey.E
             && (charMap[UpDown - 1][LeftRight] == 'O'
@@ -140,6 +142,16 @@ class Tools
             charMap[UpDown] = sb.ToString().ToCharArray();
             sb.Clear();
             MapNumber--;
+            if (MapNumber == 0)
+            {
+                UpDown = Map.LevelOneUpDown[1];
+                LeftRight = Map.LevelOneLeftRight[1];
+            }
+            else
+            {
+                UpDown = Map.LevelOneUpDown[2 * MapNumber + 1];
+                LeftRight = Map.LevelOneLeftRight[2 * MapNumber + 1];
+            }
         }
 
         Random random = new Random();

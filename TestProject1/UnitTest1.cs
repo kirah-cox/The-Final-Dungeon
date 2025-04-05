@@ -1,5 +1,6 @@
 using AllCreations;
 using System.Reflection.Emit;
+using LootThings;
 
 namespace TestProject1
 {
@@ -222,7 +223,7 @@ namespace TestProject1
         public void Test13()
         {
             Player player = new Player(PlayerClass.Warrior);
-            if (player.Attack() == 6 || player.Attack() == 12)
+            if (ModifiedMethods.Attack(player, 1) == 6 || ModifiedMethods.Attack(player, 1) == 12)
             {
                 Assert.Pass();
             }
@@ -334,6 +335,41 @@ namespace TestProject1
             Enemy enemy = new Enemy(EnemyClass.Rat);
             enemy.TakeDamage(player.Attack());
             if (enemy.Health == 4 || enemy.Health == 0)
+            {
+                Assert.Pass();
+            }
+            else
+            {
+                Assert.Fail();
+            }
+        }
+
+        [Test]
+        public void Test21()
+        {
+            Player player = new Player(PlayerClass.Warrior);
+            player.PotionInventory.Add(Potions.PotionType.Health, 1);
+            player.Health = 5;
+            ModifiedMethods.UsePotion(player, Potions.PotionType.Health);
+            if (player.Health == 25)
+            {
+                Assert.Pass();
+            }
+            else
+            {
+                Assert.Fail();
+            }
+        }
+
+        [Test]
+        public void Test22()
+        {
+            Player player = new Player(PlayerClass.Warrior);
+            player.PotionInventory.Add(Potions.PotionType.Health, 1);
+            player.Level = 4;
+            player.Health = 5;
+            ModifiedMethods.UsePotion(player, Potions.PotionType.Health);
+            if (player.Health == 30)
             {
                 Assert.Pass();
             }

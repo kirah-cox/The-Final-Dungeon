@@ -1,10 +1,12 @@
 ﻿using AllCreations;
+using LootThings;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
+using static LootThings.Potions;
 
 namespace TestProject1
 {
@@ -30,17 +32,17 @@ namespace TestProject1
             {
                 switch (key)
                 {
-                    case ConsoleKey.D1: //Strength
+                    case ConsoleKey.D1:
                         player.Strength++;
                         Console.WriteLine($"You have leveled up Strength. Your strength is now {player.Strength}.");
                         selectedSkill = true;
                         break;
-                    case ConsoleKey.D2: //Mana
+                    case ConsoleKey.D2:
                         player.Mana++;
                         Console.WriteLine($"You have leveled up Mana. Your strength is now {player.Mana}.");
                         selectedSkill = true;
                         break;
-                    case ConsoleKey.D3: //Luck
+                    case ConsoleKey.D3:
                         player.Luck++;
                         Console.WriteLine($"You have leveled up Luck. Your strength is now {player.Luck}.");
                         selectedSkill = true;
@@ -127,6 +129,18 @@ namespace TestProject1
             }
 
             return totalDamage;
+        }
+
+        public static void UsePotion(Player player, PotionType potion)
+        {
+            if ((5 * player.Level) - 5 > 0)
+            {
+                player.Health += 25;
+            }
+            else
+            {
+                player.Health = 25;
+            }
         }
     }
 }

@@ -57,7 +57,7 @@ namespace AllCreations
             }
 
             Level++;
-            Health += (5 * Level) - 5;
+            Health = (5 * Level) + 20;
 
             Console.Clear();
             
@@ -120,11 +120,15 @@ namespace AllCreations
         {
             Console.Clear();
 
+            List<Potions.PotionType> potionTypes = new List<Potions.PotionType>();
+
+            var orderedPotions = player.PotionInventory.OrderBy(potion => potion.Key).Where(potion => potion.Value != 0);
+
             Console.WriteLine("Inventory:");
 
-            if (player.PotionInventory != null)
+            if (orderedPotions != null)
             {
-                foreach (var line in player.PotionInventory)
+                foreach (var line in orderedPotions)
                 {
                     Console.WriteLine($"{line.Key} Potion: {line.Value}");
                 }

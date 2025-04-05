@@ -3,6 +3,7 @@ using MyTools;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -106,7 +107,7 @@ namespace LootThings
 
             if (potion == PotionType.Health)
             {
-                if(player.Health > 25)
+                if((5 * player.Level) -5 > 0)
                 {
                     player.Health += 25;
                 }

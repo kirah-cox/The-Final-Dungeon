@@ -8,7 +8,7 @@ using MyTools;
 
 namespace LootThings
 {
-    class Chest
+    public class Chest
     {
         public static void AddPotion(Player player)
         {

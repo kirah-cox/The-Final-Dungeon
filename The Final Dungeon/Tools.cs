@@ -216,6 +216,12 @@ class Tools
             sb.Append(charMap[UpDown]).Replace('K', '.');
             charMap[UpDown] = sb.ToString().ToCharArray();
             sb.Clear();
+            sb.Append(charMap[UpDown + 1]).Replace('K', '.');
+            charMap[UpDown + 1] = sb.ToString().ToCharArray();
+            sb.Clear();
+            sb.Append(charMap[UpDown - 1]).Replace('K', '.');
+            charMap[UpDown - 1] = sb.ToString().ToCharArray();
+            sb.Clear();
             ObtainedKey = true;
         }
         else if (key == ConsoleKey.E && !ObtainedFeather
@@ -372,8 +378,9 @@ class Tools
 
                 if (key == ConsoleKey.D1)
                 {
-                    Console.WriteLine($"You attacked {enemy.Class} with a damage of {player.Attack()}.");
-                    enemy.TakeDamage(player.Attack());
+                    int playerAttack = player.Attack();
+                    Console.WriteLine($"You attacked {enemy.Class} with a damage of {playerAttack}.");
+                    enemy.TakeDamage(playerAttack);
                     Thread.Sleep(2000);
                     break;
                 }
@@ -447,9 +454,10 @@ class Tools
 
             if (enemy.Health > 0)
             {
-                Console.WriteLine($"{enemy.Class} attacks you with a damage of {enemy.Attack()}.");
+                int enemyAttack = enemy.Attack();
+                Console.WriteLine($"{enemy.Class} attacks you with a damage of {enemyAttack}.");
                 Thread.Sleep(2000);
-                player.TakeDamage(enemy.Attack());
+                player.TakeDamage(enemyAttack);
             }
         }
 

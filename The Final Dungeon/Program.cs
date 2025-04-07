@@ -12,16 +12,15 @@ public class Program
 
         StringBuilder sb = new StringBuilder();
 
-        Player player = new Player(Tools.MenuScreen());
+        Player player = new Player(MainDrawingMap.MenuScreen());
 
         Console.Clear();
 
-
         while (!Tools.EncounteredEnemy)
         {
-            Tools.DrawMainMap(sb, Map.LevelOneMaps[Tools.MapNumber], character);
+            MainDrawingMap.DrawMainMap(sb, Map.LevelOneMaps[Tools.MapNumber], character);
 
-            Tools.Move(player, Map.LevelOneMaps[Tools.MapNumber], sb, character);
+            MainMove.Move(player, Map.LevelOneMaps[Tools.MapNumber], sb, character);
             
             while (Tools.EncounteredEnemy)
             {

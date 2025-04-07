@@ -44,7 +44,7 @@ namespace MyTools
                 MainConsoleKeyMoveMethods.PressedE(sb, charMap, player);
             }
 
-            RandomEnemyEncounter();
+            MainBattle.RandomEnemyEncounter();
         }
     }
 }

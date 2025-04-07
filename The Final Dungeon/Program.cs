@@ -26,7 +26,7 @@ public class Program
             {
                 Enemy enemy = Enemy.EnemyEncounter();
 
-                Tools.Battle(player, enemy);
+                MainBattle.Battle(player, enemy);
 
                 Tools.EncounteredEnemy = false;
             }

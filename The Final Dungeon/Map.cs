@@ -8,18 +8,19 @@ namespace AllMaps
 {
     public class Map
     {
+        //sign that says that boulders are pushable
         public static char[][] FirstMap =
         {
             ":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
-            ":..............m................:".ToCharArray(),
-            ":.......................   .....:".ToCharArray(),
+            ":.............omo..............o:".ToCharArray(),
+            ":..............o........   .....:".ToCharArray(),
             ":........................o......:".ToCharArray(),
-            ":..........o....................:".ToCharArray(),
-            ":...............................0".ToCharArray(),
-            ":...............o...............:".ToCharArray(),
-            ":.............     .............:".ToCharArray(),
-            ":............. ... .............:".ToCharArray(),
-            ":............. .K. .............:".ToCharArray(),
+            ":.....ooo..o....................:".ToCharArray(),
+            ":...oooo.oo..oo.................0".ToCharArray(),
+            ":.o   oKoo..o.oo................:".ToCharArray(),
+            ":oo .o..o. o..........o.    ....:".ToCharArray(),
+            ":o. ..o.oo .o.......      o.....:".ToCharArray(),
+            ":.o            ...........o.....:".ToCharArray(),
             ":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
         };
         public static bool FirstChestEmpty { get; set; } = false;
@@ -40,6 +41,8 @@ namespace AllMaps
         };
         public static bool SecondChestEmpty { get; set; } = false;
 
+        //sign that says that the previous room is the blueprint/solution to the answer undertale style?
+        //maybe have some buttons that the boulders need to press, some not, and have a riddle to figure it out?
         public static char[][] ThirdMap =
         {
             ":~~~~~~O~~~~~~~:                 ".ToCharArray(),

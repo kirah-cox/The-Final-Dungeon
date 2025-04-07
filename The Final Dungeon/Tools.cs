@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LootThings;
+using System.Security.Cryptography.X509Certificates;
 
 namespace MyTools;
 
@@ -22,6 +23,8 @@ class Tools
     public static bool ObtainedKey { get; set; } = false;
     public static bool CrossedGap { get; set; } = false;
     public static bool ObtainedFeather { get; set; } = false;
+    public static bool PushingBoulder { get; set; } = false;
+    public static bool BoulderOverGap { get; set; } = false;
     public static int MapNumber { get; set; } = 0;
 
     
@@ -71,16 +74,33 @@ class Tools
         Right = false;
 
         var key = Console.ReadKey().Key;
-        if (key == ConsoleKey.W
-            && charMap[UpDown - 1][LeftRight] != '~'
-            && charMap[UpDown - 1][LeftRight] != 'O'
-            && charMap[UpDown - 1][LeftRight] != '0')
+        if (key == ConsoleKey.W && NotCharactersUpDownMinus(charMap))
         {
             if(charMap[UpDown - 1][LeftRight] == '.')
             {
                 UpDown--;
                 Up = true;
+                PushingBoulder = false;
                 Console.Clear();
+            }
+            else if (charMap[UpDown - 1][LeftRight] == 'o')
+            {
+                if(charMap[UpDown - 2][LeftRight] == '.')
+                {
+                    UpDown--;
+                    Up = true;
+                    PushingBoulder = true;
+                    BoulderOverGap = false;
+                    Console.Clear();
+                }
+                else if (charMap[UpDown - 2][LeftRight] == ' ')
+                {
+                    UpDown--;
+                    Up = true;
+                    PushingBoulder = true;
+                    BoulderOverGap = true;
+                    Console.Clear();
+                }
             }
             else if((charMap[UpDown - 2][LeftRight] == '.') && (charMap[UpDown - 1][LeftRight] == ' ') && ObtainedFeather)
             {
@@ -90,16 +110,33 @@ class Tools
                 Console.Clear();
             }
         }
-        else if (key == ConsoleKey.S
-            && charMap[UpDown + 1][LeftRight] != '~'
-            && charMap[UpDown + 1][LeftRight] != 'O'
-            && charMap[UpDown + 1][LeftRight] != '0')
+        else if (key == ConsoleKey.S && NotCharactersUpDownPlus(charMap))
         {
             if (charMap[UpDown + 1][LeftRight] == '.')
             {
                 UpDown++;
                 Down = true;
+                PushingBoulder = false;
                 Console.Clear();
+            }
+            else if (charMap[UpDown + 1][LeftRight] == 'o')
+            {
+                if (charMap[UpDown + 2][LeftRight] == '.')
+                {
+                    UpDown++;
+                    Down = true;
+                    PushingBoulder = true;
+                    BoulderOverGap = false;
+                    Console.Clear();
+                }
+                else if (charMap[UpDown + 2][LeftRight] == ' ')
+                {
+                    UpDown++;
+                    Down = true;
+                    PushingBoulder = true;
+                    BoulderOverGap = true;
+                    Console.Clear();
+                }
             }
             else if ((charMap[UpDown + 2][LeftRight] == '.') && (charMap[UpDown + 1][LeftRight] == ' ') && ObtainedFeather)
             {
@@ -109,16 +146,33 @@ class Tools
                 Console.Clear();
             }
         }
-        else if (key == ConsoleKey.A
-            && charMap[UpDown][LeftRight - 1] != ':'
-            && charMap[UpDown][LeftRight - 1] != 'O'
-            && charMap[UpDown][LeftRight - 1] != '0')
+        else if (key == ConsoleKey.A && NotCharactersLeftRightMinus(charMap))
         {
             if (charMap[UpDown][LeftRight - 1] == '.')
             {
                 LeftRight--;
                 Left = true;
+                PushingBoulder = false;
                 Console.Clear();
+            }
+            else if (charMap[UpDown][LeftRight - 1] == 'o')
+            {
+                if (charMap[UpDown][LeftRight - 2] == '.')
+                {
+                    LeftRight--;
+                    Left = true;
+                    PushingBoulder = true;
+                    BoulderOverGap = false;
+                    Console.Clear();
+                }
+                else if (charMap[UpDown][LeftRight - 2] == ' ')
+                {
+                    LeftRight--;
+                    Left = true;
+                    PushingBoulder = true;
+                    BoulderOverGap = true;
+                    Console.Clear();
+                }
             }
             else if ((charMap[UpDown][LeftRight - 2] == '.') && (charMap[UpDown][LeftRight - 1] == ' ') && ObtainedFeather)
             {
@@ -128,16 +182,33 @@ class Tools
                 Console.Clear();
             }
         }
-        else if (key == ConsoleKey.D
-            && charMap[UpDown][LeftRight + 1] != ':'
-            && charMap[UpDown][LeftRight + 1] != 'O'
-            && charMap[UpDown][LeftRight + 1] != '0')
+        else if (key == ConsoleKey.D && NotCharactersLeftRightPlus(charMap))
         {
             if (charMap[UpDown][LeftRight + 1] == '.')
             {
                 LeftRight++;
                 Right = true;
+                PushingBoulder = false;
                 Console.Clear();
+            }
+            else if (charMap[UpDown][LeftRight + 1] == 'o')
+            {
+                if (charMap[UpDown][LeftRight + 2] == '.')
+                {
+                    LeftRight++;
+                    Right = true;
+                    PushingBoulder = true;
+                    BoulderOverGap = false;
+                    Console.Clear();
+                }
+                else if (charMap[UpDown][LeftRight + 2] == ' ')
+                {
+                    LeftRight++;
+                    Right = true;
+                    PushingBoulder = true;
+                    BoulderOverGap = true;
+                    Console.Clear();
+                }
             }
             else if (charMap[UpDown][LeftRight + 2] == '.' && (charMap[UpDown][LeftRight + 1] == ' ') && ObtainedFeather)
             {
@@ -151,47 +222,29 @@ class Tools
         {
             Player.DisplayInventory(player);
         }
-        else if (key == ConsoleKey.E && !Map.LevelOneChests[Tools.MapNumber]
-            && (charMap[UpDown - 1][LeftRight] == 'm'
-            || charMap[UpDown + 1][LeftRight] == 'm'
-            || charMap[UpDown][LeftRight - 1] == 'm'
-            || charMap[UpDown][LeftRight + 1] == 'm'))
+        else if (key == ConsoleKey.E && !Map.LevelOneChests[Tools.MapNumber] && Characterm(charMap))
         {
             Chest.AddPotion(player);
             Map.LevelOneChests[Tools.MapNumber] = true;
         }
-        else if(key == ConsoleKey.E && Map.LevelOneChests[Tools.MapNumber]
-            && (charMap[UpDown - 1][LeftRight] == 'm'
-            || charMap[UpDown + 1][LeftRight] == 'm'
-            || charMap[UpDown][LeftRight - 1] == 'm'
-            || charMap[UpDown][LeftRight + 1] == 'm'))
+        else if(key == ConsoleKey.E && Map.LevelOneChests[Tools.MapNumber] && Characterm(charMap))
         {
             Console.Clear();
             Console.WriteLine("The chest is empty.");
             PressEnter();
         }
-        else if (key == ConsoleKey.E
-            && (charMap[UpDown - 1][LeftRight] == '0'
-            || charMap[UpDown + 1][LeftRight] == '0'
-            || charMap[UpDown][LeftRight - 1] == '0'
-            || charMap[UpDown][LeftRight + 1] == '0'))
+        else if (key == ConsoleKey.E && Character0(charMap))
         {
-            sb.Append(charMap[UpDown]).Remove(LeftRight, 1).Insert(LeftRight, '.');
-            charMap[UpDown] = sb.ToString().ToCharArray();
-            sb.Clear();
+            ClearCharacterMap(sb, charMap);
+
             MapNumber++;
             UpDown = Map.LevelOneUpDown[2 * MapNumber];
             LeftRight = Map.LevelOneLeftRight[2 * MapNumber];
         }
-        else if (key == ConsoleKey.E
-            && (charMap[UpDown - 1][LeftRight] == 'O'
-            || charMap[UpDown + 1][LeftRight] == 'O'
-            || charMap[UpDown][LeftRight - 1] == 'O'
-            || charMap[UpDown][LeftRight + 1] == 'O'))
+        else if (key == ConsoleKey.E && CharacterO(charMap))
         {
-            sb.Append(charMap[UpDown]).Remove(LeftRight, 1).Insert(LeftRight, '.');
-            charMap[UpDown] = sb.ToString().ToCharArray();
-            sb.Clear();
+            ClearCharacterMap(sb, charMap);
+
             MapNumber--;
             if (MapNumber == 0)
             {
@@ -204,15 +257,12 @@ class Tools
                 LeftRight = Map.LevelOneLeftRight[2 * MapNumber + 1];
             }
         }
-        else if (key == ConsoleKey.E && !ObtainedKey
-            && (charMap[UpDown - 1][LeftRight] == 'K'
-            || charMap[UpDown + 1][LeftRight] == 'K'
-            || charMap[UpDown][LeftRight - 1] == 'K'
-            || charMap[UpDown][LeftRight + 1] == 'K'))
+        else if (key == ConsoleKey.E && !ObtainedKey && CharacterK(charMap))
         {
             Console.Clear();
             Console.WriteLine("You have obtained a key.");
             PressEnter();
+
             sb.Append(charMap[UpDown]).Replace('K', '.');
             charMap[UpDown] = sb.ToString().ToCharArray();
             sb.Clear();
@@ -222,24 +272,17 @@ class Tools
             sb.Append(charMap[UpDown - 1]).Replace('K', '.');
             charMap[UpDown - 1] = sb.ToString().ToCharArray();
             sb.Clear();
+
             ObtainedKey = true;
         }
-        else if (key == ConsoleKey.E && !ObtainedFeather
-            && (charMap[UpDown - 1][LeftRight] == 'M'
-            || charMap[UpDown + 1][LeftRight] == 'M'
-            || charMap[UpDown][LeftRight - 1] == 'M'
-            || charMap[UpDown][LeftRight + 1] == 'M'))
+        else if (key == ConsoleKey.E && !ObtainedFeather && CharacterM(charMap))
         {
             Console.Clear();
             Console.WriteLine("You have obtained the magical feather! You can now jump over small gaps.");
             PressEnter();
             ObtainedFeather = true;
         }
-        else if (key == ConsoleKey.E && ObtainedFeather
-            && (charMap[UpDown - 1][LeftRight] == 'M'
-            || charMap[UpDown + 1][LeftRight] == 'M'
-            || charMap[UpDown][LeftRight - 1] == 'M'
-            || charMap[UpDown][LeftRight + 1] == 'M'))
+        else if (key == ConsoleKey.E && ObtainedFeather && CharacterM(charMap))
         {
             Console.Clear();
             Console.WriteLine("The chest is empty.");
@@ -253,6 +296,126 @@ class Tools
         {
             EncounteredEnemy = true;
         }
+    }
+
+    public static void ClearCharacterMap(StringBuilder sb, char[][] charMap)
+    {
+        sb.Append(charMap[UpDown]).Remove(LeftRight, 1).Insert(LeftRight, '.');
+        charMap[UpDown] = sb.ToString().ToCharArray();
+        sb.Clear();
+    }
+
+    public static bool NotCharactersLeftRightPlus(char[][] charMap)
+    {
+        if (charMap[UpDown][LeftRight + 1] != ':'
+            && charMap[UpDown][LeftRight + 1] != 'O'
+            && charMap[UpDown][LeftRight + 1] != '0')
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    public static bool NotCharactersLeftRightMinus(char[][] charMap)
+    {
+        if (charMap[UpDown][LeftRight - 1] != ':'
+            && charMap[UpDown][LeftRight - 1] != 'O'
+            && charMap[UpDown][LeftRight - 1] != '0')
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    public static bool NotCharactersUpDownPlus(char[][] charMap)
+    {
+        if (charMap[UpDown + 1][LeftRight] != '~'
+            && charMap[UpDown + 1][LeftRight] != 'O'
+            && charMap[UpDown + 1][LeftRight] != '0')
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    public static bool NotCharactersUpDownMinus(char[][] charMap)
+    {
+        if (charMap[UpDown - 1][LeftRight] != '~'
+            && charMap[UpDown - 1][LeftRight] != 'O'
+            && charMap[UpDown - 1][LeftRight] != '0')
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    public static bool Characterm(char[][] charMap)
+    {
+        if (charMap[UpDown - 1][LeftRight] == 'm'
+            || charMap[UpDown + 1][LeftRight] == 'm'
+            || charMap[UpDown][LeftRight - 1] == 'm'
+            || charMap[UpDown][LeftRight + 1] == 'm')
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    public static bool CharacterM(char[][] charMap)
+    {
+        if (charMap[UpDown - 1][LeftRight] == 'M'
+            || charMap[UpDown + 1][LeftRight] == 'M'
+            || charMap[UpDown][LeftRight - 1] == 'M'
+            || charMap[UpDown][LeftRight + 1] == 'M')
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    public static bool CharacterK(char[][] charMap)
+    {
+        if (charMap[UpDown - 1][LeftRight] == 'K'
+            || charMap[UpDown + 1][LeftRight] == 'K'
+            || charMap[UpDown][LeftRight - 1] == 'K'
+            || charMap[UpDown][LeftRight + 1] == 'K')
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    public static bool CharacterO(char[][] charMap)
+    {
+        if (charMap[UpDown - 1][LeftRight] == 'O'
+            || charMap[UpDown + 1][LeftRight] == 'O'
+            || charMap[UpDown][LeftRight - 1] == 'O'
+            || charMap[UpDown][LeftRight + 1] == 'O')
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    public static bool Character0(char[][] charMap)
+    {
+        if (charMap[UpDown - 1][LeftRight] == '0'
+            || charMap[UpDown + 1][LeftRight] == '0'
+            || charMap[UpDown][LeftRight - 1] == '0'
+            || charMap[UpDown][LeftRight + 1] == '0')
+        {
+            return true;
+        }
+
+        return false;
     }
 
     public static void DrawMainMap(StringBuilder sb, char[][] charMap, string character)
@@ -289,6 +452,31 @@ class Tools
 
     public static void CharacterMovesUpOrDown(StringBuilder sb, char[][] charMap, string character)
     {
+        if(PushingBoulder && !BoulderOverGap)
+        {
+            if (Up)
+            {
+                sb.Append(charMap[UpDown]).Remove(LeftRight, 1).Insert(LeftRight, character);
+                charMap[UpDown] = sb.ToString().ToCharArray();
+                sb.Clear();
+                sb.Append(charMap[UpDown - 1]).Remove(LeftRight, 1).Insert(LeftRight, 'o');
+                charMap[UpDown - 1] = sb.ToString().ToCharArray();
+                sb.Clear();
+            }
+
+            if (Down)
+            {
+                sb.Append(charMap[UpDown]).Remove(LeftRight, 1).Insert(LeftRight, character);
+                charMap[UpDown] = sb.ToString().ToCharArray();
+                sb.Clear();
+                sb.Append(charMap[UpDown + 1]).Remove(LeftRight, 1).Insert(LeftRight, 'o');
+                charMap[UpDown + 1] = sb.ToString().ToCharArray();
+                sb.Clear();
+            }
+
+            return;
+        }
+
         sb.Append(charMap[UpDown]).Remove(LeftRight, 1).Insert(LeftRight, character);
         charMap[UpDown] = sb.ToString().ToCharArray();
         sb.Clear();
@@ -337,6 +525,14 @@ class Tools
             return;
         }
 
+        if (PushingBoulder && !BoulderOverGap)
+        {
+            sb.Append(charMap[UpDown]).Remove(LeftRight - 1, 2).Insert(LeftRight - 1, $"o{character}").Remove(LeftRight + 1, 1).Insert(LeftRight + 1, ".");
+            charMap[UpDown] = sb.ToString().ToCharArray();
+            sb.Clear();
+            return;
+        }
+
         sb.Append(charMap[UpDown]).Remove(LeftRight, 1).Insert(LeftRight, character).Remove(LeftRight + 1, 1).Insert(LeftRight + 1, ".");
         charMap[UpDown] = sb.ToString().ToCharArray();
         sb.Clear();
@@ -345,12 +541,19 @@ class Tools
     public static void MoveAndClearRight(StringBuilder sb, char[][] charMap, string character)
     {
         if (CrossedGap)
-
         {
             sb.Append(charMap[UpDown]).Remove(LeftRight, 1).Insert(LeftRight, character).Remove(LeftRight - 2, 1).Insert(LeftRight - 2, ".");
             charMap[UpDown] = sb.ToString().ToCharArray();
             sb.Clear();
             CrossedGap = false;
+            return;
+        }
+
+        if (PushingBoulder && !BoulderOverGap)
+        {
+            sb.Append(charMap[UpDown]).Remove(LeftRight, 2).Insert(LeftRight, $"{character}o").Remove(LeftRight - 1, 1).Insert(LeftRight - 1, ".");
+            charMap[UpDown] = sb.ToString().ToCharArray();
+            sb.Clear();
             return;
         }
 

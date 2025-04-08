@@ -18,9 +18,9 @@ public class Program
 
         while (!Tools.EncounteredEnemy)
         {
-            MainDrawingMap.DrawMainMap(sb, Map.LevelOneMaps[Tools.MapNumber], character);
+            MainDrawingMap.DrawMainMap(sb, FirstLevelMaps.LevelOneMaps[Tools.MapNumber], FirstLevelResetMaps.LevelOneResetMaps[Tools.MapNumber], character);
 
-            MainMove.Move(player, Map.LevelOneMaps[Tools.MapNumber], sb, character);
+            MainMove.Move(player, FirstLevelMaps.LevelOneMaps[Tools.MapNumber], sb, character);
             
             while (Tools.EncounteredEnemy)
             {

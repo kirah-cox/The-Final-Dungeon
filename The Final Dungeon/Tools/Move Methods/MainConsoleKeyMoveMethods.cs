@@ -76,11 +76,11 @@ namespace MyTools
 
         public static void PressedE(StringBuilder sb, char[][] charMap, Player player)
         {
-            if (!Map.LevelOneChests[MapNumber] && SmallMoveMethods.Characterm(charMap))
+            if (!FirstLevelMaps.LevelOneChests[MapNumber] && SmallMoveMethods.Characterm(charMap))
             {
                 InteractMoveMethods.PotionsChestFull(player);
             }
-            else if ((Map.LevelOneChests[MapNumber] && SmallMoveMethods.Characterm(charMap)) || (ObtainedFeather && SmallMoveMethods.CharacterM(charMap)))
+            else if ((FirstLevelMaps.LevelOneChests[MapNumber] && SmallMoveMethods.Characterm(charMap)) || (ObtainedFeather && SmallMoveMethods.CharacterM(charMap)))
             {
                 InteractMoveMethods.PotionsChestEmpty();
             }
@@ -99,6 +99,10 @@ namespace MyTools
             else if (!ObtainedFeather && SmallMoveMethods.CharacterM(charMap))
             {
                 InteractMoveMethods.ObtainingFeather();
+            }
+            else if (SmallMoveMethods.CharacterR(charMap))
+            {
+                InteractMoveMethods.ResetBoulders();
             }
         }
     }

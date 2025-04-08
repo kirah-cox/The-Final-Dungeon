@@ -25,6 +25,7 @@ namespace MyTools
         public static bool ObtainedFeather { get; set; } = false;
         public static bool PushingBoulder { get; set; } = false;
         public static bool BoulderOverGap { get; set; } = false;
+        public static bool ResetRoom { get; set; } = false;
         public static int MapNumber { get; set; } = 0;
 
         public static void PressEnter()

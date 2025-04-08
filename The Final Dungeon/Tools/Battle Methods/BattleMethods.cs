@@ -28,13 +28,12 @@ namespace MyTools
                 {
                     bool haveItems = false;
                     CorrectPotion = false;
-                    int lineNumber = 1;
                     if (player.PotionInventory.Count() >= 1)
                     {
                         haveItems = true;
                         while (true)
                         {
-                            PlayerUsePotion(player, lineNumber);
+                            PlayerUsePotion(player);
                             if (CorrectPotion)
                             {
                                 break;
@@ -86,15 +85,16 @@ namespace MyTools
             player.TakeDamage(enemyAttack);
         }
 
-        public static void PlayerUsePotion(Player player, int lineNumber)
+        public static void PlayerUsePotion(Player player)
         {
             Console.WriteLine("Which item would you like to use?");
 
+            int lineNumber = 0;
             List<Potions.PotionType> potionTypes = new List<Potions.PotionType>();
             var orderedPotions = player.PotionInventory.OrderBy(potion => potion.Key).Where(potion => potion.Value != 0);
             foreach (var line in orderedPotions)
             {
-                Console.WriteLine($"{lineNumber}. {line.Key} Potion: {line.Value}");
+                Console.WriteLine($"{lineNumber + 1}. {line.Key} Potion: {line.Value}");
                 potionTypes.Add(line.Key);
                 lineNumber++;
             }
@@ -125,6 +125,7 @@ namespace MyTools
             {
                 CorrectPotion = Potions.UsePotion(player, potionTypes[3]) ? true : false;
             }
+            
         }
 
         public static void ResetPotions(Player player)

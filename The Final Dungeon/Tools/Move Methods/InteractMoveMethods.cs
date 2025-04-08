@@ -14,7 +14,7 @@ namespace MyTools
         public static void PotionsChestFull(Player player)
         {
             Chest.AddPotion(player);
-            Map.LevelOneChests[MapNumber] = true;
+            FirstLevelMaps.LevelOneChests[MapNumber] = true;
         }
 
         public static void PotionsChestEmpty()
@@ -29,8 +29,8 @@ namespace MyTools
             SmallMoveMethods.ClearCharacterOnMap(sb, charMap);
 
             MapNumber++;
-            UpDown = Map.LevelOneUpDown[2 * MapNumber];
-            LeftRight = Map.LevelOneLeftRight[2 * MapNumber];
+            UpDown = FirstLevelMaps.LevelOneUpDown[2 * MapNumber];
+            LeftRight = FirstLevelMaps.LevelOneLeftRight[2 * MapNumber];
         }
 
         public static void MovingToPreviousRoom(StringBuilder sb, char[][] charMap)
@@ -40,13 +40,13 @@ namespace MyTools
             MapNumber--;
             if (MapNumber == 0)
             {
-                UpDown = Map.LevelOneUpDown[1];
-                LeftRight = Map.LevelOneLeftRight[1];
+                UpDown = FirstLevelMaps.LevelOneUpDown[1];
+                LeftRight = FirstLevelMaps.LevelOneLeftRight[1];
             }
             else
             {
-                UpDown = Map.LevelOneUpDown[2 * MapNumber + 1];
-                LeftRight = Map.LevelOneLeftRight[2 * MapNumber + 1];
+                UpDown = FirstLevelMaps.LevelOneUpDown[2 * MapNumber + 1];
+                LeftRight = FirstLevelMaps.LevelOneLeftRight[2 * MapNumber + 1];
             }
         }
 
@@ -76,6 +76,11 @@ namespace MyTools
             PressEnter();
             Console.Clear();
             ObtainedFeather = true;
+        }
+
+        public static void ResetBoulders()
+        {
+            ResetRoom = true;
         }
     }
 }

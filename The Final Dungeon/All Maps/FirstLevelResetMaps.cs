@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 
 namespace AllMaps
 {
-    public class Map
+    class FirstLevelResetMaps
     {
-        //sign that says that boulders are pushable
         public static char[][] FirstMap =
         {
             ":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
-            ":.............omo..............o:".ToCharArray(),
+            ":.............omo............R.o:".ToCharArray(),
             ":......oo......o... ....   .....:".ToCharArray(),
             ":....ooooo.......... .....o.....:".ToCharArray(),
             ":            ...................:".ToCharArray(),
@@ -23,12 +22,11 @@ namespace AllMaps
             ":oooooo.o.. ooo.......  ......oo:".ToCharArray(),
             ":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
         };
-        public static bool FirstChestEmpty { get; set; } = false;
 
         public static char[][] SecondMap =
         {
             ":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
-            ":...............................:".ToCharArray(),
+            ":.............................R.:".ToCharArray(),
             "O...............................:".ToCharArray(),
             ":...............................:".ToCharArray(),
             ":~~~~~~~~~~~~~~~~:..............:".ToCharArray(),
@@ -40,14 +38,6 @@ namespace AllMaps
             "                 :~~~~~~0~~~~~~~:".ToCharArray(),
         };
 
-        public static bool SecondChestEmpty { get; set; } = false;
-
-        // FIX CHOOSING POTIONS IN THE BATLE MENU
-
-        //sign that says that the previous room is the blueprint/solution to the answer undertale style?
-        //maybe have some buttons that the boulders need to press, some not, and have a riddle to figure it out?
-        //PUT A RESET BOULDERS BUTTON
-        //count the number of things and have the answer as a solution to a puzzle?
         public static char[][] ThirdMap =
         {
             ":~~~O~~~:                        ".ToCharArray(),
@@ -55,14 +45,13 @@ namespace AllMaps
             ":.......:                        ".ToCharArray(),
             ":......o:                        ".ToCharArray(),
             ":.......:~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
-            ": .......oo..............o.o....:".ToCharArray(),
+            ": .......oo........R.....o.o....:".ToCharArray(),
             ":  ......o.... .........o.oo....:".ToCharArray(),
             ":............ ...........oo..M..0".ToCharArray(),
             ":...oo..........o.......o.oo....:".ToCharArray(),
             ":.oom.o.......o..........o.o....:".ToCharArray(),
             ":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
         };
-        public static bool ThirdChestEmpty { get; set; } = false;
 
         public static char[][] FourthMap =
         {
@@ -78,26 +67,10 @@ namespace AllMaps
             "         :.............:         ".ToCharArray(),
             "         :~~~~~~~~~~~~~:         ".ToCharArray(),
         };
-        public static bool FourthChestEmpty { get; set; } = false;
 
-        public static List<char[][]> LevelOneMaps = new List<char[][]>()
+        public static List<char[][]> LevelOneResetMaps = new List<char[][]>()
         {
             FirstMap, SecondMap, ThirdMap, FourthMap
-        };
-
-        public static List<bool> LevelOneChests = new List<bool>()
-        {
-            FirstChestEmpty, SecondChestEmpty, ThirdChestEmpty, FourthChestEmpty,
-        };
-
-        public static List<int> LevelOneUpDown = new List<int>()
-        {
-            1, 5, 2, 9, 1, 6, 8,
-        };
-
-        public static List<int> LevelOneLeftRight= new List<int>()
-        {
-            1, 31, 1, 24, 4, 31, 10,
         };
     }
 }

@@ -47,10 +47,19 @@ namespace MyTools
             }
         }
         
-        public static void DrawMainMap(StringBuilder sb, char[][] charMap, string character)
+        public static void DrawMainMap(StringBuilder sb, char[][] charMap, char[][] charResetMap, string character)
         {
             Console.SetCursorPosition(0, 0);
             Console.CursorVisible = false;
+
+            if (ResetRoom)
+            {
+                for (int i = 0; i < 11; i++)
+                {
+                    charMap[i] = charResetMap[i];
+                }
+                ResetRoom = false;
+            }
 
             DrawingMapMethods.CharacterMovesUpOrDown(sb, charMap, character);
 

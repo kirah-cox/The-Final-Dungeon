@@ -183,5 +183,17 @@ namespace MyTools
             }
             return false;
         }
+
+        public static bool CharacterR(char[][] charMap)
+        {
+            if (charMap[UpDown - 1][LeftRight] == 'R'
+                || charMap[UpDown + 1][LeftRight] == 'R'
+                || charMap[UpDown][LeftRight - 1] == 'R'
+                || charMap[UpDown][LeftRight + 1] == 'R')
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }

@@ -72,10 +72,8 @@ namespace AllCreations
                     }
                     break;
             }
-
             int damage = Strength + Mana;
             int totalDamage = 0;
-
             if (luckDamage)
             {
                 totalDamage = damage * 2;
@@ -84,7 +82,6 @@ namespace AllCreations
             {
                 totalDamage = damage;
             }
-
             return totalDamage;
         }
 
@@ -105,10 +102,10 @@ namespace AllCreations
     {
         
         None,
-        Skeleton,
-        BoneWarrior,
-        EvilWitch,
+        Spider,
+        Viper,
+        Frog,
         Rat,
-        GiantSpider,
+        Slime,
     }
 }

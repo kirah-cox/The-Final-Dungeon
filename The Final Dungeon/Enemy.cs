@@ -15,32 +15,32 @@ namespace AllCreations
         {
             switch (enemyClass)
             {
-                case EnemyClass.Skeleton:
-                    Health = 25;
-                    Class = EnemyClass.Skeleton;
-                    Strength = 7;
+                case EnemyClass.Spider:
+                    Health = 12;
+                    Class = EnemyClass.Spider;
+                    Strength = 3;
                     Mana = 2;
-                    Luck = 2;
-                    Random randomSkeleton = new Random();
-                    Experience = randomSkeleton.Next(5, 8);
+                    Luck = 15;
+                    Random randomSpider = new Random();
+                    Experience = randomSpider.Next(5, 8);
                     break;
-                case EnemyClass.BoneWarrior:
-                    Health = 40;
-                    Class = EnemyClass.BoneWarrior;
-                    Strength = 10;
-                    Mana = 1;
+                case EnemyClass.Viper:
+                    Health = 15;
+                    Class = EnemyClass.Viper;
+                    Strength = 3;
+                    Mana = 3;
                     Luck = 7;
-                    Random randomBoneWarrior = new Random();
-                    Experience = randomBoneWarrior.Next(12, 16);
+                    Random randomViper = new Random();
+                    Experience = randomViper.Next(12, 16);
                     break;
-                case EnemyClass.EvilWitch:
-                    Health = 40;
-                    Class = EnemyClass.EvilWitch;
+                case EnemyClass.Frog:
+                    Health = 4;
+                    Class = EnemyClass.Frog;
                     Strength = 1;
-                    Mana = 10;
-                    Luck = 7;
-                    Random randomEvilWitch = new Random();
-                    Experience = randomEvilWitch.Next(12, 16);
+                    Mana = 1;
+                    Luck = 25;
+                    Random randomFrog = new Random();
+                    Experience = randomFrog.Next(3, 6);
                     break;
                 case EnemyClass.Rat:
                     Health = 10;
@@ -51,14 +51,14 @@ namespace AllCreations
                     Random randomRat = new Random();
                     Experience = randomRat.Next(3, 6);
                     break;
-                case EnemyClass.GiantSpider:
-                    Health = 30;
-                    Class = EnemyClass.GiantSpider;
-                    Strength = 6;
+                case EnemyClass.Slime:
+                    Health = 8;
+                    Class = EnemyClass.Slime;
+                    Strength = 3;
                     Mana = 5;
                     Luck = 15;
-                    Random randomGiantSpider = new Random();
-                    Experience = randomGiantSpider.Next(8, 12);
+                    Random randomSlime = new Random();
+                    Experience = randomSlime.Next(8, 12);
                     break;
                 default:
                     break;
@@ -73,28 +73,26 @@ namespace AllCreations
             Random random = new Random();
             int randomEnemy = random.Next(1, 101);
 
-            if (randomEnemy < 11)
+            if (randomEnemy < 21)
             {
-                enemy = new Enemy(EnemyClass.BoneWarrior);
-            }
-            else if (randomEnemy < 21)
-            {
-                enemy = new Enemy(EnemyClass.EvilWitch);
+                enemy = new Enemy(EnemyClass.Viper);
             }
             else if (randomEnemy < 41)
             {
-                enemy = new Enemy(EnemyClass.GiantSpider);
+                enemy = new Enemy(EnemyClass.Frog);
             }
-            else if (randomEnemy < 71)
+            else if (randomEnemy < 61)
             {
-                enemy = new Enemy(EnemyClass.Skeleton);
+                enemy = new Enemy(EnemyClass.Slime);
+            }
+            else if (randomEnemy < 81)
+            {
+                enemy = new Enemy(EnemyClass.Spider);
             }
             else if (randomEnemy < 101)
             {
                 enemy = new Enemy(EnemyClass.Rat);
             }
-
-
             return enemy;
         }
     }

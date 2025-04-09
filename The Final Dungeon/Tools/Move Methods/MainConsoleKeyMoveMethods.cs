@@ -10,97 +10,97 @@ namespace MyTools
 {
     public class MainConsoleKeyMoveMethods : MainMove
     {
-        public static void PressedW(char[][] charMap)
+        public static void PressedW(char[][] charMap, Character character)
         {
-            if (charMap[UpDown - 1][LeftRight] == '.')
+            if (charMap[character.UpDown - 1][character.LeftRight] == '.')
             {
-                SmallConsoleKeyMoveMethods.WNormalMove();
+                SmallConsoleKeyMoveMethods.WNormalMove(character);
             }
-            else if (charMap[UpDown - 1][LeftRight] == 'o')
+            else if (charMap[character.UpDown - 1][character.LeftRight] == 'o')
             {
-                SmallConsoleKeyMoveMethods.WPushingBoulder(charMap);
+                SmallConsoleKeyMoveMethods.WPushingBoulder(charMap, character);
             }
-            else if ((charMap[UpDown - 2][LeftRight] == '.') && (charMap[UpDown - 1][LeftRight] == ' ') && ObtainedFeather)
+            else if ((charMap[character.UpDown - 2][character.LeftRight] == '.') && (charMap[character.UpDown - 1][character.LeftRight] == ' ') && ObtainedFeather)
             {
-                SmallConsoleKeyMoveMethods.WCrossingGap();
+                SmallConsoleKeyMoveMethods.WCrossingGap(character);
             }
         }
 
-        public static void PressedS(char[][] charMap)
+        public static void PressedS(char[][] charMap, Character character)
         {
-            if (charMap[UpDown + 1][LeftRight] == '.')
+            if (charMap[character.UpDown + 1][character.LeftRight] == '.')
             {
-                SmallConsoleKeyMoveMethods.SNormalMove();
+                SmallConsoleKeyMoveMethods.SNormalMove(character);
             }
-            else if (charMap[UpDown + 1][LeftRight] == 'o')
+            else if (charMap[character.UpDown + 1][character.LeftRight] == 'o')
             {
-                SmallConsoleKeyMoveMethods.SPushingBoulder(charMap);
+                SmallConsoleKeyMoveMethods.SPushingBoulder(charMap, character);
             }
-            else if ((charMap[UpDown + 2][LeftRight] == '.') && (charMap[UpDown + 1][LeftRight] == ' ') && ObtainedFeather)
+            else if ((charMap[character.UpDown + 2][character.LeftRight] == '.') && (charMap[character.UpDown + 1][character.LeftRight] == ' ') && ObtainedFeather)
             {
-                SmallConsoleKeyMoveMethods.SCrossingGap();
+                SmallConsoleKeyMoveMethods.SCrossingGap(character);
             }
         }
 
-        public static void PressedA(char[][] charMap)
+        public static void PressedA(char[][] charMap, Character character)
         {
-            if (charMap[UpDown][LeftRight - 1] == '.')
+            if (charMap[character.UpDown][character.LeftRight - 1] == '.')
             {
-                SmallConsoleKeyMoveMethods.ANormalMove();
+                SmallConsoleKeyMoveMethods.ANormalMove(character);
             }
-            else if (charMap[UpDown][LeftRight - 1] == 'o')
+            else if (charMap[character.UpDown][character.LeftRight - 1] == 'o')
             {
-                SmallConsoleKeyMoveMethods.APushingBoulder(charMap);
+                SmallConsoleKeyMoveMethods.APushingBoulder(charMap, character);
             }
-            else if ((charMap[UpDown][LeftRight - 2] == '.') && (charMap[UpDown][LeftRight - 1] == ' ') && ObtainedFeather)
+            else if ((charMap[character.UpDown][character.LeftRight - 2] == '.') && (charMap[character.UpDown][character.LeftRight - 1] == ' ') && ObtainedFeather)
             {
-                SmallConsoleKeyMoveMethods.ACrossingGap();
+                SmallConsoleKeyMoveMethods.ACrossingGap(character);
             }
         }
 
-        public static void PressedD(char[][] charMap)
+        public static void PressedD(char[][] charMap, Character character)
         {
-            if (charMap[UpDown][LeftRight + 1] == '.')
+            if (charMap[character.UpDown][character.LeftRight + 1] == '.')
             {
-                SmallConsoleKeyMoveMethods.DNormalMove();
+                SmallConsoleKeyMoveMethods.DNormalMove(character);
             }
-            else if (charMap[UpDown][LeftRight + 1] == 'o')
+            else if (charMap[character.UpDown][character.LeftRight + 1] == 'o')
             {
-                SmallConsoleKeyMoveMethods.DPushingBoulder(charMap);
+                SmallConsoleKeyMoveMethods.DPushingBoulder(charMap, character);
             }
-            else if (charMap[UpDown][LeftRight + 2] == '.' && (charMap[UpDown][LeftRight + 1] == ' ') && ObtainedFeather)
+            else if (charMap[character.UpDown][character.LeftRight + 2] == '.' && (charMap[character.UpDown][character.LeftRight + 1] == ' ') && ObtainedFeather)
             {
-                SmallConsoleKeyMoveMethods.DCrossingGap();
+                SmallConsoleKeyMoveMethods.DCrossingGap(character);
             }
         }
 
-        public static void PressedE(StringBuilder sb, char[][] charMap, Player player)
+        public static void PressedE(StringBuilder sb, char[][] charMap, Player player, Character character)
         {
-            if (!FirstLevelMaps.LevelOneChests[MapNumber] && SmallMoveMethods.Characterm(charMap))
+            if (!FirstLevelMaps.LevelOneChests[MapNumber] && SmallMoveMethods.Characterm(charMap, character))
             {
                 InteractMoveMethods.PotionsChestFull(player);
             }
-            else if ((FirstLevelMaps.LevelOneChests[MapNumber] && SmallMoveMethods.Characterm(charMap)) || (ObtainedFeather && SmallMoveMethods.CharacterM(charMap)))
+            else if ((FirstLevelMaps.LevelOneChests[MapNumber] && SmallMoveMethods.Characterm(charMap, character)) || (ObtainedFeather && SmallMoveMethods.CharacterM(charMap, character)))
             {
                 InteractMoveMethods.PotionsChestEmpty();
             }
-            else if (SmallMoveMethods.Character0(charMap))
+            else if (SmallMoveMethods.Character0(charMap, character))
             {
-                InteractMoveMethods.MovingToNextRoom(sb, charMap);
+                InteractMoveMethods.MovingToNextRoom(sb, charMap, character);
             }
-            else if (SmallMoveMethods.CharacterO(charMap))
+            else if (SmallMoveMethods.CharacterO(charMap, character))
             {
-                InteractMoveMethods.MovingToPreviousRoom(sb, charMap);
+                InteractMoveMethods.MovingToPreviousRoom(sb, charMap, character);
             }
-            else if (!ObtainedKey && SmallMoveMethods.CharacterK(charMap))
+            else if (!ObtainedKey && SmallMoveMethods.CharacterK(charMap, character))
             {
-                InteractMoveMethods.ObtainingKey(sb, charMap);
+                InteractMoveMethods.ObtainingKey(sb, charMap, character);
             }
-            else if (!ObtainedFeather && SmallMoveMethods.CharacterM(charMap))
+            else if (!ObtainedFeather && SmallMoveMethods.CharacterM(charMap, character))
             {
                 InteractMoveMethods.ObtainingFeather();
             }
-            else if (SmallMoveMethods.CharacterR(charMap))
+            else if (SmallMoveMethods.CharacterR(charMap, character))
             {
                 InteractMoveMethods.ResetBoulders();
             }

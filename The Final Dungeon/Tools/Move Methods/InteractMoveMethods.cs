@@ -24,46 +24,46 @@ namespace MyTools
             PressEnter();
         }
 
-        public static void MovingToNextRoom(StringBuilder sb, char[][] charMap)
+        public static void MovingToNextRoom(StringBuilder sb, char[][] charMap, Character character)
         {
-            SmallMoveMethods.ClearCharacterOnMap(sb, charMap);
+            SmallMoveMethods.ClearCharacterOnMap(sb, charMap, character);
 
             MapNumber++;
-            UpDown = FirstLevelMaps.LevelOneUpDown[2 * MapNumber];
-            LeftRight = FirstLevelMaps.LevelOneLeftRight[2 * MapNumber];
+            character.UpDown = FirstLevelMaps.LevelOneUpDown[2 * MapNumber];
+            character.LeftRight = FirstLevelMaps.LevelOneLeftRight[2 * MapNumber];
         }
 
-        public static void MovingToPreviousRoom(StringBuilder sb, char[][] charMap)
+        public static void MovingToPreviousRoom(StringBuilder sb, char[][] charMap, Character character)
         {
-            SmallMoveMethods.ClearCharacterOnMap(sb, charMap);
+            SmallMoveMethods.ClearCharacterOnMap(sb, charMap, character);
 
             MapNumber--;
             if (MapNumber == 0)
             {
-                UpDown = FirstLevelMaps.LevelOneUpDown[1];
-                LeftRight = FirstLevelMaps.LevelOneLeftRight[1];
+                character.UpDown = FirstLevelMaps.LevelOneUpDown[1];
+                character.LeftRight = FirstLevelMaps.LevelOneLeftRight[1];
             }
             else
             {
-                UpDown = FirstLevelMaps.LevelOneUpDown[2 * MapNumber + 1];
-                LeftRight = FirstLevelMaps.LevelOneLeftRight[2 * MapNumber + 1];
+                character.UpDown = FirstLevelMaps.LevelOneUpDown[2 * MapNumber + 1];
+                character.LeftRight = FirstLevelMaps.LevelOneLeftRight[2 * MapNumber + 1];
             }
         }
 
-        public static void ObtainingKey(StringBuilder sb, char[][] charMap)
+        public static void ObtainingKey(StringBuilder sb, char[][] charMap, Character character)
         {
             Console.Clear();
             Console.WriteLine("You have obtained a key.");
             PressEnter();
 
-            sb.Append(charMap[UpDown]).Replace('K', '.');
-            charMap[UpDown] = sb.ToString().ToCharArray();
+            sb.Append(charMap[character.UpDown]).Replace('K', '.');
+            charMap[character.UpDown] = sb.ToString().ToCharArray();
             sb.Clear();
-            sb.Append(charMap[UpDown + 1]).Replace('K', '.');
-            charMap[UpDown + 1] = sb.ToString().ToCharArray();
+            sb.Append(charMap[character.UpDown + 1]).Replace('K', '.');
+            charMap[character.UpDown + 1] = sb.ToString().ToCharArray();
             sb.Clear();
-            sb.Append(charMap[UpDown - 1]).Replace('K', '.');
-            charMap[UpDown - 1] = sb.ToString().ToCharArray();
+            sb.Append(charMap[character.UpDown - 1]).Replace('K', '.');
+            charMap[character.UpDown - 1] = sb.ToString().ToCharArray();
             sb.Clear();
 
             ObtainedKey = true;

@@ -8,188 +8,188 @@ namespace MyTools
 {
     public class SmallMoveMethods : MainMove
     {
-        public static void WBoulderNoGap()
+        public static void WBoulderNoGap(Character character)
         {
-            UpDown--;
-            Up = true;
+            character.UpDown--;
+            character.Up = true;
             PushingBoulder = true;
             BoulderOverGap = false;
             Console.Clear();
         }
-        public static void WBoulderGap()
+        public static void WBoulderGap(Character character)
         {
-            UpDown--;
-            Up = true;
+            character.UpDown--;
+            character.Up = true;
             PushingBoulder = true;
             BoulderOverGap = true;
             Console.Clear();
         }
-        public static void SBoulderNoGap()
+        public static void SBoulderNoGap(Character character)
         {
-            UpDown++;
-            Down = true;
+            character.UpDown++;
+            character.Down = true;
             PushingBoulder = true;
             BoulderOverGap = false;
             Console.Clear();
         }
-        public static void SBoulderGap()
+        public static void SBoulderGap(Character character)
         {
-            UpDown++;
-            Down = true;
+            character.UpDown++;
+            character.Down = true;
             PushingBoulder = true;
             BoulderOverGap = true;
             Console.Clear();
         }
-        public static void ABoulderNoGap()
+        public static void ABoulderNoGap(Character character)
         {
-            LeftRight--;
-            Left = true;
+            character.LeftRight--;
+            character.Left = true;
             PushingBoulder = true;
             BoulderOverGap = false;
             Console.Clear();
         }
-        public static void ABoulderGap()
+        public static void ABoulderGap(Character character)
         {
-            LeftRight--;
-            Left = true;
+            character.LeftRight--;
+            character.Left = true;
             PushingBoulder = true;
             BoulderOverGap = true;
             Console.Clear();
         }
-        public static void DBoulderNoGap()
+        public static void DBoulderNoGap(Character character)
         {
-            LeftRight++;
-            Right = true;
+            character.LeftRight++;
+            character.Right = true;
             PushingBoulder = true;
             BoulderOverGap = false;
             Console.Clear();
         }
-        public static void DBoulderGap()
+        public static void DBoulderGap(Character character)
         {
-            LeftRight++;
-            Right = true;
+            character.LeftRight++;
+            character.Right = true;
             PushingBoulder = true;
             BoulderOverGap = true;
             Console.Clear();
         }
 
-        public static void ClearCharacterOnMap(StringBuilder sb, char[][] charMap)
+        public static void ClearCharacterOnMap(StringBuilder sb, char[][] charMap, Character character)
         {
-            sb.Append(charMap[UpDown]).Remove(LeftRight, 1).Insert(LeftRight, '.');
-            charMap[UpDown] = sb.ToString().ToCharArray();
+            sb.Append(charMap[character.UpDown]).Remove(character.LeftRight, 1).Insert(character.LeftRight, '.');
+            charMap[character.UpDown] = sb.ToString().ToCharArray();
             sb.Clear();
         }
 
-        public static bool NotCharactersLeftRightPlus(char[][] charMap)
+        public static bool NotCharactersLeftRightPlus(char[][] charMap, Character character)
         {
-            if (charMap[UpDown][LeftRight + 1] != ':'
-                && charMap[UpDown][LeftRight + 1] != 'O'
-                && charMap[UpDown][LeftRight + 1] != '0')
+            if (charMap[character.UpDown][character.LeftRight + 1] != ':'
+                && charMap[character.UpDown][character.LeftRight + 1] != 'O'
+                && charMap[character.UpDown][character.LeftRight + 1] != '0')
             {
                 return true;
             }
             return false;
         }
 
-        public static bool NotCharactersLeftRightMinus(char[][] charMap)
+        public static bool NotCharactersLeftRightMinus(char[][] charMap, Character character)
         {
-            if (charMap[UpDown][LeftRight - 1] != ':'
-                && charMap[UpDown][LeftRight - 1] != 'O'
-                && charMap[UpDown][LeftRight - 1] != '0')
+            if (charMap[character.UpDown][character.LeftRight - 1] != ':'
+                && charMap[character.UpDown][character.LeftRight - 1] != 'O'
+                && charMap[character.UpDown][character.LeftRight - 1] != '0')
             {
                 return true;
             }
             return false;
         }
 
-        public static bool NotCharactersUpDownPlus(char[][] charMap)
+        public static bool NotCharactersUpDownPlus(char[][] charMap, Character character)
         {
-            if (charMap[UpDown + 1][LeftRight] != '~'
-                && charMap[UpDown + 1][LeftRight] != 'O'
-                && charMap[UpDown + 1][LeftRight] != '0')
+            if (charMap[character.UpDown + 1][character.LeftRight] != '~'
+                && charMap[character.UpDown + 1][character.LeftRight] != 'O'
+                && charMap[character.UpDown + 1][character.LeftRight] != '0')
             {
                 return true;
             }
             return false;
         }
 
-        public static bool NotCharactersUpDownMinus(char[][] charMap)
+        public static bool NotCharactersUpDownMinus(char[][] charMap, Character character)
         {
-            if (charMap[UpDown - 1][LeftRight] != '~'
-                && charMap[UpDown - 1][LeftRight] != 'O'
-                && charMap[UpDown - 1][LeftRight] != '0')
+            if (charMap[character.UpDown - 1][character.LeftRight] != '~'
+                && charMap[character.UpDown - 1][character.LeftRight] != 'O'
+                && charMap[character.UpDown - 1][character.LeftRight] != '0')
             {
                 return true;
             }
             return false;
         }
 
-        public static bool Characterm(char[][] charMap)
+        public static bool Characterm(char[][] charMap, Character character)
         {
-            if (charMap[UpDown - 1][LeftRight] == 'm'
-                || charMap[UpDown + 1][LeftRight] == 'm'
-                || charMap[UpDown][LeftRight - 1] == 'm'
-                || charMap[UpDown][LeftRight + 1] == 'm')
+            if (charMap[character.UpDown - 1][character.LeftRight] == 'm'
+                || charMap[character.UpDown + 1][character.LeftRight] == 'm'
+                || charMap[character.UpDown][character.LeftRight - 1] == 'm'
+                || charMap[character.UpDown][character.LeftRight + 1] == 'm')
             {
                 return true;
             }
             return false;
         }
 
-        public static bool CharacterM(char[][] charMap)
+        public static bool CharacterM(char[][] charMap, Character character)
         {
-            if (charMap[UpDown - 1][LeftRight] == 'M'
-                || charMap[UpDown + 1][LeftRight] == 'M'
-                || charMap[UpDown][LeftRight - 1] == 'M'
-                || charMap[UpDown][LeftRight + 1] == 'M')
+            if (charMap[character.UpDown - 1][character.LeftRight] == 'M'
+                || charMap[character.UpDown + 1][character.LeftRight] == 'M'
+                || charMap[character.UpDown][character.LeftRight - 1] == 'M'
+                || charMap[character.UpDown][character.LeftRight + 1] == 'M')
             {
                 return true;
             }
             return false;
         }
 
-        public static bool CharacterK(char[][] charMap)
+        public static bool CharacterK(char[][] charMap, Character character)
         {
-            if (charMap[UpDown - 1][LeftRight] == 'K'
-                || charMap[UpDown + 1][LeftRight] == 'K'
-                || charMap[UpDown][LeftRight - 1] == 'K'
-                || charMap[UpDown][LeftRight + 1] == 'K')
+            if (charMap[character.UpDown - 1][character.LeftRight] == 'K'
+                || charMap[character.UpDown + 1][character.LeftRight] == 'K'
+                || charMap[character.UpDown][character.LeftRight - 1] == 'K'
+                || charMap[character.UpDown][character.LeftRight + 1] == 'K')
             {
                 return true;
             }
             return false;
         }
 
-        public static bool CharacterO(char[][] charMap)
+        public static bool CharacterO(char[][] charMap, Character character)
         {
-            if (charMap[UpDown - 1][LeftRight] == 'O'
-                || charMap[UpDown + 1][LeftRight] == 'O'
-                || charMap[UpDown][LeftRight - 1] == 'O'
-                || charMap[UpDown][LeftRight + 1] == 'O')
+            if (charMap[character.UpDown - 1][character.LeftRight] == 'O'
+                || charMap[character.UpDown + 1][character.LeftRight] == 'O'
+                || charMap[character.UpDown][character.LeftRight - 1] == 'O'
+                || charMap[character.UpDown][character.LeftRight + 1] == 'O')
             {
                 return true;
             }
             return false;
         }
 
-        public static bool Character0(char[][] charMap)
+        public static bool Character0(char[][] charMap, Character character)
         {
-            if (charMap[UpDown - 1][LeftRight] == '0'
-                || charMap[UpDown + 1][LeftRight] == '0'
-                || charMap[UpDown][LeftRight - 1] == '0'
-                || charMap[UpDown][LeftRight + 1] == '0')
+            if (charMap[character.UpDown - 1][character.LeftRight] == '0'
+                || charMap[character.UpDown + 1][character.LeftRight] == '0'
+                || charMap[character.UpDown][character.LeftRight - 1] == '0'
+                || charMap[character.UpDown][character.LeftRight + 1] == '0')
             {
                 return true;
             }
             return false;
         }
 
-        public static bool CharacterR(char[][] charMap)
+        public static bool CharacterR(char[][] charMap, Character character)
         {
-            if (charMap[UpDown - 1][LeftRight] == 'R'
-                || charMap[UpDown + 1][LeftRight] == 'R'
-                || charMap[UpDown][LeftRight - 1] == 'R'
-                || charMap[UpDown][LeftRight + 1] == 'R')
+            if (charMap[character.UpDown - 1][character.LeftRight] == 'R'
+                || charMap[character.UpDown + 1][character.LeftRight] == 'R'
+                || charMap[character.UpDown][character.LeftRight - 1] == 'R'
+                || charMap[character.UpDown][character.LeftRight + 1] == 'R')
             {
                 return true;
             }

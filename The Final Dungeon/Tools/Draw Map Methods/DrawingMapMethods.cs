@@ -8,15 +8,15 @@ namespace MyTools
 {
     public class DrawingMapMethods : MainDrawingMap
     {
-        public static void CharacterMovesUpOrDown(StringBuilder sb, char[][] charMap, string character)
+        public static void CharacterMovesUpOrDown(StringBuilder sb, char[][] charMap, Character character)
         {
             if (PushingBoulder && !BoulderOverGap)
             {
-                if (Up)
+                if (character.Up)
                 {
                     SmallDrawingMapMethods.UpOrDownBoulderUp(sb, charMap, character);
                 }
-                if (Down)
+                if (character.Down)
                 {
                     SmallDrawingMapMethods.UpOrDownBoulderDown(sb, charMap, character);
                 }
@@ -25,27 +25,27 @@ namespace MyTools
             SmallDrawingMapMethods.UpOrDownNormal(sb, charMap, character);
         }
 
-        public static void ClearAfterMovingUp(StringBuilder sb, char[][] charMap, string character)
+        public static void ClearAfterMovingUp(StringBuilder sb, char[][] charMap, Character character)
         {
             if (CrossedGap)
             {
-                SmallDrawingMapMethods.ClearUpGap(sb, charMap);
+                SmallDrawingMapMethods.ClearUpGap(sb, charMap, character);
                 return;
             }
-            SmallDrawingMapMethods.ClearUpNormal(sb, charMap);
+            SmallDrawingMapMethods.ClearUpNormal(sb, charMap, character);
         }
 
-        public static void ClearAfterMovingDown(StringBuilder sb, char[][] charMap, string character)
+        public static void ClearAfterMovingDown(StringBuilder sb, char[][] charMap, Character character)
         {
             if (CrossedGap)
             {
-                SmallDrawingMapMethods.ClearDownGap(sb, charMap);
+                SmallDrawingMapMethods.ClearDownGap(sb, charMap, character);
                 return;
             }
-            SmallDrawingMapMethods.ClearDownNormal(sb, charMap);
+            SmallDrawingMapMethods.ClearDownNormal(sb, charMap, character);
         }
 
-        public static void MoveAndClearLeft(StringBuilder sb, char[][] charMap, string character)
+        public static void MoveAndClearLeft(StringBuilder sb, char[][] charMap, Character character)
         {
             if (CrossedGap)
             {
@@ -60,7 +60,7 @@ namespace MyTools
             SmallDrawingMapMethods.LeftNormal(sb, charMap, character);
         }
 
-        public static void MoveAndClearRight(StringBuilder sb, char[][] charMap, string character)
+        public static void MoveAndClearRight(StringBuilder sb, char[][] charMap, Character character)
         {
             if (CrossedGap)
             {

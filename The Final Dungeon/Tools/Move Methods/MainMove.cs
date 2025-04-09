@@ -11,29 +11,29 @@ namespace MyTools
 {
     public class MainMove : Tools
     {
-        public static void Move(Player player, char[][] charMap, StringBuilder sb, string character)
+        public static void Move(Player player, char[][] charMap, StringBuilder sb, Character character)
         {
-            Up = false;
-            Down = false;
-            Left = false;
-            Right = false;
+            character.Up = false;
+            character.Down = false;
+            character.Left = false;
+            character.Right = false;
 
             var key = Console.ReadKey().Key;
-            if (key == ConsoleKey.W && SmallMoveMethods.NotCharactersUpDownMinus(charMap))
+            if (key == ConsoleKey.W && SmallMoveMethods.NotCharactersUpDownMinus(charMap, character))
             {
-                MainConsoleKeyMoveMethods.PressedW(charMap);
+                MainConsoleKeyMoveMethods.PressedW(charMap, character);
             }
-            else if (key == ConsoleKey.S && SmallMoveMethods.NotCharactersUpDownPlus(charMap))
+            else if (key == ConsoleKey.S && SmallMoveMethods.NotCharactersUpDownPlus(charMap, character))
             {
-                MainConsoleKeyMoveMethods.PressedS(charMap);
+                MainConsoleKeyMoveMethods.PressedS(charMap, character);
             }
-            else if (key == ConsoleKey.A && SmallMoveMethods.NotCharactersLeftRightMinus(charMap))
+            else if (key == ConsoleKey.A && SmallMoveMethods.NotCharactersLeftRightMinus(charMap, character))
             {
-                MainConsoleKeyMoveMethods.PressedA(charMap);
+                MainConsoleKeyMoveMethods.PressedA(charMap, character);
             }
-            else if (key == ConsoleKey.D && SmallMoveMethods.NotCharactersLeftRightPlus(charMap))
+            else if (key == ConsoleKey.D && SmallMoveMethods.NotCharactersLeftRightPlus(charMap, character))
             {
-                MainConsoleKeyMoveMethods.PressedD(charMap);
+                MainConsoleKeyMoveMethods.PressedD(charMap, character);
             }
             else if (key == ConsoleKey.R)
             {
@@ -41,7 +41,7 @@ namespace MyTools
             }
             else if (key == ConsoleKey.E)
             {
-                MainConsoleKeyMoveMethods.PressedE(sb, charMap, player);
+                MainConsoleKeyMoveMethods.PressedE(sb, charMap, player, character);
             }
 
             MainBattle.RandomEnemyEncounter();

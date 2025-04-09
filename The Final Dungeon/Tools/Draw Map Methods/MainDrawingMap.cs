@@ -47,7 +47,7 @@ namespace MyTools
             }
         }
         
-        public static void DrawMainMap(StringBuilder sb, char[][] charMap, char[][] charResetMap, string character)
+        public static void DrawMainMap(StringBuilder sb, char[][] charMap, char[][] charResetMap, Character character)
         {
             Console.SetCursorPosition(0, 0);
             Console.CursorVisible = false;
@@ -63,21 +63,21 @@ namespace MyTools
 
             DrawingMapMethods.CharacterMovesUpOrDown(sb, charMap, character);
 
-            if (Up)
+            if (character.Up)
             {
                 DrawingMapMethods.CharacterMovesUpOrDown(sb, charMap, character);
                 DrawingMapMethods.ClearAfterMovingUp(sb, charMap, character);
             }
-            else if (Down)
+            else if (character.Down)
             {
                 DrawingMapMethods.CharacterMovesUpOrDown(sb, charMap, character);
                 DrawingMapMethods.ClearAfterMovingDown(sb, charMap, character);
             }
-            else if (Left)
+            else if (character.Left)
             {
                 DrawingMapMethods.MoveAndClearLeft(sb, charMap, character);
             }
-            else if (Right)
+            else if (character.Right)
             {
                 DrawingMapMethods.MoveAndClearRight(sb, charMap, character);
             }

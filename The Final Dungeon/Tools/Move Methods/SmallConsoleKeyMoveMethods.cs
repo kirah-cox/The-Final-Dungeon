@@ -8,114 +8,114 @@ namespace MyTools
 {
     public class SmallConsoleKeyMoveMethods : MainConsoleKeyMoveMethods
     {
-        public static void WNormalMove()
+        public static void WNormalMove(Character character)
         {
-            UpDown--;
-            Up = true;
+            character.UpDown--;
+            character.Up = true;
             PushingBoulder = false;
             Console.Clear();
         }
 
-        public static void SNormalMove()
+        public static void SNormalMove(Character character)
         {
-            UpDown++;
-            Down = true;
+            character.UpDown++;
+            character.Down = true;
             PushingBoulder = false;
             Console.Clear();
         }
 
-        public static void ANormalMove()
+        public static void ANormalMove(Character character)
         {
-            LeftRight--;
-            Left = true;
+            character.LeftRight--;
+            character.Left = true;
             PushingBoulder = false;
             Console.Clear();
         }
 
-        public static void DNormalMove()
+        public static void DNormalMove(Character character)
         {
-            LeftRight++;
-            Right = true;
+            character.LeftRight++;
+            character.Right = true;
             PushingBoulder = false;
             Console.Clear();
         }
 
-        public static void WPushingBoulder(char[][] charMap)
+        public static void WPushingBoulder(char[][] charMap, Character character)
         {
-            if (charMap[UpDown - 2][LeftRight] == '.')
+            if (charMap[character.UpDown - 2][character.LeftRight] == '.')
             {
-                SmallMoveMethods.WBoulderNoGap();
+                SmallMoveMethods.WBoulderNoGap(character);
             }
-            else if (charMap[UpDown - 2][LeftRight] == ' ')
+            else if (charMap[character.UpDown - 2][character.LeftRight] == ' ')
             {
-                SmallMoveMethods.WBoulderGap();
+                SmallMoveMethods.WBoulderGap(character);
             }
         }
 
-        public static void SPushingBoulder(char[][] charMap)
+        public static void SPushingBoulder(char[][] charMap, Character character)
         {
-            if (charMap[UpDown + 2][LeftRight] == '.')
+            if (charMap[character.UpDown + 2][character.LeftRight] == '.')
             {
-                SmallMoveMethods.SBoulderNoGap();
+                SmallMoveMethods.SBoulderNoGap(character);
             }
-            else if (charMap[UpDown + 2][LeftRight] == ' ')
+            else if (charMap[character.UpDown + 2][character.LeftRight] == ' ')
             {
-                SmallMoveMethods.SBoulderGap();
+                SmallMoveMethods.SBoulderGap(character);
             }
         }
 
-        public static void APushingBoulder(char[][] charMap)
+        public static void APushingBoulder(char[][] charMap, Character character)
         {
-            if (charMap[UpDown][LeftRight - 2] == '.')
+            if (charMap[character.UpDown][character.LeftRight - 2] == '.')
             {
-                SmallMoveMethods.ABoulderNoGap();
+                SmallMoveMethods.ABoulderNoGap(character);
             }
-            else if (charMap[UpDown][LeftRight - 2] == ' ')
+            else if (charMap[character.UpDown][character.LeftRight - 2] == ' ')
             {
-                SmallMoveMethods.ABoulderGap();
+                SmallMoveMethods.ABoulderGap(character);
             }
         }
 
-        public static void DPushingBoulder(char[][] charMap)
+        public static void DPushingBoulder(char[][] charMap, Character character)
         {
-            if (charMap[UpDown][LeftRight + 2] == '.')
+            if (charMap[character.UpDown][character.LeftRight + 2] == '.')
             {
-                SmallMoveMethods.DBoulderNoGap();
+                SmallMoveMethods.DBoulderNoGap(character);
             }
-            else if (charMap[UpDown][LeftRight + 2] == ' ')
+            else if (charMap[character.UpDown][character.LeftRight + 2] == ' ')
             {
-                SmallMoveMethods.DBoulderGap();
+                SmallMoveMethods.DBoulderGap(character);
             }
         }
 
-        public static void WCrossingGap()
+        public static void WCrossingGap(Character character)
         {
-            UpDown -= 2;
-            Up = true;
+            character.UpDown -= 2;
+            character.Up = true;
             CrossedGap = true;
             Console.Clear();
         }
 
-        public static void SCrossingGap()
+        public static void SCrossingGap(Character character)
         {
-            UpDown += 2;
-            Down = true;
+            character.UpDown += 2;
+            character.Down = true;
             CrossedGap = true;
             Console.Clear();
         }
 
-        public static void ACrossingGap()
+        public static void ACrossingGap(Character character)
         {
-            LeftRight -= 2;
-            Left = true;
+            character.LeftRight -= 2;
+            character.Left = true;
             CrossedGap = true;
             Console.Clear();
         }
         
-        public static void DCrossingGap()
+        public static void DCrossingGap(Character character)
         {
-            LeftRight += 2;
-            Right = true;
+            character.LeftRight += 2;
+            character.Right = true;
             CrossedGap = true;
             Console.Clear();
         }

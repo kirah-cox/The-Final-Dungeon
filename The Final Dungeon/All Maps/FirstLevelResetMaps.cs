@@ -68,9 +68,34 @@ namespace AllMaps
             "         :~~~~~~~~~~~~~:         ".ToCharArray(),
         };
 
+        public static char[][] BossMap =
+        {
+            ":                 _'^'_                 :".ToCharArray(),
+            ":                (0'-'0)                :".ToCharArray(),
+            ":             _ (   -   ) _             :".ToCharArray(),
+            ":           (  )(       )(  )           :".ToCharArray(),
+            ":            ( ) ) | | ( ( )            :".ToCharArray(),
+            ":           oO)  oO) (Oo  (Oo           :".ToCharArray(),
+            ":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
+            ":.......................................:".ToCharArray(),
+            ":.......................................:".ToCharArray(),
+            ":.......................................:".ToCharArray(),
+            ":.......................................:".ToCharArray(),
+            ":.......................................:".ToCharArray(),
+            ":.......................................:".ToCharArray(),
+            ":.......................................:".ToCharArray(),
+            ":.......................................:".ToCharArray(),
+            ":.......................................:".ToCharArray(),
+            ":.......................................:".ToCharArray(),
+            ":.......................................:".ToCharArray(),
+            ":.......................................:".ToCharArray(),
+            ":.......................................:".ToCharArray(),
+            ":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
+        };
+
         public static List<char[][]> LevelOneResetMaps = new List<char[][]>()
         {
-            FirstMap, SecondMap, ThirdMap, FourthMap
+            FirstMap, SecondMap, ThirdMap, FourthMap, BossMap
         };
     }
 }

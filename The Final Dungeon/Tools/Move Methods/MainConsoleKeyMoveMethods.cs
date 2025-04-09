@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AllCreations;
 using AllMaps;
+using AllProjectiles;
 
 namespace MyTools
 {
@@ -84,9 +85,14 @@ namespace MyTools
             {
                 InteractMoveMethods.PotionsChestEmpty();
             }
-            else if (SmallMoveMethods.Character0(charMap, character))
+            else if (SmallMoveMethods.Character0(charMap, character) && MapNumber + 1 != 4)
             {
                 InteractMoveMethods.MovingToNextRoom(sb, charMap, character);
+            }
+            else if (SmallMoveMethods.Character0(charMap, character) && MapNumber + 1 == 4)
+            {
+                InteractMoveMethods.MovingToNextRoom(sb, charMap, character);
+                BossFight = true;
             }
             else if (SmallMoveMethods.CharacterO(charMap, character))
             {

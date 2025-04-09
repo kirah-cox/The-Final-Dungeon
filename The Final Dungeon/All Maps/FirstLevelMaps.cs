@@ -66,7 +66,7 @@ namespace AllMaps
 
         public static char[][] FourthMap =
         {
-            "         :~~~~~~~~~~~~~:         ".ToCharArray(),
+            "         :~~~~~~0~~~~~~:         ".ToCharArray(),
             "         :.............:         ".ToCharArray(),
             "         :             :         ".ToCharArray(),
             "         :.............:         ".ToCharArray(),
@@ -80,9 +80,34 @@ namespace AllMaps
         };
         public static bool FourthChestEmpty { get; set; } = false;
 
+        public static char[][] BossMap =
+        {
+            ":                 _'^'_                 :".ToCharArray(),
+            ":                (0'-'0)                :".ToCharArray(),
+            ":             _ (   -   ) _             :".ToCharArray(),
+            ":           (  )(       )(  )           :".ToCharArray(),
+            ":            ( ) ) | | ( ( )            :".ToCharArray(),
+            ":           oO)  oO) (Oo  (Oo           :".ToCharArray(),
+            ":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
+            ":.......................................:".ToCharArray(),
+            ":.......................................:".ToCharArray(),
+            ":.......................................:".ToCharArray(),
+            ":.......................................:".ToCharArray(),
+            ":.......................................:".ToCharArray(),
+            ":.......................................:".ToCharArray(),
+            ":.......................................:".ToCharArray(),
+            ":.......................................:".ToCharArray(),
+            ":.......................................:".ToCharArray(),
+            ":.......................................:".ToCharArray(),
+            ":.......................................:".ToCharArray(),
+            ":.......................................:".ToCharArray(),
+            ":.......................................:".ToCharArray(),
+            ":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
+        };
+
         public static List<char[][]> LevelOneMaps = new List<char[][]>()
         {
-            FirstMap, SecondMap, ThirdMap, FourthMap
+            FirstMap, SecondMap, ThirdMap, FourthMap, BossMap,
         };
 
         public static List<bool> LevelOneChests = new List<bool>()
@@ -92,12 +117,12 @@ namespace AllMaps
 
         public static List<int> LevelOneUpDown = new List<int>()
         {
-            1, 5, 2, 9, 1, 6, 8,
+            1, 5, 2, 9, 1, 6, 8, 0, 19
         };
 
         public static List<int> LevelOneLeftRight= new List<int>()
         {
-            1, 31, 1, 24, 4, 31, 10,
+            1, 31, 1, 24, 4, 31, 10, 16, 20
         };
     }
 }

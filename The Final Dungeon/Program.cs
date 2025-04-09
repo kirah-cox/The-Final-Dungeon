@@ -3,6 +3,7 @@ using AllMaps;
 using AllCreations;
 using MyTools;
 using LootThings;
+using AllProjectiles;
 
 public class Program
 {
@@ -14,11 +15,21 @@ public class Program
 
         Player player = new Player(MainDrawingMap.MenuScreen());
 
+        Projectile projectile1 = new Projectile("*");
+
         Console.Clear();
 
         while (!Tools.EncounteredEnemy)
         {
-            MainDrawingMap.DrawMainMap(sb, FirstLevelMaps.LevelOneMaps[Tools.MapNumber], FirstLevelResetMaps.LevelOneResetMaps[Tools.MapNumber], character);
+            if (Tools.BossFight)
+            {
+                Projectile.CreateProjectile(sb, FirstLevelMaps.LevelOneMaps[Tools.MapNumber], projectile1);
+                MainDrawingMap.DrawMainMap(sb, FirstLevelMaps.LevelOneMaps[Tools.MapNumber], FirstLevelResetMaps.LevelOneResetMaps[Tools.MapNumber], character);
+            }
+            else if (!Tools.BossFight)
+            {
+                MainDrawingMap.DrawMainMap(sb, FirstLevelMaps.LevelOneMaps[Tools.MapNumber], FirstLevelResetMaps.LevelOneResetMaps[Tools.MapNumber], character);
+            }
 
             MainMove.Move(player, FirstLevelMaps.LevelOneMaps[Tools.MapNumber], sb, character);
             

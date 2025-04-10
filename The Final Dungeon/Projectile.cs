@@ -19,7 +19,7 @@ namespace AllProjectiles
         public bool Left { get; set; }
         public bool Right { get; set; }
 
-        public Projectile(string projectileCharacter, int upDown = 1, int leftRight = 1)
+        public Projectile(string projectileCharacter, int upDown = 7, int leftRight = 1)
         {
             ProjectileCharacter = projectileCharacter;
             UpDown = upDown;
@@ -30,24 +30,57 @@ namespace AllProjectiles
             Right = false;
         }
 
-        public static void CreateProjectile(StringBuilder sb, char[][] charMap, Projectile projectile)
+
+        public void CreateProjectile(StringBuilder sb, char[][] charMap)
         {
             Timer timer = new Timer(_ =>
             {
-                projectile.ProjectileDrawMap(sb, charMap);
-                projectile.ProjectileAttacksOne();
-            }, null, 0, 300);
+                ProjectileAttacksDown(charMap);
+            }, null, 0, 1000);
 
         }
 
-        public void ProjectileAttacksOne()
+        public void ProjectileAttacksUp(char[][] charMap)
         {
-            UpDown++;
-            LeftRight++;
+            if (charMap[UpDown - 1][LeftRight] != '~')
+            {
+                UpDown--;
+                Up = true;
+            }
+        }
+
+        public void ProjectileAttacksDown(char[][] charMap)
+        {
+            if (charMap[UpDown + 1][LeftRight] != '~')
+            {
+                UpDown++;
+                Down = true;
+            }
+        }
+
+        public void ProjectileAttacksRight(char[][] charMap)
+        {
+            if(charMap[UpDown][LeftRight + 1] != ':')
+            {
+                LeftRight++;
+                Right = true;
+            }
+        }
+
+        public void ProjectileAttacksLeft(char[][] charMap)
+        {
+            if (charMap[UpDown][LeftRight - 1] != ':')
+            {
+                LeftRight--;
+                Left = true;
+            }
         }
 
         public void ProjectileDrawMap(StringBuilder sb, char[][] charMap)
         {
+            Console.SetCursorPosition(0, 0);
+            Console.CursorVisible = false;
+
             if (Up)
             {
                 DrawUpOrDown(sb, charMap);
@@ -66,6 +99,11 @@ namespace AllProjectiles
             {
                 ClearAndDrawRight(sb, charMap);
             }
+
+            Up = false;
+            Down = false;
+            Left = false;
+            Right = false;
         }
 
         public void DrawUpOrDown(StringBuilder sb, char[][] charMap)

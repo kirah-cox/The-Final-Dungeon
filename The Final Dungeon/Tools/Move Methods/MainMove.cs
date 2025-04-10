@@ -12,14 +12,20 @@ namespace MyTools
 {
     public class MainMove : Tools
     {
-        public static void Move(Player player, char[][] charMap, StringBuilder sb, Character character)
+        public static async Task Move(Player player, char[][] charMap, StringBuilder sb, Character character)
         {
             character.Up = false;
             character.Down = false;
             character.Left = false;
             character.Right = false;
 
-            var key = Console.ReadKey().Key;
+            var key = ConsoleKey.P;
+
+            await Task.Run(() =>
+            {
+                key = Console.ReadKey(intercept: true).Key;
+            });
+
             if (key == ConsoleKey.W && SmallMoveMethods.NotCharactersUpDownMinus(charMap, character))
             {
                 MainConsoleKeyMoveMethods.PressedW(charMap, character);
@@ -46,6 +52,7 @@ namespace MyTools
             }
 
             MainBattle.RandomEnemyEncounter();
+
         }
     }
 }

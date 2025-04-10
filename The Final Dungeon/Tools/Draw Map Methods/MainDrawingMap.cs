@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AllCreations;
+using AllProjectiles;
 
 namespace MyTools
 {
@@ -47,7 +48,7 @@ namespace MyTools
             }
         }
         
-        public static void DrawMainMap(StringBuilder sb, char[][] charMap, char[][] charResetMap, Character character)
+        public static async Task DrawMainMap(StringBuilder sb, char[][] charMap, char[][] charResetMap, Character character, Projectile projectile)
         {
             Console.SetCursorPosition(0, 0);
             Console.CursorVisible = false;
@@ -81,6 +82,8 @@ namespace MyTools
             {
                 DrawingMapMethods.MoveAndClearRight(sb, charMap, character);
             }
+
+            projectile.ProjectileDrawMap(sb, charMap);
 
             foreach (var item in charMap)
             {

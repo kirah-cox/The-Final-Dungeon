@@ -21,15 +21,7 @@ public class Program
 
         while (!Tools.EncounteredEnemy)
         {
-            if (Tools.BossFight)
-            {
-                Projectile.CreateProjectile(sb, FirstLevelMaps.LevelOneMaps[Tools.MapNumber], projectile1);
-                MainDrawingMap.DrawMainMap(sb, FirstLevelMaps.LevelOneMaps[Tools.MapNumber], FirstLevelResetMaps.LevelOneResetMaps[Tools.MapNumber], character);
-            }
-            else if (!Tools.BossFight)
-            {
-                MainDrawingMap.DrawMainMap(sb, FirstLevelMaps.LevelOneMaps[Tools.MapNumber], FirstLevelResetMaps.LevelOneResetMaps[Tools.MapNumber], character);
-            }
+            MainDrawingMap.DrawMainMap(sb, FirstLevelMaps.LevelOneMaps[Tools.MapNumber], FirstLevelResetMaps.LevelOneResetMaps[Tools.MapNumber], character);
 
             MainMove.Move(player, FirstLevelMaps.LevelOneMaps[Tools.MapNumber], sb, character);
             

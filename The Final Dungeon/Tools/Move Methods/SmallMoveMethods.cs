@@ -195,5 +195,17 @@ namespace MyTools
             }
             return false;
         }
+
+        public static bool CharacterB(char[][] charMap, Character character)
+        {
+            if (charMap[character.UpDown - 1][character.LeftRight] == 'B'
+                || charMap[character.UpDown + 1][character.LeftRight] == 'B'
+                || charMap[character.UpDown][character.LeftRight - 1] == 'B'
+                || charMap[character.UpDown][character.LeftRight + 1] == 'B')
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }

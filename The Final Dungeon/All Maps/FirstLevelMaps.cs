@@ -66,7 +66,7 @@ namespace AllMaps
 
         public static char[][] FourthMap =
         {
-            "         :~~~~~~0~~~~~~:         ".ToCharArray(),
+            "         :~~~~~~B~~~~~~:         ".ToCharArray(),
             "         :.............:         ".ToCharArray(),
             "         :             :         ".ToCharArray(),
             "         :.............:         ".ToCharArray(),
@@ -82,12 +82,12 @@ namespace AllMaps
 
         public static char[][] BossMap =
         {
-            ":                 _'^'_                 :".ToCharArray(),
-            ":                (0'-'0)                :".ToCharArray(),
-            ":             _ (   -   ) _             :".ToCharArray(),
-            ":           (  )(       )(  )           :".ToCharArray(),
-            ":            ( ) ) | | ( ( )            :".ToCharArray(),
-            ":           oO)  oO) (Oo  (Oo           :".ToCharArray(),
+            "                  _'^'_                  ".ToCharArray(),
+            "                 (0'-'0)                 ".ToCharArray(),
+            "              _ (   -   ) _              ".ToCharArray(),
+            "            (  )(       )(  )            ".ToCharArray(),
+            "             ( ) ) | | ( ( )             ".ToCharArray(),
+            "            oO)  oO) (Oo  (Oo            ".ToCharArray(),
             ":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
             ":.......................................:".ToCharArray(),
             ":.......................................:".ToCharArray(),

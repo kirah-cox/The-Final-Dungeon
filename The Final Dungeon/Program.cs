@@ -15,8 +15,6 @@ public class Program
 
         Player player = new Player(MainDrawingMap.MenuScreen());
 
-        Projectile projectile1 = new Projectile("*");
-
         Console.Clear();
 
         while (!Tools.EncounteredEnemy)

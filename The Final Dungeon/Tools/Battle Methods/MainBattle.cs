@@ -16,7 +16,7 @@ namespace MyTools
             Random random = new Random();
             int potentialEnemy = random.Next(1, 101);
 
-            if (potentialEnemy <= 1)
+            if (potentialEnemy <= 1 && !BossFight)
             {
                 EncounteredEnemy = true;
             }

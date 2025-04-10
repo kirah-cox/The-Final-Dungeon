@@ -8,9 +8,25 @@ namespace LootThings
 {
     public class Weapons
     {
-        public enum WeaponType
+        public enum LevelOneWeaponType
         {
+            PincerKnife,
+            OrbofManyEyes,
+            WebbedHammer,
 
+            FangedDagger,
+            FangStaff,
+            SpikedMace,
+
+            //Add Frog Weapons
+
+            KnawedKnife,
+            TailStaff,
+            HairyAxe,
+
+            SlimyDagger,
+            OrbofSlime,
+            WigglyLongSword,
         }
     }
 }

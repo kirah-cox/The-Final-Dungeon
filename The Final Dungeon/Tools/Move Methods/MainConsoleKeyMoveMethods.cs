@@ -110,6 +110,11 @@ namespace MyTools
             {
                 InteractMoveMethods.ResetBoulders();
             }
+            else if (SmallMoveMethods.CharacterB(charMap, character) && ObtainedKey)
+            {
+                InteractMoveMethods.MovingToNextRoom(sb, charMap, character);
+                ObtainedKey = false;
+            }
         }
     }
 }

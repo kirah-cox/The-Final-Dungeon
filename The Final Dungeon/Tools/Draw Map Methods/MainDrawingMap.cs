@@ -10,6 +10,8 @@ namespace MyTools
 {
     public class MainDrawingMap : Tools
     {
+        public static SemaphoreSlim _drawlock = new SemaphoreSlim(1,1);
+
         public static PlayerClass MenuScreen()
         {
             while (true)
@@ -50,44 +52,52 @@ namespace MyTools
         
         public static async Task DrawMainMap(StringBuilder sb, char[][] charMap, char[][] charResetMap, Character character, Projectile projectile)
         {
-            Console.SetCursorPosition(0, 0);
-            Console.CursorVisible = false;
-
-            if (ResetRoom)
+            await _drawlock.WaitAsync();
+            try
             {
-                for (int i = 0; i < 11; i++)
+                Console.SetCursorPosition(0, 0);
+                Console.CursorVisible = false;
+
+                if (ResetRoom)
                 {
-                    charMap[i] = charResetMap[i];
+                    for (int i = 0; i < 11; i++)
+                    {
+                        charMap[i] = charResetMap[i];
+                    }
+                    ResetRoom = false;
                 }
-                ResetRoom = false;
-            }
 
-            DrawingMapMethods.CharacterMovesUpOrDown(sb, charMap, character);
-
-            if (character.Up)
-            {
                 DrawingMapMethods.CharacterMovesUpOrDown(sb, charMap, character);
-                DrawingMapMethods.ClearAfterMovingUp(sb, charMap, character);
-            }
-            else if (character.Down)
-            {
-                DrawingMapMethods.CharacterMovesUpOrDown(sb, charMap, character);
-                DrawingMapMethods.ClearAfterMovingDown(sb, charMap, character);
-            }
-            else if (character.Left)
-            {
-                DrawingMapMethods.MoveAndClearLeft(sb, charMap, character);
-            }
-            else if (character.Right)
-            {
-                DrawingMapMethods.MoveAndClearRight(sb, charMap, character);
-            }
 
-            projectile.ProjectileDrawMap(sb, charMap);
+                if (character.Up)
+                {
+                    DrawingMapMethods.CharacterMovesUpOrDown(sb, charMap, character);
+                    DrawingMapMethods.ClearAfterMovingUp(sb, charMap, character);
+                }
+                else if (character.Down)
+                {
+                    DrawingMapMethods.CharacterMovesUpOrDown(sb, charMap, character);
+                    DrawingMapMethods.ClearAfterMovingDown(sb, charMap, character);
+                }
+                else if (character.Left)
+                {
+                    DrawingMapMethods.MoveAndClearLeft(sb, charMap, character);
+                }
+                else if (character.Right)
+                {
+                    DrawingMapMethods.MoveAndClearRight(sb, charMap, character);
+                }
 
-            foreach (var item in charMap)
+                projectile.ProjectileDrawMap(sb, charMap);
+
+                foreach (var item in charMap)
+                {
+                    Console.WriteLine(item);
+                }
+            }
+            finally
             {
-                Console.WriteLine(item);
+                _drawlock.Release();
             }
         }
     }

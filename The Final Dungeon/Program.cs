@@ -7,6 +7,7 @@ using AllProjectiles;
 
 public class Program
 {
+
     public static async Task Main()
     {
         Character character = new Character("@");
@@ -21,17 +22,14 @@ public class Program
 
         while (!Tools.EncounteredEnemy)
         {
-
             if (Tools.BossFight)
             {
-                projectile1.CreateProjectile(sb, FirstLevelMaps.LevelOneMaps[Tools.MapNumber]);
+                projectile1.CreateProjectile(sb, FirstLevelMaps.LevelOneMaps[Tools.MapNumber], FirstLevelResetMaps.LevelOneResetMaps[Tools.MapNumber], character, projectile1);
             }
 
-            var drawMap = Task.Run(() => MainDrawingMap.DrawMainMap(sb, FirstLevelMaps.LevelOneMaps[Tools.MapNumber], FirstLevelResetMaps.LevelOneResetMaps[Tools.MapNumber], character, projectile1));
-            
             await MainMove.Move(player, FirstLevelMaps.LevelOneMaps[Tools.MapNumber], sb, character);
 
-            await drawMap;
+            await Task.Run(() => MainDrawingMap.DrawMainMap(sb, FirstLevelMaps.LevelOneMaps[Tools.MapNumber], FirstLevelResetMaps.LevelOneResetMaps[Tools.MapNumber], character, projectile1));
 
             while (Tools.EncounteredEnemy)
             {

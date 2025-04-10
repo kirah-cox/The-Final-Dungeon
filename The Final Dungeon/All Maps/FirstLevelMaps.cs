@@ -42,11 +42,8 @@ namespace AllMaps
 
         public static bool SecondChestEmpty { get; set; } = false;
 
-        // FIX CHOOSING POTIONS IN THE BATLE MENU
-
         //sign that says that the previous room is the blueprint/solution to the answer undertale style?
         //maybe have some buttons that the boulders need to press, some not, and have a riddle to figure it out?
-        //PUT A RESET BOULDERS BUTTON
         //count the number of things and have the answer as a solution to a puzzle?
         public static char[][] ThirdMap =
         {

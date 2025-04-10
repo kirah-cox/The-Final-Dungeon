@@ -31,13 +31,28 @@ namespace AllProjectiles
         }
 
 
-        public void CreateProjectile(StringBuilder sb, char[][] charMap)
+        public void CreateProjectile(StringBuilder sb, char[][] charMap, char[][] charResetMap, Character character, Projectile projectile)
         {
-            Timer timer = new Timer(_ =>
-            {
-                ProjectileAttacksDown(charMap);
-            }, null, 0, 1000);
+            //Timer timer = new Timer(_ =>
+            //{
+            //    ProjectileAttacksDown(charMap);
+            //}, null, 0, 1000);
+            ProjectileAttacksDown(charMap);
+            Thread.Sleep(1000);
 
+            MainDrawingMap.DrawMainMap(sb, charMap, charResetMap, character, projectile);
+
+            ProjectileAttacksRight(charMap);
+            Thread.Sleep(1000);
+
+            MainDrawingMap.DrawMainMap(sb, charMap, charResetMap, character, projectile);
+        }    
+            
+
+        public void CreateProjectile2(StringBuilder sb, char[][] charMap)
+        {
+            ProjectileAttacksRight(charMap);
+            Thread.Sleep(1000);
         }
 
         public void ProjectileAttacksUp(char[][] charMap)

@@ -50,6 +50,7 @@ namespace LootThings
                         foreach (var item in player.WeaponInventory)
                         {
                             Console.WriteLine($"{lineNumber}. {item.Name}");
+                            item.ViewWeaponStats();
                             lineNumber++;
                         }
 
@@ -111,9 +112,17 @@ namespace LootThings
                 player.Weapon = weapon;
                 Console.WriteLine($"You have equipped {weapon.Name}.");
             }
-            else
+            if (player.Strength < StrenthRequirement)
             {
-                Console.WriteLine("You do not have the stats requied to equip this weapon.");
+                Console.WriteLine("You do not have the strength required to equip this weapon.");
+            }
+            if (player.Mana < ManaRequirement)
+            {
+                Console.WriteLine("You do not have the mana required to equip this weapon.");
+            }
+            if (player.Luck < LuckRequirement)
+            {
+                Console.WriteLine("You do not have the luck required to equip this weapon.");
             }
         }
 

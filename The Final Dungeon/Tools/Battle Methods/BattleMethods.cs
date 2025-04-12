@@ -18,7 +18,7 @@ namespace MyTools
             while (true)
             {
                 PlayerChoiceStrings(player, enemy);
-                var key = Console.ReadKey().Key;
+                var key = Console.ReadKey(intercept: true).Key;
                 if (key == ConsoleKey.D1)
                 {
                     PlayerAttack(player, enemy);
@@ -125,7 +125,6 @@ namespace MyTools
             {
                 CorrectPotion = Potions.UsePotion(player, potionTypes[3]) ? true : false;
             }
-            
         }
 
         public static void ResetPotions(Player player)

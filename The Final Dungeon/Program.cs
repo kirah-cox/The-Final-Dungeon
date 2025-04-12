@@ -17,7 +17,7 @@ public class Program
 
         Console.Clear();
 
-        while (!Tools.EncounteredEnemy)
+        while (true)
         {
             MainDrawingMap.DrawMainMap(sb, FirstLevelMaps.LevelOneMaps[Tools.MapNumber], FirstLevelResetMaps.LevelOneResetMaps[Tools.MapNumber], character);
 

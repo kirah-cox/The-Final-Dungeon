@@ -28,7 +28,7 @@ namespace MyTools
                 Console.WriteLine("     Mana:       1");
                 Console.WriteLine("     Luck:       5");
 
-                var key = Console.ReadKey().Key;
+                var key = Console.ReadKey(intercept: true).Key;
 
                 if (key == ConsoleKey.D1)
                 {

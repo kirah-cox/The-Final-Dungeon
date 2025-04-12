@@ -6,31 +6,31 @@ using System.Threading.Tasks;
 
 namespace LootThings
 {
-    public class SpiderWeapon : Weapons
+    public class RatWeapon : Weapons
     {
-        public LevelOneSpiderWeapons Weapon { get; set; }
+        public LevelOneRatWeapons Weapon { get; set; }
 
-        public SpiderWeapon(int weapon)
+        public RatWeapon(int weapon)
         {
             switch (weapon)
             {
                 case 1:
-                    Weapon = LevelOneSpiderWeapons.PincerKnife;
-                    Name = "PincerKnife";
+                    Weapon = LevelOneRatWeapons.KnawedKnife;
+                    Name = "KnawedKnife";
                     StrenthRequirement = 1;
                     ManaRequirement = 1;
                     LuckRequirement = 5;
                     break;
                 case 2:
-                    Weapon = LevelOneSpiderWeapons.OrbofManyEyes;
-                    Name = "OrbofManyEyes";
+                    Weapon = LevelOneRatWeapons.TailStaff;
+                    Name = "TailStaff";
                     StrenthRequirement = 1;
                     ManaRequirement = 5;
                     LuckRequirement = 1;
                     break;
                 case 3:
-                    Weapon = LevelOneSpiderWeapons.WebbedHammer;
-                    Name = "WebbedHammer";
+                    Weapon = LevelOneRatWeapons.HairyAxe;
+                    Name = "HairyAxe";
                     StrenthRequirement = 5;
                     ManaRequirement = 1;
                     LuckRequirement = 1;

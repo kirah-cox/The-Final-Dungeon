@@ -20,8 +20,6 @@ namespace AllCreations
 
         public List<Weapons> WeaponInventory = new List<Weapons>();
 
-        //add weapon damage
-
         public Player(PlayerClass playerClass)
         {
             Health = 25;
@@ -163,6 +161,7 @@ namespace AllCreations
                             if (potionTypes[0] == Potions.PotionType.Health)
                             {
                                 Potions.UseHealthPotion(player);
+                                potionPressedEnter = true;
                             }
                             else
                             {
@@ -175,6 +174,7 @@ namespace AllCreations
                             if (potionTypes[1] == Potions.PotionType.Health)
                             {
                                 Potions.UseHealthPotion(player);
+                                potionPressedEnter = true;
                             }
                             else
                             {
@@ -186,6 +186,7 @@ namespace AllCreations
                         {
                             if (potionTypes[2] == Potions.PotionType.Health)
                             {
+                                potionPressedEnter = true;
                                 Potions.UseHealthPotion(player);
                             }
                             else
@@ -198,6 +199,7 @@ namespace AllCreations
                         {
                             if (potionTypes[3] == Potions.PotionType.Health)
                             {
+                                potionPressedEnter = true;
                                 Potions.UseHealthPotion(player);
                             }
                             else

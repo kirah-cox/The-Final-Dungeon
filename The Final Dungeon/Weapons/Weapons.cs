@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using AllCreations;
@@ -14,10 +15,22 @@ namespace LootThings
         public int StrenthRequirement { get; set; }
         public int ManaRequirement { get; set; }
         public int LuckRequirement { get; set; }
-        public int StrengthMultiplier { get; set; }
-        public int ManaMultiplier { get; set; }
-        public int LuckMultiplier { get; set; }
+        public double StrengthMultiplier { get; set; }
+        public double ManaMultiplier { get; set; }
+        public double LuckMultiplier { get; set; }
         public bool Equipped { get; set; } = false;
+
+        public Weapons()
+        {
+            Name = "Unknown";
+            StrenthRequirement = 0;
+            ManaRequirement = 0;
+            LuckRequirement = 0;
+            StrengthMultiplier = 1;
+            ManaMultiplier = 1;
+            LuckMultiplier = 1;
+            Equipped = false;
+        }
 
         public static void AddOrDropWeapon(Player player, Enemy enemy)
         {

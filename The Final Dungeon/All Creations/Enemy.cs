@@ -50,7 +50,7 @@ namespace AllCreations
             Random randomSpider = new Random();
             Experience = RandomExperience.Next(5, 8);
             Weapon = new SpiderWeapon(WeaponNumber.Next(1, 4));
-            if(RandomDropWeapon.Next(1, 101) <= 100)
+            if(RandomDropWeapon.Next(1, 101) <= 50)
             {
                 DropWeapon = true;
             }
@@ -66,7 +66,7 @@ namespace AllCreations
             Random randomViper = new Random();
             Experience = RandomExperience.Next(12, 16);
             Weapon = new ViperWeapon(WeaponNumber.Next(1, 4));
-            if (RandomDropWeapon.Next(1, 101) <= 100)
+            if (RandomDropWeapon.Next(1, 101) <= 50)
             {
                 DropWeapon = true;
             }
@@ -82,7 +82,7 @@ namespace AllCreations
             Random randomFrog = new Random();
             Experience = RandomExperience.Next(3, 6);
             Weapon = new FrogWeapon(WeaponNumber.Next(1, 4));
-            if (RandomDropWeapon.Next(1, 101) <= 100)
+            if (RandomDropWeapon.Next(1, 101) <= 50)
             {
                 DropWeapon = true;
             }
@@ -98,7 +98,7 @@ namespace AllCreations
             Random randomRat = new Random();
             Experience = RandomExperience.Next(3, 6);
             Weapon = new RatWeapon(WeaponNumber.Next(1, 4));
-            if (RandomDropWeapon.Next(1, 101) <= 100)
+            if (RandomDropWeapon.Next(1, 101) <= 50)
             {
                 DropWeapon = true;
             }
@@ -114,7 +114,7 @@ namespace AllCreations
             Random randomSlime = new Random();
             Experience = RandomExperience.Next(8, 12);
             Weapon = new SlimeWeapon(WeaponNumber.Next(1, 4));
-            if (RandomDropWeapon.Next(1, 101) <= 100)
+            if (RandomDropWeapon.Next(1, 101) <= 50)
             {
                 DropWeapon = true;
             }
@@ -128,25 +128,25 @@ namespace AllCreations
             Random random = new Random();
             int randomEnemy = random.Next(1, 101);
 
-            if (randomEnemy < 21)
+            if (randomEnemy < 11)
             {
                 enemy = new Enemy(EnemyClass.Viper);
             }
-            else if (randomEnemy < 41)
-            {
-                enemy = new Enemy(EnemyClass.Frog);
-            }
-            else if (randomEnemy < 61)
-            {
-                enemy = new Enemy(EnemyClass.Slime);
-            }
-            else if (randomEnemy < 81)
+            else if (randomEnemy < 26)
             {
                 enemy = new Enemy(EnemyClass.Spider);
             }
-            else if (randomEnemy < 101)
+            else if (randomEnemy < 46)
+            {
+                enemy = new Enemy(EnemyClass.Slime);
+            }
+            else if (randomEnemy < 71)
             {
                 enemy = new Enemy(EnemyClass.Rat);
+            }
+            else if (randomEnemy < 101)
+            {
+                enemy = new Enemy(EnemyClass.Frog);
             }
             return enemy;
         }

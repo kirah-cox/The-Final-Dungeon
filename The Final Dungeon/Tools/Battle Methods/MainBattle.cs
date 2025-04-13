@@ -11,12 +11,13 @@ namespace MyTools
 {
     public class MainBattle : Tools
     {
+        public static DateTime DateTime { get; set; }
         public static void RandomEnemyEncounter()
         {
             Random random = new Random();
             int potentialEnemy = random.Next(1, 101);
 
-            if (potentialEnemy <= 5 && !BossFight)
+            if (potentialEnemy <= 5 && !BossFight && (DateTime.Now - DateTime > TimeSpan.FromSeconds(5)))
             {
                 EncounteredEnemy = true;
             }
@@ -74,6 +75,8 @@ namespace MyTools
             }
 
             BattleMethods.ResetPotions(player);
+
+            DateTime = DateTime.Now;
 
             Console.Clear();
         }

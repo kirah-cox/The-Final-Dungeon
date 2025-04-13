@@ -71,7 +71,7 @@ namespace MyTools
 
         public static void PlayerAttack(Player player, Enemy enemy)
         {
-            int playerAttack = player.Attack();
+            int playerAttack = player.Attack(player.Weapon);
             Console.WriteLine($"You attacked {enemy.Class} with a damage of {playerAttack}.");
             enemy.TakeDamage(playerAttack);
             Thread.Sleep(2000);

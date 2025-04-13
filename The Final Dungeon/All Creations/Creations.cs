@@ -18,13 +18,23 @@ namespace AllCreations
 
 
 
-        public int Attack()
+        public int Attack(Weapons weapon = null)
         {
             Random random = new Random();
             int rLuck = random.Next(1, 101);
             bool luckDamage = false;
+            int luck;
 
-            switch (Luck)
+            if (weapon != null)
+            {
+                luck = (int)Math.Round(Luck * weapon.LuckMultiplier);
+            }
+            else
+            {
+                luck = Luck;
+            }
+
+            switch (luck)
             {
                 case 1:
                     if (rLuck < 3)
@@ -75,7 +85,18 @@ namespace AllCreations
                     }
                     break;
             }
-            int damage = Strength + Mana;
+
+            int damage;
+
+            if (weapon != null)
+            {
+                damage = (int)Math.Round(Strength * weapon.StrengthMultiplier) + (int)Math.Round(Mana * weapon.ManaMultiplier);
+            }
+            else
+            {
+                damage = Strength + Mana;
+            }
+
             int totalDamage = 0;
 
             if (luckDamage)

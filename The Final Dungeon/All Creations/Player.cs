@@ -68,7 +68,7 @@ namespace AllCreations
             Console.WriteLine("2: Mana");
             Console.WriteLine("3: Luck");
 
-            var key = Console.ReadKey().Key;
+            var key = Console.ReadKey(intercept: true).Key;
             bool selectedSkill = false;
             while (!selectedSkill)
             {
@@ -122,14 +122,14 @@ namespace AllCreations
         {
             Console.Clear();
 
-            Console.WriteLine("1. Potions");
-            Console.WriteLine("2. Weapons");
-
-            var key = Console.ReadKey().Key;
             bool potionPressedEnter = false;
 
             while (true)
             {
+                Console.WriteLine("1. Potions");
+                Console.WriteLine("2. Weapons");
+                var key = Console.ReadKey().Key;
+
                 if (key == ConsoleKey.D1)
                 {
                     Console.Clear();
@@ -162,6 +162,7 @@ namespace AllCreations
                             {
                                 Potions.UseHealthPotion(player);
                                 potionPressedEnter = true;
+                                Tools.PressEnter();
                             }
                             else
                             {
@@ -175,6 +176,7 @@ namespace AllCreations
                             {
                                 Potions.UseHealthPotion(player);
                                 potionPressedEnter = true;
+                                Tools.PressEnter();
                             }
                             else
                             {
@@ -186,8 +188,9 @@ namespace AllCreations
                         {
                             if (potionTypes[2] == Potions.PotionType.Health)
                             {
-                                potionPressedEnter = true;
                                 Potions.UseHealthPotion(player);
+                                potionPressedEnter = true;
+                                Tools.PressEnter();
                             }
                             else
                             {
@@ -199,8 +202,9 @@ namespace AllCreations
                         {
                             if (potionTypes[3] == Potions.PotionType.Health)
                             {
-                                potionPressedEnter = true;
                                 Potions.UseHealthPotion(player);
+                                potionPressedEnter = true;
+                                Tools.PressEnter();
                             }
                             else
                             {
@@ -302,6 +306,7 @@ namespace AllCreations
                     }
                     break;
                 }
+                Console.Clear();
             }
 
             if (!potionPressedEnter)

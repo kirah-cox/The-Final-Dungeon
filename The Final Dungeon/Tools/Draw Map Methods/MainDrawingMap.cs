@@ -13,7 +13,7 @@ namespace MyTools
         {
             while (true)
             {
-                Console.WriteLine("Welcome to The Final Dungeon. Press WASD to move, E to interact, R to access inventory, and Z to access stats.");
+                Console.WriteLine("Welcome to The Final Dungeon. Press WASD to move, E to interact, R to access inventory, and T to access stats.");
                 Console.WriteLine("What class do you select?");
                 Console.WriteLine("1: Warrior");
                 Console.WriteLine("     Strength:   5");

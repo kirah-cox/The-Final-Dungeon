@@ -20,7 +20,7 @@ namespace MyTools
             character.Right = false;
 
             var key = Console.ReadKey().Key;
-            if (key == ConsoleKey.W && SmallMoveMethods.NotCharactersUpDownMinus(charMap, character))
+            if (key == ConsoleKey.W && SmallMoveMethods.NotCharactersUpDownMinus(charMap, character) && !SmallMoveMethods.CharacterB(charMap, character))
             {
                 MainConsoleKeyMoveMethods.PressedW(charMap, character);
             }

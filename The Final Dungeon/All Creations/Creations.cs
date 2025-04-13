@@ -112,6 +112,12 @@ namespace AllCreations
 
         public void TakeDamage(int damageTaken)
         {
+            if (Health - damageTaken < 0)
+            {
+                Health = 0;
+                return;
+            }
+
             Health -= damageTaken;
         }
     }

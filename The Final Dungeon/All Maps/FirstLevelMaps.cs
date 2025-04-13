@@ -8,7 +8,7 @@ namespace AllMaps
 {
     public class FirstLevelMaps
     {
-        //sign that says that boulders are pushable
+        //sign that says that boulders are pushable?
         public static char[][] FirstMap =
         {
             ":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
@@ -68,10 +68,10 @@ namespace AllMaps
         {
             "         :~~~~~~B~~~~~~:         ".ToCharArray(),
             "         :.............:         ".ToCharArray(),
-            "         :             :         ".ToCharArray(),
             "         :.............:         ".ToCharArray(),
             "         :             :         ".ToCharArray(),
             "         :.............:         ".ToCharArray(),
+            "         :             :         ".ToCharArray(),
             "         :.............:         ".ToCharArray(),
             "         :.............:         ".ToCharArray(),
             "         O.............:         ".ToCharArray(),

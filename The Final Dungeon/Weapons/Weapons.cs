@@ -50,9 +50,9 @@ namespace LootThings
             {
                 Console.WriteLine("You cannot hold more than 5 weapons. Would you like to drop another weapon?");
                 Console.WriteLine("1. Yes");
-                Console.WriteLine("1. No");
+                Console.WriteLine("2. No");
 
-                var key = Console.ReadKey().Key;
+                var key = Console.ReadKey(intercept: true).Key;
                 while (true)
                 {
                     if (key == ConsoleKey.D1)
@@ -110,7 +110,6 @@ namespace LootThings
                     else if (key == ConsoleKey.D2)
                     {
                         Console.WriteLine($"You have left {enemy.Weapon.Name} where you found it.");
-                        Tools.PressEnter();
                         break;
                     }
                 }

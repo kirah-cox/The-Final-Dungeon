@@ -89,11 +89,6 @@ namespace MyTools
             {
                 InteractMoveMethods.MovingToNextRoom(sb, charMap, character);
             }
-            else if (SmallMoveMethods.Character0(charMap, character) && MapNumber + 1 == 4)
-            {
-                InteractMoveMethods.MovingToNextRoom(sb, charMap, character);
-                BossFight = true;
-            }
             else if (SmallMoveMethods.CharacterO(charMap, character))
             {
                 InteractMoveMethods.MovingToPreviousRoom(sb, charMap, character);
@@ -114,6 +109,7 @@ namespace MyTools
             {
                 InteractMoveMethods.MovingToNextRoom(sb, charMap, character);
                 ObtainedKey = false;
+                BossFight = true;
             }
         }
     }

@@ -1,4 +1,5 @@
 ﻿using AllCreations;
+using AllMaps;
 using LootThings;
 using System;
 using System.Collections.Generic;
@@ -13,15 +14,43 @@ namespace MyTools
     {
         public static bool CorrectPotion { get; set; } = false;
 
-        public static void PlayerAndEnemyActions(Player player, Enemy enemy)
+        public static async Task PlayerAndEnemyActions(Player player, Enemy enemy)
+        {
+            Console.SetCursorPosition(0, 0);
+            CombatBoxes.DrawCombatBox(player, enemy);
+            Console.SetCursorPosition(0, CursorPosition);
+
+            PlayerAttackOrUseItems(player, enemy);
+
+            EnemyAttack(player, enemy);
+        }
+
+        public static async Task PlayerAttack(Player player, Enemy enemy)
+        {
+            int playerAttack = player.Attack(player.Weapon);
+            Console.WriteLine($"You attacked {enemy.Class} with a damage of {playerAttack}.");
+            CursorPosition++;
+            enemy.TakeDamage(playerAttack);
+            Console.SetCursorPosition(0, 0);
+            CombatBoxes.DrawCombatBox(player, enemy);
+            Console.SetCursorPosition(0, CursorPosition);
+            Thread.Sleep(500);
+        }
+
+        public static async Task PlayerAttackOrUseItems(Player player, Enemy enemy)
         {
             while (true)
             {
-                PlayerChoiceStrings(player, enemy);
-                var key = Console.ReadKey(intercept: true).Key;
+                var key = ConsoleKey.P;
+
+                await Task.Run(() =>
+                {
+                    key = Console.ReadKey(intercept: true).Key;
+                });
+
                 if (key == ConsoleKey.D1)
                 {
-                    PlayerAttack(player, enemy);
+                    await PlayerAttack(player, enemy);
                     break;
                 }
                 else if (key == ConsoleKey.D2)
@@ -33,61 +62,51 @@ namespace MyTools
                         haveItems = true;
                         while (true)
                         {
-                            PlayerUsePotion(player);
+                            await PlayerUsePotion(player);
                             if (CorrectPotion)
                             {
                                 break;
                             }
-                            Console.Clear();
                         }
                     }
                     else
                     {
-                        Console.WriteLine("You do not have any items you can use.");
-                        Thread.Sleep(2000);
-                        PressEnter();
+                        await Task.Run(() =>
+                        {
+                            Console.WriteLine("You do not have any items you can use.");
+                            CursorPosition++;
+                        });
                     }
                     if (!Potions.AlreadyUsedPotion && haveItems)
                     {
                         break;
                     }
                 }
-                Console.Clear();
             }
+        }
+
+        public static async Task EnemyAttack(Player player, Enemy enemy)
+        {
+            Random random = new Random();
+            int randomDely = random.Next(500, 4001);
+            Thread.Sleep(randomDely);
+
             if (enemy.Health > 0)
             {
-                EnemyAttack(player, enemy);
+                int enemyAttack = enemy.Attack();
+                Console.WriteLine($"{enemy.Class} attacks you with a damage of {enemyAttack}.");
+                CursorPosition++;
+                player.TakeDamage(enemyAttack);
+                Console.SetCursorPosition(0, 0);
+                CombatBoxes.DrawCombatBox(player, enemy);
+                Console.SetCursorPosition(0, CursorPosition);
             }
         }
 
-        public static void PlayerChoiceStrings(Player player, Enemy enemy)
-        {
-            Console.Clear();
-            Console.WriteLine($"Your health: {player.Health}");
-            Console.WriteLine($"Enemy health: {enemy.Health}");
-            Console.WriteLine("1: Attack");
-            Console.WriteLine("2: Use Potion");
-        }
-
-        public static void PlayerAttack(Player player, Enemy enemy)
-        {
-            int playerAttack = player.Attack(player.Weapon);
-            Console.WriteLine($"You attacked {enemy.Class} with a damage of {playerAttack}.");
-            enemy.TakeDamage(playerAttack);
-            Thread.Sleep(2000);
-        }
-
-        public static void EnemyAttack(Player player, Enemy enemy)
-        {
-            int enemyAttack = enemy.Attack();
-            Console.WriteLine($"{enemy.Class} attacks you with a damage of {enemyAttack}.");
-            Thread.Sleep(2000);
-            player.TakeDamage(enemyAttack);
-        }
-
-        public static void PlayerUsePotion(Player player)
+        public static async Task PlayerUsePotion(Player player)
         {
             Console.WriteLine("Which item would you like to use?");
+            CursorPosition++;
 
             int lineNumber = 0;
             List<Potions.PotionType> potionTypes = new List<Potions.PotionType>();
@@ -97,6 +116,7 @@ namespace MyTools
                 Console.WriteLine($"{lineNumber + 1}. {line.Key} Potion: {line.Value}");
                 potionTypes.Add(line.Key);
                 lineNumber++;
+                CursorPosition++;
             }
 
             while (!CorrectPotion)

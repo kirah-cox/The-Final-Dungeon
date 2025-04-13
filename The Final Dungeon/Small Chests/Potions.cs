@@ -114,7 +114,7 @@ namespace LootThings
             else if (potion == PotionType.Strength && UsedStrengthPotion || potion == PotionType.Mana && UsedManaPotion || potion == PotionType.Luck && UsedLuckPotion)
             {
                 Console.WriteLine("You have already used this type of potion during the battle.");
-                Tools.PressEnter();
+                MainBattle.CursorPosition++;
                 AlreadyUsedPotion = true;
                 return true;
             }
@@ -151,7 +151,7 @@ namespace LootThings
             }
 
             Console.WriteLine($"You drank a health potion! Your Health is now {player.Health}.");
-            Tools.PressEnter();
+            MainBattle.CursorPosition++;
 
             player.PotionInventory[PotionType.Health]--;
         }
@@ -163,7 +163,7 @@ namespace LootThings
             UsedStrengthPotion = true;
 
             Console.WriteLine($"You drank a strength potion! Your Strength is now {player.Strength}.");
-            Tools.PressEnter();
+            MainBattle.CursorPosition++;
 
             player.PotionInventory[PotionType.Strength]--;
         }
@@ -175,7 +175,7 @@ namespace LootThings
             UsedManaPotion = true;
 
             Console.WriteLine($"You drank a mana potion! Your Mana is now {player.Mana}.");
-            Tools.PressEnter();
+            MainBattle.CursorPosition++;
 
             player.PotionInventory[PotionType.Mana]--;
         }
@@ -187,7 +187,7 @@ namespace LootThings
             UsedLuckPotion = true;
 
             Console.WriteLine($"You drank a luck potion! Your Luck is now {player.Luck}.");
-            Tools.PressEnter();
+            MainBattle.CursorPosition++;
 
             player.PotionInventory[PotionType.Luck]--;
         }

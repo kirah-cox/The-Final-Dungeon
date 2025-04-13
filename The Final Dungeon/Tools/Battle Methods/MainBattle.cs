@@ -1,4 +1,5 @@
 ﻿using AllCreations;
+using AllMaps;
 using LootThings;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ namespace MyTools
     public class MainBattle : Tools
     {
         public static DateTime DateTime { get; set; }
+        public static int CursorPosition { get; set; }
         public static void RandomEnemyEncounter()
         {
             Random random = new Random();
@@ -23,14 +25,16 @@ namespace MyTools
             }
         }
         
-        public static void Battle(Player player, Enemy enemy)
+        public static async void Battle(Player player, Enemy enemy)
         {
             Console.WriteLine($"You have encountered {enemy.Class}.");
             PressEnter();
 
+            CursorPosition = 11;
+
             while (enemy.Health > 0 && player.Health > 0)
             {
-                BattleMethods.PlayerAndEnemyActions(player, enemy);
+                await BattleMethods.PlayerAndEnemyActions(player, enemy);
             }
 
             if (player.Health <= 0)
@@ -41,6 +45,7 @@ namespace MyTools
 
             player.GainExperience(enemy.Experience);
             Console.WriteLine($"You have defeated {enemy.Class} and have gained {enemy.Experience} experience.");
+            Thread.Sleep(2000);
             PressEnter();
             
             if (enemy.DropWeapon)

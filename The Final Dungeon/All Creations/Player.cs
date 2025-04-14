@@ -61,46 +61,44 @@ namespace AllCreations
             Level++;
             Health = (5 * Level) + 20;
 
-            Console.Clear();
-            
-            Console.WriteLine("You have gained a skillpoint! What skill would you like to level up?");
-            Console.WriteLine("1: Strength");
-            Console.WriteLine("2: Mana");
-            Console.WriteLine("3: Luck");
-
-            var key = Console.ReadKey(intercept: true).Key;
-            bool selectedSkill = false;
-            while (!selectedSkill)
+            while (true)
             {
-                switch (key)
+                Console.WriteLine("You have gained a skillpoint! What skill would you like to level up?");
+                Console.WriteLine("1: Strength");
+                Console.WriteLine("2: Mana");
+                Console.WriteLine("3: Luck");
+
+                var key = Console.ReadKey(intercept: true).Key;
+
+                if (key == ConsoleKey.D1)
                 {
-                    case ConsoleKey.D1:
-                        Strength++;
-                        Console.WriteLine($"You have leveled up Strength. Your strength is now {Strength}.");
-                        Thread.Sleep(2000);
-                        Tools.PressEnter();
-                        Console.Clear();
-                        selectedSkill = true;
-                        break;
-                    case ConsoleKey.D2:
-                        Mana++;
-                        Console.WriteLine($"You have leveled up Mana. Your strength is now {Mana}.");
-                        Thread.Sleep(2000);
-                        Tools.PressEnter();
-                        Console.Clear();
-                        selectedSkill = true;
-                        break;
-                    case ConsoleKey.D3:
-                        Luck++;
-                        Console.WriteLine($"You have leveled up Luck. Your strength is now {Luck}.");
-                        Thread.Sleep(2000);
-                        Tools.PressEnter();
-                        Console.Clear();
-                        selectedSkill = true;
-                        break;
-                    default:
-                        break;
+                    Strength++;
+                    Console.WriteLine($"You have leveled up Strength. Your strength is now {Strength}.");
+                    Thread.Sleep(2000);
+                    Tools.PressEnter();
+                    Console.Clear();
+                    break;
                 }
+                else if (key == ConsoleKey.D2)
+                {
+                    Mana++;
+                    Console.WriteLine($"You have leveled up Mana. Your strength is now {Mana}.");
+                    Thread.Sleep(2000);
+                    Tools.PressEnter();
+                    Console.Clear();
+                    break;
+                }
+                else if (key == ConsoleKey.D3)
+                {
+                    Luck++;
+                    Console.WriteLine($"You have leveled up Luck. Your strength is now {Luck}.");
+                    Thread.Sleep(2000);
+                    Tools.PressEnter();
+                    Console.Clear();
+                    break;
+                }
+
+                Console.Clear();
             }
 
             ReadyToLevelUp = false;
@@ -118,16 +116,34 @@ namespace AllCreations
             Experience += experienceGained;
         }
 
+        public void DisplayStats()
+        {
+            Console.Clear();
+            Console.WriteLine($"Level:                      {Level}");
+            Console.WriteLine($"Experience to next level:   {25 * Level - Experience}");
+            Console.WriteLine($"Total Experience:           {Experience}");
+            Console.WriteLine("\n");
+            Console.WriteLine($"Health:     {Health}");
+            Console.WriteLine($"Strength:   {Strength}");
+            Console.WriteLine($"Mana:       {Mana}");
+            Console.WriteLine($"Luck:       {Luck}");
+            Console.WriteLine("\n");
+            Tools.PressEnter();
+            Console.Clear();
+        }
+
         public static void DisplayInventory(Player player)
         {
             Console.Clear();
 
-            bool potionPressedEnter = false;
+            bool pressedEnter = false;
 
             while (true)
             {
                 Console.WriteLine("1. Potions");
                 Console.WriteLine("2. Weapons");
+                Console.WriteLine("Press enter to continue.");
+
                 var key = Console.ReadKey().Key;
 
                 if (key == ConsoleKey.D1)
@@ -161,7 +177,7 @@ namespace AllCreations
                             if (potionTypes[0] == Potions.PotionType.Health)
                             {
                                 Potions.UseHealthPotion(player);
-                                potionPressedEnter = true;
+                                pressedEnter = true;
                                 Tools.PressEnter();
                             }
                             else
@@ -175,7 +191,7 @@ namespace AllCreations
                             if (potionTypes[1] == Potions.PotionType.Health)
                             {
                                 Potions.UseHealthPotion(player);
-                                potionPressedEnter = true;
+                                pressedEnter = true;
                                 Tools.PressEnter();
                             }
                             else
@@ -189,7 +205,7 @@ namespace AllCreations
                             if (potionTypes[2] == Potions.PotionType.Health)
                             {
                                 Potions.UseHealthPotion(player);
-                                potionPressedEnter = true;
+                                pressedEnter = true;
                                 Tools.PressEnter();
                             }
                             else
@@ -203,7 +219,7 @@ namespace AllCreations
                             if (potionTypes[3] == Potions.PotionType.Health)
                             {
                                 Potions.UseHealthPotion(player);
-                                potionPressedEnter = true;
+                                pressedEnter = true;
                                 Tools.PressEnter();
                             }
                             else
@@ -214,7 +230,7 @@ namespace AllCreations
                         }
                         else if (newKey == ConsoleKey.Enter)
                         {
-                            potionPressedEnter = true;
+                            pressedEnter = true;
                             break;
                         }
                     }
@@ -238,6 +254,7 @@ namespace AllCreations
                         line.ViewWeaponStats();
                         weaponsLineNumber++;
                     }
+                    Console.WriteLine("Press enter to continue.");
 
                     while (true)
                     {
@@ -245,6 +262,11 @@ namespace AllCreations
 
                         if (newKey == ConsoleKey.D1)
                         {
+                            if (player.WeaponInventory[0].Equipped)
+                            {
+                                Console.WriteLine("This weapon is already equipped.");
+                                break;
+                            }
                             player.WeaponInventory[0].EquipWeapon(player, player.WeaponInventory[0]);
                             foreach(var weapon in player.WeaponInventory)
                             {
@@ -257,6 +279,11 @@ namespace AllCreations
                         }
                         else if (newKey == ConsoleKey.D2 && weaponsLineNumber >= 2)
                         {
+                            if (player.WeaponInventory[1].Equipped)
+                            {
+                                Console.WriteLine("This weapon is already equipped.");
+                                break;
+                            }
                             player.WeaponInventory[1].EquipWeapon(player, player.WeaponInventory[1]);
                             foreach (var weapon in player.WeaponInventory)
                             {
@@ -269,6 +296,11 @@ namespace AllCreations
                         }
                         else if (newKey == ConsoleKey.D3 && weaponsLineNumber >= 3)
                         {
+                            if (player.WeaponInventory[2].Equipped)
+                            {
+                                Console.WriteLine("This weapon is already equipped.");
+                                break;
+                            }
                             player.WeaponInventory[2].EquipWeapon(player, player.WeaponInventory[2]);
                             foreach (var weapon in player.WeaponInventory)
                             {
@@ -281,6 +313,11 @@ namespace AllCreations
                         }
                         else if (newKey == ConsoleKey.D4 && weaponsLineNumber >= 4)
                         {
+                            if (player.WeaponInventory[3].Equipped)
+                            {
+                                Console.WriteLine("This weapon is already equipped.");
+                                break;
+                            }
                             player.WeaponInventory[3].EquipWeapon(player, player.WeaponInventory[3]);
                             foreach (var weapon in player.WeaponInventory)
                             {
@@ -293,6 +330,11 @@ namespace AllCreations
                         }
                         else if (newKey == ConsoleKey.D5 && weaponsLineNumber >= 5)
                         {
+                            if (player.WeaponInventory[4].Equipped)
+                            {
+                                Console.WriteLine("This weapon is already equipped.");
+                                break;
+                            }
                             player.WeaponInventory[4].EquipWeapon(player, player.WeaponInventory[4]);
                             foreach (var weapon in player.WeaponInventory)
                             {
@@ -303,13 +345,23 @@ namespace AllCreations
                             }
                             break;
                         }
+                        else if (newKey == ConsoleKey.Enter)
+                        {
+                            pressedEnter = true;
+                            break;
+                        }
                     }
                     break;
                 }
-                Console.Clear();
+                else if (key == ConsoleKey.Enter)
+                {
+                    pressedEnter = true;
+                    break;
+                }
+                    Console.Clear();
             }
 
-            if (!potionPressedEnter)
+            if (!pressedEnter)
             {
                 Tools.PressEnter();
             }

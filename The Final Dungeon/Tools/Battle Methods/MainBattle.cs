@@ -45,7 +45,6 @@ namespace MyTools
 
             player.GainExperience(enemy.Experience);
             Console.WriteLine($"You have defeated {enemy.Class} and have gained {enemy.Experience} experience.");
-            Thread.Sleep(2000);
             PressEnter();
             
             if (enemy.DropWeapon)

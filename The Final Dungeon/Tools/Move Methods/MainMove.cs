@@ -40,6 +40,10 @@ namespace MyTools
             {
                 Player.DisplayInventory(player);
             }
+            else if (key == ConsoleKey.T)
+            {
+                player.DisplayStats();
+            }
             else if (key == ConsoleKey.E)
             {
                 MainConsoleKeyMoveMethods.PressedE(sb, charMap, player, character);

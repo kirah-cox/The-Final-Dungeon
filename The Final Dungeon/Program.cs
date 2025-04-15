@@ -31,6 +31,14 @@ public class Program
 
                 Tools.EncounteredEnemy = false;
             }
+            while (Tools.BossFight)
+            {
+                Enemy enemy = new Enemy(EnemyClass.KingFrog);
+
+                MainBattle.Battle(player, enemy);
+
+                Tools.BossFight = false;
+            }
 
             player.LevelUp();
         }

@@ -35,6 +35,14 @@ namespace AllCreations
                 case EnemyClass.Slime:
                     ConstructSlime();
                     break;
+                case EnemyClass.KingFrog:
+                    Class = EnemyClass.KingFrog;
+                    Health = 40;
+                    Strength = 6;
+                    Mana = 6;
+                    Luck = 12;
+                    Experience = 20;
+                    break;
                 default:
                     break;
             }

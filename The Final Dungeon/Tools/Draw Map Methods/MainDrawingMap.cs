@@ -86,6 +86,11 @@ namespace MyTools
             {
                 Console.WriteLine(item);
             }
+
+            Console.WriteLine("Press WASD to move.");
+            Console.WriteLine("Press E to interact.");
+            Console.WriteLine("Press R to access inventory.");
+            Console.WriteLine("Press T to access stats.");
         }
     }
 }

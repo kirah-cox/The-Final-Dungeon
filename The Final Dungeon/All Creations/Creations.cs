@@ -138,5 +138,6 @@ namespace AllCreations
         Frog,
         Rat,
         Slime,
+        KingFrog,
     }
 }

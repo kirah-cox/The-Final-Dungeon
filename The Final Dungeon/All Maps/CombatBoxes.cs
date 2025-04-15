@@ -26,6 +26,28 @@ namespace AllMaps
 
         };
 
+        public static char[][] FirstLevelBossCombatBox =
+        {
+            "              _'^'_               ".ToCharArray(),
+            "             (0'-'0)              ".ToCharArray(),
+            "          _ (   -   ) _           ".ToCharArray(),
+            "        (  )(       )(  )         ".ToCharArray(),
+            "         ( ) ) | | ( ( )          ".ToCharArray(),
+            "        oO)  oO) (Oo  (Oo         ".ToCharArray(),
+            ":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
+            ": :~~~~~~~~~~~:  :~~~~~~~~~~~~~: :".ToCharArray(),
+            ": : 1. Attack :  : 2. Use Item : :".ToCharArray(),
+            ": :~~~~~~~~~~~:  :~~~~~~~~~~~~~: :".ToCharArray(),
+            ":                                :".ToCharArray(),
+            ":                                :".ToCharArray(),
+            ":    Health:                     :".ToCharArray(),
+            ":                                :".ToCharArray(),
+            ":    Enemy Health:               :".ToCharArray(),
+            ":                                :".ToCharArray(),
+            ":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
+
+        };
+
         public static void DrawCombatBox(Player player, Enemy enemy)
         {
             StringBuilder sb = new StringBuilder();

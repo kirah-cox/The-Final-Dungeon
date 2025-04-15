@@ -28,25 +28,22 @@ namespace AllMaps
         public static char[][] SecondMap =
         {
             ":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
-            ":.............................R.:".ToCharArray(),
-            "O...............................:".ToCharArray(),
-            ":...............................:".ToCharArray(),
-            ":~~~~~~~~~~~~~~~~:..............:".ToCharArray(),
-            "                 :..............:".ToCharArray(),
-            "                 :..............:".ToCharArray(),
-            "                 :..............:".ToCharArray(),
-            "                 :..............:".ToCharArray(),
-            "                 :.............m:".ToCharArray(),
+            ":.  ...oo.... ......o..  .....R.:".ToCharArray(),
+            "O.......o.......o...........o.. :".ToCharArray(),
+            ":..o..................o. ...ooo.:".ToCharArray(),
+            ":. ..o....oo.....  ..... .....o.:".ToCharArray(),
+            ":..oo....   ... .......oo... ...:".ToCharArray(),
+            ":~~~~~~~~~~~~~~~~:.  ..........o:".ToCharArray(),
+            "                 :.........oo...:".ToCharArray(),
+            "                 :..o.. ......o.:".ToCharArray(),
+            "                 :oo.....o...oom:".ToCharArray(),
             "                 :~~~~~~0~~~~~~~:".ToCharArray(),
         };
 
         public static bool SecondChestEmpty { get; set; } = false;
 
-        // FIX CHOOSING POTIONS IN THE BATLE MENU
-
         //sign that says that the previous room is the blueprint/solution to the answer undertale style?
         //maybe have some buttons that the boulders need to press, some not, and have a riddle to figure it out?
-        //PUT A RESET BOULDERS BUTTON
         //count the number of things and have the answer as a solution to a puzzle?
         public static char[][] ThirdMap =
         {
@@ -82,27 +79,13 @@ namespace AllMaps
 
         public static char[][] BossMap =
         {
-            "                  _'^'_                  ".ToCharArray(),
-            "                 (0'-'0)                 ".ToCharArray(),
-            "              _ (   -   ) _              ".ToCharArray(),
-            "            (  )(       )(  )            ".ToCharArray(),
-            "             ( ) ) | | ( ( )             ".ToCharArray(),
-            "            oO)  oO) (Oo  (Oo            ".ToCharArray(),
-            ":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
-            ":.......................................:".ToCharArray(),
-            ":.......................................:".ToCharArray(),
-            ":.......................................:".ToCharArray(),
-            ":.......................................:".ToCharArray(),
-            ":.......................................:".ToCharArray(),
-            ":.......................................:".ToCharArray(),
-            ":.......................................:".ToCharArray(),
-            ":.......................................:".ToCharArray(),
-            ":.......................................:".ToCharArray(),
-            ":.......................................:".ToCharArray(),
-            ":.......................................:".ToCharArray(),
-            ":.......................................:".ToCharArray(),
-            ":.......................................:".ToCharArray(),
-            ":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
+            ":~~~~~~~~~~~~~:".ToCharArray(),
+            ":.............:".ToCharArray(),
+            ":.............:".ToCharArray(),
+            ":......F......:".ToCharArray(),
+            ":.............:".ToCharArray(),
+            ":.............:".ToCharArray(),
+            ":~~~~~~~~~~~~~:".ToCharArray(),
         };
 
         public static List<char[][]> LevelOneMaps = new List<char[][]>()
@@ -117,12 +100,12 @@ namespace AllMaps
 
         public static List<int> LevelOneUpDown = new List<int>()
         {
-            1, 5, 2, 9, 1, 6, 8, 0, 19
+            1, 5, 2, 9, 1, 6, 8, 0, 5
         };
 
         public static List<int> LevelOneLeftRight= new List<int>()
         {
-            1, 31, 1, 24, 4, 31, 10, 16, 20
+            1, 31, 1, 24, 4, 31, 10, 16, 7
         };
     }
 }

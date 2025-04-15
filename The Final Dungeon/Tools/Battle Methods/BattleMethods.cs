@@ -14,6 +14,8 @@ namespace MyTools
     {
         public static bool CorrectPotion { get; set; } = false;
 
+        public static bool PlayerUsingPotion { get; set; } = false;
+
         public static async Task PlayerAndEnemyActions(Player player, Enemy enemy)
         {
             Console.SetCursorPosition(0, 0);
@@ -50,7 +52,10 @@ namespace MyTools
 
                 if (key == ConsoleKey.D1)
                 {
-                    await PlayerAttack(player, enemy);
+                    if (!PlayerUsingPotion)
+                    {
+                        await PlayerAttack(player, enemy);
+                    }
                     break;
                 }
                 else if (key == ConsoleKey.D2)
@@ -105,6 +110,7 @@ namespace MyTools
 
         public static async Task PlayerUsePotion(Player player)
         {
+            PlayerUsingPotion = true;
             Console.WriteLine("Which item would you like to use?");
             CursorPosition++;
 
@@ -123,6 +129,8 @@ namespace MyTools
             {
                 PotionChoice(player, potionTypes, lineNumber);
             }
+
+            PlayerUsingPotion = false;
         }
 
         public static void PotionChoice(Player player, List<Potions.PotionType> potionTypes, int lineNumber)

@@ -109,7 +109,7 @@ namespace MyTools
             {
                 InteractMoveMethods.MovingToNextRoom(sb, charMap, character);
                 ObtainedKey = false;
-                BossFight = true;
+                BossRoom = true;
             }
         }
     }

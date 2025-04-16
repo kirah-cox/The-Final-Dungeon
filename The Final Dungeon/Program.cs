@@ -3,7 +3,6 @@ using AllMaps;
 using AllCreations;
 using MyTools;
 using LootThings;
-using AllProjectiles;
 
 public class Program
 {

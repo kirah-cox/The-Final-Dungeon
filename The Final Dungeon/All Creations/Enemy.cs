@@ -339,10 +339,50 @@ namespace AllCreations
             }
             else if (Tools.LevelNumber == 1)
             {
+                if (randomEnemy < 11)
+                {
+                    enemy = new Enemy(EnemyClass.Witch);
+                }
+                else if (randomEnemy < 26)
+                {
+                    enemy = new Enemy(EnemyClass.Skeleton);
+                }
+                else if (randomEnemy < 46)
+                {
+                    enemy = new Enemy(EnemyClass.Kobold);
+                }
+                else if (randomEnemy < 71)
+                {
+                    enemy = new Enemy(EnemyClass.Goblin);
+                }
+                else if (randomEnemy < 101)
+                {
+                    enemy = new Enemy(EnemyClass.Imp);
+                }
                 return enemy;
             }
             else
             {
+                if (randomEnemy < 11)
+                {
+                    enemy = new Enemy(EnemyClass.Warlock);
+                }
+                else if (randomEnemy < 26)
+                {
+                    enemy = new Enemy(EnemyClass.EvilEnt);
+                }
+                else if (randomEnemy < 46)
+                {
+                    enemy = new Enemy(EnemyClass.Vampire);
+                }
+                else if (randomEnemy < 71)
+                {
+                    enemy = new Enemy(EnemyClass.Orc);
+                }
+                else if (randomEnemy < 101)
+                {
+                    enemy = new Enemy(EnemyClass.BoneWarrior);
+                }
                 return enemy;
             }
         }

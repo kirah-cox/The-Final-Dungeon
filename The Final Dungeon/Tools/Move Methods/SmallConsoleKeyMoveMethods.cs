@@ -40,6 +40,33 @@ namespace MyTools
             Console.Clear();
         }
 
+        public static void WCrossingIce(Character character)
+        {
+            character.UpDown--;
+            character.Up = true;
+            Console.Clear();
+        }
+
+        public static void SCrossingIce(Character character)
+        {
+            character.UpDown++;
+            character.Down = true;
+            Console.Clear();
+        }
+
+        public static void ACrossingIce(Character character)
+        {
+            character.LeftRight--;
+            character.Left = true;
+            Console.Clear();
+        }
+        public static void DCrossingIce(Character character)
+        {
+            character.LeftRight++;
+            character.Right = true;
+            Console.Clear();
+        }
+
         public static void WPushingBoulder(char[][] charMap, Character character)
         {
             if (charMap[character.UpDown - 2][character.LeftRight] == '.')

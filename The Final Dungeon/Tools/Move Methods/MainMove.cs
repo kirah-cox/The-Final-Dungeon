@@ -18,6 +18,8 @@ namespace MyTools
             character.Down = false;
             character.Left = false;
             character.Right = false;
+            CrossingIce = false;
+            IceLineNumber = 1;
 
             var key = Console.ReadKey().Key;
             if (key == ConsoleKey.W && SmallMoveMethods.NotCharactersUpDownMinus(charMap, character) && !SmallMoveMethods.CharacterB(charMap, character))

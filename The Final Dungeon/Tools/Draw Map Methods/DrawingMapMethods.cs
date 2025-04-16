@@ -22,6 +22,7 @@ namespace MyTools
                 }
                 return;
             }
+            
             SmallDrawingMapMethods.UpOrDownNormal(sb, charMap, character);
         }
 
@@ -32,6 +33,11 @@ namespace MyTools
                 SmallDrawingMapMethods.ClearUpGap(sb, charMap, character);
                 return;
             }
+            if (CrossingIce)
+            {
+                SmallDrawingMapMethods.ClearUpIce(sb, charMap, character);
+                return;
+            }
             SmallDrawingMapMethods.ClearUpNormal(sb, charMap, character);
         }
 
@@ -40,6 +46,11 @@ namespace MyTools
             if (CrossedGap)
             {
                 SmallDrawingMapMethods.ClearDownGap(sb, charMap, character);
+                return;
+            }
+            if (CrossingIce)
+            {
+                SmallDrawingMapMethods.ClearDownIce(sb, charMap, character);
                 return;
             }
             SmallDrawingMapMethods.ClearDownNormal(sb, charMap, character);
@@ -57,6 +68,11 @@ namespace MyTools
                 SmallDrawingMapMethods.LeftBoulder(sb, charMap, character);
                 return;
             }
+            if (CrossingIce)
+            {
+                SmallDrawingMapMethods.LeftIce(sb, charMap, character);
+                return;
+            }
             SmallDrawingMapMethods.LeftNormal(sb, charMap, character);
         }
 
@@ -70,6 +86,11 @@ namespace MyTools
             if (PushingBoulder && !BoulderOverGap)
             {
                 SmallDrawingMapMethods.RightBoulder(sb, charMap, character);
+                return;
+            }
+            if (CrossingIce)
+            {
+                SmallDrawingMapMethods.RightIce(sb, charMap, character);
                 return;
             }
             SmallDrawingMapMethods.RightNormal(sb, charMap, character);

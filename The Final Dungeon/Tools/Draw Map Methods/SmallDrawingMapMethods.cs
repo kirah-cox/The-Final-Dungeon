@@ -42,6 +42,13 @@ namespace MyTools
             charMap[character.UpDown + 1] = sb.ToString().ToCharArray();
             sb.Clear();
         }
+        
+        public static void ClearUpIce(StringBuilder sb, char[][] charMap, Character character)
+        {
+            sb.Append(charMap[character.UpDown + IceLineNumber]).Remove(character.LeftRight, 1).Insert(character.LeftRight, ".");
+            charMap[character.UpDown + IceLineNumber] = sb.ToString().ToCharArray();
+            sb.Clear();
+        }
 
         public static void ClearUpGap(StringBuilder sb, char[][] charMap, Character character)
         {
@@ -58,6 +65,13 @@ namespace MyTools
             sb.Clear();
         }
 
+        public static void ClearDownIce(StringBuilder sb, char[][] charMap, Character character)
+        {
+            sb.Append(charMap[character.UpDown - IceLineNumber]).Remove(character.LeftRight, 1).Insert(character.LeftRight, ".");
+            charMap[character.UpDown - IceLineNumber] = sb.ToString().ToCharArray();
+            sb.Clear();
+        }
+
         public static void ClearDownGap(StringBuilder sb, char[][] charMap, Character character)
         {
             sb.Append(charMap[character.UpDown - 2]).Remove(character.LeftRight, 1).Insert(character.LeftRight, ".");
@@ -69,6 +83,12 @@ namespace MyTools
         public static void LeftNormal(StringBuilder sb, char[][] charMap, Character character)
         {
             sb.Append(charMap[character.UpDown]).Remove(character.LeftRight, 1).Insert(character.LeftRight, character.CharacterChar).Remove(character.LeftRight + 1, 1).Insert(character.LeftRight + 1, ".");
+            charMap[character.UpDown] = sb.ToString().ToCharArray();
+            sb.Clear();
+        }
+        public static void LeftIce(StringBuilder sb, char[][] charMap, Character character)
+        {
+            sb.Append(charMap[character.UpDown]).Remove(character.LeftRight, 1).Insert(character.LeftRight, character.CharacterChar).Remove(character.LeftRight + IceLineNumber, 1).Insert(character.LeftRight + IceLineNumber, ".");
             charMap[character.UpDown] = sb.ToString().ToCharArray();
             sb.Clear();
         }
@@ -91,6 +111,13 @@ namespace MyTools
         public static void RightNormal(StringBuilder sb, char[][] charMap, Character character)
         {
             sb.Append(charMap[character.UpDown]).Remove(character.LeftRight, 1).Insert(character.LeftRight, character.CharacterChar).Remove(character.LeftRight - 1, 1).Insert(character.LeftRight - 1, ".");
+            charMap[character.UpDown] = sb.ToString().ToCharArray();
+            sb.Clear();
+        }
+
+        public static void RightIce(StringBuilder sb, char[][] charMap, Character character)
+        {
+            sb.Append(charMap[character.UpDown]).Remove(character.LeftRight, 1).Insert(character.LeftRight, character.CharacterChar).Remove(character.LeftRight - IceLineNumber, 1).Insert(character.LeftRight - IceLineNumber, ".");
             charMap[character.UpDown] = sb.ToString().ToCharArray();
             sb.Clear();
         }

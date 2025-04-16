@@ -25,6 +25,16 @@ namespace MyTools
             {
                 SmallConsoleKeyMoveMethods.WCrossingGap(character);
             }
+            else if (charMap[character.UpDown - 1][character.LeftRight] == 'i')
+            {
+                CrossingIce = true;
+                while (charMap[character.UpDown - 1][character.LeftRight] == 'i')
+                {
+                    SmallConsoleKeyMoveMethods.WCrossingIce(character);
+                    IceLineNumber++;
+                }
+                SmallConsoleKeyMoveMethods.WNormalMove(character);
+            }
         }
 
         public static void PressedS(char[][] charMap, Character character)
@@ -40,6 +50,16 @@ namespace MyTools
             else if ((charMap[character.UpDown + 2][character.LeftRight] == '.') && (charMap[character.UpDown + 1][character.LeftRight] == ' ') && ObtainedFeather)
             {
                 SmallConsoleKeyMoveMethods.SCrossingGap(character);
+            }
+            else if (charMap[character.UpDown + 1][character.LeftRight] == 'i')
+            {
+                CrossingIce = true;
+                while (charMap[character.UpDown + 1][character.LeftRight] == 'i')
+                {
+                    SmallConsoleKeyMoveMethods.SCrossingIce(character);
+                    IceLineNumber++;
+                }
+                SmallConsoleKeyMoveMethods.SNormalMove(character);
             }
         }
 
@@ -57,6 +77,16 @@ namespace MyTools
             {
                 SmallConsoleKeyMoveMethods.ACrossingGap(character);
             }
+            else if (charMap[character.UpDown][character.LeftRight - 1] == 'i')
+            {
+                CrossingIce = true;
+                while (charMap[character.UpDown][character.LeftRight - 1] == 'i')
+                {
+                    SmallConsoleKeyMoveMethods.ACrossingIce(character);
+                    IceLineNumber++;
+                }
+                SmallConsoleKeyMoveMethods.ANormalMove(character);
+            }
         }
 
         public static void PressedD(char[][] charMap, Character character)
@@ -72,6 +102,16 @@ namespace MyTools
             else if (charMap[character.UpDown][character.LeftRight + 2] == '.' && (charMap[character.UpDown][character.LeftRight + 1] == ' ') && ObtainedFeather)
             {
                 SmallConsoleKeyMoveMethods.DCrossingGap(character);
+            }
+            else if (charMap[character.UpDown][character.LeftRight + 1] == 'i')
+            {
+                CrossingIce = true;
+                while (charMap[character.UpDown][character.LeftRight + 1] == 'i')
+                {
+                    SmallConsoleKeyMoveMethods.DCrossingIce(character);
+                    IceLineNumber++;
+                }
+                SmallConsoleKeyMoveMethods.DNormalMove(character);
             }
         }
 

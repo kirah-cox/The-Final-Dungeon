@@ -207,5 +207,29 @@ namespace MyTools
             }
             return false;
         }
+
+        public static bool CharacterF(char[][] charMap, Character character)
+        {
+            if (charMap[character.UpDown - 1][character.LeftRight] == 'F'
+                || charMap[character.UpDown + 1][character.LeftRight] == 'F'
+                || charMap[character.UpDown][character.LeftRight - 1] == 'F'
+                || charMap[character.UpDown][character.LeftRight + 1] == 'F')
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public static bool Characterz(char[][] charMap, Character character)
+        {
+            if (charMap[character.UpDown - 1][character.LeftRight] == 'z'
+                || charMap[character.UpDown + 1][character.LeftRight] == 'z'
+                || charMap[character.UpDown][character.LeftRight - 1] == 'z'
+                || charMap[character.UpDown][character.LeftRight + 1] == 'z')
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }

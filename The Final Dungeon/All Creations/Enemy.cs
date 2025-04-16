@@ -5,6 +5,7 @@ using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using LootThings;
+using MyTools;
 
 namespace AllCreations
 {
@@ -20,20 +21,35 @@ namespace AllCreations
         {
             switch (enemyClass)
             {
-                case EnemyClass.Spider:
-                    ConstructSpider();
+                case EnemyClass.Spider: ConstructSpider();
                     break;
-                case EnemyClass.Viper:
-                    ConstructViper();
+                case EnemyClass.Viper: ConstructViper();
                     break;
-                case EnemyClass.Frog:
-                    ConstructFrog();
+                case EnemyClass.Frog: ConstructFrog();
                     break;
-                case EnemyClass.Rat:
-                    ConstructRat();
+                case EnemyClass.Rat: ConstructRat();
                     break;
-                case EnemyClass.Slime:
-                    ConstructSlime();
+                case EnemyClass.Slime: ConstructSlime();
+                    break;
+                case EnemyClass.Imp: ConstructImp();
+                    break;
+                case EnemyClass.Goblin: ConstructGoblin();
+                    break;
+                case EnemyClass.Kobold: ConstructKobold();
+                    break;
+                case EnemyClass.Skeleton: ConstructSkeleton();
+                    break;
+                case EnemyClass.Witch: ConstructWitch();
+                    break;
+                case EnemyClass.BoneWarrior: ConstructBoneWarrior();
+                    break;
+                case EnemyClass.Vampire: ConstructVampire();
+                    break;
+                case EnemyClass.Orc: ConstructOrc();
+                    break;
+                case EnemyClass.EvilEnt: ConstructEvilEnt();
+                    break;
+                case EnemyClass.Warlock: ConstructWarlock();
                     break;
                 case EnemyClass.KingFrog:
                     Class = EnemyClass.KingFrog;
@@ -41,6 +57,22 @@ namespace AllCreations
                     Strength = 6;
                     Mana = 6;
                     Luck = 12;
+                    Experience = 20;
+                    break;
+                case EnemyClass.GiantSpider:
+                    Class = EnemyClass.GiantSpider;
+                    Health = 60;
+                    Strength = 12;
+                    Mana = 12;
+                    Luck = 18;
+                    Experience = 20;
+                    break;
+                case EnemyClass.DungeonKing:
+                    Class = EnemyClass.DungeonKing;
+                    Health = 80;
+                    Strength = 18;
+                    Mana = 18;
+                    Luck = 24;
                     Experience = 20;
                     break;
                 default:
@@ -55,7 +87,6 @@ namespace AllCreations
             Strength = 3;
             Mana = 2;
             Luck = 15;
-            Random randomSpider = new Random();
             Experience = RandomExperience.Next(5, 8);
             Weapon = new SpiderWeapon(WeaponNumber.Next(1, 4));
             if(RandomDropWeapon.Next(1, 101) <= 50)
@@ -71,7 +102,6 @@ namespace AllCreations
             Strength = 3;
             Mana = 3;
             Luck = 7;
-            Random randomViper = new Random();
             Experience = RandomExperience.Next(12, 16);
             Weapon = new ViperWeapon(WeaponNumber.Next(1, 4));
             if (RandomDropWeapon.Next(1, 101) <= 50)
@@ -87,7 +117,6 @@ namespace AllCreations
             Strength = 1;
             Mana = 1;
             Luck = 25;
-            Random randomFrog = new Random();
             Experience = RandomExperience.Next(3, 6);
             Weapon = new FrogWeapon(WeaponNumber.Next(1, 4));
             if (RandomDropWeapon.Next(1, 101) <= 50)
@@ -103,7 +132,6 @@ namespace AllCreations
             Strength = 3;
             Mana = 1;
             Luck = 1;
-            Random randomRat = new Random();
             Experience = RandomExperience.Next(3, 6);
             Weapon = new RatWeapon(WeaponNumber.Next(1, 4));
             if (RandomDropWeapon.Next(1, 101) <= 50)
@@ -119,9 +147,158 @@ namespace AllCreations
             Strength = 3;
             Mana = 5;
             Luck = 15;
-            Random randomSlime = new Random();
             Experience = RandomExperience.Next(8, 12);
             Weapon = new SlimeWeapon(WeaponNumber.Next(1, 4));
+            if (RandomDropWeapon.Next(1, 101) <= 50)
+            {
+                DropWeapon = true;
+            }
+        }
+
+        public void ConstructGoblin()
+        {
+            Health = 12;
+            Class = EnemyClass.Goblin;
+            Strength = 6;
+            Mana = 1;
+            Luck = 2;
+            Experience = RandomExperience.Next(5, 8);
+            Weapon = new GoblinWeapon(WeaponNumber.Next(1, 4));
+            if (RandomDropWeapon.Next(1, 101) <= 50)
+            {
+                DropWeapon = true;
+            }
+        }
+
+        public void ConstructImp()
+        {
+            Health = 10;
+            Class = EnemyClass.Imp;
+            Strength = 3;
+            Mana = 5;
+            Luck = 6;
+            Experience = RandomExperience.Next(3, 6);
+            Weapon = new ImpWeapon(WeaponNumber.Next(1, 4));
+            if (RandomDropWeapon.Next(1, 101) <= 50)
+            {
+                DropWeapon = true;
+            }
+        }
+
+        public void ConstructKobold()
+        {
+            Health = 15;
+            Class = EnemyClass.Kobold;
+            Strength = 7;
+            Mana = 1;
+            Luck = 5;
+            Experience = RandomExperience.Next(8, 12);
+            Weapon = new KoboldWeapon(WeaponNumber.Next(1, 4));
+            if (RandomDropWeapon.Next(1, 101) <= 50)
+            {
+                DropWeapon = true;
+            }
+        }
+
+        public void ConstructSkeleton()
+        {
+            Health = 18;
+            Class = EnemyClass.Skeleton;
+            Strength = 8;
+            Mana = 2;
+            Luck = 15;
+            Experience = RandomExperience.Next(12, 15);
+            Weapon = new SkeletonWeapon(WeaponNumber.Next(1, 4));
+            if (RandomDropWeapon.Next(1, 101) <= 50)
+            {
+                DropWeapon = true;
+            }
+        }
+
+        public void ConstructWitch()
+        {
+            Health = 20;
+            Class = EnemyClass.Witch;
+            Strength = 1;
+            Mana = 10;
+            Luck = 20;
+            Experience = RandomExperience.Next(14, 18);
+            Weapon = new WitchWeapon(WeaponNumber.Next(1, 4));
+            if (RandomDropWeapon.Next(1, 101) <= 50)
+            {
+                DropWeapon = true;
+            }
+        }
+
+        public void ConstructBoneWarrior()
+        {
+            Health = 20;
+            Class = EnemyClass.BoneWarrior;
+            Strength = 10;
+            Mana = 1;
+            Luck = 15;
+            Experience = RandomExperience.Next(3, 6);
+            Weapon = new BoneWarriorWeapon(WeaponNumber.Next(1, 4));
+            if (RandomDropWeapon.Next(1, 101) <= 50)
+            {
+                DropWeapon = true;
+            }
+        }
+
+        public void ConstructVampire()
+        {
+            Health = 23;
+            Class = EnemyClass.Vampire;
+            Strength = 5;
+            Mana = 8;
+            Luck = 25;
+            Experience = RandomExperience.Next(5, 8);
+            Weapon = new VampireWeapon(WeaponNumber.Next(1, 4));
+            if (RandomDropWeapon.Next(1, 101) <= 50)
+            {
+                DropWeapon = true;
+            }
+        }
+
+        public void ConstructOrc()
+        {
+            Health = 25;
+            Class = EnemyClass.Orc;
+            Strength = 14;
+            Mana = 1;
+            Luck = 5;
+            Experience = RandomExperience.Next(8, 12);
+            Weapon = new OrcWeapon(WeaponNumber.Next(1, 4));
+            if (RandomDropWeapon.Next(1, 101) <= 50)
+            {
+                DropWeapon = true;
+            }
+        }
+
+        public void ConstructEvilEnt()
+        {
+            Health = 27;
+            Class = EnemyClass.EvilEnt;
+            Strength = 7;
+            Mana = 10;
+            Luck = 20;
+            Experience = RandomExperience.Next(12, 15);
+            Weapon = new EvilEntWeapon(WeaponNumber.Next(1, 4));
+            if (RandomDropWeapon.Next(1, 101) <= 50)
+            {
+                DropWeapon = true;
+            }
+        }
+
+        public void ConstructWarlock()
+        {
+            Health = 30;
+            Class = EnemyClass.Warlock;
+            Strength = 1;
+            Mana = 20;
+            Luck = 15;
+            Experience = RandomExperience.Next(14, 18);
+            Weapon = new WarlockWeapon(WeaponNumber.Next(1, 4));
             if (RandomDropWeapon.Next(1, 101) <= 50)
             {
                 DropWeapon = true;
@@ -136,27 +313,38 @@ namespace AllCreations
             Random random = new Random();
             int randomEnemy = random.Next(1, 101);
 
-            if (randomEnemy < 11)
+            if (Tools.LevelNumber == 0)
             {
-                enemy = new Enemy(EnemyClass.Viper);
+                if (randomEnemy < 11)
+                {
+                    enemy = new Enemy(EnemyClass.Viper);
+                }
+                else if (randomEnemy < 26)
+                {
+                    enemy = new Enemy(EnemyClass.Spider);
+                }
+                else if (randomEnemy < 46)
+                {
+                    enemy = new Enemy(EnemyClass.Slime);
+                }
+                else if (randomEnemy < 71)
+                {
+                    enemy = new Enemy(EnemyClass.Rat);
+                }
+                else if (randomEnemy < 101)
+                {
+                    enemy = new Enemy(EnemyClass.Frog);
+                }
+                return enemy;
             }
-            else if (randomEnemy < 26)
+            else if (Tools.LevelNumber == 1)
             {
-                enemy = new Enemy(EnemyClass.Spider);
+                return enemy;
             }
-            else if (randomEnemy < 46)
+            else
             {
-                enemy = new Enemy(EnemyClass.Slime);
+                return enemy;
             }
-            else if (randomEnemy < 71)
-            {
-                enemy = new Enemy(EnemyClass.Rat);
-            }
-            else if (randomEnemy < 101)
-            {
-                enemy = new Enemy(EnemyClass.Frog);
-            }
-            return enemy;
         }
     }
 }

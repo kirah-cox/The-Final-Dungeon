@@ -9,7 +9,7 @@ public class Program
 {
     public static void Main()
     {
-        Character character = new Character("@");
+        Character character = new Character("@", 7, 1);
 
         StringBuilder sb = new StringBuilder();
 
@@ -19,11 +19,11 @@ public class Program
 
         while (true)
         {
-            MainDrawingMap.DrawMainMap(sb, FirstLevelMaps.LevelOneMaps[Tools.MapNumber], FirstLevelResetMaps.LevelOneResetMaps[Tools.MapNumber], character);
+            MainDrawingMap.DrawMainMap(sb, Tools.LevelsList[Tools.LevelNumber][Tools.MapNumber], Tools.ResetLevelsList[Tools.LevelNumber][Tools.MapNumber], character);
 
-            MainMove.Move(player, FirstLevelMaps.LevelOneMaps[Tools.MapNumber], sb, character);
-            
-            while (Tools.EncounteredEnemy)
+            MainMove.Move(player, Tools.LevelsList[Tools.LevelNumber][Tools.MapNumber], sb, character);
+
+            if (Tools.EncounteredEnemy)
             {
                 Enemy enemy = Enemy.EnemyEncounter();
 
@@ -31,13 +31,16 @@ public class Program
 
                 Tools.EncounteredEnemy = false;
             }
-            while (Tools.BossFight)
+
+            if (Tools.BossFight)
             {
-                Enemy enemy = new Enemy(EnemyClass.KingFrog);
+                Enemy enemy = new Enemy(Tools.BossEnemies[Tools.LevelNumber]);
 
                 MainBattle.Battle(player, enemy);
 
                 Tools.BossFight = false;
+
+                Tools.BossDefeated = true;
             }
 
             player.LevelUp();

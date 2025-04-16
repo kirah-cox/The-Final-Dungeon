@@ -12,6 +12,12 @@ namespace AllMaps
     {
         public static char[][] FirstCombatBox =
         {
+            "                                  ".ToCharArray(),
+            "                                  ".ToCharArray(),
+            "                                  ".ToCharArray(),
+            "                                  ".ToCharArray(),
+            "                                  ".ToCharArray(),
+            "                                  ".ToCharArray(),
             ":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
             ": :~~~~~~~~~~~:  :~~~~~~~~~~~~~: :".ToCharArray(),
             ": : 1. Attack :  : 2. Use Item : :".ToCharArray(),
@@ -23,7 +29,6 @@ namespace AllMaps
             ":    Enemy Health:               :".ToCharArray(),
             ":                                :".ToCharArray(),
             ":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
-
         };
 
         public static char[][] FirstLevelBossCombatBox =
@@ -45,36 +50,35 @@ namespace AllMaps
             ":    Enemy Health:               :".ToCharArray(),
             ":                                :".ToCharArray(),
             ":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
-
         };
 
-        public static void DrawCombatBox(Player player, Enemy enemy)
+        public static void DrawCombatBox (Player player, Enemy enemy, char[][] charMap)
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.Append(FirstCombatBox[6]).Remove(13, 2).Insert(13, player.Health);
-            FirstCombatBox[6] = sb.ToString().ToCharArray();
+            sb.Append(charMap[12]).Remove(13, 2).Insert(13, player.Health);
+            charMap[12] = sb.ToString().ToCharArray();
             sb.Clear();
 
-            if (FirstCombatBox[6].Length < 34)
+            if (charMap[12].Length < 34)
             {
-                sb.Append(FirstCombatBox[6]).Insert(30, ' ');
-                FirstCombatBox[6] = sb.ToString().ToCharArray();
+                sb.Append(charMap[12]).Insert(30, ' ');
+                charMap[12] = sb.ToString().ToCharArray();
                 sb.Clear();
             }
 
-            sb.Append(FirstCombatBox[8]).Remove(19, 2).Insert(19, enemy.Health);
-            FirstCombatBox[8] = sb.ToString().ToCharArray();
+            sb.Append(charMap[14]).Remove(19, 2).Insert(19, enemy.Health);
+            charMap[14] = sb.ToString().ToCharArray();
             sb.Clear();
 
-            if (FirstCombatBox[8].Length < 34)
+            if (charMap[14].Length < 34)
             {
-                sb.Append(FirstCombatBox[8]).Insert(30, ' ');
-                FirstCombatBox[8] = sb.ToString().ToCharArray();
+                sb.Append(charMap[14]).Insert(30, ' ');
+                charMap[14] = sb.ToString().ToCharArray();
                 sb.Clear();
             }
 
-            foreach (var item in FirstCombatBox)
+            foreach (var item in charMap)
             {
                 Console.WriteLine(item);
             }

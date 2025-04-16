@@ -21,8 +21,10 @@ namespace MyTools
         public static bool BoulderOverGap { get; set; } = false;
         public static bool ResetRoom { get; set; } = false;
         public static int MapNumber { get; set; } = 0;
+        public static int LevelNumber { get; set; } = 0;
         public static bool BossRoom { get; set; } = false;
         public static bool BossFight { get; set; } = false;
+        public static bool BossDefeated { get; set; } = false;
 
         public static void PressEnter()
         {
@@ -37,6 +39,36 @@ namespace MyTools
                 }
             }
         }
+
+        public static List<List<char[][]>> LevelsList = new List<List<char[][]>>()
+        {
+            FirstLevelMaps.LevelOneMaps, SecondLevelMaps.LevelTwoMaps, ThirdLevelMaps.LevelThreeMaps,
+        };
+
+        public static List<List<char[][]>> ResetLevelsList = new List<List<char[][]>>()
+        {
+            FirstLevelResetMaps.LevelOneResetMaps, SecondLevelResetMaps.LevelTwoResetMaps, ThirdLevelResetMaps.LevelThreeResetMaps,
+        };
+
+        public static List<List<bool>> ChestList = new List<List<bool>>()
+        {
+            FirstLevelMaps.LevelOneChests, SecondLevelMaps.LevelTwoChests, ThirdLevelMaps.LevelThreeChests
+        };
+
+        public static List<List<int>> UpDownList = new List<List<int>>()
+        {
+            FirstLevelMaps.LevelOneUpDown, SecondLevelMaps.LevelTwoUpDown, ThirdLevelMaps.LevelThreeUpDown
+        };
+
+        public static List<List<int>> LeftRightList = new List<List<int>>()
+        {
+            FirstLevelMaps.LevelOneLeftRight, SecondLevelMaps.LevelTwoLeftRight, ThirdLevelMaps.LevelThreeLeftRight
+        };
+
+        public static List<EnemyClass> BossEnemies = new List<EnemyClass>()
+        {
+            EnemyClass.KingFrog,
+        };
     }
 }
 

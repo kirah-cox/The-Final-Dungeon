@@ -180,5 +180,79 @@ namespace LootThings
             OrbofSlime,
             WigglyLongSword,
         }
+
+
+
+        public enum LevelTwoImpWeapons
+        {
+            FieryKnife,
+            GlowingOrb,
+            HellSpear,
+        }
+
+        public enum LevelTwoGoblinWeapons
+        {
+            GreasyShiv,
+            GreenOrb,
+            BattleAxe
+        }
+
+        public enum LevelTwoKoboldWeapons
+        {
+            SneakyShank,
+            OrbofFire,
+            ScalySpear,
+        }
+
+        public enum LevelTwoSkeletonWeapons
+        {
+            RibBoneKnife,
+            OrbofBones,
+            FemurLongSword
+        }
+
+        public enum LevelTwoWitchWeapons
+        {
+            PoisonKnife,
+            DarkStaff,
+            BrewingAxe
+        }
+
+
+
+        public enum LevelThreeBoneWarriorWeapons
+        {
+            SteelyKnife,
+            OrbofMight,
+            LongBattleSword
+        }
+
+        public enum LevelThreeVampireWeapons
+        {
+            BloodyKnife,
+            FangedOrb,
+            DarkSlicer,
+        }
+
+        public enum LevelThreeOrcWeapons
+        {
+            ThickDagger,
+            OrbofBloodLust,
+            HeavyBattleAxe
+        }
+
+        public enum LevelThreeEvilEntWeapons
+        {
+            MossyDagger,
+            BranchStaff,
+            OvergrownSword
+        }
+
+        public enum LevelThreeWarlockWeapons
+        {
+            DarkDagger,
+            OrbofSouls,
+            SwordofPower
+        }
     }
 }

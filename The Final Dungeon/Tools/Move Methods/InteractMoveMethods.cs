@@ -14,7 +14,7 @@ namespace MyTools
         public static void PotionsChestFull(Player player)
         {
             Chest.AddPotion(player);
-            FirstLevelMaps.LevelOneChests[MapNumber] = true;
+            Tools.ChestList[LevelNumber][MapNumber] = true;
         }
 
         public static void PotionsChestEmpty()
@@ -29,8 +29,8 @@ namespace MyTools
             SmallMoveMethods.ClearCharacterOnMap(sb, charMap, character);
 
             MapNumber++;
-            character.UpDown = FirstLevelMaps.LevelOneUpDown[2 * MapNumber];
-            character.LeftRight = FirstLevelMaps.LevelOneLeftRight[2 * MapNumber];
+            character.UpDown = Tools.UpDownList[LevelNumber][2 * MapNumber];
+            character.LeftRight = Tools.LeftRightList[LevelNumber][2 * MapNumber];
         }
 
         public static void MovingToPreviousRoom(StringBuilder sb, char[][] charMap, Character character)
@@ -40,14 +40,24 @@ namespace MyTools
             MapNumber--;
             if (MapNumber == 0)
             {
-                character.UpDown = FirstLevelMaps.LevelOneUpDown[1];
-                character.LeftRight = FirstLevelMaps.LevelOneLeftRight[1];
+                character.UpDown = Tools.UpDownList[LevelNumber][1];
+                character.LeftRight = Tools.LeftRightList[LevelNumber][1];
             }
             else
             {
-                character.UpDown = FirstLevelMaps.LevelOneUpDown[2 * MapNumber + 1];
-                character.LeftRight = FirstLevelMaps.LevelOneLeftRight[2 * MapNumber + 1];
+                character.UpDown = Tools.UpDownList[LevelNumber][2 * MapNumber + 1];
+                character.LeftRight = Tools.LeftRightList[LevelNumber][2 * MapNumber + 1];
             }
+        }
+
+        public static void MovingToNextLevel(Character character)
+        {
+            LevelNumber++;
+            MapNumber = 0;
+            BossRoom = false;
+            BossDefeated = false;
+            character.UpDown = Tools.UpDownList[LevelNumber][MapNumber];
+            character.LeftRight = Tools.LeftRightList[LevelNumber][MapNumber];
         }
 
         public static void ObtainingKey(StringBuilder sb, char[][] charMap, Character character)

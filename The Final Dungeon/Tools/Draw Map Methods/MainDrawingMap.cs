@@ -52,7 +52,7 @@ namespace MyTools
             Console.SetCursorPosition(0, 0);
             Console.CursorVisible = false;
 
-            if (ResetRoom)
+            if (ResetRoom || BossDefeated)
             {
                 for (int i = 0; i < 11; i++)
                 {

@@ -79,14 +79,20 @@ namespace AllMaps
 
         public static char[][] BossMap =
         {
-            ":~~~~~~~~~~~~~:".ToCharArray(),
-            ":.............:".ToCharArray(),
-            ":.............:".ToCharArray(),
-            ":......F......:".ToCharArray(),
-            ":.............:".ToCharArray(),
-            ":.............:".ToCharArray(),
-            ":~~~~~~~~~~~~~:".ToCharArray(),
+            "                                 ".ToCharArray(),
+            "                                 ".ToCharArray(),
+            "         :~~~~~~~~~~~~~:         ".ToCharArray(),
+            "         :.............:         ".ToCharArray(),
+            "         :.............:         ".ToCharArray(),
+            "         :......F......:         ".ToCharArray(),
+            "         :.............:         ".ToCharArray(),
+            "         :.............:         ".ToCharArray(),
+            "         :~~~~~~~~~~~~~:         ".ToCharArray(),
+            "                                 ".ToCharArray(),
+            "                                 ".ToCharArray(),
         };
+
+        public static bool BossChestEmpty { get; set; } = false;
 
         public static List<char[][]> LevelOneMaps = new List<char[][]>()
         {
@@ -95,17 +101,17 @@ namespace AllMaps
 
         public static List<bool> LevelOneChests = new List<bool>()
         {
-            FirstChestEmpty, SecondChestEmpty, ThirdChestEmpty, FourthChestEmpty,
+            FirstChestEmpty, SecondChestEmpty, ThirdChestEmpty, FourthChestEmpty, BossChestEmpty,
         };
 
         public static List<int> LevelOneUpDown = new List<int>()
         {
-            1, 5, 2, 9, 1, 6, 8, 0, 5
+            1, 5, 2, 9, 1, 6, 8, 0, 7
         };
 
         public static List<int> LevelOneLeftRight= new List<int>()
         {
-            1, 31, 1, 24, 4, 31, 10, 16, 7
+            1, 31, 1, 24, 4, 31, 10, 16, 16
         };
     }
 }

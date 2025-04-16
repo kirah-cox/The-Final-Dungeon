@@ -27,10 +27,10 @@ namespace MyTools
         
         public static async void Battle(Player player, Enemy enemy)
         {
+            Console.Clear();
             Console.WriteLine($"You have encountered {enemy.Class}.");
             PressEnter();
-
-            CursorPosition = 11;
+            CursorPosition = 17;
 
             while (enemy.Health > 0 && player.Health > 0)
             {

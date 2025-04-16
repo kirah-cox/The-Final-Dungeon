@@ -85,7 +85,7 @@ namespace MyTools
             {
                 InteractMoveMethods.PotionsChestEmpty();
             }
-            else if (SmallMoveMethods.Character0(charMap, character) && MapNumber + 1 != 4)
+            else if (SmallMoveMethods.Character0(charMap, character))
             {
                 InteractMoveMethods.MovingToNextRoom(sb, charMap, character);
             }
@@ -110,6 +110,14 @@ namespace MyTools
                 InteractMoveMethods.MovingToNextRoom(sb, charMap, character);
                 ObtainedKey = false;
                 BossRoom = true;
+            }
+            else if (SmallMoveMethods.CharacterF(charMap, character))
+            {
+                BossFight = true;
+            }
+            else if (SmallMoveMethods.Characterz(charMap, character))
+            {
+                InteractMoveMethods.MovingToNextLevel(character);
             }
         }
     }

@@ -133,11 +133,26 @@ namespace AllCreations
     {
         
         None,
+
         Spider,
         Viper,
         Frog,
         Rat,
         Slime,
         KingFrog,
+
+        Imp,
+        Goblin,
+        Kobold,
+        Skeleton,
+        Witch,
+        GiantSpider,
+
+        BoneWarrior,
+        Vampire,
+        Orc,
+        EvilEnt,
+        Warlock,
+        DungeonKing,
     }
 }

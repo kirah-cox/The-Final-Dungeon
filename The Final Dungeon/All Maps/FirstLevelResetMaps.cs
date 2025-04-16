@@ -26,15 +26,15 @@ namespace AllMaps
         public static char[][] SecondMap =
         {
             ":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
-            ":.............................R.:".ToCharArray(),
-            "O...............................:".ToCharArray(),
-            ":...............................:".ToCharArray(),
-            ":~~~~~~~~~~~~~~~~:..............:".ToCharArray(),
-            "                 :..............:".ToCharArray(),
-            "                 :..............:".ToCharArray(),
-            "                 :..............:".ToCharArray(),
-            "                 :..............:".ToCharArray(),
-            "                 :.............m:".ToCharArray(),
+            ":.  ...oo.... ......o..  .....R.:".ToCharArray(),
+            "O.......o.......o...........o.. :".ToCharArray(),
+            ":..o..................o. ...ooo.:".ToCharArray(),
+            ":. ..o....oo.....  ..... .....o.:".ToCharArray(),
+            ":..oo....   ... .......oo... ...:".ToCharArray(),
+            ":~~~~~~~~~~~~~~~~:.  ..........o:".ToCharArray(),
+            "                 :.........oo...:".ToCharArray(),
+            "                 :..o.. ......o.:".ToCharArray(),
+            "                 :oo.....o...oom:".ToCharArray(),
             "                 :~~~~~~0~~~~~~~:".ToCharArray(),
         };
 
@@ -70,27 +70,17 @@ namespace AllMaps
 
         public static char[][] BossMap =
         {
-            "                  _'^'_                  ".ToCharArray(),
-            "                 (0'-'0)                 ".ToCharArray(),
-            "              _ (   -   ) _              ".ToCharArray(),
-            "            (  )(       )(  )            ".ToCharArray(),
-            "             ( ) ) | | ( ( )             ".ToCharArray(),
-            "            oO)  oO) (Oo  (Oo            ".ToCharArray(),
-            ":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
-            ":.......................................:".ToCharArray(),
-            ":.......................................:".ToCharArray(),
-            ":.......................................:".ToCharArray(),
-            ":.......................................:".ToCharArray(),
-            ":.......................................:".ToCharArray(),
-            ":.......................................:".ToCharArray(),
-            ":.......................................:".ToCharArray(),
-            ":.......................................:".ToCharArray(),
-            ":.......................................:".ToCharArray(),
-            ":.......................................:".ToCharArray(),
-            ":.......................................:".ToCharArray(),
-            ":.......................................:".ToCharArray(),
-            ":.......................................:".ToCharArray(),
-            ":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
+            "                                 ".ToCharArray(),
+            "                                 ".ToCharArray(),
+            "         :~~~~~~~~~~~~~:         ".ToCharArray(),
+            "         :.............:         ".ToCharArray(),
+            "         :.............:         ".ToCharArray(),
+            "         :......z......:         ".ToCharArray(),
+            "         :.............:         ".ToCharArray(),
+            "         :.............:         ".ToCharArray(),
+            "         :~~~~~~~~~~~~~:         ".ToCharArray(),
+            "                                 ".ToCharArray(),
+            "                                 ".ToCharArray(),
         };
 
         public static List<char[][]> LevelOneResetMaps = new List<char[][]>()

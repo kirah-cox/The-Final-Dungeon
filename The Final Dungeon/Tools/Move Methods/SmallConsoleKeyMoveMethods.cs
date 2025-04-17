@@ -77,6 +77,14 @@ namespace MyTools
             {
                 SmallMoveMethods.WBoulderGap(character);
             }
+            else if (charMap[character.UpDown - 2][character.LeftRight] == 'x')
+            {
+                if (!BoulderOverButton.ContainsKey(character.LeftRight))
+                {
+                    BoulderOverButton.Add(character.LeftRight, character.UpDown - 2);
+                }
+                SmallMoveMethods.WBoulderNoGap(character);
+            }
         }
 
         public static void SPushingBoulder(char[][] charMap, Character character)
@@ -88,6 +96,14 @@ namespace MyTools
             else if (charMap[character.UpDown + 2][character.LeftRight] == ' ')
             {
                 SmallMoveMethods.SBoulderGap(character);
+            }
+            else if (charMap[character.UpDown + 2][character.LeftRight] == 'x')
+            {
+                if (!BoulderOverButton.ContainsKey(character.LeftRight))
+                {
+                    BoulderOverButton.Add(character.LeftRight, character.UpDown + 2);
+                }
+                SmallMoveMethods.SBoulderNoGap(character);
             }
         }
 
@@ -101,6 +117,14 @@ namespace MyTools
             {
                 SmallMoveMethods.ABoulderGap(character);
             }
+            else if (charMap[character.UpDown][character.LeftRight - 2] == 'x')
+            {
+                if (!BoulderOverButton.ContainsKey(character.LeftRight - 2))
+                {
+                    BoulderOverButton.Add(character.LeftRight - 2, character.UpDown);
+                }
+                SmallMoveMethods.ABoulderNoGap(character);
+            }
         }
 
         public static void DPushingBoulder(char[][] charMap, Character character)
@@ -112,6 +136,14 @@ namespace MyTools
             else if (charMap[character.UpDown][character.LeftRight + 2] == ' ')
             {
                 SmallMoveMethods.DBoulderGap(character);
+            }
+            else if (charMap[character.UpDown][character.LeftRight + 2] == 'x')
+            {
+                if (!BoulderOverButton.ContainsKey(character.LeftRight + 2))
+                {
+                    BoulderOverButton.Add(character.LeftRight + 2, character.UpDown);
+                }
+                SmallMoveMethods.DBoulderNoGap(character);
             }
         }
 

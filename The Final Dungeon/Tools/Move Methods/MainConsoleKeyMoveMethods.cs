@@ -12,8 +12,12 @@ namespace MyTools
     {
         public static void PressedW(char[][] charMap, Character character)
         {
-            if (charMap[character.UpDown - 1][character.LeftRight] == '.')
+            if (charMap[character.UpDown - 1][character.LeftRight] == '.' || charMap[character.UpDown - 1][character.LeftRight] == 'x')
             {
+                if (charMap[character.UpDown - 1][character.LeftRight] == 'x' && !BoulderOverButton.ContainsKey(character.LeftRight))
+                {
+                    BoulderOverButton.Add(character.LeftRight, character.UpDown - 1);
+                }
                 SmallConsoleKeyMoveMethods.WNormalMove(character);
             }
             else if (charMap[character.UpDown - 1][character.LeftRight] == 'o')
@@ -38,8 +42,12 @@ namespace MyTools
 
         public static void PressedS(char[][] charMap, Character character)
         {
-            if (charMap[character.UpDown + 1][character.LeftRight] == '.')
+            if (charMap[character.UpDown + 1][character.LeftRight] == '.' || charMap[character.UpDown + 1][character.LeftRight] == 'x')
             {
+                if (charMap[character.UpDown + 1][character.LeftRight] == 'x' && !BoulderOverButton.ContainsKey(character.LeftRight))
+                {
+                    BoulderOverButton.Add(character.LeftRight, character.UpDown + 1);
+                }
                 SmallConsoleKeyMoveMethods.SNormalMove(character);
             }
             else if (charMap[character.UpDown + 1][character.LeftRight] == 'o')
@@ -64,8 +72,12 @@ namespace MyTools
 
         public static void PressedA(char[][] charMap, Character character)
         {
-            if (charMap[character.UpDown][character.LeftRight - 1] == '.')
+            if (charMap[character.UpDown][character.LeftRight - 1] == '.' || charMap[character.UpDown][character.LeftRight - 1] == 'x')
             {
+                if (charMap[character.UpDown][character.LeftRight - 1] == 'x' && !BoulderOverButton.ContainsKey(character.LeftRight - 1))
+                {
+                    BoulderOverButton.Add(character.LeftRight - 1, character.UpDown);
+                }
                 SmallConsoleKeyMoveMethods.ANormalMove(character);
             }
             else if (charMap[character.UpDown][character.LeftRight - 1] == 'o')
@@ -90,8 +102,12 @@ namespace MyTools
 
         public static void PressedD(char[][] charMap, Character character)
         {
-            if (charMap[character.UpDown][character.LeftRight + 1] == '.')
+            if (charMap[character.UpDown][character.LeftRight + 1] == '.' || charMap[character.UpDown][character.LeftRight + 1] == 'x')
             {
+                if (charMap[character.UpDown][character.LeftRight + 1] == 'x' && !BoulderOverButton.ContainsKey(character.LeftRight + 1))
+                {
+                    BoulderOverButton.Add(character.LeftRight + 1, character.UpDown);
+                }
                 SmallConsoleKeyMoveMethods.DNormalMove(character);
             }
             else if (charMap[character.UpDown][character.LeftRight + 1] == 'o')

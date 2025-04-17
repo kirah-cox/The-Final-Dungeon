@@ -36,7 +36,7 @@ namespace LootThings
         {
             if (player.WeaponInventory.Count < 5)
             {
-                if (!player.WeaponInventory.Contains(enemy.Weapon))
+                if (player.WeaponInventory.Where(weapon => weapon.Name == enemy.Weapon.Name).Count() <= 0)
                 {
                     player.WeaponInventory.Add(enemy.Weapon);
                     Console.WriteLine($"{enemy.Weapon.Name} has been added to your inventory.");

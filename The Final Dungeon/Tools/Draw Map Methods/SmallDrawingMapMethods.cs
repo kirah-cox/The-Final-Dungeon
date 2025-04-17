@@ -58,6 +58,13 @@ namespace MyTools
             CrossedGap = false;
         }
 
+        public static void ClearUpBoulderOffButton(StringBuilder sb, char[][] charMap, Character character)
+        {
+            sb.Append(charMap[character.UpDown + 1]).Remove(character.LeftRight, 1).Insert(character.LeftRight, "x");
+            charMap[character.UpDown + 1] = sb.ToString().ToCharArray();
+            sb.Clear();
+        }
+
         public static void ClearDownNormal(StringBuilder sb, char[][] charMap, Character character)
         {
             sb.Append(charMap[character.UpDown - 1]).Remove(character.LeftRight, 1).Insert(character.LeftRight, ".");
@@ -80,6 +87,13 @@ namespace MyTools
             CrossedGap = false;
         }
 
+        public static void ClearDownBoulderOffButton(StringBuilder sb, char[][] charMap, Character character)
+        {
+            sb.Append(charMap[character.UpDown - 1]).Remove(character.LeftRight, 1).Insert(character.LeftRight, "x");
+            charMap[character.UpDown - 1] = sb.ToString().ToCharArray();
+            sb.Clear();
+        }
+
         public static void LeftNormal(StringBuilder sb, char[][] charMap, Character character)
         {
             sb.Append(charMap[character.UpDown]).Remove(character.LeftRight, 1).Insert(character.LeftRight, character.CharacterChar).Remove(character.LeftRight + 1, 1).Insert(character.LeftRight + 1, ".");
@@ -99,6 +113,13 @@ namespace MyTools
             charMap[character.UpDown] = sb.ToString().ToCharArray();
             sb.Clear();
             CrossedGap = false;
+        }
+
+        public static void LeftBoulderButton(StringBuilder sb, char[][] charMap, Character character)
+        {
+            sb.Append(charMap[character.UpDown]).Remove(character.LeftRight, 1).Insert(character.LeftRight, character.CharacterChar).Remove(character.LeftRight + 1, 1).Insert(character.LeftRight + 1, "x");
+            charMap[character.UpDown] = sb.ToString().ToCharArray();
+            sb.Clear();
         }
 
         public static void LeftBoulder(StringBuilder sb, char[][] charMap, Character character)
@@ -128,6 +149,13 @@ namespace MyTools
             charMap[character.UpDown] = sb.ToString().ToCharArray();
             sb.Clear();
             CrossedGap = false;
+        }
+
+        public static void RightBoulderButton(StringBuilder sb, char[][] charMap, Character character)
+        {
+            sb.Append(charMap[character.UpDown]).Remove(character.LeftRight, 1).Insert(character.LeftRight, character.CharacterChar).Remove(character.LeftRight - 1, 1).Insert(character.LeftRight - 1, "x");
+            charMap[character.UpDown] = sb.ToString().ToCharArray();
+            sb.Clear();
         }
 
         public static void RightBoulder(StringBuilder sb, char[][] charMap, Character character)

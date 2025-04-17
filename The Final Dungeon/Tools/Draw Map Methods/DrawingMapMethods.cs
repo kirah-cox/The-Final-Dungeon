@@ -38,6 +38,14 @@ namespace MyTools
                 SmallDrawingMapMethods.ClearUpIce(sb, charMap, character);
                 return;
             }
+            if (BoulderOverButton.Count() > 0 && BoulderOverButton.ContainsKey(character.LeftRight))
+            {
+                if (BoulderOverButton[character.LeftRight] == character.UpDown + 1)
+                {
+                    SmallDrawingMapMethods.ClearUpBoulderOffButton(sb, charMap, character);
+                    return;
+                }
+            }
             SmallDrawingMapMethods.ClearUpNormal(sb, charMap, character);
         }
 
@@ -53,6 +61,14 @@ namespace MyTools
                 SmallDrawingMapMethods.ClearDownIce(sb, charMap, character);
                 return;
             }
+            if (BoulderOverButton.Count() > 0 && BoulderOverButton.ContainsKey(character.LeftRight))
+            {
+                if (BoulderOverButton[character.LeftRight] == character.UpDown - 1)
+                {
+                    SmallDrawingMapMethods.ClearDownBoulderOffButton(sb, charMap, character);
+                    return;
+                }
+            }
             SmallDrawingMapMethods.ClearDownNormal(sb, charMap, character);
         }
 
@@ -66,12 +82,27 @@ namespace MyTools
             if (PushingBoulder && !BoulderOverGap)
             {
                 SmallDrawingMapMethods.LeftBoulder(sb, charMap, character);
+                if (BoulderOverButton.Count() > 0 && BoulderOverButton.ContainsKey(character.LeftRight + 1))
+                {
+                    if (BoulderOverButton[character.LeftRight + 1] == character.UpDown)
+                    {
+                        SmallDrawingMapMethods.LeftBoulderButton(sb, charMap, character);
+                    }
+                }
                 return;
             }
             if (CrossingIce)
             {
                 SmallDrawingMapMethods.LeftIce(sb, charMap, character);
                 return;
+            }
+            if (BoulderOverButton.Count() > 0 && BoulderOverButton.ContainsKey(character.LeftRight + 1))
+            {
+                if (BoulderOverButton[character.LeftRight + 1] == character.UpDown)
+                {
+                    SmallDrawingMapMethods.LeftBoulderButton(sb, charMap, character);
+                    return;
+                }
             }
             SmallDrawingMapMethods.LeftNormal(sb, charMap, character);
         }
@@ -86,12 +117,27 @@ namespace MyTools
             if (PushingBoulder && !BoulderOverGap)
             {
                 SmallDrawingMapMethods.RightBoulder(sb, charMap, character);
+                if (BoulderOverButton.Count() > 0 && BoulderOverButton.ContainsKey(character.LeftRight - 1))
+                {
+                    if (BoulderOverButton[character.LeftRight - 1] == character.UpDown)
+                    {
+                        SmallDrawingMapMethods.RightBoulderButton(sb, charMap, character);
+                    }
+                }
                 return;
             }
             if (CrossingIce)
             {
                 SmallDrawingMapMethods.RightIce(sb, charMap, character);
                 return;
+            }
+            if (BoulderOverButton.Count() > 0 && BoulderOverButton.ContainsKey(character.LeftRight - 1))
+            {
+                if (BoulderOverButton[character.LeftRight - 1] == character.UpDown)
+                {
+                    SmallDrawingMapMethods.RightBoulderButton(sb, charMap, character);
+                    return;
+                }
             }
             SmallDrawingMapMethods.RightNormal(sb, charMap, character);
         }

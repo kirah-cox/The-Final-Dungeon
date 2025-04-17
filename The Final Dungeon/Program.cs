@@ -8,7 +8,7 @@ public class Program
 {
     public static void Main()
     {
-        Character character = new Character("@", 7, 1);
+        Character character = new Character("@");
 
         StringBuilder sb = new StringBuilder();
 

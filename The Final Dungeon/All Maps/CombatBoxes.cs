@@ -38,7 +38,7 @@ namespace AllMaps
             @"               o..O               ".ToCharArray(),
             @"              (----)              ".ToCharArray(),
             @"             (>____<)             ".ToCharArray(),
-            @"             \^^~~^^/              ".ToCharArray(),
+            @"             \^^~~^^/             ".ToCharArray(),
             @":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
             @": :~~~~~~~~~~~:  :~~~~~~~~~~~~~: :".ToCharArray(),
             @": : 1. Attack :  : 2. Use Item : :".ToCharArray(),
@@ -56,10 +56,10 @@ namespace AllMaps
         {
             @"                                  ".ToCharArray(),
             @"       (_) (_)                    ".ToCharArray(),
-            @"        (o o)--.__               ".ToCharArray(),
+            @"        (o o)--.__                ".ToCharArray(),
             @"         >o<  _    \'-._          ".ToCharArray(),
             @"          //// ||| /    )         ".ToCharArray(),
-            @"          ^ ^  ////    (__.'       ".ToCharArray(),
+            @"          ^ ^  ////    (__.'      ".ToCharArray(),
             @":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
             @": :~~~~~~~~~~~:  :~~~~~~~~~~~~~: :".ToCharArray(),
             @": : 1. Attack :  : 2. Use Item : :".ToCharArray(),
@@ -75,12 +75,12 @@ namespace AllMaps
 
         public static char[][] FirstLevelSlimeCombatBox =
         {
-            @"                                 ".ToCharArray(),
-            @"            _. --- ._            ".ToCharArray(),
-            @"         ,`           `,         ".ToCharArray(),
-            @"        /    n     n    \        ".ToCharArray(),
-            @"        \       .       /        ".ToCharArray(),
-            @"         `'-._______.-'`         ".ToCharArray(),
+            @"                                  ".ToCharArray(),
+            @"            _. --- ._             ".ToCharArray(),
+            @"         ,`           `,          ".ToCharArray(),
+            @"        /    n     n    \         ".ToCharArray(),
+            @"        \       .       /         ".ToCharArray(),
+            @"         `'-._______.-'`          ".ToCharArray(),
             @":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
             @": :~~~~~~~~~~~:  :~~~~~~~~~~~~~: :".ToCharArray(),
             @": : 1. Attack :  : 2. Use Item : :".ToCharArray(),
@@ -199,7 +199,7 @@ namespace AllMaps
             @":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
         };
 
-        public static char[][] FirstKoboldBox =
+        public static char[][] SecondLevelKoboldBox =
         {
             @"              .--..--.            ".ToCharArray(),
             @"             ( o  o ) \           ".ToCharArray(),
@@ -207,6 +207,153 @@ namespace AllMaps
             @"        _.'   _.-'     /          ".ToCharArray(),
             @"       (..)-'`_.-')    |          ".ToCharArray(),
             @"        VV'``    /     \          ".ToCharArray(),
+            @":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
+            @": :~~~~~~~~~~~:  :~~~~~~~~~~~~~: :".ToCharArray(),
+            @": : 1. Attack :  : 2. Use Item : :".ToCharArray(),
+            @": :~~~~~~~~~~~:  :~~~~~~~~~~~~~: :".ToCharArray(),
+            @":                                :".ToCharArray(),
+            @":                                :".ToCharArray(),
+            @":    Health:                     :".ToCharArray(),
+            @":                                :".ToCharArray(),
+            @":    Enemy Health:               :".ToCharArray(),
+            @":                                :".ToCharArray(),
+            @":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
+        };
+
+        public static char[][] SecondLevelSkeletonCombatBox =
+        {
+            @"             .-' '-.              ".ToCharArray(),
+            @"            / _   _ \             ".ToCharArray(),
+            @"            )(_) (_)(             ".ToCharArray(),
+            @"            (   A   )             ".ToCharArray(),
+            @"             \'III'/              ".ToCharArray(),
+            @"              `---`               ".ToCharArray(),
+            @":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
+            @": :~~~~~~~~~~~:  :~~~~~~~~~~~~~: :".ToCharArray(),
+            @": : 1. Attack :  : 2. Use Item : :".ToCharArray(),
+            @": :~~~~~~~~~~~:  :~~~~~~~~~~~~~: :".ToCharArray(),
+            @":                                :".ToCharArray(),
+            @":                                :".ToCharArray(),
+            @":    Health:                     :".ToCharArray(),
+            @":                                :".ToCharArray(),
+            @":    Enemy Health:               :".ToCharArray(),
+            @":                                :".ToCharArray(),
+            @":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
+        };
+
+        public static char[][] SecondLevelWitchCombatBox =
+        {
+            @"            _/     \_             ".ToCharArray(),
+            @"          /___________\           ".ToCharArray(),
+            @"           ## o   o ##            ".ToCharArray(),
+            @"          ### . V   ###           ".ToCharArray(),
+            @"          ## \  -  / ##           ".ToCharArray(),
+            @"         ###  (_._)  ###          ".ToCharArray(),
+            @":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
+            @": :~~~~~~~~~~~:  :~~~~~~~~~~~~~: :".ToCharArray(),
+            @": : 1. Attack :  : 2. Use Item : :".ToCharArray(),
+            @": :~~~~~~~~~~~:  :~~~~~~~~~~~~~: :".ToCharArray(),
+            @":                                :".ToCharArray(),
+            @":                                :".ToCharArray(),
+            @":    Health:                     :".ToCharArray(),
+            @":                                :".ToCharArray(),
+            @":    Enemy Health:               :".ToCharArray(),
+            @":                                :".ToCharArray(),
+            @":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
+        };
+
+        public static char[][] ThirdLevelBoneWarriorCombatBox =
+        {
+            @"              .-' '-.             ".ToCharArray(),
+            @"             /_______\            ".ToCharArray(),
+            @"             )(_) (_)(            ".ToCharArray(),
+            @"             {   A   }            ".ToCharArray(),
+            @"              \'III'/             ".ToCharArray(),
+            @"               .___.              ".ToCharArray(),
+            @":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
+            @": :~~~~~~~~~~~:  :~~~~~~~~~~~~~: :".ToCharArray(),
+            @": : 1. Attack :  : 2. Use Item : :".ToCharArray(),
+            @": :~~~~~~~~~~~:  :~~~~~~~~~~~~~: :".ToCharArray(),
+            @":                                :".ToCharArray(),
+            @":                                :".ToCharArray(),
+            @":    Health:                     :".ToCharArray(),
+            @":                                :".ToCharArray(),
+            @":    Enemy Health:               :".ToCharArray(),
+            @":                                :".ToCharArray(),
+            @":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
+        };
+
+        public static char[][] ThirdLevelVampireCombatBox =
+        {
+            @"              .-'^'-.             ".ToCharArray(),
+            @"       __..--/ \   / \--..__      ".ToCharArray(),
+            @"      \     |  O   O  |     /     ".ToCharArray(),
+            @"       \   '_    V    _'   /      ".ToCharArray(),
+            @"        \    \  ,-,  /    /       ".ToCharArray(),
+            @"         \   /'-._.-'\   /        ".ToCharArray(),
+            @":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
+            @": :~~~~~~~~~~~:  :~~~~~~~~~~~~~: :".ToCharArray(),
+            @": : 1. Attack :  : 2. Use Item : :".ToCharArray(),
+            @": :~~~~~~~~~~~:  :~~~~~~~~~~~~~: :".ToCharArray(),
+            @":                                :".ToCharArray(),
+            @":                                :".ToCharArray(),
+            @":    Health:                     :".ToCharArray(),
+            @":                                :".ToCharArray(),
+            @":    Enemy Health:               :".ToCharArray(),
+            @":                                :".ToCharArray(),
+            @":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
+        };
+
+        public static char[][] ThirdLevelOrcCombatBox =
+        {
+            @"              .-'^'-.             ".ToCharArray(),
+            @"           |\/.\   /.\/|          ".ToCharArray(),
+            @"           \ \ o   o / /          ".ToCharArray(),
+            @"           '_  . v    _'          ".ToCharArray(),
+            @"             \  --- ./            ".ToCharArray(),
+            @"              '-._.-'             ".ToCharArray(),
+            @":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
+            @": :~~~~~~~~~~~:  :~~~~~~~~~~~~~: :".ToCharArray(),
+            @": : 1. Attack :  : 2. Use Item : :".ToCharArray(),
+            @": :~~~~~~~~~~~:  :~~~~~~~~~~~~~: :".ToCharArray(),
+            @":                                :".ToCharArray(),
+            @":                                :".ToCharArray(),
+            @":    Health:                     :".ToCharArray(),
+            @":                                :".ToCharArray(),
+            @":    Enemy Health:               :".ToCharArray(),
+            @":                                :".ToCharArray(),
+            @":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
+        };
+
+        public static char[][] ThirdLevelEvilEntCombatBox =
+        {
+            @"       oo  \         /            ".ToCharArray(),
+            @"       o'._|  \   /  |    __.o    ".ToCharArray(),
+            @"           \  o   o  /--'`oo      ".ToCharArray(),
+            @"   o.__    |         |            ".ToCharArray(),
+            @"     oo`'--\   ~~~   /            ".ToCharArray(),
+            @"           |  \   /  |            ".ToCharArray(),
+            @":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
+            @": :~~~~~~~~~~~:  :~~~~~~~~~~~~~: :".ToCharArray(),
+            @": : 1. Attack :  : 2. Use Item : :".ToCharArray(),
+            @": :~~~~~~~~~~~:  :~~~~~~~~~~~~~: :".ToCharArray(),
+            @":                                :".ToCharArray(),
+            @":                                :".ToCharArray(),
+            @":    Health:                     :".ToCharArray(),
+            @":                                :".ToCharArray(),
+            @":    Enemy Health:               :".ToCharArray(),
+            @":                                :".ToCharArray(),
+            @":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
+        };
+
+        public static char[][] ThirdLevelWarlockCombatBox =
+        {
+            @"            _/     \_             ".ToCharArray(),
+            @"          /___________\           ".ToCharArray(),
+            @"           ## .\ /. ##            ".ToCharArray(),
+            @"            #   u   #             ".ToCharArray(),
+            @"             \  -  /             ".ToCharArray(),
+            @"              '###'               ".ToCharArray(),
             @":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
             @": :~~~~~~~~~~~:  :~~~~~~~~~~~~~: :".ToCharArray(),
             @": : 1. Attack :  : 2. Use Item : :".ToCharArray(),

@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using LootThings;
 using MyTools;
+using AllMaps;
 
 namespace AllCreations
 {
@@ -16,6 +17,7 @@ namespace AllCreations
         public Random WeaponNumber { get; set; } = new Random();
         public Random RandomDropWeapon { get; set; } = new Random();
         public bool DropWeapon { get; set; } = false;
+        public char[][] CombatBox { get; set; }
 
         public Enemy(EnemyClass enemyClass)
         {
@@ -87,6 +89,7 @@ namespace AllCreations
             Strength = 3;
             Mana = 2;
             Luck = 15;
+            CombatBox = CombatBoxes.FirstLevelSpiderCombatBox;
             Experience = RandomExperience.Next(5, 8);
             Weapon = new SpiderWeapon(WeaponNumber.Next(1, 4));
             if(RandomDropWeapon.Next(1, 101) <= 50)
@@ -102,6 +105,7 @@ namespace AllCreations
             Strength = 3;
             Mana = 3;
             Luck = 7;
+            CombatBox = CombatBoxes.FirstLevelViperCombatBox;
             Experience = RandomExperience.Next(12, 16);
             Weapon = new ViperWeapon(WeaponNumber.Next(1, 4));
             if (RandomDropWeapon.Next(1, 101) <= 50)
@@ -117,6 +121,7 @@ namespace AllCreations
             Strength = 1;
             Mana = 1;
             Luck = 25;
+            CombatBox = CombatBoxes.FirstLevelFrogCombatBox;
             Experience = RandomExperience.Next(3, 6);
             Weapon = new FrogWeapon(WeaponNumber.Next(1, 4));
             if (RandomDropWeapon.Next(1, 101) <= 50)
@@ -132,6 +137,7 @@ namespace AllCreations
             Strength = 3;
             Mana = 1;
             Luck = 1;
+            CombatBox = CombatBoxes.FirstLevelRatCombatBox;
             Experience = RandomExperience.Next(3, 6);
             Weapon = new RatWeapon(WeaponNumber.Next(1, 4));
             if (RandomDropWeapon.Next(1, 101) <= 50)
@@ -147,6 +153,7 @@ namespace AllCreations
             Strength = 3;
             Mana = 5;
             Luck = 15;
+            CombatBox = CombatBoxes.FirstLevelSlimeCombatBox;
             Experience = RandomExperience.Next(8, 12);
             Weapon = new SlimeWeapon(WeaponNumber.Next(1, 4));
             if (RandomDropWeapon.Next(1, 101) <= 50)
@@ -162,6 +169,7 @@ namespace AllCreations
             Strength = 6;
             Mana = 1;
             Luck = 2;
+            CombatBox = CombatBoxes.SecondLevelGoblinCombatBox;
             Experience = RandomExperience.Next(5, 8);
             Weapon = new GoblinWeapon(WeaponNumber.Next(1, 4));
             if (RandomDropWeapon.Next(1, 101) <= 50)
@@ -177,6 +185,7 @@ namespace AllCreations
             Strength = 3;
             Mana = 5;
             Luck = 6;
+            CombatBox = CombatBoxes.SecondLevelImpCombatBox;
             Experience = RandomExperience.Next(3, 6);
             Weapon = new ImpWeapon(WeaponNumber.Next(1, 4));
             if (RandomDropWeapon.Next(1, 101) <= 50)
@@ -192,6 +201,7 @@ namespace AllCreations
             Strength = 7;
             Mana = 1;
             Luck = 5;
+            CombatBox = CombatBoxes.SecondLevelKoboldCombatBox;
             Experience = RandomExperience.Next(8, 12);
             Weapon = new KoboldWeapon(WeaponNumber.Next(1, 4));
             if (RandomDropWeapon.Next(1, 101) <= 50)
@@ -207,6 +217,7 @@ namespace AllCreations
             Strength = 8;
             Mana = 2;
             Luck = 15;
+            CombatBox = CombatBoxes.SecondLevelSkeletonCombatBox;
             Experience = RandomExperience.Next(12, 15);
             Weapon = new SkeletonWeapon(WeaponNumber.Next(1, 4));
             if (RandomDropWeapon.Next(1, 101) <= 50)
@@ -222,6 +233,7 @@ namespace AllCreations
             Strength = 1;
             Mana = 10;
             Luck = 20;
+            CombatBox = CombatBoxes.SecondLevelWitchCombatBox;
             Experience = RandomExperience.Next(14, 18);
             Weapon = new WitchWeapon(WeaponNumber.Next(1, 4));
             if (RandomDropWeapon.Next(1, 101) <= 50)
@@ -237,6 +249,7 @@ namespace AllCreations
             Strength = 10;
             Mana = 1;
             Luck = 15;
+            CombatBox = CombatBoxes.ThirdLevelBoneWarriorCombatBox;
             Experience = RandomExperience.Next(3, 6);
             Weapon = new BoneWarriorWeapon(WeaponNumber.Next(1, 4));
             if (RandomDropWeapon.Next(1, 101) <= 50)
@@ -252,6 +265,7 @@ namespace AllCreations
             Strength = 5;
             Mana = 8;
             Luck = 25;
+            CombatBox = CombatBoxes.ThirdLevelVampireCombatBox;
             Experience = RandomExperience.Next(5, 8);
             Weapon = new VampireWeapon(WeaponNumber.Next(1, 4));
             if (RandomDropWeapon.Next(1, 101) <= 50)
@@ -267,6 +281,7 @@ namespace AllCreations
             Strength = 14;
             Mana = 1;
             Luck = 5;
+            CombatBox = CombatBoxes.ThirdLevelOrcCombatBox;
             Experience = RandomExperience.Next(8, 12);
             Weapon = new OrcWeapon(WeaponNumber.Next(1, 4));
             if (RandomDropWeapon.Next(1, 101) <= 50)
@@ -282,6 +297,7 @@ namespace AllCreations
             Strength = 7;
             Mana = 10;
             Luck = 20;
+            CombatBox = CombatBoxes.ThirdLevelEvilEntCombatBox;
             Experience = RandomExperience.Next(12, 15);
             Weapon = new EvilEntWeapon(WeaponNumber.Next(1, 4));
             if (RandomDropWeapon.Next(1, 101) <= 50)
@@ -297,6 +313,7 @@ namespace AllCreations
             Strength = 1;
             Mana = 20;
             Luck = 15;
+            CombatBox = CombatBoxes.ThirdLevelWarlockCombatBox;
             Experience = RandomExperience.Next(14, 18);
             Weapon = new WarlockWeapon(WeaponNumber.Next(1, 4));
             if (RandomDropWeapon.Next(1, 101) <= 50)

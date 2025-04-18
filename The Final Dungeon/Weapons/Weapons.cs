@@ -76,25 +76,25 @@ namespace LootThings
                                 Console.WriteLine($"{player.WeaponInventory[0].Name} has been removed from your inventory.");
                                 break;
                             }
-                            else if (newKey == ConsoleKey.D2)
+                            else if (newKey == ConsoleKey.D2 && lineNumber >= 2)
                             {
                                 player.WeaponInventory.Remove(player.WeaponInventory[1]);
                                 Console.WriteLine($"{player.WeaponInventory[1].Name} has been removed from your inventory.");
                                 break;
                             }
-                            else if (newKey == ConsoleKey.D3)
+                            else if (newKey == ConsoleKey.D3 && lineNumber >= 3)
                             {
                                 player.WeaponInventory.Remove(player.WeaponInventory[2]);
                                 Console.WriteLine($"{player.WeaponInventory[2].Name} has been removed from your inventory.");
                                 break;
                             }
-                            else if (newKey == ConsoleKey.D4)
+                            else if (newKey == ConsoleKey.D4 && lineNumber >= 4)
                             {
                                 player.WeaponInventory.Remove(player.WeaponInventory[3]);
                                 Console.WriteLine($"{player.WeaponInventory[3].Name} has been removed from your inventory.");
                                 break;
                             }
-                            else if(newKey == ConsoleKey.D5)
+                            else if(newKey == ConsoleKey.D5 && lineNumber >= 5)
                             {
                                 player.WeaponInventory.Remove(player.WeaponInventory[4]);
                                 Console.WriteLine($"{player.WeaponInventory[4].Name} has been removed from your inventory.");

@@ -84,7 +84,9 @@ namespace MyTools
         {
             if (charMap[character.UpDown][character.LeftRight + 1] != ':'
                 && charMap[character.UpDown][character.LeftRight + 1] != 'O'
-                && charMap[character.UpDown][character.LeftRight + 1] != '0')
+                && charMap[character.UpDown][character.LeftRight + 1] != '0'
+                && charMap[character.UpDown][character.LeftRight + 1] != '#'
+                && charMap[character.UpDown][character.LeftRight + 1] != 'B')
             {
                 return true;
             }
@@ -95,7 +97,9 @@ namespace MyTools
         {
             if (charMap[character.UpDown][character.LeftRight - 1] != ':'
                 && charMap[character.UpDown][character.LeftRight - 1] != 'O'
-                && charMap[character.UpDown][character.LeftRight - 1] != '0')
+                && charMap[character.UpDown][character.LeftRight - 1] != '0'
+                && charMap[character.UpDown][character.LeftRight - 1] != '#'
+                && charMap[character.UpDown][character.LeftRight - 1] != 'B')
             {
                 return true;
             }
@@ -106,7 +110,9 @@ namespace MyTools
         {
             if (charMap[character.UpDown + 1][character.LeftRight] != '~'
                 && charMap[character.UpDown + 1][character.LeftRight] != 'O'
-                && charMap[character.UpDown + 1][character.LeftRight] != '0')
+                && charMap[character.UpDown + 1][character.LeftRight] != '0'
+                && charMap[character.UpDown + 1][character.LeftRight] != '#'
+                && charMap[character.UpDown + 1][character.LeftRight] != 'B')
             {
                 return true;
             }
@@ -117,7 +123,9 @@ namespace MyTools
         {
             if (charMap[character.UpDown - 1][character.LeftRight] != '~'
                 && charMap[character.UpDown - 1][character.LeftRight] != 'O'
-                && charMap[character.UpDown - 1][character.LeftRight] != '0')
+                && charMap[character.UpDown - 1][character.LeftRight] != '0'
+                && charMap[character.UpDown - 1][character.LeftRight] != '#'
+                && charMap[character.UpDown - 1][character.LeftRight] != 'B')
             {
                 return true;
             }
@@ -226,6 +234,18 @@ namespace MyTools
                 || charMap[character.UpDown + 1][character.LeftRight] == 'z'
                 || charMap[character.UpDown][character.LeftRight - 1] == 'z'
                 || charMap[character.UpDown][character.LeftRight + 1] == 'z')
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public static bool Characters(char[][] charMap, Character character)
+        {
+            if (charMap[character.UpDown - 1][character.LeftRight] == 's'
+                || charMap[character.UpDown + 1][character.LeftRight] == 's'
+                || charMap[character.UpDown][character.LeftRight - 1] == 's'
+                || charMap[character.UpDown][character.LeftRight + 1] == 's')
             {
                 return true;
             }

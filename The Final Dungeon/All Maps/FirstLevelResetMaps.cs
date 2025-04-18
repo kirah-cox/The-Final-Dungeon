@@ -11,31 +11,31 @@ namespace AllMaps
         public static char[][] FirstMap =
         {
             ":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
-            ":.............omo............R.o:".ToCharArray(),
+            ":.............omo.....x......R.o:".ToCharArray(),
             ":......oo......o... ....   .....:".ToCharArray(),
-            ":....ooooo.......... .....o.....:".ToCharArray(),
+            ":s...ooooox......... .....o.....:".ToCharArray(),
             ":            ...................:".ToCharArray(),
-            ":oooooo.o..  o..................0".ToCharArray(),
-            ":oo...oo.o. o...................:".ToCharArray(),
+            ":oooooo.o..  o..................#".ToCharArray(),
+            ":oo...oo.o. o..............x....:".ToCharArray(),
             ":K...o.o.o. ....o......o.......o:".ToCharArray(),
             ":o....oo.o. .o..........o.....oo:".ToCharArray(),
-            ":oooooo.o.. ooo.......  ......oo:".ToCharArray(),
+            ":oooooo.o.. ooo...x...  ......oo:".ToCharArray(),
             ":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
         };
 
         public static char[][] SecondMap =
         {
             ":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
-            ":.  ...oo.... ......o..  .....R.:".ToCharArray(),
+            ":.  ...oo..x. ......o..  .....R.:".ToCharArray(),
             "O.......o.......o...........o.. :".ToCharArray(),
-            ":..o..................o. ...ooo.:".ToCharArray(),
-            ":. ..o....oo.....  ..... .....o.:".ToCharArray(),
-            ":..oo....   ... .......oo... ...:".ToCharArray(),
-            ":~~~~~~~~~~~~~~~~:.  ..........o:".ToCharArray(),
+            ":..o.................xo. ...ooo.:".ToCharArray(),
+            ":. ..o....oo.....  ..... ..x..o.:".ToCharArray(),
+            ":x.oo....   ... .......oo... ...:".ToCharArray(),
+            ":~~~~~~~~~~~~~~~~:x  ..........o:".ToCharArray(),
             "                 :.........oo...:".ToCharArray(),
             "                 :..o.. ......o.:".ToCharArray(),
-            "                 :oo.....o...oom:".ToCharArray(),
-            "                 :~~~~~~0~~~~~~~:".ToCharArray(),
+            "                 :oo.x...o...oom:".ToCharArray(),
+            "                 :~~~~~~#~~~~~~~:".ToCharArray(),
         };
 
         public static char[][] ThirdMap =
@@ -45,26 +45,26 @@ namespace AllMaps
             ":.......:                        ".ToCharArray(),
             ":......o:                        ".ToCharArray(),
             ":.......:~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
-            ": .......oo........R.....o.o....:".ToCharArray(),
+            ": .......oo..x.....R.....o.o...x:".ToCharArray(),
             ":  ......o.... .........o.oo....:".ToCharArray(),
-            ":............ ...........oo..M..0".ToCharArray(),
-            ":...oo..........o.......o.oo....:".ToCharArray(),
+            ":............ ...........oo..M..#".ToCharArray(),
+            ":x..oo..........o.......o.oo....:".ToCharArray(),
             ":.oom.o.......o..........o.o....:".ToCharArray(),
             ":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
         };
 
         public static char[][] FourthMap =
         {
-            "         :~~~~~~~~~~~~~:         ".ToCharArray(),
-            "         :.............:         ".ToCharArray(),
+            "         :~~~~~~B~~~~~~:         ".ToCharArray(),
+            "         :oo.......oo..:         ".ToCharArray(),
+            "         :o............:         ".ToCharArray(),
             "         :             :         ".ToCharArray(),
-            "         :.............:         ".ToCharArray(),
+            "         :............o:         ".ToCharArray(),
             "         :             :         ".ToCharArray(),
-            "         :.............:         ".ToCharArray(),
-            "         :.............:         ".ToCharArray(),
-            "         :.............:         ".ToCharArray(),
-            "         O.............:         ".ToCharArray(),
-            "         :.............:         ".ToCharArray(),
+            "         :oo...........:         ".ToCharArray(),
+            "         :....o........:         ".ToCharArray(),
+            "         O...........oo:         ".ToCharArray(),
+            "         :o.........o..:         ".ToCharArray(),
             "         :~~~~~~~~~~~~~:         ".ToCharArray(),
         };
 

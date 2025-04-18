@@ -174,6 +174,30 @@ namespace MyTools
             {
                 InteractMoveMethods.MovingToNextLevel(character);
             }
+            else if (SmallMoveMethods.Characters(charMap, character))
+            {
+                if (LevelNumber == 0)
+                {
+                    Console.Clear();
+                    Console.WriteLine("|-----------------------------------|");
+                    Console.WriteLine("|                                   |");
+                    Console.WriteLine("|   The boulders are light enough   |");
+                    Console.WriteLine("|          to push around.          |");
+                    Console.WriteLine("|                                   |");
+                    Console.WriteLine("|   All of the buttons need to be   |");
+                    Console.WriteLine("|    pressed at once to continue.   |");
+                    Console.WriteLine("|                                   |");
+                    Console.WriteLine("|-----------------------------------|");
+                    Console.WriteLine("                 | |                 ");
+                    Console.WriteLine("                 | |                 ");
+                    Console.WriteLine("                 | |                 ");
+                    Console.WriteLine("                 | |                 ");
+                    Console.WriteLine("                 |_|                 ");
+                    Console.WriteLine("\n");
+                    PressEnter();
+                    Console.Clear();
+                }
+            }
         }
     }
 }

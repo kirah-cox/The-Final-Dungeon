@@ -61,6 +61,42 @@ namespace MyTools
                 ResetRoom = false;
             }
 
+            int buttonsRemaining = 0;
+            for (int i = 0; i < 11; i++)
+            {
+                if (charMap[i].Contains('x'))
+                {
+                    buttonsRemaining++;
+                }
+            }
+
+            if (buttonsRemaining == 0)
+            {
+                for (int i = 0; i < 11; i++)
+                {
+                    for (int j = 0; j < 33; j++)
+                    {
+                        if (charMap[i][j] == '#')
+                        {
+                            charMap[i][j] = '0';
+                        }
+                    }
+                }
+            }
+            else
+            {
+                for (int i = 0; i < 11; i++)
+                {
+                    for (int j = 0; j < 33; j++)
+                    {
+                        if (charMap[i][j] == '0')
+                        {
+                            charMap[i][j] = '#';
+                        }
+                    }
+                }
+            }
+
             DrawingMapMethods.CharacterMovesUpOrDown(sb, charMap, character);
 
             if (character.Up)

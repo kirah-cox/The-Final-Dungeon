@@ -21,7 +21,7 @@ namespace MyTools
             IceLineNumber = 1;
 
             var key = Console.ReadKey().Key;
-            if (key == ConsoleKey.W && SmallMoveMethods.NotCharactersUpDownMinus(charMap, character) && !SmallMoveMethods.CharacterB(charMap, character))
+            if (key == ConsoleKey.W && SmallMoveMethods.NotCharactersUpDownMinus(charMap, character))
             {
                 MainConsoleKeyMoveMethods.PressedW(charMap, character);
             }

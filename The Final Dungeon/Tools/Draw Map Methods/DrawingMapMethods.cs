@@ -46,6 +46,21 @@ namespace MyTools
                     return;
                 }
             }
+            if (ButtonChange.Count() > 0 && ButtonChange.ContainsKey(character.LeftRight))
+            {
+                if (ButtonChange[character.LeftRight] == character.UpDown + 1 && ButtonHasChangedX)
+                {
+                    SmallDrawingMapMethods.ClearUpFirstButtonChange(sb, charMap, character);
+                    ButtonHasChangedX = false;
+                    return;
+                }
+                if (ButtonChange[character.LeftRight] == character.UpDown + 1 && ButtonHasChangedQ)
+                {
+                    SmallDrawingMapMethods.ClearUpSecondButtonChange(sb, charMap, character);
+                    ButtonHasChangedQ = false;
+                    return;
+                }
+            }
             SmallDrawingMapMethods.ClearUpNormal(sb, charMap, character);
         }
 
@@ -66,6 +81,21 @@ namespace MyTools
                 if (BoulderOverButton[character.LeftRight] == character.UpDown - 1)
                 {
                     SmallDrawingMapMethods.ClearDownBoulderOffButton(sb, charMap, character);
+                    return;
+                }
+            }
+            if (ButtonChange.Count() > 0 && ButtonChange.ContainsKey(character.LeftRight))
+            {
+                if (ButtonChange[character.LeftRight] == character.UpDown - 1 && ButtonHasChangedX)
+                {
+                    SmallDrawingMapMethods.ClearDownFirstButtonChange(sb, charMap, character);
+                    ButtonHasChangedX = false;
+                    return;
+                }
+                if (ButtonChange[character.LeftRight] == character.UpDown - 1 && ButtonHasChangedQ)
+                {
+                    SmallDrawingMapMethods.ClearDownSecondButtonChange(sb, charMap, character);
+                    ButtonHasChangedQ = false;
                     return;
                 }
             }
@@ -104,6 +134,21 @@ namespace MyTools
                     return;
                 }
             }
+            if (ButtonChange.Count() > 0 && ButtonChange.ContainsKey(character.LeftRight + 1))
+            {
+                if (ButtonChange[character.LeftRight + 1] == character.UpDown && ButtonHasChangedX)
+                {
+                    SmallDrawingMapMethods.LeftFirstButton(sb, charMap, character);
+                    ButtonHasChangedX = false;
+                    return;
+                }
+                if (ButtonChange[character.LeftRight + 1] == character.UpDown && ButtonHasChangedQ)
+                {
+                    SmallDrawingMapMethods.LeftSecondButton(sb, charMap, character);
+                    ButtonHasChangedQ = false;
+                    return;
+                }
+            }
             SmallDrawingMapMethods.LeftNormal(sb, charMap, character);
         }
 
@@ -136,6 +181,21 @@ namespace MyTools
                 if (BoulderOverButton[character.LeftRight - 1] == character.UpDown)
                 {
                     SmallDrawingMapMethods.RightBoulderButton(sb, charMap, character);
+                    return;
+                }
+            }
+            if (ButtonChange.Count() > 0 && ButtonChange.ContainsKey(character.LeftRight - 1))
+            {
+                if (ButtonChange[character.LeftRight - 1] == character.UpDown && ButtonHasChangedX)
+                {
+                    SmallDrawingMapMethods.RightFirstButton(sb, charMap, character);
+                    ButtonHasChangedX = false;
+                    return;
+                }
+                if (ButtonChange[character.LeftRight - 1] == character.UpDown && ButtonHasChangedQ)
+                {
+                    SmallDrawingMapMethods.RightSecondButton(sb, charMap, character);
+                    ButtonHasChangedQ = false;
                     return;
                 }
             }

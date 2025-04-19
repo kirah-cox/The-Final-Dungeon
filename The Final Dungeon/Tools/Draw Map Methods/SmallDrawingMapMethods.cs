@@ -65,6 +65,20 @@ namespace MyTools
             sb.Clear();
         }
 
+        public static void ClearUpFirstButtonChange(StringBuilder sb, char[][] charMap, Character character)
+        {
+            sb.Append(charMap[character.UpDown + 1]).Remove(character.LeftRight, 1).Insert(character.LeftRight, "Q");
+            charMap[character.UpDown + 1] = sb.ToString().ToCharArray();
+            sb.Clear();
+        }
+
+        public static void ClearUpSecondButtonChange(StringBuilder sb, char[][] charMap, Character character)
+        {
+            sb.Append(charMap[character.UpDown + 1]).Remove(character.LeftRight, 1).Insert(character.LeftRight, "X");
+            charMap[character.UpDown + 1] = sb.ToString().ToCharArray();
+            sb.Clear();
+        }
+
         public static void ClearDownNormal(StringBuilder sb, char[][] charMap, Character character)
         {
             sb.Append(charMap[character.UpDown - 1]).Remove(character.LeftRight, 1).Insert(character.LeftRight, ".");
@@ -94,6 +108,20 @@ namespace MyTools
             sb.Clear();
         }
 
+        public static void ClearDownFirstButtonChange(StringBuilder sb, char[][] charMap, Character character)
+        {
+            sb.Append(charMap[character.UpDown - 1]).Remove(character.LeftRight, 1).Insert(character.LeftRight, "Q");
+            charMap[character.UpDown - 1] = sb.ToString().ToCharArray();
+            sb.Clear();
+        }
+
+        public static void ClearDownSecondButtonChange(StringBuilder sb, char[][] charMap, Character character)
+        {
+            sb.Append(charMap[character.UpDown - 1]).Remove(character.LeftRight, 1).Insert(character.LeftRight, "X");
+            charMap[character.UpDown - 1] = sb.ToString().ToCharArray();
+            sb.Clear();
+        }
+
         public static void LeftNormal(StringBuilder sb, char[][] charMap, Character character)
         {
             sb.Append(charMap[character.UpDown]).Remove(character.LeftRight, 1).Insert(character.LeftRight, character.CharacterChar).Remove(character.LeftRight + 1, 1).Insert(character.LeftRight + 1, ".");
@@ -118,6 +146,20 @@ namespace MyTools
         public static void LeftBoulderButton(StringBuilder sb, char[][] charMap, Character character)
         {
             sb.Append(charMap[character.UpDown]).Remove(character.LeftRight, 1).Insert(character.LeftRight, character.CharacterChar).Remove(character.LeftRight + 1, 1).Insert(character.LeftRight + 1, "x");
+            charMap[character.UpDown] = sb.ToString().ToCharArray();
+            sb.Clear();
+        }
+
+        public static void LeftFirstButton(StringBuilder sb, char[][] charMap, Character character)
+        {
+            sb.Append(charMap[character.UpDown]).Remove(character.LeftRight, 1).Insert(character.LeftRight, character.CharacterChar).Remove(character.LeftRight + 1, 1).Insert(character.LeftRight + 1, "Q");
+            charMap[character.UpDown] = sb.ToString().ToCharArray();
+            sb.Clear();
+        }
+
+        public static void LeftSecondButton(StringBuilder sb, char[][] charMap, Character character)
+        {
+            sb.Append(charMap[character.UpDown]).Remove(character.LeftRight, 1).Insert(character.LeftRight, character.CharacterChar).Remove(character.LeftRight + 1, 1).Insert(character.LeftRight + 1, "X");
             charMap[character.UpDown] = sb.ToString().ToCharArray();
             sb.Clear();
         }
@@ -154,6 +196,20 @@ namespace MyTools
         public static void RightBoulderButton(StringBuilder sb, char[][] charMap, Character character)
         {
             sb.Append(charMap[character.UpDown]).Remove(character.LeftRight, 1).Insert(character.LeftRight, character.CharacterChar).Remove(character.LeftRight - 1, 1).Insert(character.LeftRight - 1, "x");
+            charMap[character.UpDown] = sb.ToString().ToCharArray();
+            sb.Clear();
+        }
+
+        public static void RightFirstButton(StringBuilder sb, char[][] charMap, Character character)
+        {
+            sb.Append(charMap[character.UpDown]).Remove(character.LeftRight, 1).Insert(character.LeftRight, character.CharacterChar).Remove(character.LeftRight - 1, 1).Insert(character.LeftRight - 1, "Q");
+            charMap[character.UpDown] = sb.ToString().ToCharArray();
+            sb.Clear();
+        }
+
+        public static void RightSecondButton(StringBuilder sb, char[][] charMap, Character character)
+        {
+            sb.Append(charMap[character.UpDown]).Remove(character.LeftRight, 1).Insert(character.LeftRight, character.CharacterChar).Remove(character.LeftRight - 1, 1).Insert(character.LeftRight - 1, "X");
             charMap[character.UpDown] = sb.ToString().ToCharArray();
             sb.Clear();
         }

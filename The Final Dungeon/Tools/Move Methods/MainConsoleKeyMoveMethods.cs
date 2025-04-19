@@ -12,12 +12,29 @@ namespace MyTools
     {
         public static void PressedW(char[][] charMap, Character character)
         {
-            if (charMap[character.UpDown - 1][character.LeftRight] == '.' || charMap[character.UpDown - 1][character.LeftRight] == 'x')
+            if (charMap[character.UpDown - 1][character.LeftRight] == '.' || charMap[character.UpDown - 1][character.LeftRight] == 'x' || charMap[character.UpDown - 1][character.LeftRight] == 'X' || charMap[character.UpDown - 1][character.LeftRight] == 'Q')
             {
                 if (charMap[character.UpDown - 1][character.LeftRight] == 'x' && !BoulderOverButton.ContainsKey(character.LeftRight))
                 {
                     BoulderOverButton.Add(character.LeftRight, character.UpDown - 1);
                 }
+                if (charMap[character.UpDown - 1][character.LeftRight] == 'X')
+                {
+                    if (!ButtonChange.ContainsKey(character.LeftRight))
+                    {
+                        ButtonChange.Add(character.LeftRight, character.UpDown - 1);
+                    }
+                    ButtonHasChangedX = true;
+                }
+                else if (charMap[character.UpDown - 1][character.LeftRight] == 'Q')
+                {
+                    if (!ButtonChange.ContainsKey(character.LeftRight))
+                    {
+                        ButtonChange.Add(character.LeftRight, character.UpDown - 1);
+                    }
+                    ButtonHasChangedQ = true;
+                }
+
                 SmallConsoleKeyMoveMethods.WNormalMove(character);
             }
             else if (charMap[character.UpDown - 1][character.LeftRight] == 'o')
@@ -42,11 +59,27 @@ namespace MyTools
 
         public static void PressedS(char[][] charMap, Character character)
         {
-            if (charMap[character.UpDown + 1][character.LeftRight] == '.' || charMap[character.UpDown + 1][character.LeftRight] == 'x')
+            if (charMap[character.UpDown + 1][character.LeftRight] == '.' || charMap[character.UpDown + 1][character.LeftRight] == 'x' || charMap[character.UpDown + 1][character.LeftRight] == 'X' || charMap[character.UpDown + 1][character.LeftRight] == 'Q')
             {
                 if (charMap[character.UpDown + 1][character.LeftRight] == 'x' && !BoulderOverButton.ContainsKey(character.LeftRight))
                 {
                     BoulderOverButton.Add(character.LeftRight, character.UpDown + 1);
+                }
+                if (charMap[character.UpDown + 1][character.LeftRight] == 'X')
+                {
+                    if (!ButtonChange.ContainsKey(character.LeftRight))
+                    {
+                        ButtonChange.Add(character.LeftRight, character.UpDown + 1);
+                    }
+                    ButtonHasChangedX = true;
+                }
+                else if (charMap[character.UpDown + 1][character.LeftRight] == 'Q')
+                {
+                    if (!ButtonChange.ContainsKey(character.LeftRight))
+                    {
+                        ButtonChange.Add(character.LeftRight, character.UpDown + 1);
+                    }
+                    ButtonHasChangedQ = true;
                 }
                 SmallConsoleKeyMoveMethods.SNormalMove(character);
             }
@@ -72,11 +105,27 @@ namespace MyTools
 
         public static void PressedA(char[][] charMap, Character character)
         {
-            if (charMap[character.UpDown][character.LeftRight - 1] == '.' || charMap[character.UpDown][character.LeftRight - 1] == 'x')
+            if (charMap[character.UpDown][character.LeftRight - 1] == '.' || charMap[character.UpDown][character.LeftRight - 1] == 'x' || charMap[character.UpDown][character.LeftRight - 1] == 'X' || charMap[character.UpDown][character.LeftRight - 1] == 'Q')
             {
                 if (charMap[character.UpDown][character.LeftRight - 1] == 'x' && !BoulderOverButton.ContainsKey(character.LeftRight - 1))
                 {
                     BoulderOverButton.Add(character.LeftRight - 1, character.UpDown);
+                }
+                if (charMap[character.UpDown][character.LeftRight - 1] == 'X')
+                {
+                    if (!ButtonChange.ContainsKey(character.LeftRight - 1))
+                    {
+                        ButtonChange.Add(character.LeftRight - 1, character.UpDown);
+                    }
+                    ButtonHasChangedX = true;
+                }
+                else if (charMap[character.UpDown][character.LeftRight - 1] == 'Q')
+                {
+                    if (!ButtonChange.ContainsKey(character.LeftRight - 1))
+                    {
+                        ButtonChange.Add(character.LeftRight - 1, character.UpDown);
+                    }
+                    ButtonHasChangedQ = true;
                 }
                 SmallConsoleKeyMoveMethods.ANormalMove(character);
             }
@@ -102,11 +151,27 @@ namespace MyTools
 
         public static void PressedD(char[][] charMap, Character character)
         {
-            if (charMap[character.UpDown][character.LeftRight + 1] == '.' || charMap[character.UpDown][character.LeftRight + 1] == 'x')
+            if (charMap[character.UpDown][character.LeftRight + 1] == '.' || charMap[character.UpDown][character.LeftRight + 1] == 'x' || charMap[character.UpDown][character.LeftRight + 1] == 'X' || charMap[character.UpDown][character.LeftRight + 1] == 'Q')
             {
                 if (charMap[character.UpDown][character.LeftRight + 1] == 'x' && !BoulderOverButton.ContainsKey(character.LeftRight + 1))
                 {
                     BoulderOverButton.Add(character.LeftRight + 1, character.UpDown);
+                }
+                if (charMap[character.UpDown][character.LeftRight + 1] == 'X')
+                {
+                    if (!ButtonChange.ContainsKey(character.LeftRight + 1))
+                    {
+                        ButtonChange.Add(character.LeftRight + 1, character.UpDown);
+                    }
+                    ButtonHasChangedX = true;
+                }
+                else if (charMap[character.UpDown][character.LeftRight + 1] == 'Q')
+                {
+                    if (!ButtonChange.ContainsKey(character.LeftRight + 1))
+                    {
+                        ButtonChange.Add(character.LeftRight + 1, character.UpDown);
+                    }
+                    ButtonHasChangedQ = true;
                 }
                 SmallConsoleKeyMoveMethods.DNormalMove(character);
             }

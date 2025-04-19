@@ -28,6 +28,7 @@ namespace MyTools
         {
             SmallMoveMethods.ClearCharacterOnMap(sb, charMap, character);
             BoulderOverButton.Clear();
+            ButtonChange.Clear();
 
             MapNumber++;
             character.UpDown = UpDownList[LevelNumber][2 * MapNumber];
@@ -38,6 +39,7 @@ namespace MyTools
         {
             SmallMoveMethods.ClearCharacterOnMap(sb, charMap, character);
             BoulderOverButton.Clear();
+            ButtonChange.Clear();
 
             MapNumber--;
             if (MapNumber == 0)

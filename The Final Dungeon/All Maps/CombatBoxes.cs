@@ -199,7 +199,7 @@ namespace AllMaps
             @":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
         };
 
-        public static char[][] SecondLevelKoboldBox =
+        public static char[][] SecondLevelKoboldCombatBox =
         {
             @"              .--..--.            ".ToCharArray(),
             @"             ( o  o ) \           ".ToCharArray(),
@@ -262,6 +262,27 @@ namespace AllMaps
             @":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
         };
 
+        public static char[][] SecondLevelBossCombatBox =
+        {
+            @"               _.._                    ".ToCharArray(),
+            @"       .'\  .' \  / '.  /'.            ".ToCharArray(),
+            @"     .'   '/    \/    \'   '.         ".ToCharArray(),
+            @"    /   .'\\   _.._   //'.   \    ".ToCharArray(),
+            @"   |  .'  _.'/ ,'', \'._  '.  |     ".ToCharArray(),
+            @"   |  | ,'   \ >  < /   ', |  |     ".ToCharArray(),
+            @":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
+            @": :~~~~~~~~~~~:  :~~~~~~~~~~~~~: :".ToCharArray(),
+            @": : 1. Attack :  : 2. Use Item : :".ToCharArray(),
+            @": :~~~~~~~~~~~:  :~~~~~~~~~~~~~: :".ToCharArray(),
+            @":                                :".ToCharArray(),
+            @":                                :".ToCharArray(),
+            @":    Health:                     :".ToCharArray(),
+            @":                                :".ToCharArray(),
+            @":    Enemy Health:               :".ToCharArray(),
+            @":                                :".ToCharArray(),
+            @":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
+        };
+
         public static char[][] ThirdLevelBoneWarriorCombatBox =
         {
             @"              .-' '-.             ".ToCharArray(),
@@ -287,10 +308,10 @@ namespace AllMaps
         {
             @"              .-'^'-.             ".ToCharArray(),
             @"       __..--/ \   / \--..__      ".ToCharArray(),
-            @"      \     |  O   O  |     /     ".ToCharArray(),
-            @"       \   '_    V    _'   /      ".ToCharArray(),
-            @"        \    \  ,-,  /    /       ".ToCharArray(),
-            @"         \   /'-._.-'\   /        ".ToCharArray(),
+            @"      \    \|  O   O  |/    /     ".ToCharArray(),
+            @"       \    \_   V   _/    /      ".ToCharArray(),
+            @"        \     \ ,-, /     /       ".ToCharArray(),
+            @"         \     '._.'     /        ".ToCharArray(),
             @":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
             @": :~~~~~~~~~~~:  :~~~~~~~~~~~~~: :".ToCharArray(),
             @": : 1. Attack :  : 2. Use Item : :".ToCharArray(),
@@ -367,33 +388,54 @@ namespace AllMaps
             @":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
         };
 
-        public static void DrawCombatBox (Player player, Enemy enemy, char[][] charMap)
+        public static char[][] ThirdLevelBossCombatBox =
+        {
+            @"     c       \     /       c      ".ToCharArray(),
+            @"     |\   c  0  c  0  c   /|      ".ToCharArray(),
+            @"     | \.' \   / \   / './ |      ".ToCharArray(),
+            @"     {,     '.'   '.'     ,}      ".ToCharArray(),
+            @"     {,`'-.. _______ ..-'`,}      ".ToCharArray(),
+            @"       `'-.. _______ ..-'`        ".ToCharArray(),
+            @":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
+            @": :~~~~~~~~~~~:  :~~~~~~~~~~~~~: :".ToCharArray(),
+            @": : 1. Attack :  : 2. Use Item : :".ToCharArray(),
+            @": :~~~~~~~~~~~:  :~~~~~~~~~~~~~: :".ToCharArray(),
+            @":                                :".ToCharArray(),
+            @":                                :".ToCharArray(),
+            @":    Health:                     :".ToCharArray(),
+            @":                                :".ToCharArray(),
+            @":    Enemy Health:               :".ToCharArray(),
+            @":                                :".ToCharArray(),
+            @":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
+        };
+
+        public static void DrawCombatBox (Player player, Enemy enemy)
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.Append(charMap[12]).Remove(13, 2).Insert(13, player.Health);
-            charMap[12] = sb.ToString().ToCharArray();
+            sb.Append(enemy.CombatBox[12]).Remove(13, 2).Insert(13, player.Health);
+            enemy.CombatBox[12] = sb.ToString().ToCharArray();
             sb.Clear();
 
-            if (charMap[12].Length < 34)
+            if (enemy.CombatBox[12].Length < 34)
             {
-                sb.Append(charMap[12]).Insert(30, ' ');
-                charMap[12] = sb.ToString().ToCharArray();
+                sb.Append(enemy.CombatBox[12]).Insert(30, ' ');
+                enemy.CombatBox[12] = sb.ToString().ToCharArray();
                 sb.Clear();
             }
 
-            sb.Append(charMap[14]).Remove(19, 2).Insert(19, enemy.Health);
-            charMap[14] = sb.ToString().ToCharArray();
+            sb.Append(enemy.CombatBox[14]).Remove(19, 2).Insert(19, enemy.Health);
+            enemy.CombatBox[14] = sb.ToString().ToCharArray();
             sb.Clear();
 
-            if (charMap[14].Length < 34)
+            if (enemy.CombatBox[14].Length < 34)
             {
-                sb.Append(charMap[14]).Insert(30, ' ');
-                charMap[14] = sb.ToString().ToCharArray();
+                sb.Append(enemy.CombatBox[14]).Insert(30, ' ');
+                enemy.CombatBox[14] = sb.ToString().ToCharArray();
                 sb.Clear();
             }
 
-            foreach (var item in charMap)
+            foreach (var item in enemy.CombatBox)
             {
                 Console.WriteLine(item);
             }

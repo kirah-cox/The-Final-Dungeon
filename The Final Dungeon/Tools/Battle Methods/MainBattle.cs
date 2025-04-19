@@ -27,6 +27,7 @@ namespace MyTools
         
         public static async void Battle(Player player, Enemy enemy)
         {
+            InBattle = true;
             Console.Clear();
             Console.WriteLine($"You have encountered {enemy.Class}.");
             PressEnter();
@@ -83,6 +84,7 @@ namespace MyTools
             DateTime = DateTime.Now;
 
             Console.Clear();
+            InBattle = false;
         }
     }
 }

@@ -60,6 +60,7 @@ namespace AllCreations
                     Mana = 6;
                     Luck = 12;
                     Experience = 20;
+                    CombatBox = CombatBoxes.FirstLevelBossCombatBox;
                     break;
                 case EnemyClass.GiantSpider:
                     Class = EnemyClass.GiantSpider;
@@ -68,6 +69,7 @@ namespace AllCreations
                     Mana = 12;
                     Luck = 18;
                     Experience = 20;
+                    CombatBox = CombatBoxes.SecondLevelBossCombatBox;
                     break;
                 case EnemyClass.DungeonKing:
                     Class = EnemyClass.DungeonKing;
@@ -76,6 +78,7 @@ namespace AllCreations
                     Mana = 18;
                     Luck = 24;
                     Experience = 20;
+                    CombatBox = CombatBoxes.ThirdLevelBossCombatBox;
                     break;
                 default:
                     break;

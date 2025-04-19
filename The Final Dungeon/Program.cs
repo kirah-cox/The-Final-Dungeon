@@ -20,7 +20,10 @@ public class Program
         {
             MainDrawingMap.DrawMainMap(sb, Tools.LevelsList[Tools.LevelNumber][Tools.MapNumber], Tools.ResetLevelsList[Tools.LevelNumber][Tools.MapNumber], character);
 
-            MainMove.Move(player, Tools.LevelsList[Tools.LevelNumber][Tools.MapNumber], sb, character);
+            if (!Tools.InBattle)
+            {
+                MainMove.Move(player, Tools.LevelsList[Tools.LevelNumber][Tools.MapNumber], sb, character);
+            }
 
             if (Tools.EncounteredEnemy)
             {

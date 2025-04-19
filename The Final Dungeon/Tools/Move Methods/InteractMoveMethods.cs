@@ -14,7 +14,7 @@ namespace MyTools
         public static void PotionsChestFull(Player player)
         {
             Chest.AddPotion(player);
-            Tools.ChestList[LevelNumber][MapNumber] = true;
+            ChestList[LevelNumber][MapNumber] = true;
         }
 
         public static void PotionsChestEmpty()
@@ -27,26 +27,28 @@ namespace MyTools
         public static void MovingToNextRoom(StringBuilder sb, char[][] charMap, Character character)
         {
             SmallMoveMethods.ClearCharacterOnMap(sb, charMap, character);
+            BoulderOverButton.Clear();
 
             MapNumber++;
-            character.UpDown = Tools.UpDownList[LevelNumber][2 * MapNumber];
-            character.LeftRight = Tools.LeftRightList[LevelNumber][2 * MapNumber];
+            character.UpDown = UpDownList[LevelNumber][2 * MapNumber];
+            character.LeftRight = LeftRightList[LevelNumber][2 * MapNumber];
         }
 
         public static void MovingToPreviousRoom(StringBuilder sb, char[][] charMap, Character character)
         {
             SmallMoveMethods.ClearCharacterOnMap(sb, charMap, character);
+            BoulderOverButton.Clear();
 
             MapNumber--;
             if (MapNumber == 0)
             {
-                character.UpDown = Tools.UpDownList[LevelNumber][1];
-                character.LeftRight = Tools.LeftRightList[LevelNumber][1];
+                character.UpDown = UpDownList[LevelNumber][1];
+                character.LeftRight = LeftRightList[LevelNumber][1];
             }
             else
             {
-                character.UpDown = Tools.UpDownList[LevelNumber][2 * MapNumber + 1];
-                character.LeftRight = Tools.LeftRightList[LevelNumber][2 * MapNumber + 1];
+                character.UpDown = UpDownList[LevelNumber][2 * MapNumber + 1];
+                character.LeftRight = LeftRightList[LevelNumber][2 * MapNumber + 1];
             }
         }
 
@@ -56,8 +58,8 @@ namespace MyTools
             MapNumber = 0;
             BossRoom = false;
             BossDefeated = false;
-            character.UpDown = Tools.UpDownList[LevelNumber][MapNumber];
-            character.LeftRight = Tools.LeftRightList[LevelNumber][MapNumber];
+            character.UpDown = UpDownList[LevelNumber][MapNumber];
+            character.LeftRight = LeftRightList[LevelNumber][MapNumber];
         }
 
         public static void ObtainingKey(StringBuilder sb, char[][] charMap, Character character)

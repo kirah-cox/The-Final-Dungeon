@@ -13,6 +13,7 @@ namespace MyTools
     public class Tools
     {
         public static bool EncounteredEnemy { get; set; } = false;
+        public static bool InBattle { get; set; } = false;
         public static bool ChestEmpty { get; set; } = false;
         public static bool ObtainedKey { get; set; } = false;
         public static bool CrossedGap { get; set; } = false;

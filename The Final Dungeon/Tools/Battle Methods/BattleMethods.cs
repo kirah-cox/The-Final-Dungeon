@@ -20,14 +20,7 @@ namespace MyTools
         {
             Console.SetCursorPosition(0, 0);
 
-            if (!BossFight)
-            {
-                CombatBoxes.DrawCombatBox(player, enemy, CombatBoxes.FirstCombatBox);
-            }
-            else if (BossFight)
-            {
-                CombatBoxes.DrawCombatBox(player, enemy, CombatBoxes.FirstLevelBossCombatBox);
-            }
+            CombatBoxes.DrawCombatBox(player, enemy);
 
             Console.SetCursorPosition(0, CursorPosition);
 
@@ -43,14 +36,7 @@ namespace MyTools
             CursorPosition++;
             enemy.TakeDamage(playerAttack);
             Console.SetCursorPosition(0, 0);
-            if (!BossFight)
-            {
-                CombatBoxes.DrawCombatBox(player, enemy, CombatBoxes.FirstCombatBox);
-            }
-            else if (BossFight)
-            {
-                CombatBoxes.DrawCombatBox(player, enemy, CombatBoxes.FirstLevelBossCombatBox);
-            }
+            CombatBoxes.DrawCombatBox(player, enemy);
             Console.SetCursorPosition(0, CursorPosition);
             Thread.Sleep(500);
         }
@@ -119,14 +105,7 @@ namespace MyTools
                 CursorPosition++;
                 player.TakeDamage(enemyAttack);
                 Console.SetCursorPosition(0, 0);
-                if (!BossFight)
-                {
-                    CombatBoxes.DrawCombatBox(player, enemy, CombatBoxes.FirstCombatBox);
-                }
-                else if (BossFight)
-                {
-                    CombatBoxes.DrawCombatBox(player, enemy, CombatBoxes.FirstLevelBossCombatBox);
-                }
+                CombatBoxes.DrawCombatBox(player, enemy);
                 Console.SetCursorPosition(0, CursorPosition);
             }
         }

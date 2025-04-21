@@ -68,7 +68,14 @@ namespace MyTools
                     }
                     ButtonHasChangedQ = true;
                 }
-                SmallConsoleKeyMoveMethods.WNormalMove(character);
+                if (SmallMoveMethods.NotCharactersUpDownMinus(charMap, character) && !SmallMoveMethods.Characterm(charMap, character) && !SmallMoveMethods.CharacterK(charMap, character) && !SmallMoveMethods.CharacterM(charMap, character))
+                {
+                    SmallConsoleKeyMoveMethods.WNormalMove(character);
+                }
+                else
+                {
+                    IceHitSomething = true;
+                }
             }
         }
 
@@ -130,7 +137,14 @@ namespace MyTools
                     }
                     ButtonHasChangedQ = true;
                 }
-                SmallConsoleKeyMoveMethods.SNormalMove(character);
+                if (SmallMoveMethods.NotCharactersUpDownPlus(charMap, character) && !SmallMoveMethods.Characterm(charMap, character) && !SmallMoveMethods.CharacterK(charMap, character) && !SmallMoveMethods.CharacterM(charMap, character))
+                {
+                    SmallConsoleKeyMoveMethods.SNormalMove(character);
+                }
+                else
+                {
+                    IceHitSomething = true;
+                }
             }
         }
 
@@ -192,7 +206,14 @@ namespace MyTools
                     }
                     ButtonHasChangedQ = true;
                 }
-                SmallConsoleKeyMoveMethods.ANormalMove(character);
+                if (SmallMoveMethods.NotCharactersLeftRightMinus(charMap, character) && !SmallMoveMethods.Characterm(charMap, character) && !SmallMoveMethods.CharacterK(charMap, character) && !SmallMoveMethods.CharacterM(charMap, character))
+                {
+                    SmallConsoleKeyMoveMethods.ANormalMove(character);
+                }
+                else
+                {
+                    IceHitSomething = true;
+                }
             }
         }
 
@@ -254,7 +275,14 @@ namespace MyTools
                     }
                     ButtonHasChangedQ = true;
                 }
-                SmallConsoleKeyMoveMethods.DNormalMove(character);
+                if (SmallMoveMethods.NotCharactersLeftRightPlus(charMap, character) && !SmallMoveMethods.Characterm(charMap, character) && !SmallMoveMethods.CharacterK(charMap, character) && !SmallMoveMethods.CharacterM(charMap, character))
+                {
+                    SmallConsoleKeyMoveMethods.DNormalMove(character);
+                }
+                else
+                {
+                    IceHitSomething = true;
+                }
             }
         }
 

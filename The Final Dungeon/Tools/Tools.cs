@@ -32,6 +32,8 @@ namespace MyTools
         public static bool BossDefeated { get; set; } = false;
         public static bool CrossingIce { get; set; } = false;
         public static int IceLineNumber { get; set; } = 1;
+        public static bool IceHitSomething { get; set; } = false;
+        public static bool KeepIce { get; set; } = false;
 
         public static void PressEnter()
         {

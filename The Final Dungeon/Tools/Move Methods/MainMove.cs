@@ -18,6 +18,7 @@ namespace MyTools
             character.Left = false;
             character.Right = false;
             CrossingIce = false;
+            IceHitSomething = false;
             IceLineNumber = 1;
 
             var key = Console.ReadKey().Key;

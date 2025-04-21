@@ -35,6 +35,21 @@ namespace MyTools
             }
             if (CrossingIce)
             {
+                if (ButtonChange.Count() > 0 && ButtonChange.ContainsKey(character.LeftRight))
+                {
+                    if (ButtonChange[character.LeftRight] == character.UpDown + IceLineNumber && ButtonHasChangedX)
+                    {
+                        SmallDrawingMapMethods.ClearUpFirstButtonChangeIce(sb, charMap, character);
+                        ButtonHasChangedX = false;
+                        return;
+                    }
+                    if (ButtonChange[character.LeftRight] == character.UpDown + IceLineNumber && ButtonHasChangedQ)
+                    {
+                        SmallDrawingMapMethods.ClearUpSecondButtonChangeIce(sb, charMap, character);
+                        ButtonHasChangedQ = false;
+                        return;
+                    }
+                }
                 SmallDrawingMapMethods.ClearUpIce(sb, charMap, character);
                 return;
             }
@@ -73,6 +88,21 @@ namespace MyTools
             }
             if (CrossingIce)
             {
+                if (ButtonChange.Count() > 0 && ButtonChange.ContainsKey(character.LeftRight))
+                {
+                    if (ButtonChange[character.LeftRight] == character.UpDown - IceLineNumber && ButtonHasChangedX)
+                    {
+                        SmallDrawingMapMethods.ClearDownFirstButtonChangeIce(sb, charMap, character);
+                        ButtonHasChangedX = false;
+                        return;
+                    }
+                    if (ButtonChange[character.LeftRight] == character.UpDown - IceLineNumber && ButtonHasChangedQ)
+                    {
+                        SmallDrawingMapMethods.ClearDownSecondButtonChangeIce(sb, charMap, character);
+                        ButtonHasChangedQ = false;
+                        return;
+                    }
+                }
                 SmallDrawingMapMethods.ClearDownIce(sb, charMap, character);
                 return;
             }
@@ -123,6 +153,21 @@ namespace MyTools
             }
             if (CrossingIce)
             {
+                if (ButtonChange.Count() > 0 && ButtonChange.ContainsKey(character.LeftRight + IceLineNumber))
+                {
+                    if (ButtonChange[character.LeftRight + IceLineNumber] == character.UpDown && ButtonHasChangedX)
+                    {
+                        SmallDrawingMapMethods.LeftFirstButtonIce(sb, charMap, character);
+                        ButtonHasChangedX = false;
+                        return;
+                    }
+                    if (ButtonChange[character.LeftRight + IceLineNumber] == character.UpDown && ButtonHasChangedQ)
+                    {
+                        SmallDrawingMapMethods.LeftSecondButtonIce(sb, charMap, character);
+                        ButtonHasChangedQ = false;
+                        return;
+                    }
+                }
                 SmallDrawingMapMethods.LeftIce(sb, charMap, character);
                 return;
             }
@@ -173,6 +218,21 @@ namespace MyTools
             }
             if (CrossingIce)
             {
+                if (ButtonChange.Count() > 0 && ButtonChange.ContainsKey(character.LeftRight - IceLineNumber))
+                {
+                    if (ButtonChange[character.LeftRight - IceLineNumber] == character.UpDown && ButtonHasChangedX)
+                    {
+                        SmallDrawingMapMethods.RightFirstButtonIce(sb, charMap, character);
+                        ButtonHasChangedX = false;
+                        return;
+                    }
+                    if (ButtonChange[character.LeftRight - IceLineNumber] == character.UpDown && ButtonHasChangedQ)
+                    {
+                        SmallDrawingMapMethods.RightSecondButtonIce(sb, charMap, character);
+                        ButtonHasChangedQ = false;
+                        return;
+                    }
+                }
                 SmallDrawingMapMethods.RightIce(sb, charMap, character);
                 return;
             }

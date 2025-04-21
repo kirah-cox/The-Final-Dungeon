@@ -34,7 +34,6 @@ namespace MyTools
                     }
                     ButtonHasChangedQ = true;
                 }
-
                 SmallConsoleKeyMoveMethods.WNormalMove(character);
             }
             else if (charMap[character.UpDown - 1][character.LeftRight] == 'o')
@@ -52,6 +51,22 @@ namespace MyTools
                 {
                     SmallConsoleKeyMoveMethods.WCrossingIce(character);
                     IceLineNumber++;
+                }
+                if (charMap[character.UpDown - 1][character.LeftRight] == 'X')
+                {
+                    if (!ButtonChange.ContainsKey(character.LeftRight))
+                    {
+                        ButtonChange.Add(character.LeftRight, character.UpDown - 1);
+                    }
+                    ButtonHasChangedX = true;
+                }
+                else if (charMap[character.UpDown - 1][character.LeftRight] == 'Q')
+                {
+                    if (!ButtonChange.ContainsKey(character.LeftRight))
+                    {
+                        ButtonChange.Add(character.LeftRight, character.UpDown - 1);
+                    }
+                    ButtonHasChangedQ = true;
                 }
                 SmallConsoleKeyMoveMethods.WNormalMove(character);
             }
@@ -99,6 +114,22 @@ namespace MyTools
                     SmallConsoleKeyMoveMethods.SCrossingIce(character);
                     IceLineNumber++;
                 }
+                if (charMap[character.UpDown + 1][character.LeftRight] == 'X')
+                {
+                    if (!ButtonChange.ContainsKey(character.LeftRight))
+                    {
+                        ButtonChange.Add(character.LeftRight, character.UpDown + 1);
+                    }
+                    ButtonHasChangedX = true;
+                }
+                else if (charMap[character.UpDown + 1][character.LeftRight] == 'Q')
+                {
+                    if (!ButtonChange.ContainsKey(character.LeftRight))
+                    {
+                        ButtonChange.Add(character.LeftRight, character.UpDown + 1);
+                    }
+                    ButtonHasChangedQ = true;
+                }
                 SmallConsoleKeyMoveMethods.SNormalMove(character);
             }
         }
@@ -144,6 +175,22 @@ namespace MyTools
                 {
                     SmallConsoleKeyMoveMethods.ACrossingIce(character);
                     IceLineNumber++;
+                }
+                if (charMap[character.UpDown][character.LeftRight - 1] == 'X')
+                {
+                    if (!ButtonChange.ContainsKey(character.LeftRight - 1))
+                    {
+                        ButtonChange.Add(character.LeftRight - 1, character.UpDown);
+                    }
+                    ButtonHasChangedX = true;
+                }
+                else if (charMap[character.UpDown][character.LeftRight - 1] == 'Q')
+                {
+                    if (!ButtonChange.ContainsKey(character.LeftRight - 1))
+                    {
+                        ButtonChange.Add(character.LeftRight - 1, character.UpDown);
+                    }
+                    ButtonHasChangedQ = true;
                 }
                 SmallConsoleKeyMoveMethods.ANormalMove(character);
             }
@@ -191,6 +238,22 @@ namespace MyTools
                     SmallConsoleKeyMoveMethods.DCrossingIce(character);
                     IceLineNumber++;
                 }
+                if (charMap[character.UpDown][character.LeftRight + 1] == 'X')
+                {
+                    if (!ButtonChange.ContainsKey(character.LeftRight + 1))
+                    {
+                        ButtonChange.Add(character.LeftRight + 1, character.UpDown);
+                    }
+                    ButtonHasChangedX = true;
+                }
+                else if (charMap[character.UpDown][character.LeftRight + 1] == 'Q')
+                {
+                    if (!ButtonChange.ContainsKey(character.LeftRight + 1))
+                    {
+                        ButtonChange.Add(character.LeftRight + 1, character.UpDown);
+                    }
+                    ButtonHasChangedQ = true;
+                }
                 SmallConsoleKeyMoveMethods.DNormalMove(character);
             }
         }
@@ -217,9 +280,12 @@ namespace MyTools
             {
                 InteractMoveMethods.ObtainingKey(sb, charMap, character);
             }
-            else if (!ObtainedFeather && SmallMoveMethods.CharacterM(charMap, character))
+            else if (SmallMoveMethods.CharacterM(charMap, character))
             {
-                InteractMoveMethods.ObtainingFeather();
+                if (!ObtainedFeather && LevelNumber == 0)
+                {
+                    InteractMoveMethods.ObtainingFeather();
+                }
             }
             else if (SmallMoveMethods.CharacterR(charMap, character))
             {

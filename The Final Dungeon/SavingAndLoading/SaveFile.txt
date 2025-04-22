@@ -1,10 +1,10 @@
-1
-1
-{"Level":1,"Class":1,"ReadyToLevelUp":false,"Health":1,"Strength":5,"Mana":1,"Luck":1,"Experience":12,"Weapon":null}
-[{"Name":"Scaly Spear","StrenthRequirement":8,"ManaRequirement":1,"LuckRequirement":1,"StrengthMultiplier":3,"ManaMultiplier":1,"LuckMultiplier":1,"Equipped":false}]
-{}
+2
+0
+{"Level":2,"Class":1,"ReadyToLevelUp":false,"Health":30,"Strength":6,"Mana":1,"Luck":1,"Experience":40,"Weapon":null}
+[]
+{"Mana":2,"Luck":2,"Strength":3,"Health":5}
 false
+true
 false
-false
-[[false,false,false,false,false],[false,false,false,false,false],[false,false,false,false,false]]
-false
+[[true,true,true,false,false],[true,true,true,true,false],[false,false,false,false,false]]
+true

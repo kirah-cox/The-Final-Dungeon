@@ -11,15 +11,15 @@ namespace AllMaps
         public static char[][] FirstMap =
             {
                 ":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
-                ":..i..i..i...........:iiiiiiii~~:".ToCharArray(),
-                ":..i..i..............:iiiiiiiiii:".ToCharArray(),
-                ":..i.................:~~iiKiiiii:".ToCharArray(),
-                ":....................:~~~~~~~.~~:".ToCharArray(),
-                ":...............................:".ToCharArray(),
-                ":ii........:~~~~~~~~~:.~~.......:".ToCharArray(),
-                ":........ii:         :ii:.......:".ToCharArray(),
-                ":..........:         :ii:.......:".ToCharArray(),
-                ":..........:         :ii:.......:".ToCharArray(),
+                ":iX...i..iiii:.....ii:iiiiiiii~~:".ToCharArray(),
+                ":.ii..ii...ii:......i:iiiiiiiiii:".ToCharArray(),
+                ":.ii.................:~~iiKiiiii:".ToCharArray(),
+                ":.i.......X...i......:~~~~~~~.~~:".ToCharArray(),
+                ":..i.....i.....ii.X............X:".ToCharArray(),
+                ":ii........:~~~~~~~~~:....:~~~~~:".ToCharArray(),
+                ":s.........:         :X.......ii:".ToCharArray(),
+                ":~~~:....i.:         :~~:......i:".ToCharArray(),
+                ":.....iXiii:         :m.........:".ToCharArray(),
                 ":~~~~~~~~~~:         :~~~~~~~#~~:".ToCharArray(),
             };
         public static bool FirstChestEmpty { get; set; } = false;
@@ -27,22 +27,22 @@ namespace AllMaps
         public static char[][] SecondMap =
             {
                 "                      :~~~~O~~~~:".ToCharArray(),
-                "                      :.........:".ToCharArray(),
-                "                      :.........:".ToCharArray(),
-                "                      :.........:".ToCharArray(),
-                ":~~~~~~~~~~~~~~~~~~~~~:.........:".ToCharArray(),
-                ":...............................:".ToCharArray(),
-                ":...............................:".ToCharArray(),
-                "#...............................:".ToCharArray(),
-                ":...............................:".ToCharArray(),
-                ":...............................:".ToCharArray(),
+                "                      :ii.....X.:".ToCharArray(),
+                "                      :.i.......:".ToCharArray(),
+                "                      :i.......i:".ToCharArray(),
+                ":~~~~~~~~~~~~~~~~~~~~~:........i:".ToCharArray(),
+                ":..iiii........Xi...ii........ii:".ToCharArray(),
+                ":...Xi.........i............:~~~:".ToCharArray(),
+                "#..ii.........................ii:".ToCharArray(),
+                ":i..........iii....X.i..ii...m..:".ToCharArray(),
+                ":iii......iiX...i......iiiiX...X:".ToCharArray(),
                 ":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
             };
 
         public static bool SecondChestEmpty { get; set; } = false;
 
         public static char[][] ThirdMap =
-        {
+            {
                 "                                 ".ToCharArray(),
                 "                                 ".ToCharArray(),
                 ":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
@@ -60,15 +60,15 @@ namespace AllMaps
         public static char[][] FourthMap =
         {
                 ":~~~B~~~~~~~~~~~~~:              ".ToCharArray(),
-                ":.................:              ".ToCharArray(),
-                ":.................:              ".ToCharArray(),
-                ":.................:              ".ToCharArray(),
-                ":.................:              ".ToCharArray(),
-                ":.................:              ".ToCharArray(),
+                ":iiiiiiiiiiiiiiiii:              ".ToCharArray(),
+                ":iiiiiiiiiiiiiiiii:              ".ToCharArray(),
+                ":iiiiiiiiiiiiiiiii:              ".ToCharArray(),
+                ":iii....iiiiiii...:              ".ToCharArray(),
+                ":..........iii....:              ".ToCharArray(),
                 ":.................:~~~~~~~~~~~~~:".ToCharArray(),
-                ":...............................:".ToCharArray(),
-                ":...............................O".ToCharArray(),
-                ":...............................:".ToCharArray(),
+                ":ii......iii......iiiii.........:".ToCharArray(),
+                ":mii...............iii....i.....O".ToCharArray(),
+                ":i......ii.....iiiiiii.....ii...:".ToCharArray(),
                 ":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
             };
         public static bool FourthChestEmpty { get; set; } = false;

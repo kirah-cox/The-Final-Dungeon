@@ -55,7 +55,7 @@ namespace AllCreations
                     break;
                 case EnemyClass.KingFrog:
                     Class = EnemyClass.KingFrog;
-                    Health = 40;
+                    Health = 1;
                     Strength = 6;
                     Mana = 6;
                     Luck = 12;
@@ -64,7 +64,7 @@ namespace AllCreations
                     break;
                 case EnemyClass.GiantSpider:
                     Class = EnemyClass.GiantSpider;
-                    Health = 60;
+                    Health = 1;
                     Strength = 12;
                     Mana = 12;
                     Luck = 18;
@@ -73,7 +73,7 @@ namespace AllCreations
                     break;
                 case EnemyClass.DungeonKing:
                     Class = EnemyClass.DungeonKing;
-                    Health = 80;
+                    Health = 1;
                     Strength = 18;
                     Mana = 18;
                     Luck = 24;

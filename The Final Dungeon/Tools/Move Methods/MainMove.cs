@@ -22,7 +22,7 @@ namespace MyTools
             IceHitSomething = false;
             IceLineNumber = 1;
 
-            var key = Console.ReadKey().Key;
+            var key = Console.ReadKey(intercept: true).Key;
             if (key == ConsoleKey.W && SmallMoveMethods.NotCharactersUpDownMinus(charMap, character))
             {
                 MainConsoleKeyMoveMethods.PressedW(charMap, charResetMap, character);

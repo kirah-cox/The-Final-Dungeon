@@ -84,6 +84,15 @@ namespace MyTools
                 Console.Clear();
             }
         }
+
+        public static void GameEndScreen()
+        {
+            Console.Clear();
+            Console.WriteLine("You have beat the final boss and escaped the dungeon.");
+            Console.WriteLine("Thank you for playing my game!");
+            PressEnter();
+            Environment.Exit(0);
+        }
         
         public static void DrawMainMap(StringBuilder sb, char[][] charMap, char[][] charResetMap, Character character)
         {
@@ -97,6 +106,7 @@ namespace MyTools
                     charMap[i] = charResetMap[i];
                 }
                 ResetRoom = false;
+                Loading = false;
             }
             
             bool hasBoulderButtonsRemaining = false;

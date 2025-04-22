@@ -53,12 +53,16 @@ public class Program
 
                 Tools.BossFight = false;
 
-                Tools.BossDefeated = true;
 
                 if (Tools.Loading)
                 {
                     SaveLoad.Load(sb, character, out player);
                     Tools.Loading = false;
+                }
+
+                if (Tools.LevelNumber == 2 && Tools.BossDefeated)
+                {
+                    MainDrawingMap.GameEndScreen();
                 }
             }
 

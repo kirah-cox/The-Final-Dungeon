@@ -10,32 +10,32 @@ namespace AllMaps
     {
         public static char[][] FirstMap =
             {
-                "                   :~~0~~~~~~~~~:".ToCharArray(),
-                "                   :............:".ToCharArray(),
-                "                   :............:".ToCharArray(),
-                "                   :............:".ToCharArray(),
-                ":~~~~~~~~~~~~~~~~~~:............:".ToCharArray(),
-                ":...............................:".ToCharArray(),
-                ":...............................:".ToCharArray(),
-                ":...............................:".ToCharArray(),
-                ":...............................:".ToCharArray(),
-                ":...............................:".ToCharArray(),
+                "                   :~~#~~~~~~~~~:".ToCharArray(),
+                "                   :x........  .:".ToCharArray(),
+                "                   :.. .......oo:".ToCharArray(),
+                "                   : o.....  .o.:".ToCharArray(),
+                ":~~~~~~~~~~~~~~~~~~:   ...... ..:".ToCharArray(),
+                ":.xoR.. oo .......oo  .....o....:".ToCharArray(),
+                ":.o.... .  ..  ...... ......o..o:".ToCharArray(),
+                ":...... o. .......... ..o.....oo:".ToCharArray(),
+                ":...o.. ..   .....oo  .oox..o.oo:".ToCharArray(),
+                ":x.oo   .. .....oo.mo.  .oxo...x:".ToCharArray(),
                 ":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
             };
         public static bool FirstChestEmpty { get; set; } = false;
 
         public static char[][] SecondMap =
         {
-                ":~~~~~~0~~~:                     ".ToCharArray(),
-                ":..........:                     ".ToCharArray(),
-                ":..........:                     ".ToCharArray(),
-                ":..........:~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
-                ":...............................:".ToCharArray(),
-                ":...............................:".ToCharArray(),
-                ":...............................:".ToCharArray(),
-                ":~~~~~~~~~~~~~~~~~~~~:..........:".ToCharArray(),
-                "                     :..........:".ToCharArray(),
-                "                     :..........:".ToCharArray(),
+                ":~~~~~~#~~~:                     ".ToCharArray(),
+                ":X.......ii:                     ".ToCharArray(),
+                ":iiiiiiiiii:                     ".ToCharArray(),
+                ":.......iii:~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
+                ":.~~~~~~:.......iXiii....i....iX:".ToCharArray(),
+                ":iiiiiii:....X...ii.......i..Xii:".ToCharArray(),
+                ":~~:Xiii:.....iii....ii........i:".ToCharArray(),
+                ":~~~~~~~~~~~~~~~~~~~~:..X...:i..:".ToCharArray(),
+                "                     :i.....:iii:".ToCharArray(),
+                "                     :ii....:Xim:".ToCharArray(),
                 "                     :~~~O~~~~~~:".ToCharArray(),
             };
 
@@ -44,14 +44,14 @@ namespace AllMaps
         public static char[][] ThirdMap =
         {
                 ":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
-                ":...............................:".ToCharArray(),
-                ":...............................:".ToCharArray(),
-                ":...............................0".ToCharArray(),
-                ":...............................:".ToCharArray(),
-                ":...............................:".ToCharArray(),
-                ":...........:~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
-                ":...........:                    ".ToCharArray(),
-                ":...........:                    ".ToCharArray(),
+                ":iXiiiiiiiXi:.. ooR.oo.....oox.o:".ToCharArray(),
+                ":iXiXiiiXiii:.. o....x....oooo..:".ToCharArray(),
+                ":iiiiiiiiiii:.. ............o...0".ToCharArray(),
+                ":iiiiiKiiiii... ..o....o......o.:".ToCharArray(),
+                ":iiiXiXiiiii:.. .ooox.......oo.x:".ToCharArray(),
+                ":iiiXiiiXiii:~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
+                ":iXiiiiiiiXi:                    ".ToCharArray(),
+                ":iiiiiiiiiii:                    ".ToCharArray(),
                 ":...........:                    ".ToCharArray(),
                 ":~~~~~O~~~~~:                    ".ToCharArray(),
             };
@@ -60,15 +60,15 @@ namespace AllMaps
         public static char[][] FourthMap =
         {
                 "              :~~~~~~~B~~:       ".ToCharArray(),
-                "              :..........:       ".ToCharArray(),
-                "              :..........:       ".ToCharArray(),
-                "              :..........:       ".ToCharArray(),
-                "              :..........:       ".ToCharArray(),
+                "              :o.oo..iii.:       ".ToCharArray(),
+                "              :ooo....ii.:       ".ToCharArray(),
+                "              :.oo..i...o:       ".ToCharArray(),
+                "              :....ii...o:       ".ToCharArray(),
                 ":~~~~~~~~~~~~~:..........:       ".ToCharArray(),
-                ":........................:       ".ToCharArray(),
-                ":........................:       ".ToCharArray(),
-                "O........................:       ".ToCharArray(),
-                ":........................:       ".ToCharArray(),
+                ":oo..iii...ii...ii.....oo:       ".ToCharArray(),
+                ":o..ii...........i.....oo:       ".ToCharArray(),
+                "O.......i..ooo......ii..o:       ".ToCharArray(),
+                ":.oo.iii..ooo.oo.....ii..:       ".ToCharArray(),
                 ":~~~~~~~~~~~~~~~~~~~~~~~~:       ".ToCharArray(),
             };
         public static bool FourthChestEmpty { get; set; } = false;

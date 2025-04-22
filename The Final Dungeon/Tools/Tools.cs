@@ -27,7 +27,7 @@ namespace MyTools
         public static bool ButtonHasChangedQ { get; set ; } = false;
         public static bool ResetRoom { get; set; } = false;
         public static int MapNumber { get; set; } = 0;
-        public static int LevelNumber { get; set; } = 1;
+        public static int LevelNumber { get; set; } = 0;
         public static bool BossRoom { get; set; } = false;
         public static bool BossFight { get; set; } = false;
         public static bool BossDefeated { get; set; } = false;

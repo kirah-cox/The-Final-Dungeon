@@ -95,8 +95,6 @@ namespace SavingAndLoading
             character.LeftRight = Tools.LeftRightList[Tools.LevelNumber][2 * Tools.MapNumber];
 
             Console.Clear();
-
-            MainDrawingMap.DrawMainMap(sb, Tools.LevelsList[Tools.LevelNumber][Tools.MapNumber], Tools.ResetLevelsList[Tools.LevelNumber][Tools.MapNumber], character);
         }
     }
 }

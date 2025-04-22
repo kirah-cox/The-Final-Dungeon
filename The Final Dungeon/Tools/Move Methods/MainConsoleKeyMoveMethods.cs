@@ -309,8 +309,8 @@ namespace MyTools
                 InteractMoveMethods.PotionsChestFull(player);
             }
             else if ((ChestList[LevelNumber][MapNumber] && SmallMoveMethods.Characterm(charMap, character))
-                || (ObtainedFeather && SmallMoveMethods.CharacterM(charMap, character))
-                || (ObtainedIceSkates && SmallMoveMethods.CharacterM(charMap, character)))
+                || (ObtainedFeather && SmallMoveMethods.CharacterM(charMap, character) && LevelNumber == 0)
+                || (ObtainedIceSkates && SmallMoveMethods.CharacterM(charMap, character)) && LevelNumber == 1)
             {
                 InteractMoveMethods.PotionsChestEmpty();
             }
@@ -367,6 +367,27 @@ namespace MyTools
                     Console.WriteLine("|                                   |");
                     Console.WriteLine("|   All of the buttons need to be   |");
                     Console.WriteLine("|    pressed at once to continue.   |");
+                    Console.WriteLine("|                                   |");
+                    Console.WriteLine("|-----------------------------------|");
+                    Console.WriteLine("                 | |                 ");
+                    Console.WriteLine("                 | |                 ");
+                    Console.WriteLine("                 | |                 ");
+                    Console.WriteLine("                 | |                 ");
+                    Console.WriteLine("                 |_|                 ");
+                    Console.WriteLine("\n");
+                    PressEnter();
+                    Console.Clear();
+                }
+                else if (LevelNumber == 1)
+                {
+                    Console.Clear();
+                    Console.WriteLine("|-----------------------------------|");
+                    Console.WriteLine("|                                   |");
+                    Console.WriteLine("|                                   |");
+                    Console.WriteLine("|    You can walk on the buttons.   |");
+                    Console.WriteLine("|                                   |");
+                    Console.WriteLine("|   All of the buttons need to be   |");
+                    Console.WriteLine("|     flipped before continuing.    |");
                     Console.WriteLine("|                                   |");
                     Console.WriteLine("|-----------------------------------|");
                     Console.WriteLine("                 | |                 ");

@@ -10,7 +10,7 @@ namespace MyTools
 {
     public class MainConsoleKeyMoveMethods : MainMove
     {
-        public static void PressedW(char[][] charMap, Character character)
+        public static void PressedW(char[][] charMap, char[][] charResetMap, Character character)
         {
             if (charMap[character.UpDown - 1][character.LeftRight] == '.' || charMap[character.UpDown - 1][character.LeftRight] == 'x' || charMap[character.UpDown - 1][character.LeftRight] == 'X' || charMap[character.UpDown - 1][character.LeftRight] == 'Q')
             {
@@ -76,10 +76,14 @@ namespace MyTools
                 {
                     IceHitSomething = true;
                 }
+                if (charResetMap[character.UpDown + IceLineNumber - 1][character.LeftRight] == 'i' && charResetMap[character.UpDown][character.LeftRight] == 'i')
+                {
+                    IceLineNumber--;
+                }
             }
         }
 
-        public static void PressedS(char[][] charMap, Character character)
+        public static void PressedS(char[][] charMap, char[][] charResetMap, Character character)
         {
             if (charMap[character.UpDown + 1][character.LeftRight] == '.' || charMap[character.UpDown + 1][character.LeftRight] == 'x' || charMap[character.UpDown + 1][character.LeftRight] == 'X' || charMap[character.UpDown + 1][character.LeftRight] == 'Q')
             {
@@ -145,10 +149,14 @@ namespace MyTools
                 {
                     IceHitSomething = true;
                 }
+                if (charResetMap[character.UpDown - IceLineNumber + 1][character.LeftRight] == 'i' && charResetMap[character.UpDown][character.LeftRight] == 'i')
+                {
+                    IceLineNumber--;
+                }
             }
         }
 
-        public static void PressedA(char[][] charMap, Character character)
+        public static void PressedA(char[][] charMap, char[][] charResetMap, Character character)
         {
             if (charMap[character.UpDown][character.LeftRight - 1] == '.' || charMap[character.UpDown][character.LeftRight - 1] == 'x' || charMap[character.UpDown][character.LeftRight - 1] == 'X' || charMap[character.UpDown][character.LeftRight - 1] == 'Q')
             {
@@ -214,10 +222,14 @@ namespace MyTools
                 {
                     IceHitSomething = true;
                 }
+                if (charResetMap[character.UpDown][character.LeftRight] == 'i' && charResetMap[character.UpDown][character.LeftRight + IceLineNumber - 1] == 'i')
+                {
+                    IceLineNumber--;
+                }
             }
         }
 
-        public static void PressedD(char[][] charMap, Character character)
+        public static void PressedD(char[][] charMap, char[][] charResetMap, Character character)
         {
             if (charMap[character.UpDown][character.LeftRight + 1] == '.' || charMap[character.UpDown][character.LeftRight + 1] == 'x' || charMap[character.UpDown][character.LeftRight + 1] == 'X' || charMap[character.UpDown][character.LeftRight + 1] == 'Q')
             {
@@ -283,16 +295,20 @@ namespace MyTools
                 {
                     IceHitSomething = true;
                 }
+                if (charResetMap[character.UpDown][character.LeftRight] == 'i' && charResetMap[character.UpDown][character.LeftRight - IceLineNumber + 1] == 'i')
+                {
+                    IceLineNumber--;
+                }
             }
         }
 
         public static void PressedE(StringBuilder sb, char[][] charMap, Player player, Character character)
         {
-            if (!FirstLevelMaps.LevelOneChests[MapNumber] && SmallMoveMethods.Characterm(charMap, character))
+            if (!ChestList[LevelNumber][MapNumber] && SmallMoveMethods.Characterm(charMap, character))
             {
                 InteractMoveMethods.PotionsChestFull(player);
             }
-            else if ((FirstLevelMaps.LevelOneChests[MapNumber] && SmallMoveMethods.Characterm(charMap, character)) || (ObtainedFeather && SmallMoveMethods.CharacterM(charMap, character)))
+            else if ((ChestList[LevelNumber][MapNumber] && SmallMoveMethods.Characterm(charMap, character)) || (ObtainedFeather && SmallMoveMethods.CharacterM(charMap, character)))
             {
                 InteractMoveMethods.PotionsChestEmpty();
             }

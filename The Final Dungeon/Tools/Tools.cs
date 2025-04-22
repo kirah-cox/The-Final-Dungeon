@@ -76,7 +76,7 @@ namespace MyTools
 
         public static List<EnemyClass> BossEnemies = new List<EnemyClass>()
         {
-            EnemyClass.KingFrog,
+            EnemyClass.KingFrog, EnemyClass.GiantSpider, EnemyClass.DungeonKing
         };
     }
 }

@@ -31,7 +31,17 @@ namespace MyTools
             if (KeepIce)
             {
                 SmallDrawingMapMethods.ClearUpKeepIce(sb, charMap, character);
-                KeepIce = false;
+                if (!IceHitSomething)
+                {
+                    KeepIce = false;
+                    return;
+                }
+                return;
+            }
+            if (IceHitSomething)
+            {
+                SmallDrawingMapMethods.ClearUpIceHitSomething(sb, charMap, character);
+                KeepIce = true;
                 return;
             }
             if (CrossedGap)
@@ -55,12 +65,6 @@ namespace MyTools
                         ButtonHasChangedQ = false;
                         return;
                     }
-                }
-                if (IceHitSomething)
-                {
-                    SmallDrawingMapMethods.ClearUpIceHitSomething(sb, charMap, character);
-                    KeepIce = true;
-                    return;
                 }
                 SmallDrawingMapMethods.ClearUpIce(sb, charMap, character);
                 return;
@@ -96,7 +100,17 @@ namespace MyTools
             if (KeepIce)
             {
                 SmallDrawingMapMethods.ClearDownKeepIce(sb, charMap, character);
-                KeepIce = false;
+                if (!IceHitSomething)
+                {
+                    KeepIce = false;
+                    return;
+                }
+                return;
+            }
+            if (IceHitSomething)
+            {
+                SmallDrawingMapMethods.ClearDownIceHitSomething(sb, charMap, character);
+                KeepIce = true;
                 return;
             }
             if (CrossedGap)
@@ -120,12 +134,6 @@ namespace MyTools
                         ButtonHasChangedQ = false;
                         return;
                     }
-                }
-                if (IceHitSomething)
-                {
-                    SmallDrawingMapMethods.ClearDownIceHitSomething(sb, charMap, character);
-                    KeepIce = true;
-                    return;
                 }
                 SmallDrawingMapMethods.ClearDownIce(sb, charMap, character);
                 return;
@@ -161,7 +169,17 @@ namespace MyTools
             if (KeepIce)
             {
                 SmallDrawingMapMethods.LeftKeepIce(sb, charMap, character);
-                KeepIce = false;
+                if (!IceHitSomething)
+                {
+                    KeepIce = false;
+                    return;
+                }
+                return;
+            }
+            if (IceHitSomething)
+            {
+                SmallDrawingMapMethods.LeftIceHitSomething(sb, charMap, character);
+                KeepIce = true;
                 return;
             }
             if (CrossedGap)
@@ -198,12 +216,6 @@ namespace MyTools
                         return;
                     }
                 }
-                if (IceHitSomething)
-                {
-                    SmallDrawingMapMethods.LeftIceHitSomething(sb, charMap, character);
-                    KeepIce = true;
-                    return;
-                }
                 SmallDrawingMapMethods.LeftIce(sb, charMap, character);
                 return;
             }
@@ -238,7 +250,17 @@ namespace MyTools
             if (KeepIce)
             {
                 SmallDrawingMapMethods.RightKeepIce(sb, charMap, character);
-                KeepIce = false;
+                if (!IceHitSomething)
+                {
+                    KeepIce = false;
+                    return;
+                }
+                return;
+            }
+            if (IceHitSomething)
+            {
+                SmallDrawingMapMethods.RightIceHitSomething(sb, charMap, character);
+                KeepIce = true;
                 return;
             }
             if (CrossedGap)
@@ -274,12 +296,6 @@ namespace MyTools
                         ButtonHasChangedQ = false;
                         return;
                     }
-                }
-                if (IceHitSomething)
-                {
-                    SmallDrawingMapMethods.RightIceHitSomething(sb, charMap, character);
-                    KeepIce = true;
-                    return;
                 }
                 SmallDrawingMapMethods.RightIce(sb, charMap, character);
                 return;

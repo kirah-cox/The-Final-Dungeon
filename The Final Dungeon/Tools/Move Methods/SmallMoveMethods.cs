@@ -83,6 +83,7 @@ namespace MyTools
         public static bool NotCharactersLeftRightPlus(char[][] charMap, Character character)
         {
             if (charMap[character.UpDown][character.LeftRight + 1] != ':'
+                && charMap[character.UpDown][character.LeftRight + 1] != '~'
                 && charMap[character.UpDown][character.LeftRight + 1] != 'O'
                 && charMap[character.UpDown][character.LeftRight + 1] != '0'
                 && charMap[character.UpDown][character.LeftRight + 1] != '#'
@@ -96,6 +97,7 @@ namespace MyTools
         public static bool NotCharactersLeftRightMinus(char[][] charMap, Character character)
         {
             if (charMap[character.UpDown][character.LeftRight - 1] != ':'
+                && charMap[character.UpDown][character.LeftRight - 1] != '~'
                 && charMap[character.UpDown][character.LeftRight - 1] != 'O'
                 && charMap[character.UpDown][character.LeftRight - 1] != '0'
                 && charMap[character.UpDown][character.LeftRight - 1] != '#'
@@ -109,6 +111,7 @@ namespace MyTools
         public static bool NotCharactersUpDownPlus(char[][] charMap, Character character)
         {
             if (charMap[character.UpDown + 1][character.LeftRight] != '~'
+                && charMap[character.UpDown + 1][character.LeftRight] != ':'
                 && charMap[character.UpDown + 1][character.LeftRight] != 'O'
                 && charMap[character.UpDown + 1][character.LeftRight] != '0'
                 && charMap[character.UpDown + 1][character.LeftRight] != '#'
@@ -122,6 +125,7 @@ namespace MyTools
         public static bool NotCharactersUpDownMinus(char[][] charMap, Character character)
         {
             if (charMap[character.UpDown - 1][character.LeftRight] != '~'
+                && charMap[character.UpDown - 1][character.LeftRight] != ':'
                 && charMap[character.UpDown - 1][character.LeftRight] != 'O'
                 && charMap[character.UpDown - 1][character.LeftRight] != '0'
                 && charMap[character.UpDown - 1][character.LeftRight] != '#'

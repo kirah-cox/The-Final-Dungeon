@@ -11,15 +11,15 @@ namespace AllMaps
         public static char[][] FirstMap =
             {
                 ":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
+                ":..i..i..i...........:iiiiiiii~~:".ToCharArray(),
+                ":..i..i..............:iiiiiiiiii:".ToCharArray(),
+                ":..i.................:~~iiKiiiii:".ToCharArray(),
+                ":....................:~~~~~~~.~~:".ToCharArray(),
                 ":...............................:".ToCharArray(),
-                ":...............................:".ToCharArray(),
-                ":...............................:".ToCharArray(),
-                ":...............................:".ToCharArray(),
-                ":.....ii...:~~~~~~~~~:..........:".ToCharArray(),
-                ":..X..ii...:         :..........:".ToCharArray(),
-                ":.....ii...:         :..........:".ToCharArray(),
-                ":.....ii...:         :..........:".ToCharArray(),
-                ":..........:         :..........:".ToCharArray(),
+                ":ii........:~~~~~~~~~:.~~.......:".ToCharArray(),
+                ":........ii:         :ii:.......:".ToCharArray(),
+                ":..........:         :ii:.......:".ToCharArray(),
+                ":..........:         :ii:.......:".ToCharArray(),
                 ":~~~~~~~~~~:         :~~~~~~~#~~:".ToCharArray(),
             };
 

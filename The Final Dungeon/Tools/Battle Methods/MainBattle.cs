@@ -19,7 +19,7 @@ namespace MyTools
             Random random = new Random();
             int potentialEnemy = random.Next(1, 101);
 
-            if (potentialEnemy <= 5 && !BossRoom && (DateTime.Now - DateTime > TimeSpan.FromSeconds(5)))
+            if (potentialEnemy <= 0 && !BossRoom && (DateTime.Now - DateTime > TimeSpan.FromSeconds(5)))
             {
                 EncounteredEnemy = true;
             }

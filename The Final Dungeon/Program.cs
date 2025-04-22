@@ -22,7 +22,7 @@ public class Program
 
             if (!Tools.InBattle)
             {
-                MainMove.Move(player, Tools.LevelsList[Tools.LevelNumber][Tools.MapNumber], sb, character);
+                MainMove.Move(player, Tools.LevelsList[Tools.LevelNumber][Tools.MapNumber], Tools.ResetLevelsList[Tools.LevelNumber][Tools.MapNumber], sb, character);
             }
 
             if (Tools.EncounteredEnemy)

@@ -61,12 +61,14 @@ namespace MyTools
                 ResetRoom = false;
             }
 
+            bool hasBoulderButtonsRemaining = false;
             int boulderButtonsRemaining = 0;
             for (int i = 0; i < 11; i++)
             {
                 if (charMap[i].Contains('x'))
                 {
                     boulderButtonsRemaining++;
+                    hasBoulderButtonsRemaining = true;
                 }
             }
 
@@ -83,7 +85,7 @@ namespace MyTools
                     }
                 }
             }
-            else
+            else if (boulderButtonsRemaining > 0)
             {
                 for (int i = 0; i < 11; i++)
                 {
@@ -106,7 +108,7 @@ namespace MyTools
                 }
             }
 
-            if (pressButtonsRemaining == 0)
+            if (pressButtonsRemaining == 0 && !hasBoulderButtonsRemaining)
             {
                 for (int i = 0; i < 11; i++)
                 {
@@ -119,7 +121,7 @@ namespace MyTools
                     }
                 }
             }
-            else
+            else if (pressButtonsRemaining > 0)
             {
                 for (int i = 0; i < 11; i++)
                 {

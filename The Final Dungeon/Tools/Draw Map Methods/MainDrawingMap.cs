@@ -30,8 +30,7 @@ namespace MyTools
                 {
                     try
                     {
-                        player = new Player(PlayerClass.None);
-                        SaveLoad.Load(sb, character);
+                        SaveLoad.Load(sb, character, out player);
                         break;
                     }
                     catch
@@ -91,7 +90,7 @@ namespace MyTools
             Console.SetCursorPosition(0, 0);
             Console.CursorVisible = false;
 
-            if (ResetRoom || BossDefeated)
+            if (ResetRoom || BossDefeated || (Loading && !BossRoom))
             {
                 for (int i = 0; i < 11; i++)
                 {
@@ -99,7 +98,7 @@ namespace MyTools
                 }
                 ResetRoom = false;
             }
-
+            
             bool hasBoulderButtonsRemaining = false;
             int boulderButtonsRemaining = 0;
             for (int i = 0; i < 11; i++)
@@ -204,6 +203,7 @@ namespace MyTools
             Console.WriteLine("Press E to interact.");
             Console.WriteLine("Press R to access inventory.");
             Console.WriteLine("Press T to access stats.");
+            Console.WriteLine("Press Esc to save, load, or exit.");
         }
     }
 }

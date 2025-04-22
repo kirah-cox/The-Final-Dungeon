@@ -44,7 +44,7 @@ namespace MyTools
             {
                 SmallConsoleKeyMoveMethods.WCrossingGap(character);
             }
-            else if (charMap[character.UpDown - 1][character.LeftRight] == 'i')
+            else if (charMap[character.UpDown - 1][character.LeftRight] == 'i' && ObtainedIceSkates)
             {
                 CrossingIce = true;
                 while (charMap[character.UpDown - 1][character.LeftRight] == 'i')
@@ -117,7 +117,7 @@ namespace MyTools
             {
                 SmallConsoleKeyMoveMethods.SCrossingGap(character);
             }
-            else if (charMap[character.UpDown + 1][character.LeftRight] == 'i')
+            else if (charMap[character.UpDown + 1][character.LeftRight] == 'i' && ObtainedIceSkates)
             {
                 CrossingIce = true;
                 while (charMap[character.UpDown + 1][character.LeftRight] == 'i')
@@ -190,7 +190,7 @@ namespace MyTools
             {
                 SmallConsoleKeyMoveMethods.ACrossingGap(character);
             }
-            else if (charMap[character.UpDown][character.LeftRight - 1] == 'i')
+            else if (charMap[character.UpDown][character.LeftRight - 1] == 'i' && ObtainedIceSkates)
             {
                 CrossingIce = true;
                 while (charMap[character.UpDown][character.LeftRight - 1] == 'i')
@@ -263,7 +263,7 @@ namespace MyTools
             {
                 SmallConsoleKeyMoveMethods.DCrossingGap(character);
             }
-            else if (charMap[character.UpDown][character.LeftRight + 1] == 'i')
+            else if (charMap[character.UpDown][character.LeftRight + 1] == 'i' && ObtainedIceSkates)
             {
                 CrossingIce = true;
                 while (charMap[character.UpDown][character.LeftRight + 1] == 'i')
@@ -308,7 +308,9 @@ namespace MyTools
             {
                 InteractMoveMethods.PotionsChestFull(player);
             }
-            else if ((ChestList[LevelNumber][MapNumber] && SmallMoveMethods.Characterm(charMap, character)) || (ObtainedFeather && SmallMoveMethods.CharacterM(charMap, character)))
+            else if ((ChestList[LevelNumber][MapNumber] && SmallMoveMethods.Characterm(charMap, character))
+                || (ObtainedFeather && SmallMoveMethods.CharacterM(charMap, character))
+                || (ObtainedIceSkates && SmallMoveMethods.CharacterM(charMap, character)))
             {
                 InteractMoveMethods.PotionsChestEmpty();
             }
@@ -330,6 +332,10 @@ namespace MyTools
                 {
                     InteractMoveMethods.ObtainingFeather();
                 }
+                if (!ObtainedIceSkates && LevelNumber == 1)
+                {
+                    InteractMoveMethods.ObtainingIceSkates();
+                }
             }
             else if (SmallMoveMethods.CharacterR(charMap, character))
             {
@@ -347,7 +353,7 @@ namespace MyTools
             }
             else if (SmallMoveMethods.Characterz(charMap, character))
             {
-                InteractMoveMethods.MovingToNextLevel(character);
+                InteractMoveMethods.MovingToNextLevel(character, player);
             }
             else if (SmallMoveMethods.Characters(charMap, character))
             {

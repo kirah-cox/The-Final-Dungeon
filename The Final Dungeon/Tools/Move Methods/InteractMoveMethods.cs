@@ -35,7 +35,6 @@ namespace MyTools
             MapNumber++;
             character.UpDown = UpDownList[LevelNumber][2 * MapNumber];
             character.LeftRight = LeftRightList[LevelNumber][2 * MapNumber];
-            SaveLoad.Save(player);
         }
 
         public static void MovingToPreviousRoom(StringBuilder sb, char[][] charMap, Player player, Character character)
@@ -55,10 +54,9 @@ namespace MyTools
                 character.UpDown = UpDownList[LevelNumber][2 * MapNumber + 1];
                 character.LeftRight = LeftRightList[LevelNumber][2 * MapNumber + 1];
             }
-            SaveLoad.Save(player);
         }
 
-        public static void MovingToNextLevel(Character character)
+        public static void MovingToNextLevel(Character character, Player player)
         {
             LevelNumber++;
             MapNumber = 0;
@@ -66,6 +64,7 @@ namespace MyTools
             BossDefeated = false;
             character.UpDown = UpDownList[LevelNumber][MapNumber];
             character.LeftRight = LeftRightList[LevelNumber][MapNumber];
+            SaveLoad.Save(player);
         }
 
         public static void ObtainingKey(StringBuilder sb, char[][] charMap, Character character)
@@ -94,6 +93,15 @@ namespace MyTools
             PressEnter();
             Console.Clear();
             ObtainedFeather = true;
+        }
+
+        public static void ObtainingIceSkates()
+        {
+            Console.Clear();
+            Console.WriteLine("You have obtained ice skates! You can now skate over ice.");
+            PressEnter();
+            Console.Clear();
+            ObtainedIceSkates = true;
         }
 
         public static void ResetBoulders()

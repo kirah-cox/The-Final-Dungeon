@@ -66,16 +66,24 @@ namespace MyTools
 
                     if (newKey == ConsoleKey.D1)
                     {
-                        SaveLoad.Save(player);
-                        Console.WriteLine("Your game has been saved.");
-                        PressEnter();
+                        if (!BossRoom)
+                        {
+                            SaveLoad.Save(player);
+                            Console.WriteLine("Your game has been saved.");
+                            PressEnter();
+                        }
+                        else if (BossRoom)
+                        {
+                            Console.WriteLine("You cannot save in this room.");
+                        }
                         break;
                     }
                     else if (newKey == ConsoleKey.D2)
                     {
-                        SaveLoad.Load(sb,character);
                         Console.WriteLine("Previous save loaded.");
+                        Loading = true;
                         PressEnter();
+                        SaveLoad.Load(sb, character, out player);
                         break;
                     }
                     else if(newKey == ConsoleKey.D3)

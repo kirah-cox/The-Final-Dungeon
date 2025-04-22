@@ -43,7 +43,12 @@ namespace MyTools
             {
                 Console.WriteLine("You have died.");
                 PressEnter();
-                SaveLoad.Load(sb, character);
+                BattleMethods.ResetPotions(player);
+                DateTime = DateTime.Now;
+                InBattle = false;
+                Loading = true;
+                Console.Clear();
+                return;
             }
 
             player.GainExperience(enemy.Experience);
@@ -85,8 +90,9 @@ namespace MyTools
 
             DateTime = DateTime.Now;
 
-            Console.Clear();
             InBattle = false;
+
+            Console.Clear();
         }
     }
 }

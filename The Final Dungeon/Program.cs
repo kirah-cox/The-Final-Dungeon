@@ -17,6 +17,8 @@ public class Program
 
         MainDrawingMap.MainMenuScreen(sb, character, out player);
 
+        SaveLoad.Save(player);
+
         Console.Clear();
 
         while (true)
@@ -35,6 +37,12 @@ public class Program
                 MainBattle.Battle(sb, player, enemy, character);
 
                 Tools.EncounteredEnemy = false;
+
+                if (Tools.Loading)
+                {
+                    SaveLoad.Load(sb, character, out player);
+                    Tools.Loading = false;
+                }
             }
 
             if (Tools.BossFight)
@@ -46,6 +54,12 @@ public class Program
                 Tools.BossFight = false;
 
                 Tools.BossDefeated = true;
+
+                if (Tools.Loading)
+                {
+                    SaveLoad.Load(sb, character, out player);
+                    Tools.Loading = false;
+                }
             }
 
             player.LevelUp();

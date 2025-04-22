@@ -34,56 +34,54 @@ namespace AllCreations
                 luck = Luck;
             }
 
-            switch (luck)
+            if (luck >= 1)
             {
-                case 1:
-                    if (rLuck < 3)
-                    {
-                        luckDamage = true;
-                    }
-                    break;
-                case (2 | 3):
-                    if (rLuck < 5)
-                    {
-                        luckDamage = true;
-                    }
-                    break;
-                case (4 | 5 | 6):
-                    if (rLuck < 7)
-                    {
-                        luckDamage = true;
-                    }
-                    break;
-                case (7 | 8 | 9 | 10):
-                    if (rLuck < 9)
-                    {
-                        luckDamage = true;
-                    }
-                    break;
-                case (11 | 12 | 13 | 14 | 15 | 16):
-                    if (rLuck < 11)
-                    {
-                        luckDamage = true;
-                    }
-                    break;
-                case (17 | 18 | 19 | 20 | 21 | 22 | 23):
-                    if (rLuck < 16)
-                    {
-                        luckDamage = true;
-                    }
-                    break;
-                case (24 | 25):
-                    if (rLuck < 16)
-                    {
-                        luckDamage = true;
-                    }
-                    break;
-                default:
-                    if (rLuck < 21)
-                    {
-                        luckDamage = true;
-                    }
-                    break;
+                if (rLuck < 3)
+                {
+                    luckDamage = true;
+                }
+            }
+            else if (luck >= 3)
+            {
+                if (rLuck < 5)
+                {
+                    luckDamage = true;
+                }
+            }
+            else if (luck >= 6)
+            {
+                if (rLuck < 7)
+                {
+                    luckDamage = true;
+                }
+            }
+            else if (luck >= 10)
+            {
+                if (rLuck < 9)
+                {
+                    luckDamage = true;
+                }
+            }
+            else if (luck >= 16)
+            {
+                if (rLuck < 11)
+                {
+                    luckDamage = true;
+                }
+            }
+            else if (luck >= 25)
+            {
+                if (rLuck < 16)
+                {
+                    luckDamage = true;
+                }
+            }
+            else
+            {
+                if (rLuck < 21)
+                {
+                    luckDamage = true;
+                }
             }
 
             int damage;

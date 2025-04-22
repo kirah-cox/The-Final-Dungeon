@@ -13,6 +13,7 @@ namespace AllCreations
     public class Enemy : Creations
     {
         public EnemyClass Class { get; set; }
+        //Random.Shared.Next();
         public Random RandomExperience { get; set; } = new Random();
         public Random WeaponNumber { get; set; } = new Random();
         public Random RandomDropWeapon { get; set; } = new Random();

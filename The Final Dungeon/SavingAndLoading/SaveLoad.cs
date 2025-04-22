@@ -13,7 +13,7 @@ namespace SavingAndLoading
 {
     public class SaveLoad
     {
-        public static string filePath = "C:\\Users\\kirah\\source\\repos\\The-Final-Dungeon\\The Final Dungeon\\SavingAndLoading\\SaveFile.txt";
+        public static string filePath = "...\\The-Final-Dungeon\\The Final Dungeon\\SavingAndLoading\\SaveFile.txt";
         public static void Save(Player player)
         {
             string jsonLevelNumber = JsonSerializer.Serialize(Tools.LevelNumber);

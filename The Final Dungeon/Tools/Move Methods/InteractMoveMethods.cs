@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using AllCreations;
 using AllMaps;
 using LootThings;
+using SavingAndLoading;
 
 namespace MyTools
 {
@@ -24,7 +26,7 @@ namespace MyTools
             PressEnter();
         }
 
-        public static void MovingToNextRoom(StringBuilder sb, char[][] charMap, Character character)
+        public static void MovingToNextRoom(StringBuilder sb, char[][] charMap, Player player, Character character)
         {
             SmallMoveMethods.ClearCharacterOnMap(sb, charMap, character);
             BoulderOverButton.Clear();
@@ -33,9 +35,10 @@ namespace MyTools
             MapNumber++;
             character.UpDown = UpDownList[LevelNumber][2 * MapNumber];
             character.LeftRight = LeftRightList[LevelNumber][2 * MapNumber];
+            SaveLoad.Save(player);
         }
 
-        public static void MovingToPreviousRoom(StringBuilder sb, char[][] charMap, Character character)
+        public static void MovingToPreviousRoom(StringBuilder sb, char[][] charMap, Player player, Character character)
         {
             SmallMoveMethods.ClearCharacterOnMap(sb, charMap, character);
             BoulderOverButton.Clear();
@@ -52,6 +55,7 @@ namespace MyTools
                 character.UpDown = UpDownList[LevelNumber][2 * MapNumber + 1];
                 character.LeftRight = LeftRightList[LevelNumber][2 * MapNumber + 1];
             }
+            SaveLoad.Save(player);
         }
 
         public static void MovingToNextLevel(Character character)

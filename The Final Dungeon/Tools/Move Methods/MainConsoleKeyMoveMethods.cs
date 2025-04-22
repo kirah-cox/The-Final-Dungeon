@@ -314,11 +314,11 @@ namespace MyTools
             }
             else if (SmallMoveMethods.Character0(charMap, character))
             {
-                InteractMoveMethods.MovingToNextRoom(sb, charMap, character);
+                InteractMoveMethods.MovingToNextRoom(sb, charMap, player, character);
             }
             else if (SmallMoveMethods.CharacterO(charMap, character))
             {
-                InteractMoveMethods.MovingToPreviousRoom(sb, charMap, character);
+                InteractMoveMethods.MovingToPreviousRoom(sb, charMap, player, character);
             }
             else if (!ObtainedKey && SmallMoveMethods.CharacterK(charMap, character))
             {
@@ -337,7 +337,7 @@ namespace MyTools
             }
             else if (SmallMoveMethods.CharacterB(charMap, character) && ObtainedKey)
             {
-                InteractMoveMethods.MovingToNextRoom(sb, charMap, character);
+                InteractMoveMethods.MovingToNextRoom(sb, charMap, player, character);
                 ObtainedKey = false;
                 BossRoom = true;
             }

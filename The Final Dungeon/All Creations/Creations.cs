@@ -124,6 +124,7 @@ namespace AllCreations
 
     public enum PlayerClass
     {
+        None,
         Warrior,
         Wizard,
         Rogue,

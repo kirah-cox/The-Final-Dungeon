@@ -1,0 +1,5 @@
+0
+1
+{"Level":1,"Class":1,"ReadyToLevelUp":false,"Health":8,"Strength":5,"Mana":1,"Luck":1,"Experience":23,"Weapon":null}
+[{"Name":"Knawed Knife","StrenthRequirement":1,"ManaRequirement":1,"LuckRequirement":5,"StrengthMultiplier":1,"ManaMultiplier":1,"LuckMultiplier":1.5,"Equipped":false},{"Name":"Orb of Bleps","StrenthRequirement":1,"ManaRequirement":5,"LuckRequirement":1,"StrengthMultiplier":1,"ManaMultiplier":1.5,"LuckMultiplier":1,"Equipped":false}]
+{"Mana":1}

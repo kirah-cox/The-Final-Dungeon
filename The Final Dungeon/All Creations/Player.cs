@@ -14,11 +14,12 @@ namespace AllCreations
         public int Level { get; set; }
         public PlayerClass Class { get; set; }
         public bool ReadyToLevelUp { get; set; } = false;
-        public int Gold { get; set; }
 
         public Dictionary<PotionType, int> PotionInventory = new Dictionary<PotionType, int>();
 
         public List<Weapons> WeaponInventory = new List<Weapons>();
+
+        public Player() { }
 
         public Player(PlayerClass playerClass)
         {

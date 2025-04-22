@@ -4,16 +4,55 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AllCreations;
+using SavingAndLoading;
 
 namespace MyTools
 {
     public class MainDrawingMap : Tools
     {
+        public static void MainMenuScreen(StringBuilder sb, Character character, out Player player)
+        {
+            while (true)
+            {
+                Console.WriteLine("Welcome to The Final Dungeon.");
+                Console.WriteLine("1: New Game");
+                Console.WriteLine("2: Load Game");
+                Console.WriteLine("3: Exit");
+
+                var key = Console.ReadKey(intercept: true).Key;
+
+                if (key == ConsoleKey.D1)
+                {
+                    player = new Player(MenuScreen());
+                    break;
+                }
+                else if (key == ConsoleKey.D2)
+                {
+                    try
+                    {
+                        player = new Player(PlayerClass.None);
+                        SaveLoad.Load(sb, character);
+                        break;
+                    }
+                    catch
+                    {
+                        Console.WriteLine("You do not have any saved files to load.");
+                        PressEnter();
+                    }
+                }
+                else if (key == ConsoleKey.D3)
+                {
+                    Environment.Exit(0);
+                }
+
+                Console.Clear();
+            }
+        }
+
         public static PlayerClass MenuScreen()
         {
             while (true)
             {
-                Console.WriteLine("Welcome to The Final Dungeon. Press WASD to move, E to interact, R to access inventory, and T to access stats.");
                 Console.WriteLine("What class do you select?");
                 Console.WriteLine("1: Warrior");
                 Console.WriteLine("     Strength:   5");

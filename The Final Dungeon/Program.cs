@@ -3,6 +3,7 @@ using AllMaps;
 using AllCreations;
 using MyTools;
 using LootThings;
+using SavingAndLoading;
 
 public class Program
 {
@@ -12,7 +13,9 @@ public class Program
 
         StringBuilder sb = new StringBuilder();
 
-        Player player = new Player(MainDrawingMap.MenuScreen());
+        Player player;
+
+        MainDrawingMap.MainMenuScreen(sb, character, out player);
 
         Console.Clear();
 
@@ -29,7 +32,7 @@ public class Program
             {
                 Enemy enemy = Enemy.EnemyEncounter();
 
-                MainBattle.Battle(player, enemy);
+                MainBattle.Battle(sb, player, enemy, character);
 
                 Tools.EncounteredEnemy = false;
             }
@@ -38,7 +41,7 @@ public class Program
             {
                 Enemy enemy = new Enemy(Tools.BossEnemies[Tools.LevelNumber]);
 
-                MainBattle.Battle(player, enemy);
+                MainBattle.Battle(sb, player, enemy, character);
 
                 Tools.BossFight = false;
 

@@ -1,6 +1,7 @@
 ﻿using AllCreations;
 using AllMaps;
 using LootThings;
+using SavingAndLoading;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,13 +20,13 @@ namespace MyTools
             Random random = new Random();
             int potentialEnemy = random.Next(1, 101);
 
-            if (potentialEnemy <= 0 && !BossRoom && (DateTime.Now - DateTime > TimeSpan.FromSeconds(5)))
+            if (potentialEnemy <= 5 && !BossRoom && (DateTime.Now - DateTime > TimeSpan.FromSeconds(5)))
             {
                 EncounteredEnemy = true;
             }
         }
         
-        public static async void Battle(Player player, Enemy enemy)
+        public static async void Battle(StringBuilder sb, Player player, Enemy enemy, Character character)
         {
             InBattle = true;
             Console.Clear();
@@ -41,7 +42,8 @@ namespace MyTools
             if (player.Health <= 0)
             {
                 Console.WriteLine("You have died.");
-                Environment.Exit(0);
+                PressEnter();
+                SaveLoad.Load(sb, character);
             }
 
             player.GainExperience(enemy.Experience);

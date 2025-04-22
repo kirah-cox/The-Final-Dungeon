@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using AllCreations;
 using AllMaps;
 using LootThings;
+using SavingAndLoading;
 
 namespace MyTools
 {
@@ -49,6 +50,46 @@ namespace MyTools
             else if (key == ConsoleKey.E)
             {
                 MainConsoleKeyMoveMethods.PressedE(sb, charMap, player, character);
+            }
+            else if (key == ConsoleKey.Escape)
+            {
+                while (true)
+                {
+                    Console.Clear();
+
+                    Console.WriteLine("1. Save");
+                    Console.WriteLine("2. Load");
+                    Console.WriteLine("3. Exit");
+                    Console.WriteLine("Press enter to continue.");
+
+                    var newKey = Console.ReadKey().Key;
+
+                    if (newKey == ConsoleKey.D1)
+                    {
+                        SaveLoad.Save(player);
+                        Console.WriteLine("Your game has been saved.");
+                        PressEnter();
+                        break;
+                    }
+                    else if (newKey == ConsoleKey.D2)
+                    {
+                        SaveLoad.Load(sb,character);
+                        Console.WriteLine("Previous save loaded.");
+                        PressEnter();
+                        break;
+                    }
+                    else if(newKey == ConsoleKey.D3)
+                    {
+                        Environment.Exit(0);
+                        Console.WriteLine("Exiting the game.");
+                        PressEnter();
+                        break;
+                    }
+                    else if (newKey == ConsoleKey.Enter)
+                    {
+                        break;
+                    }
+                }
             }
 
             MainBattle.RandomEnemyEncounter();

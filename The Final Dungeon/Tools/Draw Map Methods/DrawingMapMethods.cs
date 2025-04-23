@@ -28,9 +28,24 @@ namespace MyTools
 
         public static void ClearAfterMovingUp(StringBuilder sb, char[][] charMap, Character character)
         {
-            if (KeepIce)
+            if (KeepIce && !BossRoom)
             {
                 SmallDrawingMapMethods.ClearUpKeepIce(sb, charMap, character);
+                if (ButtonChange.Count() > 0 && ButtonChange.ContainsKey(character.LeftRight))
+                {
+                    if (ButtonChange[character.LeftRight] == character.UpDown + 1 && ButtonHasChangedX)
+                    {
+                        SmallDrawingMapMethods.ClearUpFirstButtonChange(sb, charMap, character);
+                        ButtonHasChangedX = false;
+                        return;
+                    }
+                    if (ButtonChange[character.LeftRight] == character.UpDown + 1 && ButtonHasChangedQ)
+                    {
+                        SmallDrawingMapMethods.ClearUpSecondButtonChange(sb, charMap, character);
+                        ButtonHasChangedQ = false;
+                        return;
+                    }
+                }
                 if (!IceHitSomething)
                 {
                     KeepIce = false;
@@ -42,6 +57,21 @@ namespace MyTools
             {
                 SmallDrawingMapMethods.ClearUpIceHitSomething(sb, charMap, character);
                 KeepIce = true;
+                if (ButtonChange.Count() > 0 && ButtonChange.ContainsKey(character.LeftRight))
+                {
+                    if (ButtonChange[character.LeftRight] == character.UpDown + 1 && ButtonHasChangedX)
+                    {
+                        SmallDrawingMapMethods.ClearUpFirstButtonChange(sb, charMap, character);
+                        ButtonHasChangedX = false;
+                        return;
+                    }
+                    if (ButtonChange[character.LeftRight] == character.UpDown + 1 && ButtonHasChangedQ)
+                    {
+                        SmallDrawingMapMethods.ClearUpSecondButtonChange(sb, charMap, character);
+                        ButtonHasChangedQ = false;
+                        return;
+                    }
+                }
                 return;
             }
             if (CrossedGap)
@@ -97,9 +127,24 @@ namespace MyTools
 
         public static void ClearAfterMovingDown(StringBuilder sb, char[][] charMap, Character character)
         {
-            if (KeepIce)
+            if (KeepIce && !BossRoom)
             {
                 SmallDrawingMapMethods.ClearDownKeepIce(sb, charMap, character);
+                if (ButtonChange.Count() > 0 && ButtonChange.ContainsKey(character.LeftRight))
+                {
+                    if (ButtonChange[character.LeftRight] == character.UpDown - 1 && ButtonHasChangedX)
+                    {
+                        SmallDrawingMapMethods.ClearDownFirstButtonChange(sb, charMap, character);
+                        ButtonHasChangedX = false;
+                        return;
+                    }
+                    if (ButtonChange[character.LeftRight] == character.UpDown - 1 && ButtonHasChangedQ)
+                    {
+                        SmallDrawingMapMethods.ClearDownSecondButtonChange(sb, charMap, character);
+                        ButtonHasChangedQ = false;
+                        return;
+                    }
+                }
                 if (!IceHitSomething)
                 {
                     KeepIce = false;
@@ -111,6 +156,21 @@ namespace MyTools
             {
                 SmallDrawingMapMethods.ClearDownIceHitSomething(sb, charMap, character);
                 KeepIce = true;
+                if (ButtonChange.Count() > 0 && ButtonChange.ContainsKey(character.LeftRight))
+                {
+                    if (ButtonChange[character.LeftRight] == character.UpDown - 1 && ButtonHasChangedX)
+                    {
+                        SmallDrawingMapMethods.ClearDownFirstButtonChange(sb, charMap, character);
+                        ButtonHasChangedX = false;
+                        return;
+                    }
+                    if (ButtonChange[character.LeftRight] == character.UpDown - 1 && ButtonHasChangedQ)
+                    {
+                        SmallDrawingMapMethods.ClearDownSecondButtonChange(sb, charMap, character);
+                        ButtonHasChangedQ = false;
+                        return;
+                    }
+                }
                 return;
             }
             if (CrossedGap)
@@ -166,9 +226,24 @@ namespace MyTools
 
         public static void MoveAndClearLeft(StringBuilder sb, char[][] charMap, Character character)
         {
-            if (KeepIce)
+            if (KeepIce && !BossRoom)
             {
                 SmallDrawingMapMethods.LeftKeepIce(sb, charMap, character);
+                if (ButtonChange.Count() > 0 && ButtonChange.ContainsKey(character.LeftRight + 1))
+                {
+                    if (ButtonChange[character.LeftRight + 1] == character.UpDown && ButtonHasChangedX)
+                    {
+                        SmallDrawingMapMethods.LeftFirstButton(sb, charMap, character);
+                        ButtonHasChangedX = false;
+                        return;
+                    }
+                    if (ButtonChange[character.LeftRight + 1] == character.UpDown && ButtonHasChangedQ)
+                    {
+                        SmallDrawingMapMethods.LeftSecondButton(sb, charMap, character);
+                        ButtonHasChangedQ = false;
+                        return;
+                    }
+                }
                 if (!IceHitSomething)
                 {
                     KeepIce = false;
@@ -180,6 +255,21 @@ namespace MyTools
             {
                 SmallDrawingMapMethods.LeftIceHitSomething(sb, charMap, character);
                 KeepIce = true;
+                if (ButtonChange.Count() > 0 && ButtonChange.ContainsKey(character.LeftRight + 1))
+                {
+                    if (ButtonChange[character.LeftRight + 1] == character.UpDown && ButtonHasChangedX)
+                    {
+                        SmallDrawingMapMethods.LeftFirstButton(sb, charMap, character);
+                        ButtonHasChangedX = false;
+                        return;
+                    }
+                    if (ButtonChange[character.LeftRight + 1] == character.UpDown && ButtonHasChangedQ)
+                    {
+                        SmallDrawingMapMethods.LeftSecondButton(sb, charMap, character);
+                        ButtonHasChangedQ = false;
+                        return;
+                    }
+                }
                 return;
             }
             if (CrossedGap)
@@ -247,9 +337,24 @@ namespace MyTools
 
         public static void MoveAndClearRight(StringBuilder sb, char[][] charMap, Character character)
         {
-            if (KeepIce)
+            if (KeepIce && !BossRoom)
             {
                 SmallDrawingMapMethods.RightKeepIce(sb, charMap, character);
+                if (ButtonChange.Count() > 0 && ButtonChange.ContainsKey(character.LeftRight - 1))
+                {
+                    if (ButtonChange[character.LeftRight - 1] == character.UpDown && ButtonHasChangedX)
+                    {
+                        SmallDrawingMapMethods.RightFirstButton(sb, charMap, character);
+                        ButtonHasChangedX = false;
+                        return;
+                    }
+                    if (ButtonChange[character.LeftRight - 1] == character.UpDown && ButtonHasChangedQ)
+                    {
+                        SmallDrawingMapMethods.RightSecondButton(sb, charMap, character);
+                        ButtonHasChangedQ = false;
+                        return;
+                    }
+                }
                 if (!IceHitSomething)
                 {
                     KeepIce = false;
@@ -261,6 +366,21 @@ namespace MyTools
             {
                 SmallDrawingMapMethods.RightIceHitSomething(sb, charMap, character);
                 KeepIce = true;
+                if (ButtonChange.Count() > 0 && ButtonChange.ContainsKey(character.LeftRight - 1))
+                {
+                    if (ButtonChange[character.LeftRight - 1] == character.UpDown && ButtonHasChangedX)
+                    {
+                        SmallDrawingMapMethods.RightFirstButton(sb, charMap, character);
+                        ButtonHasChangedX = false;
+                        return;
+                    }
+                    if (ButtonChange[character.LeftRight - 1] == character.UpDown && ButtonHasChangedQ)
+                    {
+                        SmallDrawingMapMethods.RightSecondButton(sb, charMap, character);
+                        ButtonHasChangedQ = false;
+                        return;
+                    }
+                }
                 return;
             }
             if (CrossedGap)

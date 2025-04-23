@@ -41,13 +41,13 @@ namespace AllMaps
         public static char[][] ThirdMap =
         {
                 ":~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
-                ":iXiiiiiiiXi:.. ooR.oo.....oox.o:".ToCharArray(),
-                ":iXiXiiiXiii:.. o....x....oooo..:".ToCharArray(),
+                ":iXiiiiiii.i:.. ooR.oo.....oox.o:".ToCharArray(),
+                ":i.iiiii.iii:.. o....x....oooo..:".ToCharArray(),
                 ":iiiiiiiiiii:.. ............o...0".ToCharArray(),
                 ":iiiiiKiiiii... ..o....o......o.:".ToCharArray(),
-                ":iiiXiXiiiii:.. .ooox.......oo.x:".ToCharArray(),
+                ":iii.iXiiiii:.. .ooox.......oo.x:".ToCharArray(),
                 ":iiiXiiiXiii:~~~~~~~~~~~~~~~~~~~:".ToCharArray(),
-                ":iXiiiiiiiXi:                    ".ToCharArray(),
+                ":i.iiiiiiiXi:                    ".ToCharArray(),
                 ":iiiiiiiiiii:                    ".ToCharArray(),
                 ":...........:                    ".ToCharArray(),
                 ":~~~~~O~~~~~:                    ".ToCharArray(),

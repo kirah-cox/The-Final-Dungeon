@@ -22,6 +22,7 @@ namespace MyTools
                 {
                     if (!ButtonChange.ContainsKey(character.LeftRight))
                     {
+                        ButtonChange.Clear();
                         ButtonChange.Add(character.LeftRight, character.UpDown - 1);
                     }
                     ButtonHasChangedX = true;
@@ -30,6 +31,7 @@ namespace MyTools
                 {
                     if (!ButtonChange.ContainsKey(character.LeftRight))
                     {
+                        ButtonChange.Clear();
                         ButtonChange.Add(character.LeftRight, character.UpDown - 1);
                     }
                     ButtonHasChangedQ = true;
@@ -56,6 +58,7 @@ namespace MyTools
                 {
                     if (!ButtonChange.ContainsKey(character.LeftRight))
                     {
+                        ButtonChange.Clear();
                         ButtonChange.Add(character.LeftRight, character.UpDown - 1);
                     }
                     ButtonHasChangedX = true;
@@ -64,6 +67,7 @@ namespace MyTools
                 {
                     if (!ButtonChange.ContainsKey(character.LeftRight))
                     {
+                        ButtonChange.Clear();
                         ButtonChange.Add(character.LeftRight, character.UpDown - 1);
                     }
                     ButtonHasChangedQ = true;
@@ -95,6 +99,7 @@ namespace MyTools
                 {
                     if (!ButtonChange.ContainsKey(character.LeftRight))
                     {
+                        ButtonChange.Clear();
                         ButtonChange.Add(character.LeftRight, character.UpDown + 1);
                     }
                     ButtonHasChangedX = true;
@@ -103,6 +108,7 @@ namespace MyTools
                 {
                     if (!ButtonChange.ContainsKey(character.LeftRight))
                     {
+                        ButtonChange.Clear();
                         ButtonChange.Add(character.LeftRight, character.UpDown + 1);
                     }
                     ButtonHasChangedQ = true;
@@ -129,6 +135,7 @@ namespace MyTools
                 {
                     if (!ButtonChange.ContainsKey(character.LeftRight))
                     {
+                        ButtonChange.Clear();
                         ButtonChange.Add(character.LeftRight, character.UpDown + 1);
                     }
                     ButtonHasChangedX = true;
@@ -137,6 +144,7 @@ namespace MyTools
                 {
                     if (!ButtonChange.ContainsKey(character.LeftRight))
                     {
+                        ButtonChange.Clear();
                         ButtonChange.Add(character.LeftRight, character.UpDown + 1);
                     }
                     ButtonHasChangedQ = true;
@@ -168,6 +176,7 @@ namespace MyTools
                 {
                     if (!ButtonChange.ContainsKey(character.LeftRight - 1))
                     {
+                        ButtonChange.Clear();
                         ButtonChange.Add(character.LeftRight - 1, character.UpDown);
                     }
                     ButtonHasChangedX = true;
@@ -176,6 +185,7 @@ namespace MyTools
                 {
                     if (!ButtonChange.ContainsKey(character.LeftRight - 1))
                     {
+                        ButtonChange.Clear();
                         ButtonChange.Add(character.LeftRight - 1, character.UpDown);
                     }
                     ButtonHasChangedQ = true;
@@ -202,6 +212,7 @@ namespace MyTools
                 {
                     if (!ButtonChange.ContainsKey(character.LeftRight - 1))
                     {
+                        ButtonChange.Clear();
                         ButtonChange.Add(character.LeftRight - 1, character.UpDown);
                     }
                     ButtonHasChangedX = true;
@@ -210,6 +221,7 @@ namespace MyTools
                 {
                     if (!ButtonChange.ContainsKey(character.LeftRight - 1))
                     {
+                        ButtonChange.Clear();
                         ButtonChange.Add(character.LeftRight - 1, character.UpDown);
                     }
                     ButtonHasChangedQ = true;
@@ -241,6 +253,7 @@ namespace MyTools
                 {
                     if (!ButtonChange.ContainsKey(character.LeftRight + 1))
                     {
+                        ButtonChange.Clear();
                         ButtonChange.Add(character.LeftRight + 1, character.UpDown);
                     }
                     ButtonHasChangedX = true;
@@ -249,6 +262,7 @@ namespace MyTools
                 {
                     if (!ButtonChange.ContainsKey(character.LeftRight + 1))
                     {
+                        ButtonChange.Clear();
                         ButtonChange.Add(character.LeftRight + 1, character.UpDown);
                     }
                     ButtonHasChangedQ = true;
@@ -275,6 +289,7 @@ namespace MyTools
                 {
                     if (!ButtonChange.ContainsKey(character.LeftRight + 1))
                     {
+                        ButtonChange.Clear();
                         ButtonChange.Add(character.LeftRight + 1, character.UpDown);
                     }
                     ButtonHasChangedX = true;
@@ -283,6 +298,7 @@ namespace MyTools
                 {
                     if (!ButtonChange.ContainsKey(character.LeftRight + 1))
                     {
+                        ButtonChange.Clear();
                         ButtonChange.Add(character.LeftRight + 1, character.UpDown);
                     }
                     ButtonHasChangedQ = true;

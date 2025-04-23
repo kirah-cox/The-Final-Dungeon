@@ -9,6 +9,21 @@ namespace MyTools
 {
     public class SmallDrawingMapMethods : MainDrawingMap
     {
+        public static void UpOrDownBoulderNotOverGap(StringBuilder sb, char[][] charMap, Character character)
+        {
+            if (PushingBoulder && !BoulderOverGap)
+            {
+                if (character.Up)
+                {
+                    SmallDrawingMapMethods.UpOrDownBoulderUp(sb, charMap, character);
+                }
+                if (character.Down)
+                {
+                    SmallDrawingMapMethods.UpOrDownBoulderDown(sb, charMap, character);
+                }
+                return;
+            }
+        }
         public static void UpOrDownNormal(StringBuilder sb, char[][] charMap, Character character)
         {
             sb.Append(charMap[character.UpDown]).Remove(character.LeftRight, 1).Insert(character.LeftRight, character.CharacterChar);
@@ -35,301 +50,242 @@ namespace MyTools
             charMap[character.UpDown + 1] = sb.ToString().ToCharArray();
             sb.Clear();
         }
-
-        public static void ClearUpNormal(StringBuilder sb, char[][] charMap, Character character)
+        public static void ChangingButtonUp(StringBuilder sb, char[][] charMap, Character character)
         {
-            sb.Append(charMap[character.UpDown + 1]).Remove(character.LeftRight, 1).Insert(character.LeftRight, ".");
-            charMap[character.UpDown + 1] = sb.ToString().ToCharArray();
-            sb.Clear();
-        }
-        
-        public static void ClearUpIce(StringBuilder sb, char[][] charMap, Character character)
-        {
-            sb.Append(charMap[character.UpDown + IceLineNumber]).Remove(character.LeftRight, 1).Insert(character.LeftRight, ".");
-            charMap[character.UpDown + IceLineNumber] = sb.ToString().ToCharArray();
-            sb.Clear();
+            if (ButtonChange.Count() > 0 && ButtonChange.ContainsKey(character.LeftRight) && ButtonHasChangedX)
+            {
+                ChangingButtonUpX(sb, charMap, character);
+            }
+            else if (ButtonChange.Count() > 0 && ButtonChange.ContainsKey(character.LeftRight) && ButtonHasChangedQ)
+            {
+                ChangingButtonUpQ(sb, charMap, character);
+            }
         }
 
-        public static void ClearUpIceHitSomething(StringBuilder sb, char[][] charMap, Character character)
+        public static void ChangingButtonUpX(StringBuilder sb, char[][] charMap, Character character)
         {
-            sb.Append(charMap[character.UpDown + IceLineNumber - 1]).Remove(character.LeftRight, 1).Insert(character.LeftRight, ".");
-            charMap[character.UpDown + IceLineNumber - 1] = sb.ToString().ToCharArray();
-            sb.Clear();
+            if (ButtonChange[character.LeftRight] == character.UpDown + 1)
+            {
+                UpDrawingMap.ClearUpFirstButtonChange(sb, charMap, character);
+                ButtonHasChangedX = false;
+            }
         }
 
-        public static void ClearUpKeepIce(StringBuilder sb, char[][] charMap, Character character)
+        public static void ChangingButtonUpQ(StringBuilder sb, char[][] charMap, Character character)
         {
-            sb.Append(charMap[character.UpDown + IceLineNumber]).Remove(character.LeftRight, 1).Insert(character.LeftRight, "i");
-            charMap[character.UpDown + IceLineNumber] = sb.ToString().ToCharArray();
-            sb.Clear();
+            if (ButtonChange[character.LeftRight] == character.UpDown + 1)
+            {
+                UpDrawingMap.ClearUpSecondButtonChange(sb, charMap, character);
+                ButtonHasChangedQ = false;
+            }
         }
 
-        public static void ClearUpGap(StringBuilder sb, char[][] charMap, Character character)
+        public static void ChangingButtonDown(StringBuilder sb, char[][] charMap, Character character)
         {
-            sb.Append(charMap[character.UpDown + 2]).Remove(character.LeftRight, 1).Insert(character.LeftRight, ".");
-            charMap[character.UpDown + 2] = sb.ToString().ToCharArray();
-            sb.Clear();
-            CrossedGap = false;
+            if (ButtonChange.Count() > 0 && ButtonChange.ContainsKey(character.LeftRight) && ButtonHasChangedX)
+            {
+                ChangingButtonDownX(sb, charMap, character);
+            }
+            else if (ButtonChange.Count() > 0 && ButtonChange.ContainsKey(character.LeftRight) && ButtonHasChangedQ)
+            {
+                ChangingButtonDownQ(sb, charMap, character);
+            }
         }
 
-        public static void ClearUpBoulderOffButton(StringBuilder sb, char[][] charMap, Character character)
+        public static void ChangingButtonDownX(StringBuilder sb, char[][] charMap, Character character)
         {
-            sb.Append(charMap[character.UpDown + 1]).Remove(character.LeftRight, 1).Insert(character.LeftRight, "x");
-            charMap[character.UpDown + 1] = sb.ToString().ToCharArray();
-            sb.Clear();
+            if (ButtonChange[character.LeftRight] == character.UpDown - 1)
+            {
+                UpDrawingMap.ClearUpFirstButtonChange(sb, charMap, character);
+                ButtonHasChangedX = false;
+            }
         }
 
-        public static void ClearUpFirstButtonChange(StringBuilder sb, char[][] charMap, Character character)
+        public static void ChangingButtonDownQ(StringBuilder sb, char[][] charMap, Character character)
         {
-            sb.Append(charMap[character.UpDown + 1]).Remove(character.LeftRight, 1).Insert(character.LeftRight, "Q");
-            charMap[character.UpDown + 1] = sb.ToString().ToCharArray();
-            sb.Clear();
+            if (ButtonChange[character.LeftRight] == character.UpDown - 1)
+            {
+                UpDrawingMap.ClearUpSecondButtonChange(sb, charMap, character);
+                ButtonHasChangedQ = false;
+            }
         }
 
-        public static void ClearUpSecondButtonChange(StringBuilder sb, char[][] charMap, Character character)
+        public static void ChangingButtonLeft(StringBuilder sb, char[][] charMap, Character character)
         {
-            sb.Append(charMap[character.UpDown + 1]).Remove(character.LeftRight, 1).Insert(character.LeftRight, "X");
-            charMap[character.UpDown + 1] = sb.ToString().ToCharArray();
-            sb.Clear();
+            if (ButtonChange.Count() > 0 && ButtonChange.ContainsKey(character.LeftRight + 1) && ButtonHasChangedX)
+            {
+                ChangingButtonLeftX(sb, charMap, character);
+            }
+            else if (ButtonChange.Count() > 0 && ButtonChange.ContainsKey(character.LeftRight + 1) && ButtonHasChangedQ)
+            {
+                ChangingButtonLeftQ(sb, charMap, character);
+            }
         }
 
-        public static void ClearUpFirstButtonChangeIce(StringBuilder sb, char[][] charMap, Character character)
+        public static void ChangingButtonLeftX(StringBuilder sb, char[][] charMap, Character character)
         {
-            sb.Append(charMap[character.UpDown + IceLineNumber]).Remove(character.LeftRight, 1).Insert(character.LeftRight, "Q");
-            charMap[character.UpDown + IceLineNumber] = sb.ToString().ToCharArray();
-            sb.Clear();
-        }
-        public static void ClearUpSecondButtonChangeIce(StringBuilder sb, char[][] charMap, Character character)
-        {
-            sb.Append(charMap[character.UpDown + IceLineNumber]).Remove(character.LeftRight, 1).Insert(character.LeftRight, "X");
-            charMap[character.UpDown + IceLineNumber] = sb.ToString().ToCharArray();
-            sb.Clear();
+            if (ButtonChange[character.LeftRight + 1] == character.UpDown)
+            {
+                UpDrawingMap.ClearUpFirstButtonChange(sb, charMap, character);
+                ButtonHasChangedX = false;
+            }
         }
 
-        public static void ClearDownNormal(StringBuilder sb, char[][] charMap, Character character)
+        public static void ChangingButtonLeftQ(StringBuilder sb, char[][] charMap, Character character)
         {
-            sb.Append(charMap[character.UpDown - 1]).Remove(character.LeftRight, 1).Insert(character.LeftRight, ".");
-            charMap[character.UpDown - 1] = sb.ToString().ToCharArray();
-            sb.Clear();
+            if (ButtonChange[character.LeftRight + 1] == character.UpDown)
+            {
+                UpDrawingMap.ClearUpSecondButtonChange(sb, charMap, character);
+                ButtonHasChangedQ = false;
+            }
         }
 
-        public static void ClearDownIce(StringBuilder sb, char[][] charMap, Character character)
+        public static void ChangingButtonRight(StringBuilder sb, char[][] charMap, Character character)
         {
-            sb.Append(charMap[character.UpDown - IceLineNumber]).Remove(character.LeftRight, 1).Insert(character.LeftRight, ".");
-            charMap[character.UpDown - IceLineNumber] = sb.ToString().ToCharArray();
-            sb.Clear();
+            if (ButtonChange.Count() > 0 && ButtonChange.ContainsKey(character.LeftRight - 1) && ButtonHasChangedX)
+            {
+                ChangingButtonRightX(sb, charMap, character);
+            }
+            else if (ButtonChange.Count() > 0 && ButtonChange.ContainsKey(character.LeftRight - 1) && ButtonHasChangedQ)
+            {
+                ChangingButtonRightQ(sb, charMap, character);
+            }
         }
 
-        public static void ClearDownIceHitSomething(StringBuilder sb, char[][] charMap, Character character)
+        public static void ChangingButtonRightX(StringBuilder sb, char[][] charMap, Character character)
         {
-            sb.Append(charMap[character.UpDown - IceLineNumber + 1]).Remove(character.LeftRight, 1).Insert(character.LeftRight, ".");
-            charMap[character.UpDown - IceLineNumber + 1] = sb.ToString().ToCharArray();
-            sb.Clear();
+            if (ButtonChange[character.LeftRight - 1] == character.UpDown)
+            {
+                UpDrawingMap.ClearUpFirstButtonChange(sb, charMap, character);
+                ButtonHasChangedX = false;
+            }
         }
 
-        public static void ClearDownKeepIce(StringBuilder sb, char[][] charMap, Character character)
+        public static void ChangingButtonRightQ(StringBuilder sb, char[][] charMap, Character character)
         {
-            sb.Append(charMap[character.UpDown - IceLineNumber]).Remove(character.LeftRight, 1).Insert(character.LeftRight, "i");
-            charMap[character.UpDown - IceLineNumber] = sb.ToString().ToCharArray();
-            sb.Clear();
+            if (ButtonChange[character.LeftRight - 1] == character.UpDown)
+            {
+                UpDrawingMap.ClearUpSecondButtonChange(sb, charMap, character);
+                ButtonHasChangedQ = false;
+            }
         }
 
-        public static void ClearDownGap(StringBuilder sb, char[][] charMap, Character character)
+        public static void IfIceKeptUp(StringBuilder sb, char[][] charMap, Character character)
         {
-            sb.Append(charMap[character.UpDown - 2]).Remove(character.LeftRight, 1).Insert(character.LeftRight, ".");
-            charMap[character.UpDown - 2] = sb.ToString().ToCharArray();
-            sb.Clear();
-            CrossedGap = false;
+            UpDrawingMap.ClearUpKeepIce(sb, charMap, character);
+            ChangingButtonUp(sb, charMap, character);
+            if (!IceHitSomething)
+            {
+                KeepIce = false;
+            }
         }
 
-        public static void ClearDownBoulderOffButton(StringBuilder sb, char[][] charMap, Character character)
+        public static void IfIceHitSomethingUp(StringBuilder sb, char[][] charMap, Character character)
         {
-            sb.Append(charMap[character.UpDown - 1]).Remove(character.LeftRight, 1).Insert(character.LeftRight, "x");
-            charMap[character.UpDown - 1] = sb.ToString().ToCharArray();
-            sb.Clear();
+            UpDrawingMap.ClearUpIceHitSomething(sb, charMap, character);
+            KeepIce = true;
+            ChangingButtonUp(sb, charMap, character);
         }
 
-        public static void ClearDownFirstButtonChange(StringBuilder sb, char[][] charMap, Character character)
+        public static void IfBoulderButtonUp(StringBuilder sb, char[][] charMap, Character character)
         {
-            sb.Append(charMap[character.UpDown - 1]).Remove(character.LeftRight, 1).Insert(character.LeftRight, "Q");
-            charMap[character.UpDown - 1] = sb.ToString().ToCharArray();
-            sb.Clear();
+            if (BoulderOverButton[character.LeftRight] == character.UpDown + 1)
+            {
+                UpDrawingMap.ClearUpBoulderOffButton(sb, charMap, character);
+            }
         }
 
-        public static void ClearDownSecondButtonChange(StringBuilder sb, char[][] charMap, Character character)
+        public static void IfIceKeptDown(StringBuilder sb, char[][] charMap, Character character)
         {
-            sb.Append(charMap[character.UpDown - 1]).Remove(character.LeftRight, 1).Insert(character.LeftRight, "X");
-            charMap[character.UpDown - 1] = sb.ToString().ToCharArray();
-            sb.Clear();
+            DownDrawingMap.ClearDownKeepIce(sb, charMap, character);
+            ChangingButtonDown(sb, charMap, character);
+            if (!IceHitSomething)
+            {
+                KeepIce = false;
+            }
         }
 
-        public static void ClearDownFirstButtonChangeIce(StringBuilder sb, char[][] charMap, Character character)
+        public static void IfIceHitSomethingDown(StringBuilder sb, char[][] charMap, Character character)
         {
-            sb.Append(charMap[character.UpDown - IceLineNumber]).Remove(character.LeftRight, 1).Insert(character.LeftRight, "Q");
-            charMap[character.UpDown - IceLineNumber] = sb.ToString().ToCharArray();
-            sb.Clear();
+            DownDrawingMap.ClearDownIceHitSomething(sb, charMap, character);
+            KeepIce = true;
+            ChangingButtonDown(sb, charMap, character);
         }
 
-        public static void ClearDownSecondButtonChangeIce(StringBuilder sb, char[][] charMap, Character character)
+        public static void IfBoulderButtonDown(StringBuilder sb, char[][] charMap, Character character)
         {
-            sb.Append(charMap[character.UpDown - IceLineNumber]).Remove(character.LeftRight, 1).Insert(character.LeftRight, "X");
-            charMap[character.UpDown - IceLineNumber] = sb.ToString().ToCharArray();
-            sb.Clear();
+            if (BoulderOverButton[character.LeftRight] == character.UpDown - 1)
+            {
+                DownDrawingMap.ClearDownBoulderOffButton(sb, charMap, character);
+            }
         }
 
-        public static void LeftNormal(StringBuilder sb, char[][] charMap, Character character)
+        public static void IfIceKeptLeft(StringBuilder sb, char[][] charMap, Character character)
         {
-            sb.Append(charMap[character.UpDown]).Remove(character.LeftRight, 1).Insert(character.LeftRight, character.CharacterChar).Remove(character.LeftRight + 1, 1).Insert(character.LeftRight + 1, ".");
-            charMap[character.UpDown] = sb.ToString().ToCharArray();
-            sb.Clear();
-        }
-        public static void LeftIce(StringBuilder sb, char[][] charMap, Character character)
-        {
-            sb.Append(charMap[character.UpDown]).Remove(character.LeftRight, 1).Insert(character.LeftRight, character.CharacterChar).Remove(character.LeftRight + IceLineNumber, 1).Insert(character.LeftRight + IceLineNumber, ".");
-            charMap[character.UpDown] = sb.ToString().ToCharArray();
-            sb.Clear();
+            LeftDrawingMap.LeftKeepIce(sb, charMap, character);
+            ChangingButtonLeft(sb, charMap, character);
+            if (!IceHitSomething)
+            {
+                KeepIce = false;
+            }
         }
 
-        public static void LeftIceHitSomething(StringBuilder sb, char[][] charMap, Character character)
+        public static void IfIceHitSomethingLeft(StringBuilder sb, char[][] charMap, Character character)
         {
-            sb.Append(charMap[character.UpDown]).Remove(character.LeftRight, 1).Insert(character.LeftRight, character.CharacterChar).Remove(character.LeftRight + IceLineNumber - 1, 1).Insert(character.LeftRight + IceLineNumber - 1, ".");
-            charMap[character.UpDown] = sb.ToString().ToCharArray();
-            sb.Clear();
+            LeftDrawingMap.LeftIceHitSomething(sb, charMap, character);
+            KeepIce = true;
+            ChangingButtonLeft(sb, charMap, character);
         }
 
-        public static void LeftKeepIce(StringBuilder sb, char[][] charMap, Character character)
+        public static void IfBoulderButtonLeft(StringBuilder sb, char[][] charMap, Character character)
         {
-            sb.Append(charMap[character.UpDown]).Remove(character.LeftRight, 1).Insert(character.LeftRight, character.CharacterChar).Remove(character.LeftRight + IceLineNumber, 1).Insert(character.LeftRight + IceLineNumber, "i");
-            charMap[character.UpDown] = sb.ToString().ToCharArray();
-            sb.Clear();
+            if (BoulderOverButton[character.LeftRight + 1] == character.UpDown)
+            {
+                LeftDrawingMap.LeftBoulderButton(sb, charMap, character);
+            }
         }
 
-        public static void LeftGap(StringBuilder sb, char[][] charMap, Character character)
+        public static void IfPushingBoulderButtonLeft(StringBuilder sb, char[][] charMap, Character character)
         {
-            sb.Append(charMap[character.UpDown]).Remove(character.LeftRight, 1).Insert(character.LeftRight, character.CharacterChar).Remove(character.LeftRight + 1, 2).Insert(character.LeftRight + 1, " .");
-            charMap[character.UpDown] = sb.ToString().ToCharArray();
-            sb.Clear();
-            CrossedGap = false;
+            LeftDrawingMap.LeftBoulder(sb, charMap, character);
+            if (BoulderOverButton.Count() > 0 && BoulderOverButton.ContainsKey(character.LeftRight + 1))
+            {
+                IfBoulderButtonLeft(sb, charMap, character);
+            }
         }
 
-        public static void LeftBoulderButton(StringBuilder sb, char[][] charMap, Character character)
+        public static void IfIceKeptRight(StringBuilder sb, char[][] charMap, Character character)
         {
-            sb.Append(charMap[character.UpDown]).Remove(character.LeftRight, 1).Insert(character.LeftRight, character.CharacterChar).Remove(character.LeftRight + 1, 1).Insert(character.LeftRight + 1, "x");
-            charMap[character.UpDown] = sb.ToString().ToCharArray();
-            sb.Clear();
+            RightDrawingMap.RightKeepIce(sb, charMap, character);
+            ChangingButtonRight(sb, charMap, character);
+            if (!IceHitSomething)
+            {
+                KeepIce = false;
+            }
         }
 
-        public static void LeftFirstButton(StringBuilder sb, char[][] charMap, Character character)
+        public static void IfIceHitSomethingRight(StringBuilder sb, char[][] charMap, Character character)
         {
-            sb.Append(charMap[character.UpDown]).Remove(character.LeftRight, 1).Insert(character.LeftRight, character.CharacterChar).Remove(character.LeftRight + 1, 1).Insert(character.LeftRight + 1, "Q");
-            charMap[character.UpDown] = sb.ToString().ToCharArray();
-            sb.Clear();
+            RightDrawingMap.RightIceHitSomething(sb, charMap, character);
+            KeepIce = true;
+            ChangingButtonRight(sb, charMap, character);
         }
 
-        public static void LeftSecondButton(StringBuilder sb, char[][] charMap, Character character)
+        public static void IfBoulderButtonRight(StringBuilder sb, char[][] charMap, Character character)
         {
-            sb.Append(charMap[character.UpDown]).Remove(character.LeftRight, 1).Insert(character.LeftRight, character.CharacterChar).Remove(character.LeftRight + 1, 1).Insert(character.LeftRight + 1, "X");
-            charMap[character.UpDown] = sb.ToString().ToCharArray();
-            sb.Clear();
+            if (BoulderOverButton[character.LeftRight - 1] == character.UpDown)
+            {
+                RightDrawingMap.RightBoulderButton(sb, charMap, character);
+            }
         }
 
-        public static void LeftFirstButtonIce(StringBuilder sb, char[][] charMap, Character character)
+        public static void IfPushingBoulderButtonRight(StringBuilder sb, char[][] charMap, Character character)
         {
-            sb.Append(charMap[character.UpDown]).Remove(character.LeftRight, 1).Insert(character.LeftRight, character.CharacterChar).Remove(character.LeftRight + IceLineNumber, 1).Insert(character.LeftRight + IceLineNumber, "Q");
-            charMap[character.UpDown] = sb.ToString().ToCharArray();
-            sb.Clear();
+            RightDrawingMap.RightBoulder(sb, charMap, character);
+            if (BoulderOverButton.Count() > 0 && BoulderOverButton.ContainsKey(character.LeftRight - 1))
+            {
+                SmallDrawingMapMethods.IfBoulderButtonRight(sb, charMap, character);
+            }
         }
-
-        public static void LeftSecondButtonIce(StringBuilder sb, char[][] charMap, Character character)
-        {
-            sb.Append(charMap[character.UpDown]).Remove(character.LeftRight, 1).Insert(character.LeftRight, character.CharacterChar).Remove(character.LeftRight + IceLineNumber, 1).Insert(character.LeftRight + IceLineNumber, "X");
-            charMap[character.UpDown] = sb.ToString().ToCharArray();
-            sb.Clear();
-        }
-
-        public static void LeftBoulder(StringBuilder sb, char[][] charMap, Character character)
-        {
-            sb.Append(charMap[character.UpDown]).Remove(character.LeftRight - 1, 2).Insert(character.LeftRight - 1, $"o{character.CharacterChar}").Remove(character.LeftRight + 1, 1).Insert(character.LeftRight + 1, ".");
-            charMap[character.UpDown] = sb.ToString().ToCharArray();
-            sb.Clear();
-        }
-
-        public static void RightNormal(StringBuilder sb, char[][] charMap, Character character)
-        {
-            sb.Append(charMap[character.UpDown]).Remove(character.LeftRight, 1).Insert(character.LeftRight, character.CharacterChar).Remove(character.LeftRight - 1, 1).Insert(character.LeftRight - 1, ".");
-            charMap[character.UpDown] = sb.ToString().ToCharArray();
-            sb.Clear();
-        }
-
-        public static void RightIce(StringBuilder sb, char[][] charMap, Character character)
-        {
-            sb.Append(charMap[character.UpDown]).Remove(character.LeftRight, 1).Insert(character.LeftRight, character.CharacterChar).Remove(character.LeftRight - IceLineNumber, 1).Insert(character.LeftRight - IceLineNumber, ".");
-            charMap[character.UpDown] = sb.ToString().ToCharArray();
-            sb.Clear();
-        }
-
-        public static void RightIceHitSomething(StringBuilder sb, char[][] charMap, Character character)
-        {
-            sb.Append(charMap[character.UpDown]).Remove(character.LeftRight, 1).Insert(character.LeftRight, character.CharacterChar).Remove(character.LeftRight - IceLineNumber + 1, 1).Insert(character.LeftRight - IceLineNumber + 1, ".");
-            charMap[character.UpDown] = sb.ToString().ToCharArray();
-            sb.Clear();
-        }
-
-        public static void RightKeepIce(StringBuilder sb, char[][] charMap, Character character)
-        {
-            sb.Append(charMap[character.UpDown]).Remove(character.LeftRight, 1).Insert(character.LeftRight, character.CharacterChar).Remove(character.LeftRight - IceLineNumber, 1).Insert(character.LeftRight - IceLineNumber, "i");
-            charMap[character.UpDown] = sb.ToString().ToCharArray();
-            sb.Clear();
-        }
-
-        public static void RightGap(StringBuilder sb, char[][] charMap, Character character)
-        {
-            sb.Append(charMap[character.UpDown]).Remove(character.LeftRight, 1).Insert(character.LeftRight, character.CharacterChar).Remove(character.LeftRight - 2, 1).Insert(character.LeftRight - 2, ".");
-            charMap[character.UpDown] = sb.ToString().ToCharArray();
-            sb.Clear();
-            CrossedGap = false;
-        }
-
-        public static void RightBoulderButton(StringBuilder sb, char[][] charMap, Character character)
-        {
-            sb.Append(charMap[character.UpDown]).Remove(character.LeftRight, 1).Insert(character.LeftRight, character.CharacterChar).Remove(character.LeftRight - 1, 1).Insert(character.LeftRight - 1, "x");
-            charMap[character.UpDown] = sb.ToString().ToCharArray();
-            sb.Clear();
-        }
-
-        public static void RightFirstButton(StringBuilder sb, char[][] charMap, Character character)
-        {
-            sb.Append(charMap[character.UpDown]).Remove(character.LeftRight, 1).Insert(character.LeftRight, character.CharacterChar).Remove(character.LeftRight - 1, 1).Insert(character.LeftRight - 1, "Q");
-            charMap[character.UpDown] = sb.ToString().ToCharArray();
-            sb.Clear();
-        }
-
-        public static void RightSecondButton(StringBuilder sb, char[][] charMap, Character character)
-        {
-            sb.Append(charMap[character.UpDown]).Remove(character.LeftRight, 1).Insert(character.LeftRight, character.CharacterChar).Remove(character.LeftRight - 1, 1).Insert(character.LeftRight - 1, "X");
-            charMap[character.UpDown] = sb.ToString().ToCharArray();
-            sb.Clear();
-        }
-
-        public static void RightFirstButtonIce(StringBuilder sb, char[][] charMap, Character character)
-        {
-            sb.Append(charMap[character.UpDown]).Remove(character.LeftRight, 1).Insert(character.LeftRight, character.CharacterChar).Remove(character.LeftRight - IceLineNumber, 1).Insert(character.LeftRight - IceLineNumber, "Q");
-            charMap[character.UpDown] = sb.ToString().ToCharArray();
-            sb.Clear();
-        }
-
-        public static void RightSecondButtonIce(StringBuilder sb, char[][] charMap, Character character)
-        {
-            sb.Append(charMap[character.UpDown]).Remove(character.LeftRight, 1).Insert(character.LeftRight, character.CharacterChar).Remove(character.LeftRight - IceLineNumber, 1).Insert(character.LeftRight - IceLineNumber, "X");
-            charMap[character.UpDown] = sb.ToString().ToCharArray();
-            sb.Clear();
-        }
-
-        public static void RightBoulder(StringBuilder sb, char[][] charMap, Character character)
-        {
-            sb.Append(charMap[character.UpDown]).Remove(character.LeftRight, 2).Insert(character.LeftRight, $"{character.CharacterChar}o").Remove(character.LeftRight - 1, 1).Insert(character.LeftRight - 1, ".");
-            charMap[character.UpDown] = sb.ToString().ToCharArray();
-            sb.Clear();
-        }
-    }
+    }   
 }

@@ -10,19 +10,7 @@ namespace MyTools
     {
         public static void CharacterMovesUpOrDown(StringBuilder sb, char[][] charMap, Character character)
         {
-            if (PushingBoulder && !BoulderOverGap)
-            {
-                if (character.Up)
-                {
-                    SmallDrawingMapMethods.UpOrDownBoulderUp(sb, charMap, character);
-                }
-                if (character.Down)
-                {
-                    SmallDrawingMapMethods.UpOrDownBoulderDown(sb, charMap, character);
-                }
-                return;
-            }
-            
+            SmallDrawingMapMethods.UpOrDownBoulderNotOverGap(sb, charMap, character);
             SmallDrawingMapMethods.UpOrDownNormal(sb, charMap, character);
         }
 
@@ -30,420 +18,169 @@ namespace MyTools
         {
             if (KeepIce && !BossRoom)
             {
-                SmallDrawingMapMethods.ClearUpKeepIce(sb, charMap, character);
-                if (ButtonChange.Count() > 0 && ButtonChange.ContainsKey(character.LeftRight))
-                {
-                    if (ButtonChange[character.LeftRight] == character.UpDown + 1 && ButtonHasChangedX)
-                    {
-                        SmallDrawingMapMethods.ClearUpFirstButtonChange(sb, charMap, character);
-                        ButtonHasChangedX = false;
-                        return;
-                    }
-                    if (ButtonChange[character.LeftRight] == character.UpDown + 1 && ButtonHasChangedQ)
-                    {
-                        SmallDrawingMapMethods.ClearUpSecondButtonChange(sb, charMap, character);
-                        ButtonHasChangedQ = false;
-                        return;
-                    }
-                }
-                if (!IceHitSomething)
-                {
-                    KeepIce = false;
-                    return;
-                }
+                SmallDrawingMapMethods.IfIceKeptUp(sb, charMap, character);
                 return;
             }
             if (IceHitSomething)
             {
-                SmallDrawingMapMethods.ClearUpIceHitSomething(sb, charMap, character);
-                KeepIce = true;
-                if (ButtonChange.Count() > 0 && ButtonChange.ContainsKey(character.LeftRight))
-                {
-                    if (ButtonChange[character.LeftRight] == character.UpDown + 1 && ButtonHasChangedX)
-                    {
-                        SmallDrawingMapMethods.ClearUpFirstButtonChange(sb, charMap, character);
-                        ButtonHasChangedX = false;
-                        return;
-                    }
-                    if (ButtonChange[character.LeftRight] == character.UpDown + 1 && ButtonHasChangedQ)
-                    {
-                        SmallDrawingMapMethods.ClearUpSecondButtonChange(sb, charMap, character);
-                        ButtonHasChangedQ = false;
-                        return;
-                    }
-                }
+                SmallDrawingMapMethods.IfIceHitSomethingUp(sb, charMap, character);
+
                 return;
             }
             if (CrossedGap)
             {
-                SmallDrawingMapMethods.ClearUpGap(sb, charMap, character);
+                UpDrawingMap.ClearUpGap(sb, charMap, character);
+                return;
+            }
+            if (CrossingIce && ButtonChange.Count() > 0 && ButtonChange.ContainsKey(character.LeftRight))
+            {
+                SmallDrawingMapMethods.ChangingButtonUp(sb, charMap, character);
                 return;
             }
             if (CrossingIce)
             {
-                if (ButtonChange.Count() > 0 && ButtonChange.ContainsKey(character.LeftRight))
-                {
-                    if (ButtonChange[character.LeftRight] == character.UpDown + IceLineNumber && ButtonHasChangedX)
-                    {
-                        SmallDrawingMapMethods.ClearUpFirstButtonChangeIce(sb, charMap, character);
-                        ButtonHasChangedX = false;
-                        return;
-                    }
-                    if (ButtonChange[character.LeftRight] == character.UpDown + IceLineNumber && ButtonHasChangedQ)
-                    {
-                        SmallDrawingMapMethods.ClearUpSecondButtonChangeIce(sb, charMap, character);
-                        ButtonHasChangedQ = false;
-                        return;
-                    }
-                }
-                SmallDrawingMapMethods.ClearUpIce(sb, charMap, character);
+                UpDrawingMap.ClearUpIce(sb, charMap, character);
                 return;
             }
             if (BoulderOverButton.Count() > 0 && BoulderOverButton.ContainsKey(character.LeftRight))
             {
-                if (BoulderOverButton[character.LeftRight] == character.UpDown + 1)
-                {
-                    SmallDrawingMapMethods.ClearUpBoulderOffButton(sb, charMap, character);
-                    return;
-                }
+                SmallDrawingMapMethods.IfBoulderButtonUp(sb, charMap, character);
+                return;
             }
             if (ButtonChange.Count() > 0 && ButtonChange.ContainsKey(character.LeftRight))
             {
-                if (ButtonChange[character.LeftRight] == character.UpDown + 1 && ButtonHasChangedX)
-                {
-                    SmallDrawingMapMethods.ClearUpFirstButtonChange(sb, charMap, character);
-                    ButtonHasChangedX = false;
-                    return;
-                }
-                if (ButtonChange[character.LeftRight] == character.UpDown + 1 && ButtonHasChangedQ)
-                {
-                    SmallDrawingMapMethods.ClearUpSecondButtonChange(sb, charMap, character);
-                    ButtonHasChangedQ = false;
-                    return;
-                }
+                SmallDrawingMapMethods.ChangingButtonUp(sb, charMap, character);
+                return;
             }
-            SmallDrawingMapMethods.ClearUpNormal(sb, charMap, character);
+            UpDrawingMap.ClearUpNormal(sb, charMap, character);
         }
 
         public static void ClearAfterMovingDown(StringBuilder sb, char[][] charMap, Character character)
         {
             if (KeepIce && !BossRoom)
             {
-                SmallDrawingMapMethods.ClearDownKeepIce(sb, charMap, character);
-                if (ButtonChange.Count() > 0 && ButtonChange.ContainsKey(character.LeftRight))
-                {
-                    if (ButtonChange[character.LeftRight] == character.UpDown - 1 && ButtonHasChangedX)
-                    {
-                        SmallDrawingMapMethods.ClearDownFirstButtonChange(sb, charMap, character);
-                        ButtonHasChangedX = false;
-                        return;
-                    }
-                    if (ButtonChange[character.LeftRight] == character.UpDown - 1 && ButtonHasChangedQ)
-                    {
-                        SmallDrawingMapMethods.ClearDownSecondButtonChange(sb, charMap, character);
-                        ButtonHasChangedQ = false;
-                        return;
-                    }
-                }
-                if (!IceHitSomething)
-                {
-                    KeepIce = false;
-                    return;
-                }
+                SmallDrawingMapMethods.IfIceKeptDown(sb, charMap, character);
                 return;
             }
             if (IceHitSomething)
             {
-                SmallDrawingMapMethods.ClearDownIceHitSomething(sb, charMap, character);
-                KeepIce = true;
-                if (ButtonChange.Count() > 0 && ButtonChange.ContainsKey(character.LeftRight))
-                {
-                    if (ButtonChange[character.LeftRight] == character.UpDown - 1 && ButtonHasChangedX)
-                    {
-                        SmallDrawingMapMethods.ClearDownFirstButtonChange(sb, charMap, character);
-                        ButtonHasChangedX = false;
-                        return;
-                    }
-                    if (ButtonChange[character.LeftRight] == character.UpDown - 1 && ButtonHasChangedQ)
-                    {
-                        SmallDrawingMapMethods.ClearDownSecondButtonChange(sb, charMap, character);
-                        ButtonHasChangedQ = false;
-                        return;
-                    }
-                }
+                SmallDrawingMapMethods.IfIceHitSomethingDown(sb, charMap, character);
                 return;
             }
             if (CrossedGap)
             {
-                SmallDrawingMapMethods.ClearDownGap(sb, charMap, character);
+                DownDrawingMap.ClearDownGap(sb, charMap, character);
+                return;
+            }
+            if (CrossingIce && ButtonChange.Count() > 0 && ButtonChange.ContainsKey(character.LeftRight))
+            {
+                SmallDrawingMapMethods.ChangingButtonDown(sb, charMap, character);
                 return;
             }
             if (CrossingIce)
             {
-                if (ButtonChange.Count() > 0 && ButtonChange.ContainsKey(character.LeftRight))
-                {
-                    if (ButtonChange[character.LeftRight] == character.UpDown - IceLineNumber && ButtonHasChangedX)
-                    {
-                        SmallDrawingMapMethods.ClearDownFirstButtonChangeIce(sb, charMap, character);
-                        ButtonHasChangedX = false;
-                        return;
-                    }
-                    if (ButtonChange[character.LeftRight] == character.UpDown - IceLineNumber && ButtonHasChangedQ)
-                    {
-                        SmallDrawingMapMethods.ClearDownSecondButtonChangeIce(sb, charMap, character);
-                        ButtonHasChangedQ = false;
-                        return;
-                    }
-                }
-                SmallDrawingMapMethods.ClearDownIce(sb, charMap, character);
+                DownDrawingMap.ClearDownIce(sb, charMap, character);
                 return;
             }
             if (BoulderOverButton.Count() > 0 && BoulderOverButton.ContainsKey(character.LeftRight))
             {
-                if (BoulderOverButton[character.LeftRight] == character.UpDown - 1)
-                {
-                    SmallDrawingMapMethods.ClearDownBoulderOffButton(sb, charMap, character);
-                    return;
-                }
+                SmallDrawingMapMethods.IfBoulderButtonDown(sb, charMap, character);
+                return;
             }
             if (ButtonChange.Count() > 0 && ButtonChange.ContainsKey(character.LeftRight))
             {
-                if (ButtonChange[character.LeftRight] == character.UpDown - 1 && ButtonHasChangedX)
-                {
-                    SmallDrawingMapMethods.ClearDownFirstButtonChange(sb, charMap, character);
-                    ButtonHasChangedX = false;
-                    return;
-                }
-                if (ButtonChange[character.LeftRight] == character.UpDown - 1 && ButtonHasChangedQ)
-                {
-                    SmallDrawingMapMethods.ClearDownSecondButtonChange(sb, charMap, character);
-                    ButtonHasChangedQ = false;
-                    return;
-                }
+                SmallDrawingMapMethods.ChangingButtonDown(sb, charMap, character);
+                return;
             }
-            SmallDrawingMapMethods.ClearDownNormal(sb, charMap, character);
+            DownDrawingMap.ClearDownNormal(sb, charMap, character);
         }
 
         public static void MoveAndClearLeft(StringBuilder sb, char[][] charMap, Character character)
         {
             if (KeepIce && !BossRoom)
             {
-                SmallDrawingMapMethods.LeftKeepIce(sb, charMap, character);
-                if (ButtonChange.Count() > 0 && ButtonChange.ContainsKey(character.LeftRight + 1))
-                {
-                    if (ButtonChange[character.LeftRight + 1] == character.UpDown && ButtonHasChangedX)
-                    {
-                        SmallDrawingMapMethods.LeftFirstButton(sb, charMap, character);
-                        ButtonHasChangedX = false;
-                        return;
-                    }
-                    if (ButtonChange[character.LeftRight + 1] == character.UpDown && ButtonHasChangedQ)
-                    {
-                        SmallDrawingMapMethods.LeftSecondButton(sb, charMap, character);
-                        ButtonHasChangedQ = false;
-                        return;
-                    }
-                }
-                if (!IceHitSomething)
-                {
-                    KeepIce = false;
-                    return;
-                }
+                SmallDrawingMapMethods.IfIceKeptLeft(sb, charMap, character);
                 return;
             }
             if (IceHitSomething)
             {
-                SmallDrawingMapMethods.LeftIceHitSomething(sb, charMap, character);
-                KeepIce = true;
-                if (ButtonChange.Count() > 0 && ButtonChange.ContainsKey(character.LeftRight + 1))
-                {
-                    if (ButtonChange[character.LeftRight + 1] == character.UpDown && ButtonHasChangedX)
-                    {
-                        SmallDrawingMapMethods.LeftFirstButton(sb, charMap, character);
-                        ButtonHasChangedX = false;
-                        return;
-                    }
-                    if (ButtonChange[character.LeftRight + 1] == character.UpDown && ButtonHasChangedQ)
-                    {
-                        SmallDrawingMapMethods.LeftSecondButton(sb, charMap, character);
-                        ButtonHasChangedQ = false;
-                        return;
-                    }
-                }
+                SmallDrawingMapMethods.IfIceHitSomethingLeft(sb, charMap, character);
                 return;
             }
             if (CrossedGap)
             {
-                SmallDrawingMapMethods.LeftGap(sb, charMap, character);
+                LeftDrawingMap.LeftGap(sb, charMap, character);
                 return;
             }
             if (PushingBoulder && !BoulderOverGap)
             {
-                SmallDrawingMapMethods.LeftBoulder(sb, charMap, character);
-                if (BoulderOverButton.Count() > 0 && BoulderOverButton.ContainsKey(character.LeftRight + 1))
-                {
-                    if (BoulderOverButton[character.LeftRight + 1] == character.UpDown)
-                    {
-                        SmallDrawingMapMethods.LeftBoulderButton(sb, charMap, character);
-                    }
-                }
+                SmallDrawingMapMethods.IfPushingBoulderButtonLeft(sb, charMap, character);
+                return;
+            }
+            if (CrossingIce && ButtonChange.Count() > 0 && ButtonChange.ContainsKey(character.LeftRight + IceLineNumber))
+            {
+                SmallDrawingMapMethods.ChangingButtonLeft(sb, charMap, character);
                 return;
             }
             if (CrossingIce)
             {
-                if (ButtonChange.Count() > 0 && ButtonChange.ContainsKey(character.LeftRight + IceLineNumber))
-                {
-                    if (ButtonChange[character.LeftRight + IceLineNumber] == character.UpDown && ButtonHasChangedX)
-                    {
-                        SmallDrawingMapMethods.LeftFirstButtonIce(sb, charMap, character);
-                        ButtonHasChangedX = false;
-                        return;
-                    }
-                    if (ButtonChange[character.LeftRight + IceLineNumber] == character.UpDown && ButtonHasChangedQ)
-                    {
-                        SmallDrawingMapMethods.LeftSecondButtonIce(sb, charMap, character);
-                        ButtonHasChangedQ = false;
-                        return;
-                    }
-                }
-                SmallDrawingMapMethods.LeftIce(sb, charMap, character);
+                LeftDrawingMap.LeftIce(sb, charMap, character);
                 return;
             }
             if (BoulderOverButton.Count() > 0 && BoulderOverButton.ContainsKey(character.LeftRight + 1))
             {
-                if (BoulderOverButton[character.LeftRight + 1] == character.UpDown)
-                {
-                    SmallDrawingMapMethods.LeftBoulderButton(sb, charMap, character);
-                    return;
-                }
+                SmallDrawingMapMethods.IfBoulderButtonLeft(sb, charMap, character);
             }
             if (ButtonChange.Count() > 0 && ButtonChange.ContainsKey(character.LeftRight + 1))
             {
-                if (ButtonChange[character.LeftRight + 1] == character.UpDown && ButtonHasChangedX)
-                {
-                    SmallDrawingMapMethods.LeftFirstButton(sb, charMap, character);
-                    ButtonHasChangedX = false;
-                    return;
-                }
-                if (ButtonChange[character.LeftRight + 1] == character.UpDown && ButtonHasChangedQ)
-                {
-                    SmallDrawingMapMethods.LeftSecondButton(sb, charMap, character);
-                    ButtonHasChangedQ = false;
-                    return;
-                }
+                SmallDrawingMapMethods.ChangingButtonLeft(sb, charMap, character);
+                return;
             }
-            SmallDrawingMapMethods.LeftNormal(sb, charMap, character);
+            LeftDrawingMap.LeftNormal(sb, charMap, character);
         }
 
         public static void MoveAndClearRight(StringBuilder sb, char[][] charMap, Character character)
         {
             if (KeepIce && !BossRoom)
             {
-                SmallDrawingMapMethods.RightKeepIce(sb, charMap, character);
-                if (ButtonChange.Count() > 0 && ButtonChange.ContainsKey(character.LeftRight - 1))
-                {
-                    if (ButtonChange[character.LeftRight - 1] == character.UpDown && ButtonHasChangedX)
-                    {
-                        SmallDrawingMapMethods.RightFirstButton(sb, charMap, character);
-                        ButtonHasChangedX = false;
-                        return;
-                    }
-                    if (ButtonChange[character.LeftRight - 1] == character.UpDown && ButtonHasChangedQ)
-                    {
-                        SmallDrawingMapMethods.RightSecondButton(sb, charMap, character);
-                        ButtonHasChangedQ = false;
-                        return;
-                    }
-                }
-                if (!IceHitSomething)
-                {
-                    KeepIce = false;
-                    return;
-                }
+                SmallDrawingMapMethods.IfIceKeptRight(sb, charMap, character);
                 return;
             }
             if (IceHitSomething)
             {
-                SmallDrawingMapMethods.RightIceHitSomething(sb, charMap, character);
-                KeepIce = true;
-                if (ButtonChange.Count() > 0 && ButtonChange.ContainsKey(character.LeftRight - 1))
-                {
-                    if (ButtonChange[character.LeftRight - 1] == character.UpDown && ButtonHasChangedX)
-                    {
-                        SmallDrawingMapMethods.RightFirstButton(sb, charMap, character);
-                        ButtonHasChangedX = false;
-                        return;
-                    }
-                    if (ButtonChange[character.LeftRight - 1] == character.UpDown && ButtonHasChangedQ)
-                    {
-                        SmallDrawingMapMethods.RightSecondButton(sb, charMap, character);
-                        ButtonHasChangedQ = false;
-                        return;
-                    }
-                }
+                SmallDrawingMapMethods.IfIceHitSomethingRight(sb, charMap, character);
                 return;
             }
             if (CrossedGap)
             {
-                SmallDrawingMapMethods.RightGap(sb, charMap, character);
+                RightDrawingMap.RightGap(sb, charMap, character);
                 return;
             }
             if (PushingBoulder && !BoulderOverGap)
             {
-                SmallDrawingMapMethods.RightBoulder(sb, charMap, character);
-                if (BoulderOverButton.Count() > 0 && BoulderOverButton.ContainsKey(character.LeftRight - 1))
-                {
-                    if (BoulderOverButton[character.LeftRight - 1] == character.UpDown)
-                    {
-                        SmallDrawingMapMethods.RightBoulderButton(sb, charMap, character);
-                    }
-                }
+                SmallDrawingMapMethods.IfPushingBoulderButtonRight(sb, charMap, character);
+                return;
+            }
+            if (CrossingIce && ButtonChange.Count() > 0 && ButtonChange.ContainsKey(character.LeftRight - IceLineNumber))
+            {
+                SmallDrawingMapMethods.ChangingButtonRight(sb, charMap, character);
                 return;
             }
             if (CrossingIce)
             {
-                if (ButtonChange.Count() > 0 && ButtonChange.ContainsKey(character.LeftRight - IceLineNumber))
-                {
-                    if (ButtonChange[character.LeftRight - IceLineNumber] == character.UpDown && ButtonHasChangedX)
-                    {
-                        SmallDrawingMapMethods.RightFirstButtonIce(sb, charMap, character);
-                        ButtonHasChangedX = false;
-                        return;
-                    }
-                    if (ButtonChange[character.LeftRight - IceLineNumber] == character.UpDown && ButtonHasChangedQ)
-                    {
-                        SmallDrawingMapMethods.RightSecondButtonIce(sb, charMap, character);
-                        ButtonHasChangedQ = false;
-                        return;
-                    }
-                }
-                SmallDrawingMapMethods.RightIce(sb, charMap, character);
+                RightDrawingMap.RightIce(sb, charMap, character);
                 return;
             }
             if (BoulderOverButton.Count() > 0 && BoulderOverButton.ContainsKey(character.LeftRight - 1))
             {
-                if (BoulderOverButton[character.LeftRight - 1] == character.UpDown)
-                {
-                    SmallDrawingMapMethods.RightBoulderButton(sb, charMap, character);
-                    return;
-                }
+                SmallDrawingMapMethods.IfBoulderButtonRight(sb, charMap, character);
             }
             if (ButtonChange.Count() > 0 && ButtonChange.ContainsKey(character.LeftRight - 1))
             {
-                if (ButtonChange[character.LeftRight - 1] == character.UpDown && ButtonHasChangedX)
-                {
-                    SmallDrawingMapMethods.RightFirstButton(sb, charMap, character);
-                    ButtonHasChangedX = false;
-                    return;
-                }
-                if (ButtonChange[character.LeftRight - 1] == character.UpDown && ButtonHasChangedQ)
-                {
-                    SmallDrawingMapMethods.RightSecondButton(sb, charMap, character);
-                    ButtonHasChangedQ = false;
-                    return;
-                }
+                SmallDrawingMapMethods.ChangingButtonRight(sb, charMap, character);
+                return;
             }
-            SmallDrawingMapMethods.RightNormal(sb, charMap, character);
+            RightDrawingMap.RightNormal(sb, charMap, character);
         }
     }
 }

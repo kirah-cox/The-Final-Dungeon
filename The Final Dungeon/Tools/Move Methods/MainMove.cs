@@ -62,7 +62,7 @@ namespace MyTools
                     Console.WriteLine("3. Exit");
                     Console.WriteLine("Press enter to continue.");
 
-                    var newKey = Console.ReadKey().Key;
+                    var newKey = Console.ReadKey(intercept: true).Key;
 
                     if (newKey == ConsoleKey.D1)
                     {

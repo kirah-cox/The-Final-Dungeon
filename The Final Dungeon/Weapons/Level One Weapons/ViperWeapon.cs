@@ -20,28 +20,28 @@ namespace LootThings
                     Name = "Fanged Dagger";
                     StrenthRequirement = 1;
                     ManaRequirement = 1;
-                    LuckRequirement = 5;
+                    LuckRequirement = 6;
                     StrengthMultiplier = 1;
                     ManaMultiplier = 1;
-                    LuckMultiplier = 1.5;
+                    LuckMultiplier = 1.9;
                     break;
                 case 2:
                     Weapon = LevelOneViperWeapons.FangStaff;
                     Name = "Fang Staff";
                     StrenthRequirement = 1;
-                    ManaRequirement = 5;
+                    ManaRequirement = 6;
                     LuckRequirement = 1;
                     StrengthMultiplier = 1;
-                    ManaMultiplier = 1.5;
+                    ManaMultiplier = 1.9;
                     LuckMultiplier = 1;
                     break;
                 case 3:
                     Weapon = LevelOneViperWeapons.SpikedMace;
                     Name = "Spiked Mace";
-                    StrenthRequirement = 5;
+                    StrenthRequirement = 6;
                     ManaRequirement = 1;
                     LuckRequirement = 1;
-                    StrengthMultiplier = 1.5;
+                    StrengthMultiplier = 1.9;
                     ManaMultiplier = 1;
                     LuckMultiplier = 1;
                     break;

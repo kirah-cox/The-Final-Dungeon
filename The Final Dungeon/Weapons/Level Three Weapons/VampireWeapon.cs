@@ -22,7 +22,7 @@ namespace LootThings
                     LuckRequirement = 12;
                     StrengthMultiplier = 1;
                     ManaMultiplier = 1;
-                    LuckMultiplier = 4.5;
+                    LuckMultiplier = 3.3;
                     break;
                 case 2:
                     Weapon = LevelThreeVampireWeapons.FangedOrb;
@@ -31,7 +31,7 @@ namespace LootThings
                     ManaRequirement = 12;
                     LuckRequirement = 1;
                     StrengthMultiplier = 1;
-                    ManaMultiplier = 4.5;
+                    ManaMultiplier = 3.3;
                     LuckMultiplier = 1;
                     break;
                 case 3:
@@ -40,7 +40,7 @@ namespace LootThings
                     StrenthRequirement = 12;
                     ManaRequirement = 1;
                     LuckRequirement = 1;
-                    StrengthMultiplier = 4.5;
+                    StrengthMultiplier = 3.3;
                     ManaMultiplier = 1;
                     LuckMultiplier = 1;
                     break;

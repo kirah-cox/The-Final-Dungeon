@@ -19,7 +19,7 @@ namespace LootThings
                     Name = "Slimy Dagger";
                     StrenthRequirement = 1;
                     ManaRequirement = 1;
-                    LuckRequirement = 5;
+                    LuckRequirement = 4;
                     StrengthMultiplier = 1;
                     ManaMultiplier = 1;
                     LuckMultiplier = 1.5;
@@ -28,7 +28,7 @@ namespace LootThings
                     Weapon = LevelOneSlimeWeapons.OrbofSlime;
                     Name = "Orb of Slime";
                     StrenthRequirement = 1;
-                    ManaRequirement = 5;
+                    ManaRequirement = 4;
                     LuckRequirement = 1;
                     StrengthMultiplier = 1;
                     ManaMultiplier = 1.5;
@@ -37,7 +37,7 @@ namespace LootThings
                 case 3:
                     Weapon = LevelOneSlimeWeapons.WigglyLongSword;
                     Name = "Wiggly Long Sword";
-                    StrenthRequirement = 5;
+                    StrenthRequirement = 4;
                     ManaRequirement = 1;
                     LuckRequirement = 1;
                     StrengthMultiplier = 1.5;

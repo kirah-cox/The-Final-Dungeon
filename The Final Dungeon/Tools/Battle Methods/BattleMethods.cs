@@ -16,6 +16,8 @@ namespace MyTools
 
         public static bool PlayerUsingPotion { get; set; } = false;
 
+        public static bool UsingKey { get; set; } = false;
+
         public static async Task PlayerAndEnemyActions(Player player, Enemy enemy)
         {
             Console.SetCursorPosition(0, 0);
@@ -24,21 +26,12 @@ namespace MyTools
 
             Console.SetCursorPosition(0, CursorPosition);
 
-            PlayerAttackOrUseItems(player, enemy);
+            if (!UsingKey)
+            {
+                PlayerAttackOrUseItems(player, enemy);
+            }
 
             EnemyAttack(player, enemy);
-        }
-
-        public static async Task PlayerAttack(Player player, Enemy enemy)
-        {
-            int playerAttack = player.Attack(player.Weapon);
-            Console.WriteLine($"You attacked {enemy.Class} with a damage of {playerAttack}.");
-            CursorPosition++;
-            enemy.TakeDamage(playerAttack);
-            Console.SetCursorPosition(0, 0);
-            CombatBoxes.DrawCombatBox(player, enemy);
-            Console.SetCursorPosition(0, CursorPosition);
-            Thread.Sleep(500);
         }
 
         public static async Task PlayerAttackOrUseItems(Player player, Enemy enemy)
@@ -49,7 +42,9 @@ namespace MyTools
 
                 await Task.Run(() =>
                 {
+                    UsingKey = true;
                     key = Console.ReadKey(intercept: true).Key;
+                    UsingKey = false;
                 });
 
                 if (key == ConsoleKey.D1)
@@ -90,6 +85,18 @@ namespace MyTools
                     }
                 }
             }
+        }
+
+        public static async Task PlayerAttack(Player player, Enemy enemy)
+        {
+            int playerAttack = player.Attack(player.Weapon);
+            Console.WriteLine($"You attacked {enemy.Class} with a damage of {playerAttack}.");
+            CursorPosition++;
+            enemy.TakeDamage(playerAttack);
+            Console.SetCursorPosition(0, 0);
+            CombatBoxes.DrawCombatBox(player, enemy);
+            Console.SetCursorPosition(0, CursorPosition);
+            Thread.Sleep(500);
         }
 
         public static async Task EnemyAttack(Player player, Enemy enemy)

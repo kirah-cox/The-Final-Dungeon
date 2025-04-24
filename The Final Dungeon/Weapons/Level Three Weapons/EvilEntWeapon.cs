@@ -20,28 +20,28 @@ namespace LootThings
                     Name = "Mossy Dagger";
                     StrenthRequirement = 1;
                     ManaRequirement = 1;
-                    LuckRequirement = 12;
+                    LuckRequirement = 14;
                     StrengthMultiplier = 1;
                     ManaMultiplier = 1;
-                    LuckMultiplier = 4.5;
+                    LuckMultiplier = 3.7;
                     break;
                 case 2:
                     Weapon = LevelThreeEvilEntWeapons.BranchStaff;
                     Name = "Branch Staff";
                     StrenthRequirement = 1;
-                    ManaRequirement = 12;
+                    ManaRequirement = 14;
                     LuckRequirement = 1;
                     StrengthMultiplier = 1;
-                    ManaMultiplier = 4.5;
+                    ManaMultiplier = 3.7;
                     LuckMultiplier = 1;
                     break;
                 case 3:
                     Weapon = LevelThreeEvilEntWeapons.OvergrownSword;
                     Name = "Overgrown Sword";
-                    StrenthRequirement = 12;
+                    StrenthRequirement = 14;
                     ManaRequirement = 1;
                     LuckRequirement = 1;
-                    StrengthMultiplier = 4.5;
+                    StrengthMultiplier = 3.7;
                     ManaMultiplier = 1;
                     LuckMultiplier = 1;
                     break;

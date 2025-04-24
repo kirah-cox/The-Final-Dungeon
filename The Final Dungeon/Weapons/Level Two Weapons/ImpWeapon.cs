@@ -19,28 +19,28 @@ namespace LootThings
                     Name = "Fiery Knife";
                     StrenthRequirement = 1;
                     ManaRequirement = 1;
-                    LuckRequirement = 8;
+                    LuckRequirement = 7;
                     StrengthMultiplier = 1;
                     ManaMultiplier = 1;
-                    LuckMultiplier = 3;
+                    LuckMultiplier = 2.1;
                     break;
                 case 2:
                     Weapon = LevelTwoImpWeapons.GlowingOrb;
                     Name = "Glowing Orb";
                     StrenthRequirement = 1;
-                    ManaRequirement = 8;
+                    ManaRequirement = 7;
                     LuckRequirement = 1;
                     StrengthMultiplier = 1;
-                    ManaMultiplier = 3;
+                    ManaMultiplier = 2.1;
                     LuckMultiplier = 1;
                     break;
                 case 3:
                     Weapon = LevelTwoImpWeapons.HellSpear;
                     Name = "Hell Spear";
-                    StrenthRequirement = 8;
+                    StrenthRequirement = 7;
                     ManaRequirement = 1;
                     LuckRequirement = 1;
-                    StrengthMultiplier = 3;
+                    StrengthMultiplier = 2.1;
                     ManaMultiplier = 1;
                     LuckMultiplier = 1;
                     break;

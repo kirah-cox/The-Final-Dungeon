@@ -19,28 +19,28 @@ namespace LootThings
                     Name = "Sneaky Shank";
                     StrenthRequirement = 1;
                     ManaRequirement = 1;
-                    LuckRequirement = 8;
+                    LuckRequirement = 9;
                     StrengthMultiplier = 1;
                     ManaMultiplier = 1;
-                    LuckMultiplier = 3;
+                    LuckMultiplier = 2.5;
                     break;
                 case 2:
                     Weapon = LevelTwoKoboldWeapons.OrbofFire;
                     Name = "Orb of Fire";
                     StrenthRequirement = 1;
-                    ManaRequirement = 8;
+                    ManaRequirement = 9;
                     LuckRequirement = 1;
                     StrengthMultiplier = 1;
-                    ManaMultiplier = 3;
+                    ManaMultiplier = 2.5;
                     LuckMultiplier = 1;
                     break;
                 case 3:
                     Weapon = LevelTwoKoboldWeapons.ScalySpear;
                     Name = "Scaly Spear";
-                    StrenthRequirement = 8;
+                    StrenthRequirement = 9;
                     ManaRequirement = 1;
                     LuckRequirement = 1;
-                    StrengthMultiplier = 3;
+                    StrengthMultiplier = 2.5;
                     ManaMultiplier = 1;
                     LuckMultiplier = 1;
                     break;

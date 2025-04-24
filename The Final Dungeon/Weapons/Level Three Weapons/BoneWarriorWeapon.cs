@@ -19,28 +19,28 @@ namespace LootThings
                     Name = "Steely Knife";
                     StrenthRequirement = 1;
                     ManaRequirement = 1;
-                    LuckRequirement = 12;
+                    LuckRequirement = 11;
                     StrengthMultiplier = 1;
                     ManaMultiplier = 1;
-                    LuckMultiplier = 4.5;
+                    LuckMultiplier = 3.1;
                     break;
                 case 2:
                     Weapon = LevelThreeBoneWarriorWeapons.OrbofMight;
                     Name = "Orb of Might";
                     StrenthRequirement = 1;
-                    ManaRequirement = 12;
+                    ManaRequirement = 11;
                     LuckRequirement = 1;
                     StrengthMultiplier = 1;
-                    ManaMultiplier = 4.5;
+                    ManaMultiplier = 3.1;
                     LuckMultiplier = 1;
                     break;
                 case 3:
                     Weapon = LevelThreeBoneWarriorWeapons.LongBattleSword;
                     Name = "Long Battle Sword";
-                    StrenthRequirement = 12;
+                    StrenthRequirement = 11;
                     ManaRequirement = 1;
                     LuckRequirement = 1;
-                    StrengthMultiplier = 4.5;
+                    StrengthMultiplier = 3.1;
                     ManaMultiplier = 1;
                     LuckMultiplier = 1;
                     break;

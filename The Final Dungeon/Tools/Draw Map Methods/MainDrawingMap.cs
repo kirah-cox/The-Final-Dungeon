@@ -62,8 +62,8 @@ namespace MyTools
                 Console.WriteLine("     Mana:       5");
                 Console.WriteLine("     Luck:       1");
                 Console.WriteLine("3: Rogue");
-                Console.WriteLine("     Strength:   1");
-                Console.WriteLine("     Mana:       1");
+                Console.WriteLine("     Strength:   2");
+                Console.WriteLine("     Mana:       2");
                 Console.WriteLine("     Luck:       5");
 
                 var key = Console.ReadKey(intercept: true).Key;

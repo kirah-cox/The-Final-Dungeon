@@ -22,7 +22,7 @@ namespace LootThings
                     LuckRequirement = 5;
                     StrengthMultiplier = 1;
                     ManaMultiplier = 1;
-                    LuckMultiplier = 1.5;
+                    LuckMultiplier = 1.7;
                     break;
                 case 2:
                     Weapon = LevelOneSpiderWeapons.OrbofManyEyes;
@@ -31,7 +31,7 @@ namespace LootThings
                     ManaRequirement = 5;
                     LuckRequirement = 1;
                     StrengthMultiplier = 1;
-                    ManaMultiplier = 1.5;
+                    ManaMultiplier = 1.7;
                     LuckMultiplier = 1;
                     break;
                 case 3:
@@ -40,7 +40,7 @@ namespace LootThings
                     StrenthRequirement = 5;
                     ManaRequirement = 1;
                     LuckRequirement = 1;
-                    StrengthMultiplier = 1.5;
+                    StrengthMultiplier = 1.7;
                     ManaMultiplier = 1;
                     LuckMultiplier = 1;
                     break;

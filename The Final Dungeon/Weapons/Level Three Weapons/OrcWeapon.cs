@@ -20,28 +20,28 @@ namespace LootThings
                     Name = "Thick Dagger";
                     StrenthRequirement = 1;
                     ManaRequirement = 1;
-                    LuckRequirement = 12;
+                    LuckRequirement = 13;
                     StrengthMultiplier = 1;
                     ManaMultiplier = 1;
-                    LuckMultiplier = 4.5;
+                    LuckMultiplier = 3.5;
                     break;
                 case 2:
                     Weapon = LevelThreeOrcWeapons.OrbofBloodLust;
                     Name = "Orb of Blood Lust";
                     StrenthRequirement = 1;
-                    ManaRequirement = 12;
+                    ManaRequirement = 13;
                     LuckRequirement = 1;
                     StrengthMultiplier = 1;
-                    ManaMultiplier = 4.5;
+                    ManaMultiplier = 3.5;
                     LuckMultiplier = 1;
                     break;
                 case 3:
                     Weapon = LevelThreeOrcWeapons.HeavyBattleAxe;
                     Name = "Heavy Battle Axe";
-                    StrenthRequirement = 12;
+                    StrenthRequirement = 13;
                     ManaRequirement = 1;
                     LuckRequirement = 1;
-                    StrengthMultiplier = 4.5;
+                    StrengthMultiplier = 3.5;
                     ManaMultiplier = 1;
                     LuckMultiplier = 1;
                     break;

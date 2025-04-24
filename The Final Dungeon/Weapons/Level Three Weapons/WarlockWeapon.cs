@@ -19,28 +19,28 @@ namespace LootThings
                     Name = "Dark Dagger";
                     StrenthRequirement = 1;
                     ManaRequirement = 1;
-                    LuckRequirement = 12;
+                    LuckRequirement = 15;
                     StrengthMultiplier = 1;
                     ManaMultiplier = 1;
-                    LuckMultiplier = 4.5;
+                    LuckMultiplier = 4;
                     break;
                 case 2:
                     Weapon = LevelThreeWarlockWeapons.OrbofSouls;
                     Name = "Orb of Souls";
                     StrenthRequirement = 1;
-                    ManaRequirement = 12;
+                    ManaRequirement = 15;
                     LuckRequirement = 1;
                     StrengthMultiplier = 1;
-                    ManaMultiplier = 4.5;
+                    ManaMultiplier = 4;
                     LuckMultiplier = 1;
                     break;
                 case 3:
                     Weapon = LevelThreeWarlockWeapons.SwordofPower;
                     Name = "Sword of Power";
-                    StrenthRequirement = 12;
+                    StrenthRequirement = 15;
                     ManaRequirement = 1;
                     LuckRequirement = 1;
-                    StrengthMultiplier = 4.5;
+                    StrengthMultiplier = 4;
                     ManaMultiplier = 1;
                     LuckMultiplier = 1;
                     break;

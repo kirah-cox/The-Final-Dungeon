@@ -36,49 +36,49 @@ namespace AllCreations
 
             if (luck >= 1)
             {
-                if (rLuck < 3)
+                if (rLuck < 5)
                 {
                     luckDamage = true;
                 }
             }
             else if (luck >= 3)
             {
-                if (rLuck < 5)
+                if (rLuck < 11)
                 {
                     luckDamage = true;
                 }
             }
             else if (luck >= 6)
             {
-                if (rLuck < 7)
+                if (rLuck < 16)
                 {
                     luckDamage = true;
                 }
             }
             else if (luck >= 10)
             {
-                if (rLuck < 9)
+                if (rLuck < 21)
                 {
                     luckDamage = true;
                 }
             }
             else if (luck >= 16)
             {
-                if (rLuck < 11)
+                if (rLuck < 26)
                 {
                     luckDamage = true;
                 }
             }
             else if (luck >= 25)
             {
-                if (rLuck < 16)
+                if (rLuck < 31)
                 {
                     luckDamage = true;
                 }
             }
             else
             {
-                if (rLuck < 21)
+                if (rLuck < 35)
                 {
                     luckDamage = true;
                 }

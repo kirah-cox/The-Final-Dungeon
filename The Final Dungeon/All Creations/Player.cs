@@ -43,8 +43,8 @@ namespace AllCreations
                     break;
                 case PlayerClass.Rogue:
                     Class = PlayerClass.Rogue;
-                    Strength = 1;
-                    Mana = 1;
+                    Strength = 2;
+                    Mana = 2;
                     Luck = 5;
                     break;
                 default:
@@ -83,7 +83,7 @@ namespace AllCreations
                 else if (key == ConsoleKey.D2)
                 {
                     Mana++;
-                    Console.WriteLine($"You have leveled up Mana. Your strength is now {Mana}.");
+                    Console.WriteLine($"You have leveled up Mana. Your mana is now {Mana}.");
                     Thread.Sleep(2000);
                     Tools.PressEnter();
                     Console.Clear();
@@ -92,7 +92,7 @@ namespace AllCreations
                 else if (key == ConsoleKey.D3)
                 {
                     Luck++;
-                    Console.WriteLine($"You have leveled up Luck. Your strength is now {Luck}.");
+                    Console.WriteLine($"You have leveled up Luck. Your luck is now {Luck}.");
                     Thread.Sleep(2000);
                     Tools.PressEnter();
                     Console.Clear();

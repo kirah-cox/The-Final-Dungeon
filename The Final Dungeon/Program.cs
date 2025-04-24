@@ -41,7 +41,6 @@ public class Program
                 if (Tools.Loading)
                 {
                     SaveLoad.Load(sb, character, out player);
-                    Tools.Loading = false;
                 }
             }
 
@@ -57,7 +56,6 @@ public class Program
                 if (Tools.Loading)
                 {
                     SaveLoad.Load(sb, character, out player);
-                    Tools.Loading = false;
                 }
 
                 if (Tools.LevelNumber == 2 && Tools.BossDefeated)

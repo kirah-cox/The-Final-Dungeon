@@ -22,7 +22,7 @@ namespace LootThings
                     LuckRequirement = 8;
                     StrengthMultiplier = 1;
                     ManaMultiplier = 1;
-                    LuckMultiplier = 3;
+                    LuckMultiplier = 2.3;
                     break;
                 case 2:
                     Weapon = LevelTwoGoblinWeapons.GreenOrb;
@@ -31,7 +31,7 @@ namespace LootThings
                     ManaRequirement = 8;
                     LuckRequirement = 1;
                     StrengthMultiplier = 1;
-                    ManaMultiplier = 3;
+                    ManaMultiplier = 2.3;
                     LuckMultiplier = 1;
                     break;
                 case 3:
@@ -40,7 +40,7 @@ namespace LootThings
                     StrenthRequirement = 8;
                     ManaRequirement = 1;
                     LuckRequirement = 1;
-                    StrengthMultiplier = 3;
+                    StrengthMultiplier = 2.3;
                     ManaMultiplier = 1;
                     LuckMultiplier = 1;
                     break;

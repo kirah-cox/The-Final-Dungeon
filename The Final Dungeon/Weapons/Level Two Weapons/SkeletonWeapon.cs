@@ -19,28 +19,28 @@ namespace LootThings
                     Name = "Rib Bone Knife";
                     StrenthRequirement = 1;
                     ManaRequirement = 1;
-                    LuckRequirement = 8;
+                    LuckRequirement = 10;
                     StrengthMultiplier = 1;
                     ManaMultiplier = 1;
-                    LuckMultiplier = 3;
+                    LuckMultiplier = 2.7;
                     break;
                 case 2:
                     Weapon = LevelTwoSkeletonWeapons.OrbofBones;
                     Name = "Orb of Bones";
                     StrenthRequirement = 1;
-                    ManaRequirement = 8;
+                    ManaRequirement = 10;
                     LuckRequirement = 1;
                     StrengthMultiplier = 1;
-                    ManaMultiplier = 3;
+                    ManaMultiplier = 2.7;
                     LuckMultiplier = 1;
                     break;
                 case 3:
                     Weapon = LevelTwoSkeletonWeapons.FemurLongSword;
                     Name = "Femur Long Sword";
-                    StrenthRequirement = 8;
+                    StrenthRequirement = 10;
                     ManaRequirement = 1;
                     LuckRequirement = 1;
-                    StrengthMultiplier = 3;
+                    StrengthMultiplier = 2.7;
                     ManaMultiplier = 1;
                     LuckMultiplier = 1;
                     break;

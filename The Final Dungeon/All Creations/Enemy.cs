@@ -13,7 +13,6 @@ namespace AllCreations
     public class Enemy : Creations
     {
         public EnemyClass Class { get; set; }
-        //Random.Shared.Next();
         public Random RandomExperience { get; set; } = new Random();
         public Random WeaponNumber { get; set; } = new Random();
         public Random RandomDropWeapon { get; set; } = new Random();
@@ -56,7 +55,7 @@ namespace AllCreations
                     break;
                 case EnemyClass.KingFrog:
                     Class = EnemyClass.KingFrog;
-                    Health = 1;
+                    Health = 40;
                     Strength = 6;
                     Mana = 6;
                     Luck = 12;
@@ -65,7 +64,7 @@ namespace AllCreations
                     break;
                 case EnemyClass.GiantSpider:
                     Class = EnemyClass.GiantSpider;
-                    Health = 1;
+                    Health = 70;
                     Strength = 12;
                     Mana = 12;
                     Luck = 18;
@@ -74,7 +73,7 @@ namespace AllCreations
                     break;
                 case EnemyClass.DungeonKing:
                     Class = EnemyClass.DungeonKing;
-                    Health = 1;
+                    Health = 100;
                     Strength = 18;
                     Mana = 18;
                     Luck = 24;
@@ -168,7 +167,7 @@ namespace AllCreations
 
         public void ConstructGoblin()
         {
-            Health = 12;
+            Health = 15;
             Class = EnemyClass.Goblin;
             Strength = 6;
             Mana = 1;
@@ -184,7 +183,7 @@ namespace AllCreations
 
         public void ConstructImp()
         {
-            Health = 10;
+            Health = 12;
             Class = EnemyClass.Imp;
             Strength = 3;
             Mana = 5;
@@ -200,7 +199,7 @@ namespace AllCreations
 
         public void ConstructKobold()
         {
-            Health = 15;
+            Health = 18;
             Class = EnemyClass.Kobold;
             Strength = 7;
             Mana = 1;
@@ -216,7 +215,7 @@ namespace AllCreations
 
         public void ConstructSkeleton()
         {
-            Health = 18;
+            Health = 20;
             Class = EnemyClass.Skeleton;
             Strength = 8;
             Mana = 2;
@@ -232,7 +231,7 @@ namespace AllCreations
 
         public void ConstructWitch()
         {
-            Health = 20;
+            Health = 25;
             Class = EnemyClass.Witch;
             Strength = 1;
             Mana = 10;
@@ -248,7 +247,7 @@ namespace AllCreations
 
         public void ConstructBoneWarrior()
         {
-            Health = 20;
+            Health = 27;
             Class = EnemyClass.BoneWarrior;
             Strength = 10;
             Mana = 1;
@@ -264,7 +263,7 @@ namespace AllCreations
 
         public void ConstructVampire()
         {
-            Health = 23;
+            Health = 30;
             Class = EnemyClass.Vampire;
             Strength = 5;
             Mana = 8;
@@ -280,7 +279,7 @@ namespace AllCreations
 
         public void ConstructOrc()
         {
-            Health = 25;
+            Health = 33;
             Class = EnemyClass.Orc;
             Strength = 14;
             Mana = 1;
@@ -296,7 +295,7 @@ namespace AllCreations
 
         public void ConstructEvilEnt()
         {
-            Health = 27;
+            Health = 35;
             Class = EnemyClass.EvilEnt;
             Strength = 7;
             Mana = 10;
@@ -312,7 +311,7 @@ namespace AllCreations
 
         public void ConstructWarlock()
         {
-            Health = 30;
+            Health = 40;
             Class = EnemyClass.Warlock;
             Strength = 1;
             Mana = 20;
